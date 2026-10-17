@@ -1,4 +1,6 @@
 from pathlib import Path
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from agent import evaluate, render, store
 from agent.schemas import Brain, Lesson, Plan
 
@@ -86,3 +88,16 @@ def test_output_checks():
     assert len(steps.check_plan(plan, people, tickets, set(), [])) == 3
     brain = Brain(summary="ok", items=[dict(type="status", text="Work", person="ghost", ticket=None, sources=["D99-S1"])])
     assert len(steps.check_brain(brain, people, tickets, set())) == 2
+
+
+def test_lesson_lifecycle():
+    from agent import steps
+    from agent.schemas import LearnOutput
+    output = LearnOutput(ops=[dict(op="add", rule="Do it", applies_to=["all"], from_people=["nina"])])
+    assert steps.check_learning(output, [], {"nina"}, {"nina"}) == []
+    assert steps.check_learning(output, [], {"nina"}, set())
+    lessons = steps.apply_ops([], output, 1)
+    output.ops[0].op, output.ops[0].id = "update", "L1"
+    updated = steps.apply_ops(lessons, output, 2)
+    assert updated[0].evidence == ["D1:nina", "D2:nina"] and updated[0].created_day == 1
+    assert updated[0].updated_day == 2 and lessons[0].updated_day == 1

@@ -49,6 +49,9 @@ def run(args):
             plan = steps.decide(purpose, history, day, brain, tickets, sources, lessons, previous)
             feedback = evaluate.simulate_feedback(plan, evals[day.day])
             score = evaluate.score_day(plan, evals[day.day], day.date)
+            edits = [f for f in feedback if f.action == "edit"]
+            if args.mode == "learn" and edits:
+                lessons = steps.apply_ops(lessons, steps.learn(history, day, lessons, edits, tickets), day.day)
             for name, value in (("brain", brain), ("plan", plan), ("feedback", feedback), ("score", score), ("lessons", lessons)):
                 store.write_json(path / f"day_{day.day:02}" / f"{name}.json", value)
             writer.writerow([score.day, score.date, score.mean, score.accepts] + [score.people[p.id] for p in history.people])
@@ -86,7 +89,7 @@ def main():
     sub = parser.add_subparsers(dest="command", required=True)
     sub.add_parser("validate")
     runner = sub.add_parser("run")
-    runner.add_argument("--mode", choices=["nolearn"], required=True)
+    runner.add_argument("--mode", choices=["learn", "nolearn"], required=True)
     runner.add_argument("--name")
     runner.add_argument("--days", type=int)
     viewer = sub.add_parser("show")

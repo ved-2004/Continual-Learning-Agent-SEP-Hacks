@@ -1,3 +1,6 @@
+from pathlib import Path
+import sys
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from datetime import date
 import pytest
 from agent.evaluate import score_day, score_person, simulate_feedback

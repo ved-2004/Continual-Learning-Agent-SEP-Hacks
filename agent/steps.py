@@ -1,6 +1,6 @@
 from pathlib import Path
 from agent import llm, render
-from agent.schemas import Brain, Plan
+from agent.schemas import Brain, Plan, LearnOutput, Lesson
 
 
 def valid_sources(sources, known):
@@ -50,3 +50,35 @@ def decide(purpose, history, day, brain, tickets, sources, lessons, previous):
         lambda p: check_plan(p, {p.id for p in history.people}, tickets, sources, lessons))
     plan.plans.sort(key=lambda p: [person.id for person in history.people].index(p.person))
     return plan
+
+
+def check_learning(output, lessons, people, editors):
+    errors = ["At most 6 lesson operations allowed"] if len(output.ops) > 6 else []
+    for op in output.ops:
+        if (op.op == "add" and op.id is not None) or (op.op == "update" and op.id not in {l.id for l in lessons}):
+            errors.append("Add must have no ID; update must name an existing lesson")
+        if len(op.rule.split()) > 70 or not op.applies_to or (op.applies_to != ["all"] and not set(op.applies_to) <= people):
+            errors.append("Rule must be at most 70 words; applies_to must be [all] or known people")
+        if not op.from_people or not set(op.from_people) <= editors:
+            errors.append("from_people must be nonempty and contain only today's editors")
+    return errors
+
+
+def apply_ops(lessons, output, day):
+    lessons = [l.model_copy(deep=True) for l in lessons]
+    for op in output.ops:
+        evidence = [f"D{day}:{person}" for person in op.from_people]
+        if op.op == "add":
+            lessons.append(Lesson(id=f"L{len(lessons) + 1}", rule=op.rule, applies_to=op.applies_to,
+                                  created_day=day, updated_day=day, evidence=evidence))
+        else:
+            lesson = next(l for l in lessons if l.id == op.id)
+            lesson.rule, lesson.applies_to, lesson.updated_day = op.rule, op.applies_to, day
+            lesson.evidence.extend(evidence)
+    return lessons
+
+
+def learn(history, day, lessons, edits, tickets):
+    return llm.call("learn", day.day, Path("prompts/learn.md").read_text(),
+        render.learn_message(history, day, lessons, edits, tickets), LearnOutput,
+        lambda o: check_learning(o, lessons, {p.id for p in history.people}, {f.person for f in edits if f.action == "edit"}))
