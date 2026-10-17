@@ -1,0 +1,91 @@
+[
+  {
+    "id": "L1",
+    "rule": "Until Harbor renews on Oct 30, put work that helps the renewal, such as the reliability plan Dana asked for and sync reliability fixes, ahead of Smart Slots, design-partner signing and Expo work, because Harbor is 38% of revenue and is considering a competitor.",
+    "applies_to": [
+      "all"
+    ],
+    "created_day": 1,
+    "updated_day": 2,
+    "evidence": [
+      "D1:maya",
+      "D1:arjun",
+      "D1:nina",
+      "D1:leila",
+      "D1:sam",
+      "D2:maya",
+      "D2:arjun"
+    ]
+  },
+  {
+    "id": "L2",
+    "rule": "For Harbor renewal work, fix Harbor's two named complaints first: the Sep 28 sync outage and the CSV export cutoff. Do the written postmortem first, because Dana Whitfield wants it in writing.",
+    "applies_to": [
+      "arjun",
+      "nina",
+      "leila"
+    ],
+    "created_day": 1,
+    "updated_day": 1,
+    "evidence": [
+      "D1:arjun",
+      "D1:nina",
+      "D1:leila"
+    ]
+  },
+  {
+    "id": "L3",
+    "rule": "When a deliverable is due the next day (Expo demo, Harbor QBR deck, investor update), put it ahead of Smart Slots work, and ahead of other Harbor renewal work too, because the deadline is immediate. Exception: Maya's Harbor renewal terms stayed first on QBR day.",
+    "applies_to": [
+      "sam",
+      "jordan",
+      "maya"
+    ],
+    "created_day": 1,
+    "updated_day": 4,
+    "evidence": [
+      "D1:sam",
+      "D3:jordan",
+      "D4:maya"
+    ]
+  },
+  {
+    "id": "L4",
+    "rule": "When a teammate needs data for a customer meeting this week, such as Harbor's Thursday QBR, schedule it early in the week, ahead of internal feature work, because the meeting date is fixed.",
+    "applies_to": [
+      "nina"
+    ],
+    "created_day": 1,
+    "updated_day": 1,
+    "evidence": [
+      "D1:nina"
+    ]
+  },
+  {
+    "id": "L5",
+    "rule": "When a teammate is blocked waiting on your review or input, do that first, even ahead of Harbor renewal work, because on this team unblocking a teammate always comes first.",
+    "applies_to": [
+      "all"
+    ],
+    "created_day": 2,
+    "updated_day": 2,
+    "evidence": [
+      "D2:arjun"
+    ]
+  },
+  {
+    "id": "L6",
+    "rule": "When a customer escalates, Maya makes the customer call and the on-call engineer (Nina this week) owns the technical fix. Everyone else, including the account manager and anyone a ticket was assigned to, stays on their own plan, because escalations are routed by role.",
+    "applies_to": [
+      "all"
+    ],
+    "created_day": 3,
+    "updated_day": 3,
+    "evidence": [
+      "D3:maya",
+      "D3:arjun",
+      "D3:nina",
+      "D3:jordan"
+    ]
+  }
+]

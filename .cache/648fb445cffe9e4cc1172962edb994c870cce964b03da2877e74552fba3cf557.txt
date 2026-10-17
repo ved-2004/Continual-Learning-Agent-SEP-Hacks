@@ -1,0 +1,1 @@
+{"ops":[{"op":"update","id":"L1","rule":"Until Harbor signs its renewal (Oct 30), put work that helps it ahead of Smart Slots and Expo work, including renewal paperwork, uptime reports for Dana, QBR prep and executive check-ins, because Harbor is 38% of revenue and weighing a competitor.","applies_to":["all"],"from_people":["arjun","jordan"]}]}

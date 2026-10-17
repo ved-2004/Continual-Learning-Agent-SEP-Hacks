@@ -1,0 +1,92 @@
+[
+  {
+    "person": "maya",
+    "action": "accept",
+    "proposed": [
+      "TW-145",
+      "TW-126",
+      "TW-120"
+    ],
+    "final": [
+      "TW-145",
+      "TW-126",
+      "TW-120"
+    ],
+    "reason": null
+  },
+  {
+    "person": "arjun",
+    "action": "accept",
+    "proposed": [
+      "TW-144",
+      "TW-115",
+      "TW-147"
+    ],
+    "final": [
+      "TW-144",
+      "TW-115",
+      "TW-147"
+    ],
+    "reason": null
+  },
+  {
+    "person": "nina",
+    "action": "edit",
+    "proposed": [
+      "TW-138",
+      "TW-148",
+      "TW-143"
+    ],
+    "final": [
+      "TW-138",
+      "TW-143",
+      "TW-148"
+    ],
+    "reason": "Arjun is on call this week, so the escalation is not mine. Coastal ranking first, it is due Wednesday, then the load test and caching."
+  },
+  {
+    "person": "leila",
+    "action": "accept",
+    "proposed": [
+      "TW-135",
+      "TW-149",
+      "TW-123"
+    ],
+    "final": [
+      "TW-135",
+      "TW-149",
+      "TW-123"
+    ],
+    "reason": null
+  },
+  {
+    "person": "sam",
+    "action": "accept",
+    "proposed": [
+      "TW-150",
+      "TW-119",
+      "TW-109"
+    ],
+    "final": [
+      "TW-150",
+      "TW-119",
+      "TW-109"
+    ],
+    "reason": null
+  },
+  {
+    "person": "jordan",
+    "action": "accept",
+    "proposed": [
+      "TW-121",
+      "TW-124",
+      "TW-113"
+    ],
+    "final": [
+      "TW-121",
+      "TW-124",
+      "TW-113"
+    ],
+    "reason": null
+  }
+]

@@ -1,0 +1,206 @@
+{
+  "plans": [
+    {
+      "person": "maya",
+      "top3": [
+        {
+          "ticket": "TW-131",
+          "hours": 2.0,
+          "why": "Written reliability plan for Harbor (38% of revenue) is due Oct 22, ahead of Thursday's QBR; Dana asked for it.",
+          "sources": [
+            "D2-J15",
+            "TW-131"
+          ]
+        },
+        {
+          "ticket": "TW-126",
+          "hours": 3.0,
+          "why": "Pinecrest signing would give the third design partner and meet the launch goal; they want a live demo first.",
+          "sources": [
+            "D2-J11",
+            "D2-M1"
+          ]
+        },
+        {
+          "ticket": "TW-111",
+          "hours": 3.0,
+          "why": "October investor update is due Oct 23, so draft it today.",
+          "sources": [
+            "D1-S9",
+            "TW-111"
+          ]
+        }
+      ],
+      "lessons_used": [],
+      "note": "Plan changed: the Harbor reliability plan moves first because it is due Oct 22. Then push Pinecrest, then the investor update. The booth script (TW-120) waits until Sam's demo flow takes shape."
+    },
+    {
+      "person": "arjun",
+      "top3": [
+        {
+          "ticket": "TW-129",
+          "hours": 1.0,
+          "why": "Nina's PR #232 is blocked on your review, and it blocks the scoring API from using real recommendations.",
+          "sources": [
+            "D2-S2",
+            "D2-J12"
+          ]
+        },
+        {
+          "ticket": "TW-115",
+          "hours": 5.0,
+          "why": "Scoring API is due Oct 28 and can be wired to real rankings once PR #232 merges.",
+          "sources": [
+            "D2-J13",
+            "TW-115"
+          ]
+        },
+        {
+          "ticket": "TW-127",
+          "hours": 2.0,
+          "why": "Coastal and Valley cannot go live without endpoint docs; due Oct 26, with Coastal's kickoff on Thursday.",
+          "sources": [
+            "D1-J1",
+            "TW-127"
+          ]
+        }
+      ],
+      "lessons_used": [],
+      "note": "Review the PR first today; it unblocks Nina and your scoring API. TW-101 is done and dropped from the plan. Interviews are Thursday and Friday, so finish docs early."
+    },
+    {
+      "person": "nina",
+      "top3": [
+        {
+          "ticket": "TW-116",
+          "hours": 3.0,
+          "why": "Ranking PR #232 is ready for review; address feedback and merge so the scoring API can use it (due Oct 27).",
+          "sources": [
+            "D2-S2",
+            "TW-116"
+          ]
+        },
+        {
+          "ticket": "TW-130",
+          "hours": 3.0,
+          "why": "Harbor's Fresno DC shows UTC times; fixing the API protects the Oct 30 renewal with the 38%-of-revenue account.",
+          "sources": [
+            "D2-S5",
+            "D2-J14"
+          ]
+        },
+        {
+          "ticket": "TW-105",
+          "hours": 2.0,
+          "why": "You're on call this week, and the sync error alert (1.6% against a 1% target) would page you before the problem grows.",
+          "sources": [
+            "D1-S8",
+            "D2-J7"
+          ]
+        }
+      ],
+      "lessons_used": [],
+      "note": "TW-128 is done and dropped. Focus on landing PR #232 once Arjun reviews it. Then the Harbor time zone API fix, and start the sync alert while on call."
+    },
+    {
+      "person": "leila",
+      "top3": [
+        {
+          "ticket": "TW-117",
+          "hours": 5.5,
+          "why": "Sam's final screens are delivered, so replace the placeholders; the slot picker is due Oct 29 and is the Expo centerpiece.",
+          "sources": [
+            "D2-S3",
+            "D2-S4"
+          ]
+        },
+        {
+          "ticket": "TW-123",
+          "hours": 1.5,
+          "why": "Onboarding tooltips are due Nov 2 and depend on the slot picker taking its final shape.",
+          "sources": [
+            "TW-123"
+          ]
+        },
+        {
+          "ticket": "TW-132",
+          "hours": 1.0,
+          "why": "Front-end half of Harbor's local-time fix; start it so it ships right after Nina's API change.",
+          "sources": [
+            "D2-J16",
+            "TW-132"
+          ]
+        }
+      ],
+      "lessons_used": [],
+      "note": "Sam's screens are in, so the slot picker is your main task today. TW-107 is not open and is dropped. Small slot for the Harbor local-time view alongside Nina's fix."
+    },
+    {
+      "person": "sam",
+      "top3": [
+        {
+          "ticket": "TW-119",
+          "hours": 5.0,
+          "why": "Three-screen Expo demo is due Oct 30, and Pinecrest wants to see a live demo before signing.",
+          "sources": [
+            "D2-M1",
+            "D2-S3"
+          ]
+        },
+        {
+          "ticket": "TW-125",
+          "hours": 2.0,
+          "why": "Pricing page for launch is due Oct 30; the draft can move while sample data is pending.",
+          "sources": [
+            "TW-125"
+          ]
+        },
+        {
+          "ticket": "TW-106",
+          "hours": 1.0,
+          "why": "Dana asked for the weekly usage report design; a sketch could help at Thursday's Harbor QBR.",
+          "sources": [
+            "TW-106",
+            "D2-J6"
+          ]
+        }
+      ],
+      "lessons_used": [],
+      "note": "TW-118 is finished and dropped. Focus on the Expo demo flow. Jordan is getting Coastal's anonymized bookings today for your sample data. Booth design review with Maya is Wednesday."
+    },
+    {
+      "person": "jordan",
+      "top3": [
+        {
+          "ticket": "TW-112",
+          "hours": 3.0,
+          "why": "Harbor QBR deck is under review Oct 22, and Harbor is 38% of revenue; Nina's usage numbers have arrived.",
+          "sources": [
+            "D2-J6",
+            "D2-J9"
+          ]
+        },
+        {
+          "ticket": "TW-119",
+          "hours": 1.0,
+          "why": "Get the anonymized Coastal week of bookings from Grace and pass it to Sam for the demo sample data.",
+          "sources": [
+            "D2-M1",
+            "D2-S7"
+          ]
+        },
+        {
+          "ticket": "TW-121",
+          "hours": 4.0,
+          "why": "Prepare Thursday's Coastal kickoff and chase Valley's data access so both design partners are live before Expo.",
+          "sources": [
+            "D2-S7",
+            "D2-J10"
+          ]
+        }
+      ],
+      "lessons_used": [],
+      "note": "Harbor QBR deck comes first, then hand Coastal's data to Sam today. Then prep Coastal's kickoff and Valley's data access. Expo invites (TW-122, due Oct 28) go out Friday."
+    }
+  ]
+}

@@ -1,0 +1,211 @@
+{
+  "plans": [
+    {
+      "person": "maya",
+      "top3": [
+        {
+          "ticket": "TW-154",
+          "hours": 2.5,
+          "why": "Harbor (38% of revenue) sent redlines overnight asking for an uptime clause. The review is due tomorrow and the renewal is Oct 30.",
+          "sources": [
+            "D8-J10",
+            "D8-S2",
+            "TW-154"
+          ]
+        },
+        {
+          "ticket": "TW-152",
+          "hours": 2.0,
+          "why": "Four investor meetings at the booth are due Oct 30. Lock the slots before the booth ships Thursday.",
+          "sources": [
+            "D8-J5",
+            "TW-152"
+          ]
+        },
+        {
+          "ticket": "TW-153",
+          "hours": 1.5,
+          "why": "Launch announcement for Nov 4 is in progress and due Nov 3. Draft it after the redlines are dealt with.",
+          "sources": [
+            "D8-J6",
+            "TW-153"
+          ]
+        }
+      ],
+      "lessons_used": [],
+      "note": "New today: Harbor's redlines arrived, so TW-154 moves to the top and replaces TW-120, which is done. Then investor meetings, then the launch post. Settle the booth shift plan Thursday."
+    },
+    {
+      "person": "arjun",
+      "top3": [
+        {
+          "ticket": "TW-147",
+          "hours": 2.5,
+          "why": "Demo environment is due Oct 29 and still needs Coastal's anonymized week loaded. Nothing is blocking it.",
+          "sources": [
+            "D8-S7",
+            "TW-147"
+          ]
+        },
+        {
+          "ticket": "TW-155",
+          "hours": 2.0,
+          "why": "Harbor wants an uptime number to back the SLA clause. Your figure feeds the redline discussion before the Oct 30 renewal.",
+          "sources": [
+            "D8-S3",
+            "D8-J11",
+            "TW-155"
+          ]
+        },
+        {
+          "ticket": "TW-146",
+          "hours": 2.5,
+          "why": "Rate limits protect the scoring API from Expo bursts and are due Oct 30. Fit them around your on-call duty.",
+          "sources": [
+            "D8-J7",
+            "TW-146"
+          ]
+        }
+      ],
+      "lessons_used": [],
+      "note": "TW-115 is done. New: Harbor's uptime clause makes TW-155 urgent, so it now sits second. Finish the demo environment first and keep time free for on-call."
+    },
+    {
+      "person": "nina",
+      "top3": [
+        {
+          "ticket": "TW-148",
+          "hours": 2.5,
+          "why": "Score caching keeps the booth demo fast on Wi-Fi and is due Oct 30. Land it in the morning, before the 2pm load test.",
+          "sources": [
+            "TW-148",
+            "D7-J6"
+          ]
+        },
+        {
+          "ticket": "TW-143",
+          "hours": 3.0,
+          "why": "The 10x load test starts at 2pm today and is due Oct 30. Watch the results as it runs.",
+          "sources": [
+            "D8-S5",
+            "TW-143"
+          ]
+        },
+        {
+          "ticket": "TW-156",
+          "hours": 1.5,
+          "why": "Dana asked for a weekly auto-export of the report every Monday, part of Harbor's renewal. Start it while the load test runs.",
+          "sources": [
+            "D8-S3",
+            "D8-J12",
+            "TW-156"
+          ]
+        }
+      ],
+      "lessons_used": [],
+      "note": "TW-138 is done. Caching goes first so the 2pm load test runs against it. New: add the Harbor weekly export (TW-156) in the gaps."
+    },
+    {
+      "person": "leila",
+      "top3": [
+        {
+          "ticket": "TW-149",
+          "hours": 3.0,
+          "why": "Booth tablet mode is due Oct 29. It works on the iPad, so finish and polish it for the booth.",
+          "sources": [
+            "D8-M1",
+            "TW-149"
+          ]
+        },
+        {
+          "ticket": "TW-123",
+          "hours": 3.5,
+          "why": "Onboarding tooltips in the slot picker are due Nov 2 and support the launch and the design partners.",
+          "sources": [
+            "TW-123"
+          ]
+        },
+        {
+          "ticket": "TW-108",
+          "hours": 1.0,
+          "why": "Low-priority dark mode. Keep it moving in the leftover time only.",
+          "sources": [
+            "TW-108"
+          ]
+        }
+      ],
+      "lessons_used": [],
+      "note": "No change in priorities. Get the tablet mode done today, then the tooltips. You are on call from Nov 2, so finish TW-123 early."
+    },
+    {
+      "person": "sam",
+      "top3": [
+        {
+          "ticket": "TW-119",
+          "hours": 4.0,
+          "why": "Demo flow is due Oct 30. The demo runs 1:50, so use today to finish screen 3 with the slot picker build.",
+          "sources": [
+            "D8-M1",
+            "TW-119"
+          ]
+        },
+        {
+          "ticket": "TW-157",
+          "hours": 3.0,
+          "why": "The booth slide loop is new, due Oct 31, and the booth ships Thursday. Get it done before shipping.",
+          "sources": [
+            "D8-J13",
+            "D8-S1",
+            "TW-157"
+          ]
+        },
+        {
+          "ticket": "TW-109",
+          "hours": 1.0,
+          "why": "Low-priority settings redesign. Only a small slice of time today.",
+          "sources": [
+            "TW-109"
+          ]
+        }
+      ],
+      "lessons_used": [],
+      "note": "TW-150 is done and with the printer. New: TW-157 (slide loop) is due Oct 31, so do it right after the demo flow. Settings redesign only in spare time."
+    },
+    {
+      "person": "jordan",
+      "top3": [
+        {
+          "ticket": "TW-158",
+          "hours": 2.0,
+          "why": "Harbor renews Oct 30. Prepare the new order form with legal's changes so it is ready once Maya and Dana agree on the uptime clause.",
+          "sources": [
+            "D8-J14",
+            "D8-S2",
+            "TW-158"
+          ]
+        },
+        {
+          "ticket": "TW-151",
+          "hours": 2.5,
+          "why": "Pinecrest kickoff is Thursday and the ticket is due Oct 29. Prepare the agenda and confirm data access.",
+          "sources": [
+            "D8-S6",
+            "D8-J9",
+            "TW-151"
+          ]
+        },
+        {
+          "ticket": "TW-121",
+          "hours": 2.5,
+          "why": "Coastal and Valley must be live before Expo and the ticket is due Oct 30. Valley booked 140 slots on Oct 26.",
+          "sources": [
+            "D7-S6",
+            "TW-121"
+          ]
+        }
+      ],
+      "lessons_used": [],
+      "note": "New: Harbor's redlines put TW-158 first because the renewal is Oct 30. Work with Maya on the clause. Pinecrest kickoff is Thursday. Ridgeline prep (TW-113) can wait until later this week."
+    }
+  ]
+}

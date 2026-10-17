@@ -1,28 +1,22 @@
 from agent.store import source_items
 
-
 def section(header, body):
     return header + "\n" + body
-
 
 def number(value):
     return "none" if value is None else f"{value:g}" if isinstance(value, (int, float)) else str(value)
 
-
 def today(day):
     return section("TODAY", f"Day {day.day}, {day.date:%A %Y-%m-%d}")
-
 
 def team(history):
     return section("TEAM", "\n".join(f"{p.id}: {p.name}, {p.role}. Owns: {p.owns}." +
         (f" Notes: {p.notes}" if p.notes else "") for p in history.people))
 
-
 def customers(history):
     return section("CUSTOMERS", "\n".join(f"{c.id}: {c.name.rstrip('.') }. {c.arr_share_pct:g}% of revenue. "
         f"Renews {c.renewal_date}. Health: {c.health}. Contact: {c.contact}." +
         (f" Notes: {c.notes}" if c.notes else "") for c in history.customers))
-
 
 def context(purpose, history, day):
     goals = "\n".join(f"{g.id} (rank {g.rank}): {g.goal}. Metric: {g.metric}. Due {g.due}."
@@ -31,14 +25,12 @@ def context(purpose, history, day):
         f"Goals, most important first:\n{goals}"), team(history),
         section("ON-CALL", "\n".join(f"Week of {o.week_of}: {o.person}" for o in history.oncall)), customers(history)]
 
-
 def brain_text(brain, header):
     if brain is None:
         return section(header, "(empty: this is the first day)")
     return section(header, "\n".join([f"Summary: {brain.summary}"] + [
         f"- [{b.type}] {b.text} | person: {b.person or 'none'} | ticket: {b.ticket or 'none'} | sources: {', '.join(b.sources)}"
         for b in brain.items]))
-
 
 def open_tickets(tickets):
     blocks = []
@@ -55,7 +47,6 @@ def open_tickets(tickets):
         blocks.append("\n".join(lines))
     return section("OPEN TICKETS", "\n\n".join(blocks))
 
-
 def data_text(day):
     meetings, slack, jira = [], [], []
     for source, item in source_items(day):
@@ -70,11 +61,9 @@ def data_text(day):
                                   ([f"comment: {item.comment}"] if item.comment is not None else [])))
     return section("TODAY'S DATA", "\n\n".join(meetings + [section("SLACK", "\n".join(slack)), section("JIRA CHANGES", "\n".join(jira))]))
 
-
 def lesson_text(lessons, header):
     return section(header, "\n".join(f"{l.id} (learned day {l.created_day}, updated day {l.updated_day}, "
         f"applies to: {', '.join(l.applies_to)}): {l.rule}" for l in sorted(lessons, key=lambda l: int(l.id[1:]))) or "(none yet)")
-
 
 def interpret_message(purpose, history, day, brain, tickets):
     parts = context(purpose, history, day)
@@ -82,12 +71,10 @@ def interpret_message(purpose, history, day, brain, tickets):
         parts.append(section("RECENT HISTORY", "\n".join(f"{e.date}: {e.text}" for e in history.events)))
     return "\n\n".join(parts + [brain_text(brain, "YESTERDAY'S BRAIN"), data_text(day), open_tickets(tickets)])
 
-
 def decide_message(purpose, history, day, brain, tickets, lessons, previous):
     previous = "\n".join(f"{p.person}: {', '.join(i.ticket for i in p.top3)}" for p in previous.plans) if previous else "(none: this is the first day)"
     return "\n\n".join(context(purpose, history, day) + [brain_text(brain, "BRAIN"), open_tickets(tickets),
         lesson_text(lessons, "LESSONS"), section("YOUR PREVIOUS PLAN", previous)])
-
 
 def learn_message(history, day, lessons, feedback, tickets):
     roles, corrections = {p.id: p.role for p in history.people}, []

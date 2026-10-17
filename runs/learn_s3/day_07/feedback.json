@@ -1,0 +1,92 @@
+[
+  {
+    "person": "maya",
+    "action": "edit",
+    "proposed": [
+      "TW-152",
+      "TW-120",
+      "TW-153"
+    ],
+    "final": [
+      "TW-120",
+      "TW-152",
+      "TW-153"
+    ],
+    "reason": "The booth script first, it is due Friday, then investor meetings, then the launch post."
+  },
+  {
+    "person": "arjun",
+    "action": "accept",
+    "proposed": [
+      "TW-115",
+      "TW-147",
+      "TW-146"
+    ],
+    "final": [
+      "TW-115",
+      "TW-147",
+      "TW-146"
+    ],
+    "reason": null
+  },
+  {
+    "person": "nina",
+    "action": "edit",
+    "proposed": [
+      "TW-138",
+      "TW-148",
+      "TW-143"
+    ],
+    "final": [
+      "TW-138",
+      "TW-143",
+      "TW-148"
+    ],
+    "reason": "Coastal ranking is due tomorrow, then tomorrow's load test, then caching."
+  },
+  {
+    "person": "leila",
+    "action": "accept",
+    "proposed": [
+      "TW-149",
+      "TW-123",
+      "TW-108"
+    ],
+    "final": [
+      "TW-149",
+      "TW-123",
+      "TW-108"
+    ],
+    "reason": null
+  },
+  {
+    "person": "sam",
+    "action": "accept",
+    "proposed": [
+      "TW-150",
+      "TW-119",
+      "TW-109"
+    ],
+    "final": [
+      "TW-150",
+      "TW-119",
+      "TW-109"
+    ],
+    "reason": null
+  },
+  {
+    "person": "jordan",
+    "action": "edit",
+    "proposed": [
+      "TW-151",
+      "TW-121",
+      "TW-113"
+    ],
+    "final": [
+      "TW-151",
+      "TW-121",
+      "TW-124"
+    ],
+    "reason": "Pinecrest has to be live before Expo, so their kickoff is first. Then Valley and Coastal, then the help articles."
+  }
+]

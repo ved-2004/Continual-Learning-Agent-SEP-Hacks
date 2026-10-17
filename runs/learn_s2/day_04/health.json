@@ -1,0 +1,23 @@
+{
+  "day": 4,
+  "alerts": [
+    {
+      "kind": "lesson_overridden",
+      "person": "maya",
+      "lesson": "L1",
+      "detail": "maya edited despite using L1"
+    },
+    {
+      "kind": "lesson_overridden",
+      "person": "nina",
+      "lesson": "L7",
+      "detail": "nina edited despite using L7"
+    },
+    {
+      "kind": "lesson_overridden",
+      "person": "nina",
+      "lesson": "L5",
+      "detail": "nina edited despite using L5"
+    }
+  ]
+}

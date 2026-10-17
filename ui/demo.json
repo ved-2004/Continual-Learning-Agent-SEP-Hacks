@@ -60,349 +60,407 @@
    "title": "Write postmortem for Harbor's Sep 28 sync outage",
    "goal": "G2",
    "customer": "harbor",
-   "owner": "arjun"
+   "owner": "arjun",
+   "kind": "action"
   },
   "TW-102": {
    "title": "CSV export stops at 5,000 rows",
    "goal": "G2",
    "customer": "harbor",
-   "owner": "nina"
+   "owner": "nina",
+   "kind": "action"
   },
   "TW-103": {
    "title": "Duplicate appointments after sync",
    "goal": "G3",
    "customer": "ridgeline",
-   "owner": "nina"
+   "owner": "nina",
+   "kind": "action"
   },
   "TW-104": {
    "title": "Retry queue for failed syncs",
    "goal": "G3",
    "customer": null,
-   "owner": "arjun"
+   "owner": "arjun",
+   "kind": "action"
   },
   "TW-105": {
    "title": "Alert when sync errors pass 1%",
    "goal": "G3",
    "customer": null,
-   "owner": "nina"
+   "owner": "nina",
+   "kind": "action"
   },
   "TW-106": {
    "title": "Weekly usage report for Harbor ops",
    "goal": "G2",
    "customer": "harbor",
-   "owner": "sam"
+   "owner": "sam",
+   "kind": "action"
   },
   "TW-107": {
    "title": "Export page: progress bar and retry",
    "goal": "G2",
    "customer": "harbor",
-   "owner": "leila"
+   "owner": "leila",
+   "kind": "action"
   },
   "TW-108": {
    "title": "Dark mode",
    "goal": null,
    "customer": null,
-   "owner": "leila"
+   "owner": "leila",
+   "kind": "action"
   },
   "TW-109": {
    "title": "Settings page redesign",
    "goal": null,
    "customer": null,
-   "owner": "sam"
+   "owner": "sam",
+   "kind": "action"
   },
   "TW-110": {
    "title": "Backend hiring: first-round interviews",
    "goal": null,
    "customer": null,
-   "owner": "arjun"
+   "owner": "arjun",
+   "kind": "action"
   },
   "TW-111": {
    "title": "October investor update",
    "goal": null,
    "customer": null,
-   "owner": "maya"
+   "owner": "maya",
+   "kind": "action"
   },
   "TW-112": {
    "title": "Harbor QBR deck",
    "goal": "G2",
    "customer": "harbor",
-   "owner": "jordan"
+   "owner": "jordan",
+   "kind": "action"
   },
   "TW-113": {
    "title": "Ridgeline renewal prep",
    "goal": "G2",
    "customer": "ridgeline",
-   "owner": "jordan"
+   "owner": "jordan",
+   "kind": "action"
   },
   "TW-114": {
    "title": "Executive check-in with Harbor",
    "goal": "G2",
    "customer": "harbor",
-   "owner": "maya"
+   "owner": "maya",
+   "kind": "action"
   },
   "TW-115": {
    "title": "Smart Slots: slot-scoring API",
    "goal": "G1",
    "customer": null,
-   "owner": "arjun"
+   "owner": "arjun",
+   "kind": "action"
   },
   "TW-116": {
    "title": "Smart Slots: recommendation ranking",
    "goal": "G1",
    "customer": null,
-   "owner": "nina"
+   "owner": "nina",
+   "kind": "action"
   },
   "TW-117": {
    "title": "Smart Slots: slot picker UI",
    "goal": "G1",
    "customer": null,
-   "owner": "leila"
+   "owner": "leila",
+   "kind": "action"
   },
   "TW-118": {
    "title": "Smart Slots: final screens",
    "goal": "G1",
    "customer": null,
-   "owner": "sam"
+   "owner": "sam",
+   "kind": "action"
   },
   "TW-119": {
    "title": "Expo demo flow and sample data",
    "goal": "G1",
    "customer": null,
-   "owner": "sam"
+   "owner": "sam",
+   "kind": "action"
   },
   "TW-120": {
    "title": "Expo booth demo script",
    "goal": "G1",
    "customer": null,
-   "owner": "maya"
+   "owner": "maya",
+   "kind": "action"
   },
   "TW-121": {
    "title": "Get design partners live on Smart Slots",
    "goal": "G1",
    "customer": null,
-   "owner": "jordan"
+   "owner": "jordan",
+   "kind": "action"
   },
   "TW-122": {
    "title": "Expo lead list and meeting invites",
    "goal": "G1",
    "customer": null,
-   "owner": "jordan"
+   "owner": "jordan",
+   "kind": "action"
   },
   "TW-123": {
    "title": "Smart Slots: onboarding tooltips",
    "goal": "G1",
    "customer": null,
-   "owner": "leila"
+   "owner": "leila",
+   "kind": "action"
   },
   "TW-124": {
    "title": "Smart Slots help center articles",
    "goal": "G1",
    "customer": null,
-   "owner": "jordan"
+   "owner": "jordan",
+   "kind": "action"
   },
   "TW-125": {
    "title": "Smart Slots pricing page",
    "goal": "G1",
    "customer": null,
-   "owner": "sam"
+   "owner": "sam",
+   "kind": "action"
   },
   "TW-126": {
    "title": "Sign Pinecrest Grocers as third design partner",
    "goal": "G1",
    "customer": null,
-   "owner": "maya"
+   "owner": "maya",
+   "kind": "action"
   },
   "TW-127": {
    "title": "Smart Slots: API docs for design partners",
    "goal": "G1",
    "customer": null,
-   "owner": "arjun"
+   "owner": "arjun",
+   "kind": "action"
   },
   "TW-128": {
    "title": "Pull Q3 usage numbers for Harbor's QBR",
    "goal": "G2",
    "customer": "harbor",
-   "owner": "nina"
+   "owner": "nina",
+   "kind": "action"
   },
   "TW-129": {
    "title": "Review PR #232: Smart Slots ranking",
    "goal": "G1",
    "customer": null,
-   "owner": "arjun"
+   "owner": "arjun",
+   "kind": "decision"
   },
   "TW-130": {
    "title": "Harbor: Fresno DC appointments show UTC times",
    "goal": "G2",
    "customer": "harbor",
-   "owner": "nina"
+   "owner": "nina",
+   "kind": "action"
   },
   "TW-131": {
    "title": "Send Harbor a written reliability plan",
    "goal": "G2",
    "customer": "harbor",
-   "owner": "maya"
+   "owner": "maya",
+   "kind": "action"
   },
   "TW-132": {
    "title": "Harbor: show each DC's local time in the schedule view",
    "goal": "G2",
    "customer": "harbor",
-   "owner": "leila"
+   "owner": "leila",
+   "kind": "action"
   },
   "TW-133": {
    "title": "Ridgeline: trucks double-booked at Reno DC",
    "goal": "G2",
    "customer": "ridgeline",
-   "owner": "nina"
+   "owner": "nina",
+   "kind": "action"
   },
   "TW-134": {
    "title": "Call Omar at Ridgeline about the Reno double-bookings",
    "goal": "G2",
    "customer": "ridgeline",
-   "owner": "maya"
+   "owner": "maya",
+   "kind": "action"
   },
   "TW-135": {
    "title": "Slot picker: empty and error states",
    "goal": "G1",
    "customer": null,
-   "owner": "leila"
+   "owner": "leila",
+   "kind": "action"
   },
   "TW-136": {
    "title": "Harbor renewal terms on one page",
    "goal": "G2",
    "customer": "harbor",
-   "owner": "maya"
+   "owner": "maya",
+   "kind": "action"
   },
   "TW-137": {
    "title": "Review PR #238: duplicate appointments fix",
    "goal": "G3",
    "customer": null,
-   "owner": "arjun"
+   "owner": "arjun",
+   "kind": "decision"
   },
   "TW-138": {
    "title": "Smart Slots: tune ranking on Coastal's bookings",
    "goal": "G1",
    "customer": null,
-   "owner": "nina"
+   "owner": "nina",
+   "kind": "action"
   },
   "TW-139": {
    "title": "Send Harbor the QBR follow-up notes",
    "goal": "G2",
    "customer": "harbor",
-   "owner": "jordan"
+   "owner": "jordan",
+   "kind": "action"
   },
   "TW-140": {
    "title": "Harbor: add a 4-week dock trend to the weekly report",
    "goal": "G2",
    "customer": "harbor",
-   "owner": "sam"
+   "owner": "sam",
+   "kind": "action"
   },
   "TW-141": {
    "title": "Design review: slot picker build (PR #241)",
    "goal": "G1",
    "customer": null,
-   "owner": "sam"
+   "owner": "sam",
+   "kind": "decision"
   },
   "TW-142": {
    "title": "Harbor: send sync alerts to Harbor's ops channel",
    "goal": "G2",
    "customer": "harbor",
-   "owner": "nina"
+   "owner": "nina",
+   "kind": "action"
   },
   "TW-143": {
    "title": "Smart Slots: load test before Expo",
    "goal": "G1",
    "customer": null,
-   "owner": "nina"
+   "owner": "nina",
+   "kind": "action"
   },
   "TW-144": {
    "title": "Coastal: users can't log in after the SSO step",
    "goal": "G2",
    "customer": "coastal",
-   "owner": "arjun"
+   "owner": "arjun",
+   "kind": "action"
   },
   "TW-145": {
    "title": "Call Grace at Coastal about the login outage",
    "goal": "G2",
    "customer": "coastal",
-   "owner": "maya"
+   "owner": "maya",
+   "kind": "action"
   },
   "TW-146": {
    "title": "Smart Slots: rate limits for booth traffic",
    "goal": "G1",
    "customer": null,
-   "owner": "arjun"
+   "owner": "arjun",
+   "kind": "action"
   },
   "TW-147": {
    "title": "Expo: demo environment with Coastal's anonymized data",
    "goal": "G1",
    "customer": null,
-   "owner": "arjun"
+   "owner": "arjun",
+   "kind": "action"
   },
   "TW-148": {
    "title": "Smart Slots: cache slot scores for the booth demo",
    "goal": "G1",
    "customer": null,
-   "owner": "nina"
+   "owner": "nina",
+   "kind": "action"
   },
   "TW-149": {
    "title": "Booth tablet mode for the slot picker",
    "goal": "G1",
    "customer": null,
-   "owner": "leila"
+   "owner": "leila",
+   "kind": "action"
   },
   "TW-150": {
    "title": "Booth one-pager: final print files",
    "goal": "G1",
    "customer": null,
-   "owner": "sam"
+   "owner": "sam",
+   "kind": "action"
   },
   "TW-151": {
    "title": "Pinecrest: kickoff and data access",
    "goal": "G1",
    "customer": null,
-   "owner": "jordan"
+   "owner": "jordan",
+   "kind": "action"
   },
   "TW-152": {
    "title": "Expo: book investor meetings at the booth",
    "goal": "G1",
    "customer": null,
-   "owner": "maya"
+   "owner": "maya",
+   "kind": "action"
   },
   "TW-153": {
    "title": "Launch announcement post",
    "goal": "G1",
    "customer": null,
-   "owner": "maya"
+   "owner": "maya",
+   "kind": "action"
   },
   "TW-154": {
    "title": "Review Harbor's contract redlines",
    "goal": "G2",
    "customer": "harbor",
-   "owner": "maya"
+   "owner": "maya",
+   "kind": "decision"
   },
   "TW-155": {
    "title": "Harbor: monthly sync uptime report",
    "goal": "G2",
    "customer": "harbor",
-   "owner": "arjun"
+   "owner": "arjun",
+   "kind": "action"
   },
   "TW-156": {
    "title": "Harbor: auto-export the weekly report every Monday",
    "goal": "G2",
    "customer": "harbor",
-   "owner": "nina"
+   "owner": "nina",
+   "kind": "action"
   },
   "TW-157": {
    "title": "Expo: booth slide loop",
    "goal": "G1",
    "customer": null,
-   "owner": "sam"
+   "owner": "sam",
+   "kind": "action"
   },
   "TW-158": {
    "title": "Harbor: renewal paperwork with legal's changes",
    "goal": "G2",
    "customer": "harbor",
-   "owner": "jordan"
+   "owner": "jordan",
+   "kind": "action"
   }
  },
  "runs": {

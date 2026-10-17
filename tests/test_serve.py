@@ -1,13 +1,14 @@
-import json, threading
+import json, threading, time
 from types import SimpleNamespace
 from urllib.error import HTTPError
 from urllib.request import Request, urlopen
+import pytest
 from agent import evaluate, llm, render, store
 from agent.schemas import Brain, LearnOutput
-from agent.serve import server
+from agent.serve import LIMIT_ERROR, server
 from test_leakage import DATA, stub_plan
 
-def test_teach(tmp_path, monkeypatch):
+def test_teach(tmp_path, monkeypatch, capsys):
     _, history, days, states, errors = store.validate_inputs(DATA)
     evals, _ = evaluate.load_evals(DATA, history, states, errors)
     plan = stub_plan(history, states[1])
@@ -19,22 +20,24 @@ def test_teach(tmp_path, monkeypatch):
     for name, value in (("plan", next_plan), ("brain", Brain(summary="", items=[]))):
         store.write_json(root / f"day_02/{name}.json", value)
     monkeypatch.chdir(tmp_path)
+    for key, value in (("TEACH_LIMIT", "1"), ("LLM_PROVIDER", "anthropic"), ("LLM_MODEL", "test"), ("CACHE_DIR", ".cache")):
+        monkeypatch.setenv(key, value)
     (tmp_path / "prompts").symlink_to(DATA.parent / "prompts", target_is_directory=True)
     (tmp_path / "ui").mkdir()
     (tmp_path / "ui/index.html").write_text("supplied UI")
+    (tmp_path / ".env").write_text("private sentinel")
+    (tmp_path / "ui/escape").symlink_to(tmp_path / ".env")
     record = next(r for r in evals[1].records if r.person == "nina")
     request = dict(day=1, person="nina", final=record.final, reason=record.reason)
     expected = render.learn_message(history, days[0], [], feedback, states[1])
-    calls = []
+    calls, original = [], llm.call
+    output = LearnOutput(ops=[dict(op="add", rule="Prioritize blockers", applies_to=["all"], from_people=["nina"])])
+    monkeypatch.setattr(llm, "request", lambda provider, model, system, user: (output if "CORRECTIONS" in user else next_plan).model_dump_json())
     def canned(step, day, system, user, out, check):
         calls.append(step)
-        result = LearnOutput(ops=[dict(op="add", rule="Prioritize blockers", applies_to=["all"], from_people=["nina"])]) if step == "learn" else next_plan
-        if step == "learn":
-            assert user == expected  # Includes everyone else's saved edits in the original order.
-        assert not check(result)
-        with (llm._run_dir / "llm_calls.jsonl").open("a") as file:
-            file.write(json.dumps(dict(cache_hit=True)) + "\n")
-        return result
+        if len(calls) == 1:
+            assert user == expected  # Everyone else's saved edits remain in the original order.
+        return original(step, day, system, user, out, check)
     monkeypatch.setattr(llm, "call", canned)
     httpd = server(SimpleNamespace(data=DATA, run="learn", port=0))
     thread = threading.Thread(target=httpd.serve_forever, daemon=True)
@@ -50,18 +53,34 @@ def test_teach(tmp_path, monkeypatch):
     try:
         assert json.load(urlopen(url + "/api/health"))["days"] == len(days)
         assert urlopen(url).read() == b"supplied UI"
+        for path in ("/.env", "/../.env", "/%2e%2e/.env", "/agent/llm.py", "/escape"):
+            with pytest.raises(HTTPError) as error:
+                urlopen(url + path)
+            assert error.value.code == 404
         code, result = post(request)
         assert code == 200 and set(result) == {"day", "next_day", "ops", "lessons", "changed", "plan", "baseline", "calls", "cache_hits", "seconds"}
-        assert result["changed"] == ["L1"] and result["calls"] == result["cache_hits"] == 2
+        assert result["changed"] == ["L1"] and result["calls"] == 2 and result["cache_hits"] == 0
         assert result["baseline"] == result["plan"] == next_plan.model_dump(mode="json")
         assert store.read_json(root / "day_01/feedback.json") == [f.model_dump(mode="json") for f in feedback]
+        assert calls == ["learn", "decide"]
+        code, result = post(request)
+        assert code == 200 and result["cache_hits"] == result["calls"] == 2
+        changed = dict(request, reason="New correction")
+        assert post(changed) == (429, {"error": LIMIT_ERROR})
+        tomorrow = time.time() + 86400
+        monkeypatch.setattr(time, "time", lambda: tomorrow)
+        assert post(changed)[0] == 200
         done = next(t.id for t in states[2].values() if t.status == "done")
         assert post(dict(request, day=2, final=[done, "TW-103", "TW-105"]))[0] == 400
         for value in ([], dict(request, day=True), dict(request, person=[]), dict(request, final=[{}, "x", "y"]), dict(request, reason="")):
             assert post(value)[0] == 400
-        monkeypatch.setattr(llm, "call", lambda *args: (_ for _ in ()).throw(RuntimeError("failed after retry")))
-        assert post(request) == (500, {"error": "failed after retry"})
-        assert calls == ["learn", "decide"]
+        tomorrow += 86400
+        def failed(*args):
+            print("private sentinel")
+            raise RuntimeError("private sentinel")
+        monkeypatch.setattr(llm, "request", failed)
+        assert post(dict(request, reason="Another correction")) == (500, {"error": "Teach failed; check the saved run for details."})
+        assert "private sentinel" not in (llm._run_dir / "llm_calls.jsonl").read_text() + capsys.readouterr().out
     finally:
         httpd.shutdown()
         thread.join()

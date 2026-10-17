@@ -1,0 +1,160 @@
+{
+  "summary": "Sixteen days to FreightWorks Expo (Nov 4). Maya declared Smart Slots the company-wide focus. Slot-scoring API waits on Nina's ranking (due Wednesday); Leila waits on Sam's final screens (today 3pm). Sync errors at 1.6% and Harbor's export limit are deferred. Third design partner is unsigned.",
+  "items": [
+    {
+      "type": "decision",
+      "text": "Maya decided Smart Slots is the priority for everyone until Expo on Nov 4; no side quests. Sync errors and the Harbor export limit are explicitly pushed to after Expo unless sync worsens.",
+      "person": "maya",
+      "ticket": null,
+      "sources": [
+        "D1-M1",
+        "D1-S1"
+      ]
+    },
+    {
+      "type": "blocker",
+      "text": "Arjun cannot wire real recommendations into the scoring endpoint (passes on test data only) until Nina's ranking is delivered.",
+      "person": "arjun",
+      "ticket": "TW-115",
+      "sources": [
+        "D1-M1",
+        "D1-S2",
+        "D1-J3"
+      ]
+    },
+    {
+      "type": "commitment",
+      "text": "Nina committed to have the recommendation ranking up by Wednesday (Oct 21); ticket due Oct 27.",
+      "person": "nina",
+      "ticket": "TW-116",
+      "sources": [
+        "D1-M1",
+        "D1-S3"
+      ]
+    },
+    {
+      "type": "blocker",
+      "text": "Leila is building the slot picker on placeholder screens and needs Sam's final designs to finish.",
+      "person": "leila",
+      "ticket": "TW-117",
+      "sources": [
+        "D1-M1",
+        "D1-S4",
+        "D1-J4"
+      ]
+    },
+    {
+      "type": "commitment",
+      "text": "Sam promised final slot picker screens today by 3pm, then starts the Expo demo flow.",
+      "person": "sam",
+      "ticket": "TW-118",
+      "sources": [
+        "D1-M1",
+        "D1-S5"
+      ]
+    },
+    {
+      "type": "status",
+      "text": "Coastal can go live once the API is stable. Valley is still sorting out data access on their side.",
+      "person": "jordan",
+      "ticket": "TW-121",
+      "sources": [
+        "D1-M1"
+      ]
+    },
+    {
+      "type": "request",
+      "text": "Coastal and Valley need endpoint docs before going live; Arjun created the ticket, due Oct 26.",
+      "person": "arjun",
+      "ticket": "TW-127",
+      "sources": [
+        "D1-J1"
+      ]
+    },
+    {
+      "type": "risk",
+      "text": "Third design partner is not signed; Pinecrest Grocers is only in talks, and 3 live partners are needed by launch. Ticket due Oct 30.",
+      "person": "maya",
+      "ticket": "TW-126",
+      "sources": [
+        "D1-M1"
+      ]
+    },
+    {
+      "type": "request",
+      "text": "Jordan asked Nina for Q3 usage numbers for Harbor's QBR deck; QBR is Thursday Oct 22.",
+      "person": "jordan",
+      "ticket": "TW-128",
+      "sources": [
+        "D1-S6",
+        "D1-J2"
+      ]
+    },
+    {
+      "type": "commitment",
+      "text": "Nina agreed to deliver Harbor's Q3 usage numbers by tomorrow (Oct 20).",
+      "person": "nina",
+      "ticket": "TW-128",
+      "sources": [
+        "D1-S7"
+      ]
+    },
+    {
+      "type": "status",
+      "text": "Jordan is building the Harbor QBR deck for Thursday Oct 22.",
+      "person": "jordan",
+      "ticket": "TW-112",
+      "sources": [
+        "D1-M1"
+      ]
+    },
+    {
+      "type": "status",
+      "text": "Harbor renewal (Oct 30): order form sent Friday; Dana Whitfield said it should be routine.",
+      "person": "jordan",
+      "ticket": null,
+      "sources": [
+        "D1-M1"
+      ]
+    },
+    {
+      "type": "risk",
+      "text": "Sync error rate was 1.6% on Oct 18, above the 1% target, mostly Ridgeline duplicates. Maya will revisit only if it gets worse. Ridgeline renews Nov 20.",
+      "person": "nina",
+      "ticket": "TW-103",
+      "sources": [
+        "D1-M1",
+        "D1-S8",
+        "D1-J5"
+      ]
+    },
+    {
+      "type": "status",
+      "text": "Harbor asked again about the 5,000-row CSV export limit (Harbor's weekly export is about 7,000 rows); Jordan told them it is on the list. Deferred until after Expo.",
+      "person": "jordan",
+      "ticket": "TW-102",
+      "sources": [
+        "D1-M1",
+        "D1-J6"
+      ]
+    },
+    {
+      "type": "status",
+      "text": "Booth design review with Sam is Wednesday; Expo invites go out Friday.",
+      "person": "maya",
+      "ticket": null,
+      "sources": [
+        "D1-S9"
+      ]
+    },
+    {
+      "type": "status",
+      "text": "Nina is on call this week (Oct 19), while also owning ranking work for Smart Slots.",
+      "person": "nina",
+      "ticket": null,
+      "sources": [
+        "D1-M1"
+      ]
+    }
+  ]
+}

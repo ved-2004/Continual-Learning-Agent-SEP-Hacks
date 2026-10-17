@@ -5,10 +5,8 @@ from pathlib import Path
 from pydantic import BaseModel, ValidationError
 from agent.schemas import Comment, Day, History, JiraChange, Purpose, Ticket
 
-
 def read_json(path):
     return json.loads(Path(path).read_text())
-
 
 def write_json(path, value):
     path = Path(path)
@@ -18,7 +16,6 @@ def write_json(path, value):
             return item.model_dump(mode="json")
         raise TypeError(f"Cannot encode {type(item).__name__}")
     path.write_text(json.dumps(value, default=encode, indent=2) + "\n")
-
 
 def parse(model, raw, path, errors):
     try:
@@ -35,14 +32,12 @@ def parse(model, raw, path, errors):
                 del parent[error["loc"][-1]]
             return model.model_validate(cleaned, context={"input": True})
 
-
 def load_raw(path, errors):
     try:
         return read_json(path)
     except (OSError, ValueError) as exc:
         errors.setdefault(str(path), []).append(str(exc))
         return None
-
 
 def apply_change(tickets, change, day):
     patch = change.set.model_dump(exclude_unset=True)
@@ -66,11 +61,9 @@ def apply_change(tickets, change, day):
     tickets[change.ticket] = ticket
     return ticket
 
-
 def source_items(day):
     return [(f"D{day.day}-{letter}{i}", item) for letter, items in
             (("M", day.meetings), ("S", day.slack), ("J", day.jira)) for i, item in enumerate(items, 1)]
-
 
 def check_references(raw, refs, path, errors, location=""):
     if isinstance(raw, list):
@@ -89,7 +82,6 @@ def check_references(raw, refs, path, errors, location=""):
                 if person not in refs["person"]:
                     errors.setdefault(str(path), []).append(f"{location}: unknown attendee {person!r}")
         check_references(value, refs, path, errors, f"{location}.{key}")
-
 
 def validate_inputs(root):
     root, errors = Path(root), {}

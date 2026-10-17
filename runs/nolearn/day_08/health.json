@@ -1,0 +1,11 @@
+{
+  "day": 8,
+  "alerts": [
+    {
+      "kind": "regression",
+      "person": null,
+      "lesson": null,
+      "detail": "mean 77.8, down 18.0 from day 7"
+    }
+  ]
+}

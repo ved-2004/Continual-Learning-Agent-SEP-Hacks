@@ -1,0 +1,17 @@
+{
+  "day": 3,
+  "alerts": [
+    {
+      "kind": "rejected_plan",
+      "person": "maya",
+      "lesson": null,
+      "detail": "maya scored 25.0"
+    },
+    {
+      "kind": "rejected_plan",
+      "person": "jordan",
+      "lesson": null,
+      "detail": "jordan scored 41.7"
+    }
+  ]
+}

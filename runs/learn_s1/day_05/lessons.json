@@ -1,0 +1,117 @@
+[
+  {
+    "id": "L1",
+    "rule": "Until Harbor Foods renews on Oct 30, work that supports the renewal comes before Smart Slots for everyone, because Harbor is 38% of revenue and is evaluating a competitor before signing.",
+    "applies_to": [
+      "all"
+    ],
+    "created_day": 1,
+    "updated_day": 1,
+    "evidence": [
+      "D1:maya",
+      "D1:arjun",
+      "D1:nina",
+      "D1:leila",
+      "D1:sam",
+      "D1:jordan"
+    ]
+  },
+  {
+    "id": "L2",
+    "rule": "Until Harbor renews, put Harbor's complaints (Sep 28 sync outage, 5,000-row export cutoff), Harbor-reported bugs, and outage postmortem action items (retry queue, sync error alert) ahead of Smart Slots; write the postmortem first, because Dana wants it in writing.",
+    "applies_to": [
+      "arjun",
+      "nina",
+      "leila"
+    ],
+    "created_day": 1,
+    "updated_day": 2,
+    "evidence": [
+      "D1:arjun",
+      "D1:nina",
+      "D1:leila",
+      "D2:nina",
+      "D2:arjun"
+    ]
+  },
+  {
+    "id": "L3",
+    "rule": "Put Harbor QBR preparation (deck, usage numbers) before Smart Slots and Expo work this week, because the QBR is Thursday Oct 22 and Harbor's renewal is at risk.",
+    "applies_to": [
+      "jordan",
+      "nina"
+    ],
+    "created_day": 1,
+    "updated_day": 1,
+    "evidence": [
+      "D1:jordan",
+      "D1:nina"
+    ]
+  },
+  {
+    "id": "L4",
+    "rule": "When a deliverable is due the next day, do it ahead of Smart Slots and other non-renewal work, because the deadline is imminent. Sam's Tuesday screens went even ahead of Harbor renewal work. Maya kept Harbor renewal terms first, then the investor update due the next day.",
+    "applies_to": [
+      "sam",
+      "maya"
+    ],
+    "created_day": 1,
+    "updated_day": 4,
+    "evidence": [
+      "D1:sam",
+      "D4:maya"
+    ]
+  },
+  {
+    "id": "L5",
+    "rule": "When a teammate is blocked waiting on your review or input, do that first, even ahead of Harbor renewal work, because on this team unblocking a teammate always comes first. Example: reviewing a backend PR that blocks another engineer.",
+    "applies_to": [
+      "all"
+    ],
+    "created_day": 2,
+    "updated_day": 2,
+    "evidence": [
+      "D2:arjun"
+    ]
+  },
+  {
+    "id": "L6",
+    "rule": "When a customer escalates, Maya makes the customer call herself and puts it first, and Jordan stays on his own plan instead of calling, because the CEO handles escalated customer relationships.",
+    "applies_to": [
+      "maya",
+      "jordan"
+    ],
+    "created_day": 3,
+    "updated_day": 3,
+    "evidence": [
+      "D3:maya",
+      "D3:jordan"
+    ]
+  },
+  {
+    "id": "L7",
+    "rule": "When an escalation needs engineering work, the engineer on call owns it first (Nina this week, rotation changes weekly), and other engineers stay on their own plan even if the ticket is assigned to them, because escalations go to whoever is on call.",
+    "applies_to": [
+      "arjun",
+      "nina"
+    ],
+    "created_day": 3,
+    "updated_day": 3,
+    "evidence": [
+      "D3:arjun",
+      "D3:nina"
+    ]
+  },
+  {
+    "id": "L8",
+    "rule": "When your own ticket is waiting on a teammate's review, work on other tickets first and leave the waiting one for last, because you cannot move it until the review arrives. Pick it up again once the review is done.",
+    "applies_to": [
+      "all"
+    ],
+    "created_day": 5,
+    "updated_day": 5,
+    "evidence": [
+      "D5:leila"
+    ]
+  }
+]

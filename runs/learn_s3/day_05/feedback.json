@@ -1,0 +1,92 @@
+[
+  {
+    "person": "maya",
+    "action": "accept",
+    "proposed": [
+      "TW-111",
+      "TW-126",
+      "TW-120"
+    ],
+    "final": [
+      "TW-111",
+      "TW-126",
+      "TW-120"
+    ],
+    "reason": null
+  },
+  {
+    "person": "arjun",
+    "action": "edit",
+    "proposed": [
+      "TW-127",
+      "TW-115",
+      "TW-110"
+    ],
+    "final": [
+      "TW-115",
+      "TW-127",
+      "TW-110"
+    ],
+    "reason": "A normal day: the scoring API, then the partner docs due Monday, then the second interview."
+  },
+  {
+    "person": "nina",
+    "action": "accept",
+    "proposed": [
+      "TW-142",
+      "TW-138",
+      "TW-143"
+    ],
+    "final": [
+      "TW-142",
+      "TW-138",
+      "TW-143"
+    ],
+    "reason": null
+  },
+  {
+    "person": "leila",
+    "action": "edit",
+    "proposed": [
+      "TW-117",
+      "TW-135",
+      "TW-123"
+    ],
+    "final": [
+      "TW-135",
+      "TW-123",
+      "TW-117"
+    ],
+    "reason": "The slot picker build is waiting on Sam's review, so I finish its empty states and the tooltips first."
+  },
+  {
+    "person": "sam",
+    "action": "accept",
+    "proposed": [
+      "TW-141",
+      "TW-140",
+      "TW-119"
+    ],
+    "final": [
+      "TW-141",
+      "TW-140",
+      "TW-119"
+    ],
+    "reason": null
+  },
+  {
+    "person": "jordan",
+    "action": "edit",
+    "proposed": [
+      "TW-139",
+      "TW-121",
+      "TW-122"
+    ],
+    "final": [
+      "TW-139",
+      "TW-122",
+      "TW-121"
+    ],
+    "reason": "Harbor's renewal still comes first, so Dana's QBR notes go out first. Expo invites go out today, then design partners."
+  }
+]

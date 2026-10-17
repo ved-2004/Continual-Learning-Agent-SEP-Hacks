@@ -8,10 +8,13 @@ Never reads data/eval/, so no hidden fact can reach the page.
 """
 import argparse
 import json
+import re
 import pathlib
 import datetime as dt
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
+# Display only: tickets whose title asks someone to approve or choose. The agent never sees this label.
+DECISION = re.compile(r"^(Review|Design review|Approve|Decide|Choose)\b")
 
 
 def load(path):
@@ -130,7 +133,8 @@ def main():
         "company": {"name": purpose["company"], "mission": purpose["mission"],
                     "goals": [{"id": g["id"], "goal": g["goal"]} for g in sorted(purpose["goals"], key=lambda g: g["rank"])]},
         "people": [{"id": p["id"], "name": p["name"], "first": p["name"].split()[0], "role": p["role"]} for p in history["people"]],
-        "tickets": {i: {"title": t["title"], "goal": t.get("goal"), "customer": t.get("customer"), "owner": t["owner"]}
+        "tickets": {i: {"title": t["title"], "goal": t.get("goal"), "customer": t.get("customer"), "owner": t["owner"],
+                        "kind": "decision" if DECISION.match(t["title"]) else "action"}
                     for i, t in tickets.items()},
         "runs": {"learn": a.learn, "nolearn": a.nolearn},
         "days": result_days,

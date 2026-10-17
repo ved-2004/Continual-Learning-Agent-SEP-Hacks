@@ -1,0 +1,11 @@
+{
+  "day": 7,
+  "alerts": [
+    {
+      "kind": "lesson_overridden",
+      "person": "nina",
+      "lesson": "L9",
+      "detail": "nina edited despite using L9"
+    }
+  ]
+}

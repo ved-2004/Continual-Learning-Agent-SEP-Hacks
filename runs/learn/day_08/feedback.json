@@ -1,0 +1,92 @@
+[
+  {
+    "person": "maya",
+    "action": "accept",
+    "proposed": [
+      "TW-154",
+      "TW-152",
+      "TW-153"
+    ],
+    "final": [
+      "TW-154",
+      "TW-152",
+      "TW-153"
+    ],
+    "reason": null
+  },
+  {
+    "person": "arjun",
+    "action": "edit",
+    "proposed": [
+      "TW-147",
+      "TW-155",
+      "TW-146"
+    ],
+    "final": [
+      "TW-155",
+      "TW-147",
+      "TW-146"
+    ],
+    "reason": "Harbor's renewal is still open until Friday, so Dana's uptime report comes first. Then the demo environment and rate limits."
+  },
+  {
+    "person": "nina",
+    "action": "accept",
+    "proposed": [
+      "TW-156",
+      "TW-143",
+      "TW-148"
+    ],
+    "final": [
+      "TW-156",
+      "TW-143",
+      "TW-148"
+    ],
+    "reason": null
+  },
+  {
+    "person": "leila",
+    "action": "accept",
+    "proposed": [
+      "TW-149",
+      "TW-123",
+      "TW-108"
+    ],
+    "final": [
+      "TW-149",
+      "TW-123",
+      "TW-108"
+    ],
+    "reason": null
+  },
+  {
+    "person": "sam",
+    "action": "edit",
+    "proposed": [
+      "TW-157",
+      "TW-119",
+      "TW-109"
+    ],
+    "final": [
+      "TW-119",
+      "TW-157",
+      "TW-109"
+    ],
+    "reason": "The demo first, then the booth slide loop."
+  },
+  {
+    "person": "jordan",
+    "action": "edit",
+    "proposed": [
+      "TW-151",
+      "TW-121",
+      "TW-158"
+    ],
+    "final": [
+      "TW-158",
+      "TW-151",
+      "TW-121"
+    ],
+    "reason": "Harbor signs Friday and legal's changes need new paperwork, and Harbor still comes first until they sign. Then Pinecrest's kickoff and the other partners."
+  }
+]

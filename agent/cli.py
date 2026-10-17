@@ -138,7 +138,7 @@ def main():
     reporter.add_argument("run_b")
     live = sub.add_parser("serve")
     live.add_argument("--run", default="learn")
-    live.add_argument("--port", type=int, default=8000)
+    live.add_argument("--port", type=int)
     args = parser.parse_args()
     try:
         if args.command == "validate":

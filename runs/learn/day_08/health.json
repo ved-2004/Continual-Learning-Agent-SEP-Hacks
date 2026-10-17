@@ -1,0 +1,41 @@
+{
+  "day": 8,
+  "alerts": [
+    {
+      "kind": "regression",
+      "person": null,
+      "lesson": null,
+      "detail": "mean 77.8, down 18.0 from day 7"
+    },
+    {
+      "kind": "lesson_overridden",
+      "person": "arjun",
+      "lesson": "L1",
+      "detail": "arjun edited despite using L1"
+    },
+    {
+      "kind": "lesson_overridden",
+      "person": "arjun",
+      "lesson": "L3",
+      "detail": "arjun edited despite using L3"
+    },
+    {
+      "kind": "lesson_overridden",
+      "person": "sam",
+      "lesson": "L7",
+      "detail": "sam edited despite using L7"
+    },
+    {
+      "kind": "lesson_overridden",
+      "person": "jordan",
+      "lesson": "L3",
+      "detail": "jordan edited despite using L3"
+    },
+    {
+      "kind": "lesson_overridden",
+      "person": "jordan",
+      "lesson": "L7",
+      "detail": "jordan edited despite using L7"
+    }
+  ]
+}

@@ -1,0 +1,92 @@
+[
+  {
+    "person": "maya",
+    "action": "edit",
+    "proposed": [
+      "TW-126",
+      "TW-120",
+      "TW-119"
+    ],
+    "final": [
+      "TW-145",
+      "TW-126",
+      "TW-120"
+    ],
+    "reason": "In an escalation I make the customer call myself, so Grace's call is first. Then the Pinecrest demo at three, then the booth script."
+  },
+  {
+    "person": "arjun",
+    "action": "edit",
+    "proposed": [
+      "TW-115",
+      "TW-147",
+      "TW-146"
+    ],
+    "final": [
+      "TW-144",
+      "TW-115",
+      "TW-147"
+    ],
+    "reason": "I'm on call this week, so the Coastal login escalation is mine, even though it was assigned to Leila. Then the scoring API and the demo environment."
+  },
+  {
+    "person": "nina",
+    "action": "edit",
+    "proposed": [
+      "TW-138",
+      "TW-148",
+      "TW-143"
+    ],
+    "final": [
+      "TW-138",
+      "TW-143",
+      "TW-148"
+    ],
+    "reason": "Arjun is on call this week, so the escalation is not mine. Coastal ranking first, it is due Wednesday, then the load test and caching."
+  },
+  {
+    "person": "leila",
+    "action": "edit",
+    "proposed": [
+      "TW-144",
+      "TW-149",
+      "TW-135"
+    ],
+    "final": [
+      "TW-135",
+      "TW-149",
+      "TW-123"
+    ],
+    "reason": "Escalations go to whoever is on call, and that is Arjun this week, even though the ticket is assigned to me. So I keep my plan: empty states, the booth tablet mode, then tooltips."
+  },
+  {
+    "person": "sam",
+    "action": "accept",
+    "proposed": [
+      "TW-150",
+      "TW-119",
+      "TW-109"
+    ],
+    "final": [
+      "TW-150",
+      "TW-119",
+      "TW-109"
+    ],
+    "reason": null
+  },
+  {
+    "person": "jordan",
+    "action": "edit",
+    "proposed": [
+      "TW-145",
+      "TW-121",
+      "TW-124"
+    ],
+    "final": [
+      "TW-121",
+      "TW-124",
+      "TW-113"
+    ],
+    "reason": "In an escalation Maya calls the customer and I keep my plan, even for my own accounts. Valley's setup starts today, then the help articles."
+  }
+]

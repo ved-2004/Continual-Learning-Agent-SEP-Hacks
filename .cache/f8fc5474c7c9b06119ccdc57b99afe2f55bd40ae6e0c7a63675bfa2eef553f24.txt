@@ -1,0 +1,1 @@
+{"ops":[{"op":"add","rule":"When a design partner (Coastal or Valley) asks for something, such as Valley's dark mode request before Expo, do it ahead of internal polish and other Smart Slots or Expo work, because design-partner requests come before internal polish. Harbor renewal work still comes first until Oct 30.","applies_to":["all"],"from_people":["leila"]}]}

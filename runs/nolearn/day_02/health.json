@@ -1,0 +1,11 @@
+{
+  "day": 2,
+  "alerts": [
+    {
+      "kind": "rejected_plan",
+      "person": "nina",
+      "lesson": null,
+      "detail": "nina scored 33.3"
+    }
+  ]
+}

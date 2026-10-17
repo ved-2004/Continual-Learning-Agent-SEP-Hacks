@@ -2,7 +2,6 @@ from pathlib import Path
 from agent.schemas import EvalDay
 from agent.store import load_raw, parse
 
-
 def load_evals(root, history, states, errors):
     root = Path(root)
     paths = sorted((root / "eval").glob("*.json"))
@@ -51,15 +50,12 @@ def load_evals(root, history, states, errors):
             errors.setdefault(str(root / "eval" / f"day_{day.day:02}.json"), []).append("hidden_fact appears in reason")
     return evals, facts
 
-
 WEIGHTS = (3, 2, 1)
-
 
 def score_person(proposed, final):
     earned = sum(WEIGHTS[i] if proposed[i] == ticket else WEIGHTS[i] / 2 if ticket in proposed else 0
                  for i, ticket in enumerate(final))
     return round(100 * earned / 6, 1)
-
 
 def simulate_feedback(plan, eval_day):
     from agent.schemas import Feedback
@@ -71,7 +67,6 @@ def simulate_feedback(plan, eval_day):
         feedback.append(Feedback(person=person.person, action="edit" if edited else "accept",
                                  proposed=proposed, final=record.final, reason=record.reason if edited else None))
     return feedback
-
 
 def score_day(plan, eval_day, date):
     from agent.schemas import DayScore

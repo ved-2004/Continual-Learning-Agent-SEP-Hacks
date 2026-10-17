@@ -1,0 +1,200 @@
+{
+  "summary": "Eight days to FreightWorks Expo. Pinecrest signed, so three design partners are signed, and Coastal's login outage is fixed. Booth print files are due tomorrow and ship Thursday. Pinecrest kickoff is Thursday. Harbor renews Oct 30. Booth-readiness work continues, and staffing and investor meetings are being planned.",
+  "items": [
+    {
+      "type": "status",
+      "text": "Coastal login outage resolved: their identity provider rotated a certificate. Arjun fixed it and added a check. TW-144 done. Grace confirms logins have worked since yesterday afternoon.",
+      "person": "arjun",
+      "ticket": "TW-144",
+      "sources": [
+        "D7-S2",
+        "D7-S3",
+        "D7-J1"
+      ]
+    },
+    {
+      "type": "status",
+      "text": "Maya called Grace and TW-145 is done; logins are back. Whether Coastal's CEO question about Smart Slots readiness was settled is not recorded.",
+      "person": "maya",
+      "ticket": "TW-145",
+      "sources": [
+        "D7-J2",
+        "D6-S4"
+      ]
+    },
+    {
+      "type": "status",
+      "text": "Pinecrest signed as the third Smart Slots design partner. TW-126 is done.",
+      "person": "maya",
+      "ticket": "TW-126",
+      "sources": [
+        "D7-M1",
+        "D7-S1",
+        "D7-J3"
+      ]
+    },
+    {
+      "type": "commitment",
+      "text": "Pinecrest kickoff and data access is planned for Thursday, and Pinecrest wants to be live before Expo. TW-151 is Jordan's, due Oct 29, 3h, todo, high.",
+      "person": "jordan",
+      "ticket": "TW-151",
+      "sources": [
+        "D7-M1",
+        "D7-J11"
+      ]
+    },
+    {
+      "type": "status",
+      "text": "Valley booked 140 slots through Smart Slots yesterday. Coastal has 12 staging users. TW-121 (Coastal and Valley live) is due Oct 30.",
+      "person": "jordan",
+      "ticket": "TW-121",
+      "sources": [
+        "D7-S6",
+        "D6-S7"
+      ]
+    },
+    {
+      "type": "commitment",
+      "text": "Booth print files (TW-150) are due tomorrow, Oct 28, and are in progress. Booth ships Thursday, so printed items must be final by Wednesday.",
+      "person": "sam",
+      "ticket": "TW-150",
+      "sources": [
+        "D7-S4",
+        "D7-M1",
+        "D7-J8"
+      ]
+    },
+    {
+      "type": "commitment",
+      "text": "Leila says the booth tablet must be stable by Oct 28. Empty and error states (TW-135) are merged. Tablet full-screen mode TW-149 is in progress, due Oct 29.",
+      "person": "leila",
+      "ticket": "TW-149",
+      "sources": [
+        "D7-J4",
+        "D7-J5",
+        "D6-J21"
+      ]
+    },
+    {
+      "type": "status",
+      "text": "Scoring API (TW-115, due Oct 28) passed a 5x load test. Nina's 10x load test (TW-143, due Oct 30) is scheduled for Wednesday.",
+      "person": "nina",
+      "ticket": "TW-143",
+      "sources": [
+        "D6-M1",
+        "D6-S6",
+        "D6-J13"
+      ]
+    },
+    {
+      "type": "status",
+      "text": "Nina's Coastal ranking changes are in staging. TW-138 is still in progress, due Oct 28.",
+      "person": "nina",
+      "ticket": "TW-138",
+      "sources": [
+        "D7-S5"
+      ]
+    },
+    {
+      "type": "status",
+      "text": "Arjun's booth tickets: TW-147 demo environment with Coastal's anonymized data is in progress, due Oct 29. TW-146 rate limits is still todo, due Oct 30.",
+      "person": "arjun",
+      "ticket": "TW-147",
+      "sources": [
+        "D7-J6",
+        "D6-J18",
+        "D6-J19"
+      ]
+    },
+    {
+      "type": "status",
+      "text": "Nina's TW-148, caching slot scores for the booth demo, is in progress, due Oct 30, 3h.",
+      "person": "nina",
+      "ticket": "TW-148",
+      "sources": [
+        "D7-J7",
+        "D6-J20"
+      ]
+    },
+    {
+      "type": "status",
+      "text": "Slot picker is merged, so Sam's demo screen 3 (TW-119, due Oct 30) is unblocked. Booth demo runs 2:10, and Sam wanted under two minutes. Maya's script TW-120 is in progress.",
+      "person": "sam",
+      "ticket": "TW-119",
+      "sources": [
+        "D6-M1",
+        "D6-J1",
+        "D6-J11"
+      ]
+    },
+    {
+      "type": "request",
+      "text": "Maya wants four investor meetings booked at the booth during Expo. TW-152 is hers, due Oct 30, 2h, todo.",
+      "person": "maya",
+      "ticket": "TW-152",
+      "sources": [
+        "D7-M1",
+        "D7-J12"
+      ]
+    },
+    {
+      "type": "decision",
+      "text": "Booth staffing will be two people at a time, in shifts. Maya wants the shift plan locked on Thursday.",
+      "person": "maya",
+      "ticket": null,
+      "sources": [
+        "D7-M1"
+      ]
+    },
+    {
+      "type": "commitment",
+      "text": "Maya owns the launch announcement post for Nov 4. TW-153 is due Nov 3, 2h, todo.",
+      "person": "maya",
+      "ticket": "TW-153",
+      "sources": [
+        "D7-J13"
+      ]
+    },
+    {
+      "type": "status",
+      "text": "Jordan's Smart Slots help center articles (TW-124, three for launch day) are in progress, due Nov 3.",
+      "person": "jordan",
+      "ticket": "TW-124",
+      "sources": [
+        "D7-J9"
+      ]
+    },
+    {
+      "type": "status",
+      "text": "Harbor renews Oct 30. Follow-ups are done: QBR notes sent (TW-139), trend chart added (TW-140), sync alerts to Harbor's ops channel (TW-142).",
+      "person": "jordan",
+      "ticket": "TW-139",
+      "sources": [
+        "D6-J3",
+        "D6-J4",
+        "D6-J5"
+      ]
+    },
+    {
+      "type": "status",
+      "text": "Ridgeline renews Nov 20, health yellow after the duplicate appointments, with the fix and retry queue shipped. Jordan's renewal prep TW-113 is in progress, due Nov 13.",
+      "person": "jordan",
+      "ticket": "TW-113",
+      "sources": [
+        "D5-S1",
+        "D5-J3",
+        "D7-J10"
+      ]
+    },
+    {
+      "type": "decision",
+      "text": "Earlier decision stands: Smart Slots is the priority until the Nov 4 Expo, and sync errors wait unless they worsen. Arjun is on call this week.",
+      "person": "maya",
+      "ticket": null,
+      "sources": [
+        "D5-M1",
+        "D6-J8"
+      ]
+    }
+  ]
+}

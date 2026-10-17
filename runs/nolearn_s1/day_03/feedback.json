@@ -1,0 +1,92 @@
+[
+  {
+    "person": "maya",
+    "action": "edit",
+    "proposed": [
+      "TW-126",
+      "TW-111",
+      "TW-120"
+    ],
+    "final": [
+      "TW-134",
+      "TW-126",
+      "TW-111"
+    ],
+    "reason": "When a customer escalates, I make the call myself and our account manager stays on his plan. So Omar's call is mine, then Pinecrest, then the investor update due Friday."
+  },
+  {
+    "person": "arjun",
+    "action": "edit",
+    "proposed": [
+      "TW-133",
+      "TW-115",
+      "TW-127"
+    ],
+    "final": [
+      "TW-104",
+      "TW-115",
+      "TW-127"
+    ],
+    "reason": "Escalations go to whoever is on call, and that is Nina this week, so I stay on my plan even though Jordan assigned me the ticket. The retry queue first, since Harbor's renewal still beats Smart Slots."
+  },
+  {
+    "person": "nina",
+    "action": "accept",
+    "proposed": [
+      "TW-133",
+      "TW-103",
+      "TW-105"
+    ],
+    "final": [
+      "TW-133",
+      "TW-103",
+      "TW-105"
+    ],
+    "reason": null
+  },
+  {
+    "person": "leila",
+    "action": "accept",
+    "proposed": [
+      "TW-117",
+      "TW-135",
+      "TW-123"
+    ],
+    "final": [
+      "TW-117",
+      "TW-135",
+      "TW-123"
+    ],
+    "reason": null
+  },
+  {
+    "person": "sam",
+    "action": "accept",
+    "proposed": [
+      "TW-119",
+      "TW-125",
+      "TW-109"
+    ],
+    "final": [
+      "TW-119",
+      "TW-125",
+      "TW-109"
+    ],
+    "reason": null
+  },
+  {
+    "person": "jordan",
+    "action": "edit",
+    "proposed": [
+      "TW-134",
+      "TW-112",
+      "TW-121"
+    ],
+    "final": [
+      "TW-112",
+      "TW-121",
+      "TW-122"
+    ],
+    "reason": "In an escalation Maya makes the customer call and I keep my plan. Tomorrow's Harbor QBR still comes first, then design partners."
+  }
+]

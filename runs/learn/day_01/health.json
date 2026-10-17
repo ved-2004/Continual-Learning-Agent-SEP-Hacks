@@ -1,0 +1,29 @@
+{
+  "day": 1,
+  "alerts": [
+    {
+      "kind": "repaired",
+      "person": null,
+      "lesson": null,
+      "detail": "decide: arjun: hours must be 0.5-8 each and total at most 8"
+    },
+    {
+      "kind": "rejected_plan",
+      "person": "maya",
+      "lesson": null,
+      "detail": "maya scored 25.0"
+    },
+    {
+      "kind": "rejected_plan",
+      "person": "arjun",
+      "lesson": null,
+      "detail": "arjun scored 8.3"
+    },
+    {
+      "kind": "rejected_plan",
+      "person": "nina",
+      "lesson": null,
+      "detail": "nina scored 41.7"
+    }
+  ]
+}

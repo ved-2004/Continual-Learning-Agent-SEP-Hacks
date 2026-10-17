@@ -1,0 +1,44 @@
+[
+  {
+    "id": "L1",
+    "rule": "Until Harbor renews on Oct 30, put work that helps the Harbor renewal ahead of Smart Slots and Expo work, because Harbor is 38% of revenue and is looking at a competitor before signing.",
+    "applies_to": [
+      "all"
+    ],
+    "created_day": 1,
+    "updated_day": 1,
+    "evidence": [
+      "D1:maya",
+      "D1:arjun",
+      "D1:nina",
+      "D1:leila",
+      "D1:sam"
+    ]
+  },
+  {
+    "id": "L2",
+    "rule": "Until Harbor renews, put fixes for Harbor's two complaints, the Sep 28 sync outage and the CSV export cutoff, ahead of other Harbor work. The written outage postmortem goes first, because Dana wants it in writing.",
+    "applies_to": [
+      "all"
+    ],
+    "created_day": 1,
+    "updated_day": 1,
+    "evidence": [
+      "D1:arjun",
+      "D1:nina",
+      "D1:leila"
+    ]
+  },
+  {
+    "id": "L3",
+    "rule": "When a deliverable is due tomorrow, put it first, even ahead of Harbor renewal work, because the deadline is immediate. Harbor work follows, ahead of other Smart Slots and Expo work.",
+    "applies_to": [
+      "sam"
+    ],
+    "created_day": 1,
+    "updated_day": 1,
+    "evidence": [
+      "D1:sam"
+    ]
+  }
+]

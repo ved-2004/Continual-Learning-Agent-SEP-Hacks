@@ -1,0 +1,14 @@
+{
+  "day": 5,
+  "date": "2026-10-23",
+  "mean": 63.9,
+  "accepts": 1,
+  "people": {
+    "maya": 41.7,
+    "arjun": 100.0,
+    "nina": 58.3,
+    "leila": 50.0,
+    "sam": 58.3,
+    "jordan": 75.0
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "day": 5,
+  "alerts": [
+    {
+      "kind": "rejected_plan",
+      "person": "maya",
+      "lesson": null,
+      "detail": "maya scored 41.7"
+    },
+    {
+      "kind": "regression",
+      "person": null,
+      "lesson": null,
+      "detail": "mean 63.9, down 18.0 from day 4"
+    }
+  ]
+}

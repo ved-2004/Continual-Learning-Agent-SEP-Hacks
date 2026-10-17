@@ -1,0 +1,11 @@
+{
+  "day": 6,
+  "alerts": [
+    {
+      "kind": "repaired",
+      "person": null,
+      "lesson": null,
+      "detail": "interpret: Unterminated string starting at: line 93 column 19 (char 3887)"
+    }
+  ]
+}

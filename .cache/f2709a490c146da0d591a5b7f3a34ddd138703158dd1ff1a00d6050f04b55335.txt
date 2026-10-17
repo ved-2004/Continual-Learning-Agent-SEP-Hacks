@@ -1,0 +1,1 @@
+{"ops":[{"op":"update","id":"L3","rule":"When a deliverable is due today or tomorrow, finish it first, even ahead of Harbor renewal work, because that deadline cannot slip. When several are due, take them in due-date order, ahead of work with no near deadline, such as demo caching.","applies_to":["all"],"from_people":["nina"]}]}

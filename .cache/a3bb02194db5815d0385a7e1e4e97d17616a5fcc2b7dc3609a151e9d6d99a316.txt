@@ -1,0 +1,64 @@
+{
+  "plans": [
+    {
+      "person": "maya",
+      "top3": [
+        {"ticket": "TW-145", "hours": 1, "why": "Coastal's CEO is questioning Smart Slots readiness and the call is due today; as CEO you make the escalation call to Grace yourself.", "sources": ["D6-S4", "D6-J17", "TW-145"]},
+        {"ticket": "TW-126", "hours": 3.5, "why": "Pinecrest live demo is at 3pm today, and signing them gives the third design partner needed for the launch goal.", "sources": ["D6-M1", "D6-J15", "TW-126"]},
+        {"ticket": "TW-120", "hours": 2, "why": "Booth demo script is due Oct 30; tighten it around the Pinecrest demo feedback.", "sources": ["D6-J11", "TW-120"]}
+      ],
+      "lessons_used": ["L5"],
+      "note": "New today: you take the Grace call (TW-145) instead of Jordan, because Coastal's login outage is escalating. Then prep and run the 3pm Pinecrest demo. Script work fills the rest of the day."
+    },
+    {
+      "person": "arjun",
+      "top3": [
+        {"ticket": "TW-144", "hours": 3, "why": "You're on call and Coastal's login redirect loop is a customer escalation due today; dispatchers are back on spreadsheets.", "sources": ["D6-S2", "D6-S3", "TW-144"]},
+        {"ticket": "TW-115", "hours": 3, "why": "Scoring API is due Oct 28 and passed 5x load; finish remaining work for the slot picker backend.", "sources": ["D6-J13", "TW-115"]},
+        {"ticket": "TW-147", "hours": 2, "why": "Demo environment with Coastal's anonymized data is due Oct 29 and the booth needs it.", "sources": ["D6-J19", "TW-147"]}
+      ],
+      "lessons_used": ["L6"],
+      "note": "New today: as on-call engineer you take Coastal's login bug (TW-144) first, reassigned from Leila. Then finish the scoring API and start the demo environment. Rate limits (TW-146) are next."
+    },
+    {
+      "person": "nina",
+      "top3": [
+        {"ticket": "TW-138", "hours": 3.5, "why": "Ranking tuning for Coastal's early docks is due Oct 28 and already shows better suggestions; finish it for the design partner.", "sources": ["D6-J14", "TW-138"]},
+        {"ticket": "TW-148", "hours": 3, "why": "Caching slot scores keeps the booth demo fast on Wi-Fi and is due Oct 30.", "sources": ["D6-J20", "TW-148"]},
+        {"ticket": "TW-143", "hours": 1, "why": "The 10x load test runs Wednesday; confirm the script and environment today so it can go ahead.", "sources": ["D6-S6", "TW-143"]}
+      ],
+      "lessons_used": [],
+      "note": "Harbor work is done, so you're back on Smart Slots. Finish Coastal tuning, start the booth cache, and get the Wednesday load test ready. Arjun is on call, so the login bug isn't yours."
+    },
+    {
+      "person": "leila",
+      "top3": [
+        {"ticket": "TW-135", "hours": 3, "why": "Empty and error states for the slot picker are due Oct 29 and are needed for a clean demo.", "sources": ["D6-J21", "TW-135"]},
+        {"ticket": "TW-149", "hours": 3, "why": "Booth tablet full-screen mode is due Oct 29 and the booth station depends on it.", "sources": ["D6-J21", "TW-149"]},
+        {"ticket": "TW-123", "hours": 2, "why": "Onboarding tooltips in the slot picker are due Nov 2; make progress while the other pieces are unblocked.", "sources": ["TW-123"]}
+      ],
+      "lessons_used": ["L6"],
+      "note": "Changed: Arjun is on call and takes the Coastal login bug (TW-144), so you stay on picker work. Be available if he needs frontend context on the SSO redirect. Empty states and tablet mode both due Oct 29."
+    },
+    {
+      "person": "sam",
+      "top3": [
+        {"ticket": "TW-150", "hours": 2, "why": "Final one-pager print files must be done by Wednesday because the booth ships Thursday; the Figma is already final.", "sources": ["D6-S5", "D6-J22", "TW-150"]},
+        {"ticket": "TW-119", "hours": 5, "why": "Screen 3 is now unblocked by the merged picker; build it and cut the demo from 2:10 toward under 2 minutes.", "sources": ["D6-M1", "D6-J2", "TW-119"]},
+        {"ticket": "TW-109", "hours": 1, "why": "Low-priority settings redesign; only a small slice today after the Expo work.", "sources": ["TW-109"]}
+      ],
+      "lessons_used": [],
+      "note": "Slot picker is merged and pricing is done, so you're clear on screen 3. Send the print files first, then trim the demo to under 2 minutes."
+    },
+    {
+      "person": "jordan",
+      "top3": [
+        {"ticket": "TW-121", "hours": 4, "why": "Coastal and Valley must be live before Expo; Valley setup starts today and Coastal's login outage threatens the design partner.", "sources": ["D6-S7", "D6-M1", "TW-121"]},
+        {"ticket": "TW-124", "hours": 2, "why": "Three help center articles are due Nov 3 for launch day and are still not started.", "sources": ["TW-124"]},
+        {"ticket": "TW-113", "hours": 2, "why": "Ridgeline is yellow with 22% of revenue; start the usage summary and pricing options ahead of Nov 20.", "sources": ["D5-J3", "TW-113"]}
+      ],
+      "lessons_used": ["L5"],
+      "note": "Changed: Maya makes the Grace call (TW-145), so you stay on your own plan. Join the call only if Maya asks. Harbor follow-ups are done; consider creating a Harbor renewal close-out ticket before Oct 30."
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{"step": "interpret", "day": 1, "attempt": 1, "cache_hit": false, "seconds": 10.4679}
+{"step": "decide", "day": 1, "attempt": 1, "cache_hit": false, "seconds": 19.6518}
+{"step": "interpret", "day": 2, "attempt": 1, "cache_hit": false, "seconds": 11.2176}
+{"step": "decide", "day": 2, "attempt": 1, "cache_hit": false, "seconds": 25.0815}
+{"step": "interpret", "day": 3, "attempt": 1, "cache_hit": false, "seconds": 29.9937}
+{"step": "decide", "day": 3, "attempt": 1, "cache_hit": false, "seconds": 22.2545}
+{"step": "interpret", "day": 4, "attempt": 1, "cache_hit": false, "seconds": 9.794}
+{"step": "decide", "day": 4, "attempt": 1, "cache_hit": false, "seconds": 20.5431}
+{"step": "interpret", "day": 5, "attempt": 1, "cache_hit": false, "seconds": 20.3282}
+{"step": "decide", "day": 5, "attempt": 1, "cache_hit": false, "seconds": 21.139}
+{"step": "interpret", "day": 6, "attempt": 1, "cache_hit": false, "seconds": 23.5195}
+{"step": "decide", "day": 6, "attempt": 1, "cache_hit": false, "seconds": 25.1426}
+{"step": "interpret", "day": 7, "attempt": 1, "cache_hit": false, "seconds": 26.8224}
+{"step": "decide", "day": 7, "attempt": 1, "cache_hit": false, "seconds": 21.4884}
+{"step": "interpret", "day": 8, "attempt": 1, "cache_hit": false, "seconds": 11.8153}
+{"step": "decide", "day": 8, "attempt": 1, "cache_hit": false, "seconds": 21.6926}

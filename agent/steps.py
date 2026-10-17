@@ -2,10 +2,8 @@ from pathlib import Path
 from agent import llm, render
 from agent.schemas import Brain, Plan, LearnOutput, Lesson
 
-
 def valid_sources(sources, known):
     return 1 <= len(sources) <= 5 and set(sources) <= known
-
 
 def check_brain(brain, people, tickets, sources):
     errors = []
@@ -17,7 +15,6 @@ def check_brain(brain, people, tickets, sources):
         if not valid_sources(item.sources, sources):
             errors.append(f"Brain item {i}: expected 1-5 known source IDs")
     return errors
-
 
 def check_plan(plan, people, tickets, sources, lessons):
     errors, ids = [], [p.person for p in plan.plans]
@@ -37,12 +34,10 @@ def check_plan(plan, people, tickets, sources, lessons):
                 errors.append(f"{p.person}/{i.ticket}: expected 1-5 known sources/tickets")
     return errors
 
-
 def interpret(purpose, history, day, brain, tickets, sources):
     return llm.call("interpret", day.day, Path("prompts/interpret.md").read_text(),
         render.interpret_message(purpose, history, day, brain, tickets), Brain,
         lambda b: check_brain(b, {p.id for p in history.people}, tickets, sources))
-
 
 def decide(purpose, history, day, brain, tickets, sources, lessons, previous):
     plan = llm.call("decide", day.day, Path("prompts/decide.md").read_text(),
@@ -50,7 +45,6 @@ def decide(purpose, history, day, brain, tickets, sources, lessons, previous):
         lambda p: check_plan(p, {p.id for p in history.people}, tickets, sources, lessons))
     plan.plans.sort(key=lambda p: [person.id for person in history.people].index(p.person))
     return plan
-
 
 def check_learning(output, lessons, people, editors):
     errors = ["At most 6 lesson operations allowed"] if len(output.ops) > 6 else []
@@ -62,7 +56,6 @@ def check_learning(output, lessons, people, editors):
         if not op.from_people or not set(op.from_people) <= editors:
             errors.append("from_people must be nonempty and contain only today's editors")
     return errors
-
 
 def apply_ops(lessons, output, day):
     lessons = [l.model_copy(deep=True) for l in lessons]
@@ -76,7 +69,6 @@ def apply_ops(lessons, output, day):
             lesson.rule, lesson.applies_to, lesson.updated_day = op.rule, op.applies_to, day
             lesson.evidence.extend(evidence)
     return lessons
-
 
 def learn(history, day, lessons, edits, tickets):
     return llm.call("learn", day.day, Path("prompts/learn.md").read_text(),

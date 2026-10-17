@@ -1,0 +1,1 @@
+{"ops":[{"op":"update","id":"L6","rule":"When a customer escalation needs an engineering fix, the on-call engineer takes it first, even if assigned to someone else; others stay on their plans. Then their related bug fix comes next. On call rotates: Nina week of Oct 19, Arjun week of Oct 26.","applies_to":["arjun","nina"],"from_people":["nina"]}]}

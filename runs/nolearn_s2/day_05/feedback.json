@@ -1,0 +1,92 @@
+[
+  {
+    "person": "maya",
+    "action": "accept",
+    "proposed": [
+      "TW-111",
+      "TW-126",
+      "TW-120"
+    ],
+    "final": [
+      "TW-111",
+      "TW-126",
+      "TW-120"
+    ],
+    "reason": null
+  },
+  {
+    "person": "arjun",
+    "action": "accept",
+    "proposed": [
+      "TW-115",
+      "TW-127",
+      "TW-110"
+    ],
+    "final": [
+      "TW-115",
+      "TW-127",
+      "TW-110"
+    ],
+    "reason": null
+  },
+  {
+    "person": "nina",
+    "action": "edit",
+    "proposed": [
+      "TW-138",
+      "TW-142",
+      "TW-143"
+    ],
+    "final": [
+      "TW-142",
+      "TW-138",
+      "TW-143"
+    ],
+    "reason": "Harbor's renewal still comes first until they sign, so their alert request goes first. Then ranking for Coastal, then the load test."
+  },
+  {
+    "person": "leila",
+    "action": "edit",
+    "proposed": [
+      "TW-117",
+      "TW-135",
+      "TW-123"
+    ],
+    "final": [
+      "TW-135",
+      "TW-123",
+      "TW-117"
+    ],
+    "reason": "The slot picker build is waiting on Sam's review, so I finish its empty states and the tooltips first."
+  },
+  {
+    "person": "sam",
+    "action": "edit",
+    "proposed": [
+      "TW-141",
+      "TW-119",
+      "TW-125"
+    ],
+    "final": [
+      "TW-141",
+      "TW-140",
+      "TW-119"
+    ],
+    "reason": "Leila is blocked until I review her build, and unblocking a teammate comes first. Then Harbor's trend chart, since Harbor's renewal still comes before Expo work, then the demo."
+  },
+  {
+    "person": "jordan",
+    "action": "edit",
+    "proposed": [
+      "TW-139",
+      "TW-121",
+      "TW-122"
+    ],
+    "final": [
+      "TW-139",
+      "TW-122",
+      "TW-121"
+    ],
+    "reason": "Harbor's renewal still comes first, so Dana's QBR notes go out first. Expo invites go out today, then design partners."
+  }
+]

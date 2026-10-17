@@ -1,0 +1,189 @@
+{
+  "summary": "One week to Expo; booth ships tomorrow. Print files sent, script final, scoring API and Coastal ranking done. Harbor's legal wants an uptime clause before signing, and the renewal is due Oct 30. Nina's 10x load test runs at 2pm. Pinecrest kickoff is Thursday.",
+  "items": [
+    {
+      "type": "blocker",
+      "text": "Harbor's legal sent redlines overnight and wants an uptime clause before signing. Renewal date is Oct 30. Review ticket TW-154 is Maya's, due Oct 29, 2h; paperwork TW-158 is Jordan's, due Oct 30.",
+      "person": "maya",
+      "ticket": "TW-154",
+      "sources": [
+        "D8-S2",
+        "D8-J10",
+        "D8-M1"
+      ]
+    },
+    {
+      "type": "commitment",
+      "text": "Jordan's TW-158 (new Harbor order form with legal's changes) is due Oct 30 and can only be done once the uptime clause is agreed.",
+      "person": "jordan",
+      "ticket": "TW-158",
+      "sources": [
+        "D8-J14",
+        "D8-S2"
+      ]
+    },
+    {
+      "type": "request",
+      "text": "Dana (Harbor) asked for a monthly sync uptime report to back the SLA. TW-155 is Arjun's, low priority, 3h, no due date.",
+      "person": "arjun",
+      "ticket": "TW-155",
+      "sources": [
+        "D8-S3",
+        "D8-J11"
+      ]
+    },
+    {
+      "type": "request",
+      "text": "Dana (Harbor) asked for an auto-export of the weekly report every Monday. TW-156 is Nina's, low priority, 2h, no due date.",
+      "person": "nina",
+      "ticket": "TW-156",
+      "sources": [
+        "D8-S3",
+        "D8-J12"
+      ]
+    },
+    {
+      "type": "status",
+      "text": "Print files were sent to the printer; TW-150 is done. Booth script TW-120 is final and done. Demo now runs 1:50, under Sam's two-minute target.",
+      "person": "sam",
+      "ticket": "TW-150",
+      "sources": [
+        "D8-J4",
+        "D8-S4",
+        "D8-J1",
+        "D8-M1"
+      ]
+    },
+    {
+      "type": "commitment",
+      "text": "Sam created TW-157, the booth slide loop for the screen between demos, due Oct 31, 3h, todo. Sam's demo flow TW-119 is still in progress, due Oct 30.",
+      "person": "sam",
+      "ticket": "TW-157",
+      "sources": [
+        "D8-J13",
+        "D7-J8"
+      ]
+    },
+    {
+      "type": "commitment",
+      "text": "Nina's 10x load test (TW-143, due Oct 30) starts at 2pm today.",
+      "person": "nina",
+      "ticket": "TW-143",
+      "sources": [
+        "D8-S5",
+        "D8-M1"
+      ]
+    },
+    {
+      "type": "status",
+      "text": "Scoring API TW-115 is done after the load test passed. Nina's Coastal ranking changes shipped; TW-138 is done.",
+      "person": "arjun",
+      "ticket": "TW-115",
+      "sources": [
+        "D8-J2",
+        "D8-J3",
+        "D8-M1"
+      ]
+    },
+    {
+      "type": "blocker",
+      "text": "Arjun's demo environment (TW-147, due Oct 29) still needs Coastal's anonymized week of data loaded. Arjun told standup nothing was blocking him.",
+      "person": "arjun",
+      "ticket": "TW-147",
+      "sources": [
+        "D8-S7",
+        "D8-M1"
+      ]
+    },
+    {
+      "type": "status",
+      "text": "Arjun's TW-146 (rate limits for booth traffic, due Oct 30) moved to in progress. Arjun is on call this week.",
+      "person": "arjun",
+      "ticket": "TW-146",
+      "sources": [
+        "D8-J7",
+        "D6-J8"
+      ]
+    },
+    {
+      "type": "status",
+      "text": "Leila says tablet mode works on the iPad. TW-149 (full-screen mode) is still in progress, due Oct 29. She also moved dark mode TW-108 to in progress.",
+      "person": "leila",
+      "ticket": "TW-149",
+      "sources": [
+        "D8-M1",
+        "D8-J8"
+      ]
+    },
+    {
+      "type": "commitment",
+      "text": "Pinecrest kickoff is confirmed for Thursday. TW-151 is Jordan's, in progress, due Oct 29, high priority.",
+      "person": "jordan",
+      "ticket": "TW-151",
+      "sources": [
+        "D8-S6",
+        "D8-J9",
+        "D8-M1"
+      ]
+    },
+    {
+      "type": "status",
+      "text": "TW-121 (Coastal and Valley live on Smart Slots) is due Oct 30. Valley booked 140 slots and Coastal has 12 staging users.",
+      "person": "jordan",
+      "ticket": "TW-121",
+      "sources": [
+        "D7-S6",
+        "D6-S7"
+      ]
+    },
+    {
+      "type": "status",
+      "text": "Maya moved the investor-meeting booking TW-152 (due Oct 30) and the launch announcement post TW-153 (due Nov 3) to in progress.",
+      "person": "maya",
+      "ticket": "TW-152",
+      "sources": [
+        "D8-J5",
+        "D8-J6"
+      ]
+    },
+    {
+      "type": "decision",
+      "text": "Booth staffing is two people at a time, in shifts. Maya wants the shift plan locked on Thursday.",
+      "person": "maya",
+      "ticket": null,
+      "sources": [
+        "D7-M1"
+      ]
+    },
+    {
+      "type": "status",
+      "text": "Jordan's Smart Slots help center articles (TW-124) are in progress, due Nov 3.",
+      "person": "jordan",
+      "ticket": "TW-124",
+      "sources": [
+        "D7-J9"
+      ]
+    },
+    {
+      "type": "status",
+      "text": "Ridgeline renews Nov 20 and its health is yellow after the duplicate appointments. Fix and retry queue are shipped. Jordan's renewal prep TW-113 is due Nov 13.",
+      "person": "jordan",
+      "ticket": "TW-113",
+      "sources": [
+        "D5-S1",
+        "D5-J3",
+        "D7-J10"
+      ]
+    },
+    {
+      "type": "decision",
+      "text": "Earlier decision stands: Smart Slots is the priority until the Nov 4 Expo; sync errors wait unless they worsen.",
+      "person": "maya",
+      "ticket": null,
+      "sources": [
+        "D5-M1",
+        "D6-J8"
+      ]
+    }
+  ]
+}

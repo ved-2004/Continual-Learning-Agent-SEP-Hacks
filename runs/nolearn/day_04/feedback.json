@@ -1,0 +1,92 @@
+[
+  {
+    "person": "maya",
+    "action": "edit",
+    "proposed": [
+      "TW-136",
+      "TW-126",
+      "TW-111"
+    ],
+    "final": [
+      "TW-136",
+      "TW-111",
+      "TW-126"
+    ],
+    "reason": "It's QBR day and Harbor's renewal still comes before Smart Slots, so the renewal terms come first. The investor update is due tomorrow, then Pinecrest."
+  },
+  {
+    "person": "arjun",
+    "action": "edit",
+    "proposed": [
+      "TW-137",
+      "TW-115",
+      "TW-127"
+    ],
+    "final": [
+      "TW-137",
+      "TW-104",
+      "TW-115"
+    ],
+    "reason": "Nina is waiting on my review of the duplicates fix, and unblocking a teammate always comes first. Then the retry queue for Harbor, then the scoring API."
+  },
+  {
+    "person": "nina",
+    "action": "edit",
+    "proposed": [
+      "TW-138",
+      "TW-103",
+      "TW-105"
+    ],
+    "final": [
+      "TW-105",
+      "TW-103",
+      "TW-138"
+    ],
+    "reason": "Harbor's renewal still comes first, and their team will ask about the error-rate alert at the QBR. Then any review comments on the duplicates fix, then ranking for Coastal."
+  },
+  {
+    "person": "leila",
+    "action": "accept",
+    "proposed": [
+      "TW-117",
+      "TW-135",
+      "TW-123"
+    ],
+    "final": [
+      "TW-117",
+      "TW-135",
+      "TW-123"
+    ],
+    "reason": null
+  },
+  {
+    "person": "sam",
+    "action": "accept",
+    "proposed": [
+      "TW-119",
+      "TW-125",
+      "TW-109"
+    ],
+    "final": [
+      "TW-119",
+      "TW-125",
+      "TW-109"
+    ],
+    "reason": null
+  },
+  {
+    "person": "jordan",
+    "action": "accept",
+    "proposed": [
+      "TW-112",
+      "TW-121",
+      "TW-122"
+    ],
+    "final": [
+      "TW-112",
+      "TW-121",
+      "TW-122"
+    ],
+    "reason": null
+  }
+]

@@ -1,0 +1,92 @@
+[
+  {
+    "person": "maya",
+    "action": "edit",
+    "proposed": [
+      "TW-126",
+      "TW-111",
+      "TW-120"
+    ],
+    "final": [
+      "TW-114",
+      "TW-126",
+      "TW-111"
+    ],
+    "reason": "Dana told me today that Harbor is looking at a competitor before they sign. Harbor is 38% of our revenue, so until Harbor renews on Oct 30, anything that helps that renewal comes before Smart Slots."
+  },
+  {
+    "person": "arjun",
+    "action": "edit",
+    "proposed": [
+      "TW-115",
+      "TW-127",
+      "TW-101"
+    ],
+    "final": [
+      "TW-101",
+      "TW-104",
+      "TW-115"
+    ],
+    "reason": "Harbor's renewal hinges on their two complaints: the Sep 28 sync outage and the export cutoff. Until Harbor renews, fixing those comes before Smart Slots, and the postmortem goes first because Dana wants it in writing."
+  },
+  {
+    "person": "nina",
+    "action": "edit",
+    "proposed": [
+      "TW-116",
+      "TW-128",
+      "TW-105"
+    ],
+    "final": [
+      "TW-102",
+      "TW-128",
+      "TW-116"
+    ],
+    "reason": "Harbor's renewal comes before Smart Slots right now, and the export cutoff is one of their two complaints. Jordan needs the Q3 numbers for Thursday's QBR. Ranking comes after."
+  },
+  {
+    "person": "leila",
+    "action": "edit",
+    "proposed": [
+      "TW-117",
+      "TW-123",
+      "TW-107"
+    ],
+    "final": [
+      "TW-107",
+      "TW-117",
+      "TW-123"
+    ],
+    "reason": "Harbor's renewal comes before Smart Slots right now, and large exports are one of Harbor's complaints, so the export page goes first."
+  },
+  {
+    "person": "sam",
+    "action": "edit",
+    "proposed": [
+      "TW-118",
+      "TW-119",
+      "TW-125"
+    ],
+    "final": [
+      "TW-118",
+      "TW-106",
+      "TW-119"
+    ],
+    "reason": "The final screens are due tomorrow, so they come first. Then Harbor's usage report, because Harbor's renewal comes before Expo work right now."
+  },
+  {
+    "person": "jordan",
+    "action": "accept",
+    "proposed": [
+      "TW-112",
+      "TW-121",
+      "TW-122"
+    ],
+    "final": [
+      "TW-112",
+      "TW-121",
+      "TW-122"
+    ],
+    "reason": null
+  }
+]

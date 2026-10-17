@@ -1,0 +1,224 @@
+{
+  "plans": [
+    {
+      "person": "maya",
+      "top3": [
+        {
+          "ticket": "TW-126",
+          "hours": 3.0,
+          "why": "Pinecrest wants a live demo before signing; without them the 3-partner launch goal is at risk, 14 days out.",
+          "sources": [
+            "D2-M1",
+            "D2-J11",
+            "TW-126"
+          ]
+        },
+        {
+          "ticket": "TW-111",
+          "hours": 3.0,
+          "why": "Investor update is due Oct 23, and a 3h estimate means it must be finished by tomorrow.",
+          "sources": [
+            "D3-J8",
+            "TW-111"
+          ]
+        },
+        {
+          "ticket": "TW-120",
+          "hours": 2.0,
+          "why": "Start the 3-minute booth script now that the booth plan (live demo, tablet, back wall) is decided.",
+          "sources": [
+            "D3-M1",
+            "TW-120"
+          ]
+        }
+      ],
+      "lessons_used": [],
+      "note": "Ridgeline's CFO was copied on this morning's double-bookings, so stay reachable for Jordan after his call. Pinecrest demo is still the Smart Slots priority. Pricing numbers to Sam are due Friday."
+    },
+    {
+      "person": "arjun",
+      "top3": [
+        {
+          "ticket": "TW-133",
+          "hours": 4.0,
+          "why": "Nine Ridgeline trucks double-booked at Reno, CFO copied, fix due today; errors worsened, so the sync-wait decision no longer holds.",
+          "sources": [
+            "D3-S3",
+            "D3-J16",
+            "TW-133"
+          ]
+        },
+        {
+          "ticket": "TW-104",
+          "hours": 2.5,
+          "why": "Retry queue is a Sep 28 postmortem follow-up running in staging; Harbor renewal work comes before Smart Slots.",
+          "sources": [
+            "D3-S5",
+            "D3-J14",
+            "TW-104"
+          ]
+        },
+        {
+          "ticket": "TW-115",
+          "hours": 1.5,
+          "why": "Wire the merged ranking into the scoring API; due Oct 28, so keep it moving.",
+          "sources": [
+            "D3-S5",
+            "D3-J2",
+            "TW-115"
+          ]
+        }
+      ],
+      "lessons_used": [
+        "L2"
+      ],
+      "note": "New today: TW-133 jumps to first because of the Reno double-bookings and 4.2% errors. Retry queue next, scoring API gets the remainder. Interviews are Thursday and Friday, so finish the fix today."
+    },
+    {
+      "person": "nina",
+      "top3": [
+        {
+          "ticket": "TW-103",
+          "hours": 3.0,
+          "why": "Reno duplicates spiked overnight with the same pattern as TW-103; you are on call and own the sync duplicate bug.",
+          "sources": [
+            "D3-S3",
+            "D3-J15",
+            "TW-103"
+          ]
+        },
+        {
+          "ticket": "TW-105",
+          "hours": 3.0,
+          "why": "Sync-error alert is a postmortem action item; 4.2% overnight errors show why it matters before Smart Slots work.",
+          "sources": [
+            "D3-S5",
+            "D3-J7",
+            "TW-105"
+          ]
+        },
+        {
+          "ticket": "TW-133",
+          "hours": 2.0,
+          "why": "Support Arjun on the Reno double-booking fix, since it shares the duplicate pattern with TW-103.",
+          "sources": [
+            "D3-S3",
+            "D3-J16",
+            "TW-133"
+          ]
+        }
+      ],
+      "lessons_used": [
+        "L2"
+      ],
+      "note": "Ranking is merged, so you're clear of it. Today is the sync duplicate work: the root cause in TW-103 and the alert. Pair with Arjun on TW-133 as you're on call. Create a ticket for the Harbor 5,000-row export cutoff if still open."
+    },
+    {
+      "person": "leila",
+      "top3": [
+        {
+          "ticket": "TW-117",
+          "hours": 4.0,
+          "why": "Picker design is frozen; the booth tablet uses the real picker, which must be stable by Oct 28.",
+          "sources": [
+            "D3-M1",
+            "D3-J18",
+            "TW-117"
+          ]
+        },
+        {
+          "ticket": "TW-135",
+          "hours": 3.0,
+          "why": "Empty and error states are needed for a stable booth picker; due Oct 29.",
+          "sources": [
+            "D3-J18",
+            "TW-135"
+          ]
+        },
+        {
+          "ticket": "TW-123",
+          "hours": 1.0,
+          "why": "Onboarding tooltips are due Nov 2; make progress without delaying the picker.",
+          "sources": [
+            "TW-123"
+          ]
+        }
+      ],
+      "lessons_used": [],
+      "note": "Design freezes today, so build against the final picker. No Harbor ticket is open for you; if the 5,000-row export cutoff is unresolved, create a ticket for it."
+    },
+    {
+      "person": "sam",
+      "top3": [
+        {
+          "ticket": "TW-119",
+          "hours": 4.0,
+          "why": "Screens 1 and 2 are done; use Coastal's anonymized data to prepare screen 3 and give final picker feedback before the freeze today.",
+          "sources": [
+            "D3-S7",
+            "D3-M1",
+            "TW-119"
+          ]
+        },
+        {
+          "ticket": "TW-125",
+          "hours": 2.5,
+          "why": "Draft the pricing page and one-pager structure now; final numbers from Maya arrive Friday.",
+          "sources": [
+            "D3-M1",
+            "TW-125"
+          ]
+        },
+        {
+          "ticket": "TW-109",
+          "hours": 1.5,
+          "why": "Only low-priority backlog work left after the Expo items; fit in a short slice.",
+          "sources": [
+            "TW-109"
+          ]
+        }
+      ],
+      "lessons_used": [],
+      "note": "Design freezes after today, so send any last picker changes now. Screen 3 depends on the picker build. Pricing numbers from Maya come Friday, so lay out the pricing page and one-pager structure first."
+    },
+    {
+      "person": "jordan",
+      "top3": [
+        {
+          "ticket": "TW-134",
+          "hours": 1.0,
+          "why": "Omar wants a call before noon about the Reno double-bookings and copied his CFO; Ridgeline renews Nov 20 at yellow health.",
+          "sources": [
+            "D3-S4",
+            "D3-J17",
+            "TW-134"
+          ]
+        },
+        {
+          "ticket": "TW-112",
+          "hours": 4.0,
+          "why": "Harbor QBR is tomorrow; the deck is drafted and renewal is Oct 30, so it comes before Smart Slots.",
+          "sources": [
+            "D3-J13",
+            "D3-J1",
+            "TW-112"
+          ]
+        },
+        {
+          "ticket": "TW-121",
+          "hours": 2.0,
+          "why": "Prepare for Thursday's Coastal kickoff; Valley is still waiting on data access.",
+          "sources": [
+            "D2-S7",
+            "D2-J10",
+            "TW-121"
+          ]
+        }
+      ],
+      "lessons_used": [
+        "L3"
+      ],
+      "note": "The Omar call comes first, before noon, then QBR prep. Arjun is on the fix for TW-133, so tell Omar. Final QBR numbers arrive tomorrow morning. Coastal prep fits in the rest of the day."
+    }
+  ]
+}

@@ -1,0 +1,207 @@
+{
+  "plans": [
+    {
+      "person": "maya",
+      "top3": [
+        {
+          "ticket": "TW-126",
+          "hours": 3.5,
+          "why": "Third design partner is unsigned and the 3-partner launch goal depends on it. Pinecrest is due Oct 30.",
+          "sources": [
+            "TW-126",
+            "D1-M1"
+          ]
+        },
+        {
+          "ticket": "TW-111",
+          "hours": 2.5,
+          "why": "Investor update is due Oct 23, so draft it today while Thursday stays free for the Harbor QBR.",
+          "sources": [
+            "TW-111",
+            "D1-S9"
+          ]
+        },
+        {
+          "ticket": "TW-120",
+          "hours": 2.0,
+          "why": "Booth demo script is due Oct 30. Start it before Wednesday's booth design review with Sam.",
+          "sources": [
+            "TW-120",
+            "D1-S9"
+          ]
+        }
+      ],
+      "lessons_used": [],
+      "note": "Smart Slots is the company focus. Spend today closing Pinecrest, then clear the investor update. Draft the demo script before Wednesday's booth review. Schedule the Harbor check-in (TW-114) after the QBR."
+    },
+    {
+      "person": "arjun",
+      "top3": [
+        {
+          "ticket": "TW-115",
+          "hours": 4.0,
+          "why": "Scoring API is the Smart Slots backend. Finish integration points and be ready to wire in Nina's ranking Wednesday.",
+          "sources": [
+            "TW-115",
+            "D1-S2"
+          ]
+        },
+        {
+          "ticket": "TW-127",
+          "hours": 2.5,
+          "why": "Coastal and Valley cannot go live without endpoint docs, due Oct 26. Writing them now protects the partner timeline.",
+          "sources": [
+            "TW-127",
+            "D1-J1"
+          ]
+        },
+        {
+          "ticket": "TW-101",
+          "hours": 1.5,
+          "why": "Harbor's Sep 28 outage postmortem is unwritten and gives Jordan an answer before Thursday's QBR and the Oct 30 renewal.",
+          "sources": [
+            "TW-101",
+            "D1-M1"
+          ]
+        }
+      ],
+      "lessons_used": [],
+      "note": "Focus on Smart Slots. Prep TW-115 for Nina's ranking on Wednesday and get the partner docs done early. Retry queue work stays deferred until after Expo."
+    },
+    {
+      "person": "nina",
+      "top3": [
+        {
+          "ticket": "TW-116",
+          "hours": 5.5,
+          "why": "Ranking is promised Wednesday and blocks Arjun's scoring API wiring. It is the critical path for Smart Slots.",
+          "sources": [
+            "TW-116",
+            "D1-S2",
+            "D1-S3"
+          ]
+        },
+        {
+          "ticket": "TW-128",
+          "hours": 1.0,
+          "why": "Q3 usage numbers are due Oct 21 and Jordan needs them for Thursday's Harbor QBR deck.",
+          "sources": [
+            "TW-128",
+            "D1-S6"
+          ]
+        },
+        {
+          "ticket": "TW-105",
+          "hours": 1.0,
+          "why": "You're on call. The sync alert catches any worsening past 1%, the condition for reviving deferred sync work.",
+          "sources": [
+            "TW-105",
+            "D1-S8"
+          ]
+        }
+      ],
+      "lessons_used": [],
+      "note": "Protect time for the ranking, since Arjun and Wednesday depend on it. Send Jordan the usage numbers today. Sync fixes remain deferred, but the alert tells us if they stop being so."
+    },
+    {
+      "person": "leila",
+      "top3": [
+        {
+          "ticket": "TW-117",
+          "hours": 6.0,
+          "why": "Slot picker is the core Smart Slots UI, due Oct 29. Continue on placeholders and swap in Sam's final screens when they land.",
+          "sources": [
+            "TW-117",
+            "D1-J4"
+          ]
+        },
+        {
+          "ticket": "TW-123",
+          "hours": 1.5,
+          "why": "Onboarding tooltips are due Nov 2. Start the parts that do not depend on final screens.",
+          "sources": [
+            "TW-123"
+          ]
+        },
+        {
+          "ticket": "TW-107",
+          "hours": 0.5,
+          "why": "Export progress is Harbor-related but deferred, so only a brief scoping look while waiting for Sam's screens.",
+          "sources": [
+            "TW-107",
+            "D1-M1"
+          ]
+        }
+      ],
+      "lessons_used": [],
+      "note": "Sam's final screens (TW-118) arrive by 3pm. Keep building TW-117 on placeholders, then switch to the final designs this afternoon."
+    },
+    {
+      "person": "sam",
+      "top3": [
+        {
+          "ticket": "TW-118",
+          "hours": 4.0,
+          "why": "Final slot picker screens are promised by 3pm today and are blocking Leila's TW-117.",
+          "sources": [
+            "TW-118",
+            "D1-S5"
+          ]
+        },
+        {
+          "ticket": "TW-119",
+          "hours": 3.0,
+          "why": "Start the Expo demo flow right after handing off screens. It is due Oct 30 and is an 8h job.",
+          "sources": [
+            "TW-119",
+            "D1-S5"
+          ]
+        },
+        {
+          "ticket": "TW-125",
+          "hours": 1.0,
+          "why": "Pricing page is due Oct 30. A first pass today lowers later crunch before the Expo.",
+          "sources": [
+            "TW-125"
+          ]
+        }
+      ],
+      "lessons_used": [],
+      "note": "Ship the final screens by 3pm and tell Leila. Then start the demo flow. Wednesday's booth review with Maya needs something to show."
+    },
+    {
+      "person": "jordan",
+      "top3": [
+        {
+          "ticket": "TW-112",
+          "hours": 4.0,
+          "why": "Harbor QBR is Thursday and Harbor is 38% of revenue. The deck is due Oct 22 and needs Nina's numbers.",
+          "sources": [
+            "TW-112",
+            "D1-S6"
+          ]
+        },
+        {
+          "ticket": "TW-121",
+          "hours": 2.5,
+          "why": "Getting Coastal and Valley live is needed for the 3-partner goal. Valley's data access is still unresolved.",
+          "sources": [
+            "TW-121",
+            "D1-M1"
+          ]
+        },
+        {
+          "ticket": "TW-122",
+          "hours": 1.5,
+          "why": "Booth meeting invites are due Oct 28 and Expo invites go out Friday.",
+          "sources": [
+            "TW-122",
+            "D1-S9"
+          ]
+        }
+      ],
+      "lessons_used": [],
+      "note": "Finish the QBR deck first and get Nina's usage numbers by tomorrow. Then push Valley on data access. Ridgeline renewal prep (TW-113) is due Nov 13, so it comes next."
+    }
+  ]
+}

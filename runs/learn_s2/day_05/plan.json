@@ -1,0 +1,223 @@
+{
+  "plans": [
+    {
+      "person": "maya",
+      "top3": [
+        {
+          "ticket": "TW-111",
+          "hours": 1.0,
+          "why": "Investor update is due today and you said it goes out today; finish and send it first.",
+          "sources": [
+            "TW-111",
+            "D5-J8"
+          ]
+        },
+        {
+          "ticket": "TW-126",
+          "hours": 2.5,
+          "why": "Pinecrest live demo is Monday and a third design partner is needed for the G1 metric; prepare the demo.",
+          "sources": [
+            "TW-126",
+            "D4-J9"
+          ]
+        },
+        {
+          "ticket": "TW-120",
+          "hours": 2.0,
+          "why": "Booth script is due Oct 30, and the dry run ran 2:40 against a 3-minute script.",
+          "sources": [
+            "TW-120",
+            "D5-M1"
+          ]
+        }
+      ],
+      "lessons_used": [
+        "L8"
+      ],
+      "note": "TW-136 is done. No Harbor work is open for you, so the investor update goes first. Sam needs your final pricing numbers today; send them before anything else. No ticket exists for that, so create one."
+    },
+    {
+      "person": "arjun",
+      "top3": [
+        {
+          "ticket": "TW-127",
+          "hours": 2.0,
+          "why": "Endpoint docs are due Monday, and Valley's Smart Slots setup starts then; Coastal also needs them before going live.",
+          "sources": [
+            "TW-127",
+            "D4-J6"
+          ]
+        },
+        {
+          "ticket": "TW-115",
+          "hours": 3.0,
+          "why": "Scoring API is high priority, due Oct 28, and load testing is next; it backs the slot picker.",
+          "sources": [
+            "TW-115",
+            "D4-J5"
+          ]
+        },
+        {
+          "ticket": "TW-110",
+          "hours": 3.0,
+          "why": "Second backend candidate interview is at 3pm today.",
+          "sources": [
+            "TW-110",
+            "D5-S7"
+          ]
+        }
+      ],
+      "lessons_used": [
+        "L7"
+      ],
+      "note": "Retry queue and duplicates fix are done, so the sync work is off your plan. No backend PR is waiting on you. Finish the docs, move the scoring API forward, then do the 3pm interview."
+    },
+    {
+      "person": "nina",
+      "top3": [
+        {
+          "ticket": "TW-142",
+          "hours": 2.0,
+          "why": "Harbor's ops lead wants our sync alerts in their channel; the alert is live, and Harbor renews Oct 30.",
+          "sources": [
+            "TW-142",
+            "D5-J13",
+            "D5-S6"
+          ]
+        },
+        {
+          "ticket": "TW-138",
+          "hours": 4.0,
+          "why": "Coastal's early-morning suggestions look off. This is in progress and due Oct 28 for a design partner.",
+          "sources": [
+            "TW-138",
+            "D5-J7"
+          ]
+        },
+        {
+          "ticket": "TW-143",
+          "hours": 2.0,
+          "why": "Load test at 10x booth traffic is due Oct 30; start the setup while the scoring API lands.",
+          "sources": [
+            "TW-143",
+            "D5-J14"
+          ]
+        }
+      ],
+      "lessons_used": [
+        "L1",
+        "L5"
+      ],
+      "note": "TW-103 and TW-105 are done. Harbor alert routing now comes first because Harbor renews Oct 30. No escalation is open for on-call today. Then Coastal ranking, then start the load test."
+    },
+    {
+      "person": "leila",
+      "top3": [
+        {
+          "ticket": "TW-135",
+          "hours": 3.0,
+          "why": "Error states are in progress, due Oct 29. You can finish them while PR #241 waits on design review.",
+          "sources": [
+            "TW-135",
+            "D5-J9"
+          ]
+        },
+        {
+          "ticket": "TW-117",
+          "hours": 3.0,
+          "why": "The picker must be stable by Oct 28 for the booth tablet. Address review feedback as soon as Sam finishes.",
+          "sources": [
+            "TW-117",
+            "D3-M1"
+          ]
+        },
+        {
+          "ticket": "TW-123",
+          "hours": 2.0,
+          "why": "Onboarding tooltips are due Nov 2 and sit in the slot picker you're stabilizing.",
+          "sources": [
+            "TW-123"
+          ]
+        }
+      ],
+      "lessons_used": [],
+      "note": "PR #241 is up and waits on Sam's design review, which he is doing first today. Use the wait for the error states. If Harbor's CSV export cutoff has no ticket yet, create one."
+    },
+    {
+      "person": "sam",
+      "top3": [
+        {
+          "ticket": "TW-141",
+          "hours": 1.0,
+          "why": "Your design review blocks PR #241 and Leila's TW-117, which also gates demo screen 3.",
+          "sources": [
+            "TW-141",
+            "D5-S2",
+            "D5-J12"
+          ]
+        },
+        {
+          "ticket": "TW-140",
+          "hours": 3.0,
+          "why": "Dana asked for the 4-week dock trend at the QBR; Harbor renews Oct 30, so it goes ahead of Expo work.",
+          "sources": [
+            "TW-140",
+            "D5-J11"
+          ]
+        },
+        {
+          "ticket": "TW-119",
+          "hours": 4.0,
+          "why": "Demo is due Oct 30, and the 2:40 run needs trimming under two minutes. Do screen 3 once the picker merges.",
+          "sources": [
+            "TW-119",
+            "D5-M1"
+          ]
+        }
+      ],
+      "lessons_used": [
+        "L4",
+        "L1",
+        "L3"
+      ],
+      "note": "Review PR #241 first because it blocks Leila. Harbor's trend report comes next. The pricing page (TW-125) is out of today's plan until Maya's numbers arrive, which she promised for today."
+    },
+    {
+      "person": "jordan",
+      "top3": [
+        {
+          "ticket": "TW-139",
+          "hours": 1.0,
+          "why": "Dana's QBR follow-up notes are due today, and Harbor renews Oct 30.",
+          "sources": [
+            "TW-139",
+            "D5-J10",
+            "D5-S3"
+          ]
+        },
+        {
+          "ticket": "TW-122",
+          "hours": 3.5,
+          "why": "Expo invites go out today and the 40-account list is due Oct 28.",
+          "sources": [
+            "TW-122",
+            "D5-S4"
+          ]
+        },
+        {
+          "ticket": "TW-121",
+          "hours": 3.5,
+          "why": "Coastal and Valley must be live before Expo; Valley setup starts Monday, so prepare today.",
+          "sources": [
+            "TW-121",
+            "D5-S5"
+          ]
+        }
+      ],
+      "lessons_used": [
+        "L3"
+      ],
+      "note": "TW-112 is done and the QBR went well. Send the Harbor notes first, since they are due today. Then do the Expo invites and design-partner go-live. Ridgeline prep (TW-113) is due Nov 13."
+    }
+  ]
+}

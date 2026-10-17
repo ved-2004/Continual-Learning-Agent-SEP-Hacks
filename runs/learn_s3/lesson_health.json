@@ -1,0 +1,57 @@
+{
+  "L1": {
+    "uses": 19,
+    "overrides": 10,
+    "flagged": true
+  },
+  "L2": {
+    "uses": 2,
+    "overrides": 2,
+    "flagged": true
+  },
+  "L3": {
+    "uses": 6,
+    "overrides": 3,
+    "flagged": true
+  },
+  "L4": {
+    "uses": 0,
+    "overrides": 0,
+    "flagged": false
+  },
+  "L5": {
+    "uses": 6,
+    "overrides": 4,
+    "flagged": true
+  },
+  "L6": {
+    "uses": 4,
+    "overrides": 0,
+    "flagged": false
+  },
+  "L7": {
+    "uses": 0,
+    "overrides": 0,
+    "flagged": false
+  },
+  "L8": {
+    "uses": 0,
+    "overrides": 0,
+    "flagged": false
+  },
+  "L9": {
+    "uses": 2,
+    "overrides": 1,
+    "flagged": false
+  },
+  "L10": {
+    "uses": 1,
+    "overrides": 1,
+    "flagged": false
+  },
+  "L11": {
+    "uses": 1,
+    "overrides": 0,
+    "flagged": false
+  }
+}

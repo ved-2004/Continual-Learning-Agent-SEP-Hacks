@@ -1,0 +1,37 @@
+{
+  "L1": {
+    "uses": 14,
+    "overrides": 4,
+    "flagged": false
+  },
+  "L2": {
+    "uses": 6,
+    "overrides": 3,
+    "flagged": true
+  },
+  "L3": {
+    "uses": 10,
+    "overrides": 4,
+    "flagged": false
+  },
+  "L4": {
+    "uses": 3,
+    "overrides": 1,
+    "flagged": false
+  },
+  "L5": {
+    "uses": 2,
+    "overrides": 0,
+    "flagged": false
+  },
+  "L6": {
+    "uses": 3,
+    "overrides": 0,
+    "flagged": false
+  },
+  "L7": {
+    "uses": 3,
+    "overrides": 2,
+    "flagged": true
+  }
+}

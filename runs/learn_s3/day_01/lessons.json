@@ -1,0 +1,58 @@
+[
+  {
+    "id": "L1",
+    "rule": "Until Harbor Foods renews on Oct 30, put work that helps the renewal ahead of Smart Slots and Expo work, because Harbor is 38% of revenue and is considering a competitor before signing.",
+    "applies_to": [
+      "all"
+    ],
+    "created_day": 1,
+    "updated_day": 1,
+    "evidence": [
+      "D1:maya",
+      "D1:arjun",
+      "D1:nina",
+      "D1:leila",
+      "D1:sam"
+    ]
+  },
+  {
+    "id": "L2",
+    "rule": "For Harbor renewal work, fix Harbor's two named complaints first: the Sep 28 sync outage and the CSV export cutoff. Do the written postmortem first, because Dana Whitfield wants it in writing.",
+    "applies_to": [
+      "arjun",
+      "nina",
+      "leila"
+    ],
+    "created_day": 1,
+    "updated_day": 1,
+    "evidence": [
+      "D1:arjun",
+      "D1:nina",
+      "D1:leila"
+    ]
+  },
+  {
+    "id": "L3",
+    "rule": "When a deliverable is due the next day, put it first, even ahead of Harbor renewal work, because the deadline is immediate. Harbor work comes right after.",
+    "applies_to": [
+      "sam"
+    ],
+    "created_day": 1,
+    "updated_day": 1,
+    "evidence": [
+      "D1:sam"
+    ]
+  },
+  {
+    "id": "L4",
+    "rule": "When a teammate needs data for a customer meeting this week, such as Harbor's Thursday QBR, schedule it early in the week, ahead of internal feature work, because the meeting date is fixed.",
+    "applies_to": [
+      "nina"
+    ],
+    "created_day": 1,
+    "updated_day": 1,
+    "evidence": [
+      "D1:nina"
+    ]
+  }
+]

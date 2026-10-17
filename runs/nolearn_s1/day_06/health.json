@@ -1,0 +1,35 @@
+{
+  "day": 6,
+  "alerts": [
+    {
+      "kind": "rejected_plan",
+      "person": "maya",
+      "lesson": null,
+      "detail": "maya scored 25.0"
+    },
+    {
+      "kind": "rejected_plan",
+      "person": "arjun",
+      "lesson": null,
+      "detail": "arjun scored 25.0"
+    },
+    {
+      "kind": "rejected_plan",
+      "person": "leila",
+      "lesson": null,
+      "detail": "leila scored 41.7"
+    },
+    {
+      "kind": "rejected_plan",
+      "person": "jordan",
+      "lesson": null,
+      "detail": "jordan scored 41.7"
+    },
+    {
+      "kind": "regression",
+      "person": null,
+      "lesson": null,
+      "detail": "mean 51.4, down 20.8 from day 5"
+    }
+  ]
+}

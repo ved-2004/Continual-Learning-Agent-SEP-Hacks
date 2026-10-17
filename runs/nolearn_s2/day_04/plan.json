@@ -1,0 +1,206 @@
+{
+  "plans": [
+    {
+      "person": "maya",
+      "top3": [
+        {
+          "ticket": "TW-136",
+          "hours": 1.0,
+          "why": "Dana wants renewal terms on one page before the 2pm QBR; Harbor is 38% of revenue and renews Oct 30.",
+          "sources": [
+            "D4-J13",
+            "TW-136"
+          ]
+        },
+        {
+          "ticket": "TW-126",
+          "hours": 3.0,
+          "why": "Pinecrest's live demo is Monday and a third signed design partner is needed for the G1 metric.",
+          "sources": [
+            "D4-J9",
+            "TW-126"
+          ]
+        },
+        {
+          "ticket": "TW-111",
+          "hours": 2.0,
+          "why": "Investor update is due tomorrow; the draft is done and only needs October numbers.",
+          "sources": [
+            "D4-J10",
+            "TW-111"
+          ]
+        }
+      ],
+      "lessons_used": [],
+      "note": "TW-136 is due today and comes first. Sam is blocked on your pricing numbers, promised Friday, and no ticket tracks them. Create one, e.g. 'Final Smart Slots pricing numbers', so TW-125 and the one-pager can move."
+    },
+    {
+      "person": "arjun",
+      "top3": [
+        {
+          "ticket": "TW-137",
+          "hours": 1.0,
+          "why": "PR #238 is the root-cause fix for Ridgeline's duplicates and is blocked only on your review.",
+          "sources": [
+            "D4-S2",
+            "TW-137"
+          ]
+        },
+        {
+          "ticket": "TW-115",
+          "hours": 3.5,
+          "why": "Ranking is wired in and load testing is next; the scoring API is due Oct 28 and feeds the slot picker.",
+          "sources": [
+            "D4-J5",
+            "TW-115"
+          ]
+        },
+        {
+          "ticket": "TW-104",
+          "hours": 2.0,
+          "why": "Retry queue ships to production tomorrow; finish pre-release checks and prep the Sep 28 outage talking points for the 2pm QBR.",
+          "sources": [
+            "D4-M1",
+            "D4-J4"
+          ]
+        }
+      ],
+      "lessons_used": [],
+      "note": "Changed: TW-133 is done, so TW-137 replaces it. TW-127 docs are due Monday, so pick them up after Friday's interview (TW-110) and the TW-104 release. Reserve time for the 2pm QBR."
+    },
+    {
+      "person": "nina",
+      "top3": [
+        {
+          "ticket": "TW-138",
+          "hours": 3.0,
+          "why": "Arjun flagged Coastal's early-morning suggestions as off. Coastal is a design partner and this is due Oct 28.",
+          "sources": [
+            "D4-J15",
+            "TW-138"
+          ]
+        },
+        {
+          "ticket": "TW-105",
+          "hours": 3.0,
+          "why": "The sync error alert is Arjun's answer to Harbor's question about learning of outages first, and you are on-call this week.",
+          "sources": [
+            "D4-M1",
+            "D3-J7"
+          ]
+        },
+        {
+          "ticket": "TW-103",
+          "hours": 1.0,
+          "why": "PR #238 awaits Arjun's review; be ready to address feedback so the Ridgeline duplicates fix can ship.",
+          "sources": [
+            "D4-S2",
+            "TW-103"
+          ]
+        }
+      ],
+      "lessons_used": [],
+      "note": "Changed: Reno cleanup (TW-133) is done and Reno ran clean. Focus moves to Coastal ranking tuning (TW-138), then the alert, with a short slot kept for PR #238 feedback."
+    },
+    {
+      "person": "leila",
+      "top3": [
+        {
+          "ticket": "TW-117",
+          "hours": 5.0,
+          "why": "The slot picker must be stable by Oct 28 for the booth tablet, and Sam's demo screen 3 waits on it.",
+          "sources": [
+            "D4-J7",
+            "D4-J12"
+          ]
+        },
+        {
+          "ticket": "TW-135",
+          "hours": 2.5,
+          "why": "Empty and error states are in progress and due Oct 29; the booth demo needs the picker to fail gracefully.",
+          "sources": [
+            "D4-J7",
+            "TW-135"
+          ]
+        },
+        {
+          "ticket": "TW-123",
+          "hours": 0.5,
+          "why": "Onboarding tooltips are due Nov 2; a short slot keeps them moving behind the picker.",
+          "sources": [
+            "TW-123"
+          ]
+        }
+      ],
+      "lessons_used": [],
+      "note": "Same focus as before: the slot picker is the critical path for Sam's demo screen 3. Share an early build with Sam as soon as it is usable."
+    },
+    {
+      "person": "sam",
+      "top3": [
+        {
+          "ticket": "TW-119",
+          "hours": 4.0,
+          "why": "Screens 1 and 2 are done; prepare screen 3 and sample data so it drops in once Leila's picker build lands.",
+          "sources": [
+            "D4-J12",
+            "TW-119"
+          ]
+        },
+        {
+          "ticket": "TW-125",
+          "hours": 2.0,
+          "why": "Pricing page draft is in Figma; get the layout ready so final numbers from Maya (due Friday) can drop in.",
+          "sources": [
+            "D4-S5",
+            "TW-125"
+          ]
+        },
+        {
+          "ticket": "TW-109",
+          "hours": 2.0,
+          "why": "Settings redesign is low priority but is the only unblocked work while pricing and the picker build are pending.",
+          "sources": [
+            "TW-109"
+          ]
+        }
+      ],
+      "lessons_used": [],
+      "note": "You are waiting on pricing numbers (Maya, Friday) and the slot picker build (Leila). Prep everything else now, and use leftover time on TW-109."
+    },
+    {
+      "person": "jordan",
+      "top3": [
+        {
+          "ticket": "TW-112",
+          "hours": 3.0,
+          "why": "Harbor QBR is at 2pm today; Harbor is 38% of revenue. Finalize the numbers and be ready for Dana's usage report question.",
+          "sources": [
+            "D4-M1",
+            "D4-S4"
+          ]
+        },
+        {
+          "ticket": "TW-121",
+          "hours": 2.5,
+          "why": "Coastal is live in staging and Valley has data access; start Valley setup so both partners are live before Expo.",
+          "sources": [
+            "D4-J11",
+            "D4-S7"
+          ]
+        },
+        {
+          "ticket": "TW-122",
+          "hours": 2.5,
+          "why": "Expo invites to the 40-account lead list go out Friday and the ticket is due Oct 28.",
+          "sources": [
+            "D3-J11",
+            "TW-122"
+          ]
+        }
+      ],
+      "lessons_used": [],
+      "note": "Changed: TW-134 is closed, so the QBR comes first. Then push the design partner go-lives, and finish the lead list before Friday's invites."
+    }
+  ]
+}

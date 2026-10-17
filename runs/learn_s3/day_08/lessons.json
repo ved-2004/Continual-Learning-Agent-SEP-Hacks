@@ -1,0 +1,154 @@
+[
+  {
+    "id": "L1",
+    "rule": "Until Harbor signs its renewal (Fri Oct 30), put renewal work first, such as paperwork with legal's changes, Dana's reliability plan and sync fixes, ahead of Smart Slots, Pinecrest kickoff, design-partner and Expo work, because Harbor is 38% of revenue.",
+    "applies_to": [
+      "all"
+    ],
+    "created_day": 1,
+    "updated_day": 8,
+    "evidence": [
+      "D1:maya",
+      "D1:arjun",
+      "D1:nina",
+      "D1:leila",
+      "D1:sam",
+      "D2:maya",
+      "D2:arjun",
+      "D8:jordan"
+    ]
+  },
+  {
+    "id": "L2",
+    "rule": "For Harbor renewal work, fix Harbor's two named complaints first: the Sep 28 sync outage and the CSV export cutoff. Do the written postmortem first, because Dana Whitfield wants it in writing.",
+    "applies_to": [
+      "arjun",
+      "nina",
+      "leila"
+    ],
+    "created_day": 1,
+    "updated_day": 1,
+    "evidence": [
+      "D1:arjun",
+      "D1:nina",
+      "D1:leila"
+    ]
+  },
+  {
+    "id": "L3",
+    "rule": "When a deliverable is due the next day (Expo demo, Harbor QBR deck, investor update), put it ahead of Smart Slots work, and ahead of other Harbor renewal work too, because the deadline is immediate. Exception: Maya's Harbor renewal terms stayed first on QBR day.",
+    "applies_to": [
+      "sam",
+      "jordan",
+      "maya"
+    ],
+    "created_day": 1,
+    "updated_day": 4,
+    "evidence": [
+      "D1:sam",
+      "D3:jordan",
+      "D4:maya"
+    ]
+  },
+  {
+    "id": "L4",
+    "rule": "When a teammate needs data for a customer meeting this week, such as Harbor's Thursday QBR, schedule it early in the week, ahead of internal feature work, because the meeting date is fixed.",
+    "applies_to": [
+      "nina"
+    ],
+    "created_day": 1,
+    "updated_day": 1,
+    "evidence": [
+      "D1:nina"
+    ]
+  },
+  {
+    "id": "L5",
+    "rule": "When a teammate is blocked waiting on your review or input, do that first, even ahead of Harbor renewal work, because on this team unblocking a teammate always comes first.",
+    "applies_to": [
+      "all"
+    ],
+    "created_day": 2,
+    "updated_day": 2,
+    "evidence": [
+      "D2:arjun"
+    ]
+  },
+  {
+    "id": "L6",
+    "rule": "When a customer escalates, Maya makes the customer call and the on-call engineer owns the technical fix (Arjun this week, not Nina; on-call changes weekly). Everyone else, including the account manager and anyone a ticket was assigned to, stays on their own plan, because escalations are routed by role.",
+    "applies_to": [
+      "all"
+    ],
+    "created_day": 3,
+    "updated_day": 6,
+    "evidence": [
+      "D3:maya",
+      "D3:arjun",
+      "D3:nina",
+      "D3:jordan",
+      "D6:nina"
+    ]
+  },
+  {
+    "id": "L7",
+    "rule": "When your main ticket is waiting on someone else's review, put it after tickets you can finish on your own, such as states, polish or tooltips for the same feature, because you can't move it until the review lands.",
+    "applies_to": [
+      "all"
+    ],
+    "created_day": 5,
+    "updated_day": 5,
+    "evidence": [
+      "D5:leila"
+    ]
+  },
+  {
+    "id": "L8",
+    "rule": "When Expo outreach (lead list, meeting invites) must go out today, send it after Harbor renewal follow-ups but ahead of design-partner onboarding, because the send date is fixed and onboarding has no deadline today.",
+    "applies_to": [
+      "jordan"
+    ],
+    "created_day": 5,
+    "updated_day": 5,
+    "evidence": [
+      "D5:jordan"
+    ]
+  },
+  {
+    "id": "L9",
+    "rule": "When a Smart Slots ticket for a design partner (such as Coastal ranking) is due this week, put it ahead of Expo prep tickets, because the customer's due date is fixed. Among Expo prep tickets, do the one due soonest first: a load test due tomorrow before demo caching.",
+    "applies_to": [
+      "nina"
+    ],
+    "created_day": 6,
+    "updated_day": 7,
+    "evidence": [
+      "D6:nina",
+      "D7:nina"
+    ]
+  },
+  {
+    "id": "L10",
+    "rule": "When a customer must be live on Smart Slots before Expo (such as Pinecrest), do their kickoff and data access first, then onboarding of existing design partners (Valley, Coastal), then help center articles, because the Expo date is fixed.",
+    "applies_to": [
+      "jordan"
+    ],
+    "created_day": 7,
+    "updated_day": 7,
+    "evidence": [
+      "D7:jordan"
+    ]
+  },
+  {
+    "id": "L11",
+    "rule": "When Expo prep tickets compete, put the one with a fixed deadline this week (booth demo script, due Friday) first, then booking investor meetings, then the launch announcement post, because the script has a hard due date.",
+    "applies_to": [
+      "maya"
+    ],
+    "created_day": 7,
+    "updated_day": 7,
+    "evidence": [
+      "D7:maya"
+    ]
+  }
+]

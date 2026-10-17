@@ -132,6 +132,13 @@ main { max-width: 1480px; margin: 0 auto; padding: 8px 40px 40px; }
 .stop + .stop { margin-top: 2px; }
 .stop-dot { width: 12px; height: 12px; margin-top: 4px; border-radius: 50%; background: var(--paper); border: 2px solid var(--route); position: relative; z-index: 1; }
 .stop:first-child .stop-dot { background: var(--route); }
+.stop-dot.is-decision { border-radius: 2px; transform: rotate(45deg) scale(0.86); }
+.stop-owner { color: var(--faint); }
+.kinds { display: inline-flex; gap: 18px; margin-left: auto; align-items: center; }
+.kinds span { display: inline-flex; align-items: center; gap: 7px; }
+.kinds .stop-dot { margin: 0; width: 10px; height: 10px; }
+.others-head { display: flex; align-items: baseline; gap: 12px; margin-top: 12px; }
+.others-head h3 { margin: 0 0 6px; }
 .stop-title { font-size: 14px; line-height: 1.35; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .stop-hours { font-size: 13px; color: var(--muted); padding-top: 1px; }
 .stop.is-new { background: var(--route-soft); box-shadow: -6px 0 0 var(--route-soft), 6px 0 0 var(--route-soft); }
@@ -287,7 +294,8 @@ textarea:focus { outline: 2px solid var(--route); outline-offset: 0; border-colo
     <div class="purpose">
       <p class="mission" id="mission"></p>
       <div class="goalbar" id="goalbar" aria-hidden="true"></div>
-      <div class="goal-legend" id="goal-legend"></div>
+      <div class="goal-legend"><span id="goal-legend" style="display:contents"></span>
+        <span class="kinds"><span><i class="stop-dot is-decision"></i>Decision others wait on</span><span><i class="stop-dot"></i>Action</span></span></div>
     </div>
 
     <div class="board" id="board">
@@ -413,12 +421,19 @@ textarea:focus { outline: 2px solid var(--route); outline-offset: 0; border-colo
       <div class="tile-foot"><p class="tile-status"></p><p class="reason"></p><div class="used"></div></div>
     </article>`).join("");
 
-  function stopEl(ticket, h) {
+  let OWNERS = {};
+  const isDecision = (id) => T[id] && T[id].kind === "decision";
+  const dotHtml = (id) => `<span class="stop-dot${isDecision(id) ? " is-decision" : ""}"${isDecision(id) ? ' title="Decision"' : ""}></span>`;
+  const ownerHtml = (id, person, owners) => {
+    const o = (owners || OWNERS)[id];
+    return o && o !== person && PERSON[o] ? `<span class="stop-owner"> (${esc(PERSON[o].first)}'s)</span>` : "";
+  };
+  function stopEl(ticket, h, person) {
     const li = document.createElement("li");
     li.className = "stop";
     li.dataset.ticket = ticket;
     li.dataset.goal = goalOf(ticket);
-    li.innerHTML = `<span class="stop-dot"></span><span class="stop-title" title="${esc(title(ticket))}">${esc(title(ticket))}</span><span class="stop-hours">${hours(h)}</span>`;
+    li.innerHTML = `${dotHtml(ticket)}<span class="stop-title" title="${esc(title(ticket))}">${esc(title(ticket))}${ownerHtml(ticket, person)}</span><span class="stop-hours">${hours(h)}</span>`;
     return li;
   }
 
@@ -492,6 +507,7 @@ textarea:focus { outline: 2px solid var(--route); outline-offset: 0; border-colo
     }
 
     setGoals(day);
+    OWNERS = Object.fromEntries(day.open.map((o) => [o.id, o.owner]));
     PEOPLE.forEach((p) => {
       const tile = document.querySelector(`.tile[data-person="${p.id}"]`);
       const plan = day.plans[p.id];
@@ -499,7 +515,7 @@ textarea:focus { outline: 2px solid var(--route); outline-offset: 0; border-colo
       tile.querySelector(".tile-status").innerHTML = "";
       const route = tile.querySelector(".route");
       route.innerHTML = "";
-      plan.items.forEach((it) => route.appendChild(stopEl(it.ticket, it.hours)));
+      plan.items.forEach((it) => route.appendChild(stopEl(it.ticket, it.hours, p.id)));
       const reason = tile.querySelector(".reason");
       reason.classList.remove("is-shown");
       reason.textContent = "";
@@ -541,7 +557,7 @@ textarea:focus { outline: 2px solid var(--route); outline-offset: 0; border-colo
       } else if (fb.action === "edit") {
         tile.dataset.state = "rerouted";
         status.textContent = `Rerouted by ${p.first}`;
-        reroute(tile.querySelector(".route"), fb.final);
+        reroute(tile.querySelector(".route"), fb.final, p.id);
         const reason = tile.querySelector(".reason");
         reason.textContent = `“${fb.reason}”`;
         later(() => reason.classList.add("is-shown"), 500);
@@ -549,13 +565,13 @@ textarea:focus { outline: 2px solid var(--route); outline-offset: 0; border-colo
     }, 150 * k));
   }
 
-  function reroute(route, final) {
+  function reroute(route, final, person) {
     const old = [...route.children];
     const before = new Map(old.map((el) => [el.dataset.ticket, el.getBoundingClientRect().top]));
     old.filter((el) => !final.includes(el.dataset.ticket)).forEach((el) => el.remove());
     final.forEach((ticket) => {
       let el = old.find((e) => e.dataset.ticket === ticket);
-      if (!el) { el = stopEl(ticket, null); el.classList.add("is-new"); }
+      if (!el) { el = stopEl(ticket, null, person); el.classList.add("is-new"); }
       route.appendChild(el);
     });
     if (REDUCE) return;
@@ -621,7 +637,7 @@ textarea:focus { outline: 2px solid var(--route); outline-offset: 0; border-colo
 
   /* ---------------- Live ---------------- */
   const LIVE_DAYS = DAYS.slice(0, -1);
-  let lDay = Math.min(2, LIVE_DAYS.length - 1), lPerson = PEOPLE[0].id, slots = [], showAll = false, online = false, busy = false;
+  let lDay = Math.min(2, LIVE_DAYS.length - 1), lPerson = PEOPLE[0].id, slots = [], showAll = false, online = false, busy = false, liveOwners = {};
 
   $("pick-day").insertAdjacentHTML("beforeend", LIVE_DAYS.map((d, i) =>
     `<button class="chip" data-i="${i}" title="${esc(d.weekday)}, ${esc(d.label)}">${d.day}</button>`).join(""));
@@ -651,14 +667,15 @@ textarea:focus { outline: 2px solid var(--route); outline-offset: 0; border-colo
     $("slots").innerHTML = [0, 1, 2].map((k) => {
       const t = slots[k];
       if (!t) return `<li class="stop edit-stop is-empty"><span class="stop-dot"></span><span class="stop-title">Pick a ticket below</span><span></span></li>`;
-      return `<li class="stop edit-stop${t !== proposal()[k] ? " is-new" : ""}" data-goal="${goalOf(t)}"><span class="stop-dot"></span>
-        <span class="stop-title">${esc(title(t))}</span>
+      return `<li class="stop edit-stop${t !== proposal()[k] ? " is-new" : ""}" data-goal="${goalOf(t)}">${dotHtml(t)}
+        <span class="stop-title">${esc(title(t))}${ownerHtml(t, lPerson, liveOwners)}</span>
         <span class="stop-tools">
           <button class="icon-btn" data-up="${k}" aria-label="Move ${esc(title(t))} up" ${k === 0 ? "disabled" : ""}><svg viewBox="0 0 16 16" fill="none"><path d="m4 10 4-4 4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <button class="icon-btn" data-down="${k}" aria-label="Move ${esc(title(t))} down" ${k === 2 || !slots[k + 1] ? "disabled" : ""}><svg viewBox="0 0 16 16" fill="none"><path d="m4 6 4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <button class="icon-btn" data-remove="${k}" aria-label="Remove ${esc(title(t))}"><svg viewBox="0 0 16 16" fill="none"><path d="m4.5 4.5 7 7m0-7-7 7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></button>
         </span></li>`;
     }).join("");
+    liveOwners = Object.fromEntries(day.open.map((o) => [o.id, o.owner]));
     const full = slots.filter(Boolean).length === 3;
     const mine = day.open.filter((o) => o.owner === lPerson && !slots.includes(o.id));
     const rest = day.open.filter((o) => o.owner !== lPerson && !slots.includes(o.id));
@@ -666,8 +683,8 @@ textarea:focus { outline: 2px solid var(--route); outline-offset: 0; border-colo
     const head = !mine.length ? `${esc(p.first)} has no other open tickets.`
       : full ? `Remove a stop to add one of ${esc(p.first)}'s other tickets` : `${esc(p.first)}'s other open tickets`;
     $("others").innerHTML = `<h3>${head}</h3>` + mine.map(opt).join("")
-      + (showAll ? `<h3 style="margin-top:12px">Everyone else's open tickets</h3>${rest.map(opt).join("")}`
-                 : `<button class="more" id="show-all">Show everyone else's open tickets</button>`);
+      + (showAll ? `<div class="others-head"><h3>Everyone else's open tickets</h3><button class="more" id="toggle-all">Hide</button></div>${rest.map(opt).join("")}`
+                 : `<button class="more" id="toggle-all">Show everyone else's open tickets</button>`);
     const changed = slots.join() !== proposal().join();
     $("why-label").textContent = `Why would ${p.first} do it this way?`;
     $("reason").placeholder = changed ? `Say it the way ${p.first} would tell a teammate.` : `Optional. ${p.first} accepts the plan as proposed.`;
@@ -690,7 +707,7 @@ textarea:focus { outline: 2px solid var(--route); outline-offset: 0; border-colo
   $("others").addEventListener("click", (e) => {
     const b = e.target.closest("button");
     if (!b || busy) return;
-    if (b.id === "show-all") { showAll = true; renderLive(); return; }
+    if (b.id === "toggle-all") { showAll = !showAll; renderLive(); return; }
     if (b.dataset.add && slots.length < 3) { slots.push(b.dataset.add); renderLive(); }
   });
   $("reason").addEventListener("input", () => renderLive());
@@ -701,6 +718,7 @@ textarea:focus { outline: 2px solid var(--route); outline-offset: 0; border-colo
     renderLive();
   });
 
+  let nextOwners = {};
   function miniTile(person, plan, base) {
     const p = PERSON[person];
     const items = plan ? plan.top3 : [];
@@ -708,7 +726,7 @@ textarea:focus { outline: 2px solid var(--route); outline-offset: 0; border-colo
     const changed = baseIds.join() !== items.map((i) => i.ticket).join();
     const stops = items.map((it, k) => {
       const moved = baseIds[k] !== it.ticket;
-      return `<li class="stop${changed && moved ? " is-new" : ""}" data-goal="${goalOf(it.ticket)}"><span class="stop-dot"></span><span class="stop-title" title="${esc(it.why || "")}">${esc(title(it.ticket))}</span><span class="stop-hours">${hours(it.hours)}</span></li>`;
+      return `<li class="stop${changed && moved ? " is-new" : ""}" data-goal="${goalOf(it.ticket)}">${dotHtml(it.ticket)}<span class="stop-title" title="${esc(it.why || "")}">${esc(title(it.ticket))}${ownerHtml(it.ticket, person, nextOwners)}</span><span class="stop-hours">${hours(it.hours)}</span></li>`;
     }).join("");
     return `<article class="tile mini" data-changed="${changed}">
       <div class="tile-head"><span class="tile-name">${esc(p.first)}</span><span class="tile-role">${changed ? "Changed" : "Same as the demo run"}</span></div>
@@ -729,7 +747,7 @@ textarea:focus { outline: 2px solid var(--route); outline-offset: 0; border-colo
     renderLive();
     try {
       const res = await fetch("/api/teach", {
-        method: "POST", headers: { "content-type": "application/json" },
+        method: "POST", headers: { "content-type": "application/json", "ngrok-skip-browser-warning": "1" },
         body: JSON.stringify({ day: day.day, person: lPerson, final: slots, reason: $("reason").value.trim() }),
       });
       const j = await res.json().catch(() => ({}));
@@ -741,6 +759,7 @@ textarea:focus { outline: 2px solid var(--route); outline-offset: 0; border-colo
         const from = (l && l.evidence ? l.evidence : []).filter((e) => e.startsWith(`D${day.day}:`)).map((e) => e.split(":")[1]);
         return l ? entryHtml({ kind: before[id] ? "revised" : "added", id, rule: l.rule, before: before[id] || null, from }, day.day, true, true) : "";
       }).join("");
+      nextOwners = Object.fromEntries(next.open.map((o) => [o.id, o.owner]));
       const plans = Object.fromEntries(j.plan.plans.map((x) => [x.person, x]));
       const base = Object.fromEntries(j.baseline.plans.map((x) => [x.person, x]));
       const nChanged = PEOPLE.filter((q) => (plans[q.id] ? plans[q.id].top3.map((i) => i.ticket).join() : "") !== (base[q.id] ? base[q.id].top3.map((i) => i.ticket).join() : "")).length;
@@ -763,7 +782,7 @@ textarea:focus { outline: 2px solid var(--route); outline-offset: 0; border-colo
   }
   $("teach").addEventListener("click", teach);
 
-  fetch("/api/health").then((r) => (r.ok ? r.json() : Promise.reject())).then((h) => { online = !!h.ok; renderLive(); })
+  fetch("/api/health", { headers: { "ngrok-skip-browser-warning": "1" } }).then((r) => (r.ok ? r.json() : Promise.reject())).then((h) => { online = !!h.ok; renderLive(); })
     .catch(() => { online = false; $("offline").hidden = false; renderLive(); });
 
   /* ---------------- Start ---------------- */

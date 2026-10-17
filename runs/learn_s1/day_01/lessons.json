@@ -1,0 +1,61 @@
+[
+  {
+    "id": "L1",
+    "rule": "Until Harbor Foods renews on Oct 30, work that supports the renewal comes before Smart Slots for everyone, because Harbor is 38% of revenue and is evaluating a competitor before signing.",
+    "applies_to": [
+      "all"
+    ],
+    "created_day": 1,
+    "updated_day": 1,
+    "evidence": [
+      "D1:maya",
+      "D1:arjun",
+      "D1:nina",
+      "D1:leila",
+      "D1:sam",
+      "D1:jordan"
+    ]
+  },
+  {
+    "id": "L2",
+    "rule": "Until Harbor renews, put work on Harbor's two complaints (the Sep 28 sync outage and the 5,000-row export cutoff) ahead of other Harbor-related work, and write the outage postmortem first, because Dana wants it in writing.",
+    "applies_to": [
+      "arjun",
+      "nina",
+      "leila"
+    ],
+    "created_day": 1,
+    "updated_day": 1,
+    "evidence": [
+      "D1:arjun",
+      "D1:nina",
+      "D1:leila"
+    ]
+  },
+  {
+    "id": "L3",
+    "rule": "Put Harbor QBR preparation (deck, usage numbers) before Smart Slots and Expo work this week, because the QBR is Thursday Oct 22 and Harbor's renewal is at risk.",
+    "applies_to": [
+      "jordan",
+      "nina"
+    ],
+    "created_day": 1,
+    "updated_day": 1,
+    "evidence": [
+      "D1:jordan",
+      "D1:nina"
+    ]
+  },
+  {
+    "id": "L4",
+    "rule": "When a deliverable is due the next day, do it first, even ahead of Harbor renewal work, because the deadline is imminent. Example: Smart Slots final screens due Tuesday.",
+    "applies_to": [
+      "sam"
+    ],
+    "created_day": 1,
+    "updated_day": 1,
+    "evidence": [
+      "D1:sam"
+    ]
+  }
+]

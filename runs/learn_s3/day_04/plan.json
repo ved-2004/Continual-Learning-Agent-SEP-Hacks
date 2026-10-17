@@ -1,0 +1,221 @@
+{
+  "plans": [
+    {
+      "person": "maya",
+      "top3": [
+        {
+          "ticket": "TW-136",
+          "hours": 1.0,
+          "why": "Dana asked for the renewal terms one-pager before the 2pm QBR, it is due today, and Harbor is 38% of revenue.",
+          "sources": [
+            "TW-136",
+            "D4-J13"
+          ]
+        },
+        {
+          "ticket": "TW-126",
+          "hours": 3.0,
+          "why": "Pinecrest would be the third design partner and meet the launch goal; the live demo is Monday, so prep now.",
+          "sources": [
+            "TW-126",
+            "D4-J9"
+          ]
+        },
+        {
+          "ticket": "TW-111",
+          "hours": 2.0,
+          "why": "Investor update is due tomorrow. The draft is done and only needs the October numbers.",
+          "sources": [
+            "TW-111",
+            "D4-J10"
+          ]
+        }
+      ],
+      "lessons_used": [
+        "L1",
+        "L5"
+      ],
+      "note": "TW-136 moves to first: Jordan and the QBR are waiting on it. Pinecrest demo prep is next. Also send Sam the final pricing numbers by Friday so TW-125 can finish."
+    },
+    {
+      "person": "arjun",
+      "top3": [
+        {
+          "ticket": "TW-137",
+          "hours": 1.0,
+          "why": "PR #238 is the Ridgeline duplicates root-cause fix and Nina cannot ship TW-103 until you review it.",
+          "sources": [
+            "TW-137",
+            "D4-S2"
+          ]
+        },
+        {
+          "ticket": "TW-104",
+          "hours": 3.5,
+          "why": "Retry queue goes to production tomorrow and answers Harbor's Sep 28 outage complaint ahead of the Oct 30 renewal.",
+          "sources": [
+            "TW-104",
+            "D4-M1"
+          ]
+        },
+        {
+          "ticket": "TW-127",
+          "hours": 2.5,
+          "why": "Coastal and Valley need API endpoint docs, due Oct 26, so they can go live on Smart Slots.",
+          "sources": [
+            "TW-127",
+            "D4-J6"
+          ]
+        }
+      ],
+      "lessons_used": [
+        "L1",
+        "L2",
+        "L5"
+      ],
+      "note": "Review of PR #238 now comes first because it unblocks Nina. Then finish the retry queue for tomorrow's release, then the API docs. Be ready to speak to the Sep 28 outage at the 2pm QBR."
+    },
+    {
+      "person": "nina",
+      "top3": [
+        {
+          "ticket": "TW-105",
+          "hours": 2.5,
+          "why": "The sync error alert is Arjun's answer to how Harbor would learn of an outage, so finish it before the 2pm QBR.",
+          "sources": [
+            "TW-105",
+            "D4-M1"
+          ]
+        },
+        {
+          "ticket": "TW-103",
+          "hours": 2.0,
+          "why": "After Arjun reviews PR #238, ship the root-cause duplicates fix that Ridgeline (22% of revenue) needs.",
+          "sources": [
+            "TW-103",
+            "D4-J3"
+          ]
+        },
+        {
+          "ticket": "TW-138",
+          "hours": 3.0,
+          "why": "Coastal's early-morning dock suggestions look off. This is due Oct 28 and Coastal is a design partner.",
+          "sources": [
+            "TW-138",
+            "D4-J15"
+          ]
+        }
+      ],
+      "lessons_used": [
+        "L1"
+      ],
+      "note": "Alert work now comes before TW-103 because Harbor's QBR is today. Ship TW-103 once Arjun's review lands. TW-115 is Arjun's, so it is dropped from your list and TW-138 is added."
+    },
+    {
+      "person": "leila",
+      "top3": [
+        {
+          "ticket": "TW-117",
+          "hours": 5.0,
+          "why": "The picker must be stable by Oct 28 for the booth tablet, and Sam's demo screen 3 is waiting on this build.",
+          "sources": [
+            "TW-117",
+            "D4-J12",
+            "D4-J7"
+          ]
+        },
+        {
+          "ticket": "TW-135",
+          "hours": 2.0,
+          "why": "Empty and error states are due Oct 29 and are part of a stable picker.",
+          "sources": [
+            "TW-135",
+            "D4-J7"
+          ]
+        },
+        {
+          "ticket": "TW-123",
+          "hours": 1.0,
+          "why": "Onboarding tooltips are due Nov 2. Keep them moving while the picker settles.",
+          "sources": [
+            "TW-123"
+          ]
+        }
+      ],
+      "lessons_used": [
+        "L5"
+      ],
+      "note": "Same three tickets as before, but give TW-117 most of the day. Sam is blocked on the picker build for demo screen 3, so share a build as soon as it is usable."
+    },
+    {
+      "person": "sam",
+      "top3": [
+        {
+          "ticket": "TW-119",
+          "hours": 4.0,
+          "why": "Screens 1 and 2 are done. Prepare screen 3 and the sample data so it can drop in when Leila's picker build lands.",
+          "sources": [
+            "TW-119",
+            "D4-J12"
+          ]
+        },
+        {
+          "ticket": "TW-125",
+          "hours": 2.0,
+          "why": "Pricing page layout is in Figma. Get it ready so only Maya's final numbers are missing on Friday.",
+          "sources": [
+            "TW-125",
+            "D4-S5"
+          ]
+        },
+        {
+          "ticket": "TW-109",
+          "hours": 1.5,
+          "why": "Low-priority settings redesign fills the remaining time while the other work waits on inputs.",
+          "sources": [
+            "TW-109"
+          ]
+        }
+      ],
+      "lessons_used": [],
+      "note": "Screen 3 and pricing both wait on others (the picker build, Maya's numbers). Prep everything you can on TW-119 and TW-125 now. Ask Leila for an early picker build."
+    },
+    {
+      "person": "jordan",
+      "top3": [
+        {
+          "ticket": "TW-112",
+          "hours": 4.0,
+          "why": "The Harbor QBR is at 2pm today. Finalize the deck with the morning numbers and prepare to present it.",
+          "sources": [
+            "TW-112",
+            "D4-S4"
+          ]
+        },
+        {
+          "ticket": "TW-121",
+          "hours": 2.5,
+          "why": "Coastal is live in staging and Valley has data access. Move both to live on Smart Slots before Expo.",
+          "sources": [
+            "TW-121",
+            "D4-J11"
+          ]
+        },
+        {
+          "ticket": "TW-113",
+          "hours": 1.0,
+          "why": "Ridgeline is yellow and renews Nov 20. Start the usage summary while duplicates are quiet.",
+          "sources": [
+            "TW-113",
+            "D4-S1"
+          ]
+        }
+      ],
+      "lessons_used": [
+        "L3",
+        "L1"
+      ],
+      "note": "TW-134 is done, so it is out. The QBR deck is first today. Then push the design partners to live, then start Ridgeline renewal prep."
+    }
+  ]
+}

@@ -1,0 +1,211 @@
+{
+  "plans": [
+    {
+      "person": "maya",
+      "top3": [
+        {
+          "ticket": "TW-126",
+          "hours": 3.0,
+          "why": "Pinecrest live demo is at 3pm today. Signing them as third design partner would meet the G1 launch metric.",
+          "sources": [
+            "D6-J15",
+            "TW-126"
+          ]
+        },
+        {
+          "ticket": "TW-120",
+          "hours": 2.5,
+          "why": "Booth script is due Oct 30 and the dry-run demo runs long, so tighten the script to fit the demo flow.",
+          "sources": [
+            "D6-J11",
+            "TW-120"
+          ]
+        },
+        {
+          "ticket": "TW-121",
+          "hours": 0.5,
+          "why": "Coastal's CEO is questioning readiness; back Jordan's call with an executive check-in so Coastal stays a live design partner.",
+          "sources": [
+            "D6-S4",
+            "D6-M1"
+          ]
+        }
+      ],
+      "lessons_used": [],
+      "note": "Pinecrest at 3pm is the main event today. Use the morning to prep, then tighten your booth script afterward. Briefly back up Jordan on Coastal's CEO concern. You have no other open tickets, so the third slot is support work."
+    },
+    {
+      "person": "arjun",
+      "top3": [
+        {
+          "ticket": "TW-115",
+          "hours": 2.0,
+          "why": "Scoring API is due Oct 28 and passed the 5x load test. Finish remaining hardening so Nina's 10x test on Wednesday goes smoothly.",
+          "sources": [
+            "D6-J13",
+            "TW-115"
+          ]
+        },
+        {
+          "ticket": "TW-147",
+          "hours": 3.0,
+          "why": "Demo environment with Coastal's anonymized data is due Oct 29 and the booth demo depends on it.",
+          "sources": [
+            "D6-J18",
+            "TW-147"
+          ]
+        },
+        {
+          "ticket": "TW-146",
+          "hours": 1.5,
+          "why": "Rate limits protect the scoring API from Expo bursts; due Oct 30, started today around on-call interrupts.",
+          "sources": [
+            "D6-J19",
+            "TW-146"
+          ]
+        }
+      ],
+      "lessons_used": [],
+      "note": "You are on call this week, so I left buffer. Finish the scoring API first, then the demo environment, then start rate limits. If Coastal's login issue needs backend help, support Leila."
+    },
+    {
+      "person": "nina",
+      "top3": [
+        {
+          "ticket": "TW-138",
+          "hours": 3.0,
+          "why": "Coastal early-dock ranking is due Oct 28 and Coastal's confidence is shaky; finish and verify the suggestions.",
+          "sources": [
+            "D6-S6",
+            "TW-138"
+          ]
+        },
+        {
+          "ticket": "TW-148",
+          "hours": 3.0,
+          "why": "Score caching keeps the booth demo fast on Wi-Fi, and should be in place before Wednesday's 10x load test.",
+          "sources": [
+            "D6-J20",
+            "TW-148"
+          ]
+        },
+        {
+          "ticket": "TW-143",
+          "hours": 1.5,
+          "why": "10x load test is scheduled for Wednesday; prepare the test setup today so it can run on time.",
+          "sources": [
+            "D6-J14",
+            "TW-143"
+          ]
+        }
+      ],
+      "lessons_used": [],
+      "note": "Coastal ranking comes first since it is due Oct 28. Add caching next so Wednesday's load test runs against the booth setup. Prepare the load test scripts today."
+    },
+    {
+      "person": "leila",
+      "top3": [
+        {
+          "ticket": "TW-144",
+          "hours": 3.0,
+          "why": "Coastal users are stuck in an SSO redirect loop and back on spreadsheets; due today and threatens the design-partner launch.",
+          "sources": [
+            "D6-S2",
+            "D6-S3",
+            "TW-144"
+          ]
+        },
+        {
+          "ticket": "TW-135",
+          "hours": 2.5,
+          "why": "Empty and error states for the slot picker are due Oct 29 and the demo must not break in front of visitors.",
+          "sources": [
+            "D6-J21",
+            "TW-135"
+          ]
+        },
+        {
+          "ticket": "TW-149",
+          "hours": 2.5,
+          "why": "Booth tablet mode is due Oct 29; the demo station needs a full-screen picker before the booth ships Thursday.",
+          "sources": [
+            "D6-J21",
+            "TW-149"
+          ]
+        }
+      ],
+      "lessons_used": [],
+      "note": "The Coastal login outage is new and jumps ahead of everything. Fix it first and tell Jordan when it is resolved, since she calls Grace today. Then do the Oct 29 booth tickets; tooltips wait."
+    },
+    {
+      "person": "sam",
+      "top3": [
+        {
+          "ticket": "TW-150",
+          "hours": 2.0,
+          "why": "Print files are due Oct 28 and the booth ships Thursday, so everything printed must be final by Wednesday.",
+          "sources": [
+            "D6-S5",
+            "D6-J22",
+            "TW-150"
+          ]
+        },
+        {
+          "ticket": "TW-119",
+          "hours": 5.0,
+          "why": "Screen 3 is unblocked by the merged slot picker and the dry run is 2:10 against a sub-two-minute target.",
+          "sources": [
+            "D6-J1",
+            "D6-M1",
+            "TW-119"
+          ]
+        },
+        {
+          "ticket": "TW-109",
+          "hours": 0.5,
+          "why": "Settings page redesign is low priority; keep it moving only in spare time after the Expo work.",
+          "sources": [
+            "TW-109"
+          ]
+        }
+      ],
+      "lessons_used": [],
+      "note": "The slot picker merge unblocked Screen 3. Build it and cut the demo to under two minutes. Get the one-pager print files out early since they are due Wednesday."
+    },
+    {
+      "person": "jordan",
+      "top3": [
+        {
+          "ticket": "TW-145",
+          "hours": 1.0,
+          "why": "Grace's CEO is asking if Smart Slots is ready for real use; the call is due today.",
+          "sources": [
+            "D6-S4",
+            "D6-J17",
+            "TW-145"
+          ]
+        },
+        {
+          "ticket": "TW-121",
+          "hours": 4.0,
+          "why": "Valley setup starts today and Coastal's outage threatens both partners being live by Oct 30.",
+          "sources": [
+            "D6-M1",
+            "D6-S7",
+            "TW-121"
+          ]
+        },
+        {
+          "ticket": "TW-124",
+          "hours": 2.0,
+          "why": "Launch-day help center articles are due Nov 3; start them while waiting on partner setup steps.",
+          "sources": [
+            "TW-124"
+          ]
+        }
+      ],
+      "lessons_used": [],
+      "note": "Harbor follow-ups are done, so focus changed to Coastal. Call Grace today, and check with Leila first on the login fix status. Then move Valley's setup forward and start the help articles."
+    }
+  ]
+}

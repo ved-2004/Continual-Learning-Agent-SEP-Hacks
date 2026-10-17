@@ -1,0 +1,47 @@
+{
+  "day": 4,
+  "alerts": [
+    {
+      "kind": "lesson_overridden",
+      "person": "maya",
+      "lesson": "L1",
+      "detail": "maya edited despite using L1"
+    },
+    {
+      "kind": "lesson_overridden",
+      "person": "maya",
+      "lesson": "L5",
+      "detail": "maya edited despite using L5"
+    },
+    {
+      "kind": "lesson_overridden",
+      "person": "arjun",
+      "lesson": "L1",
+      "detail": "arjun edited despite using L1"
+    },
+    {
+      "kind": "lesson_overridden",
+      "person": "arjun",
+      "lesson": "L2",
+      "detail": "arjun edited despite using L2"
+    },
+    {
+      "kind": "lesson_overridden",
+      "person": "arjun",
+      "lesson": "L5",
+      "detail": "arjun edited despite using L5"
+    },
+    {
+      "kind": "lesson_overridden",
+      "person": "jordan",
+      "lesson": "L3",
+      "detail": "jordan edited despite using L3"
+    },
+    {
+      "kind": "lesson_overridden",
+      "person": "jordan",
+      "lesson": "L1",
+      "detail": "jordan edited despite using L1"
+    }
+  ]
+}

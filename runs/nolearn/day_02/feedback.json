@@ -1,0 +1,92 @@
+[
+  {
+    "person": "maya",
+    "action": "accept",
+    "proposed": [
+      "TW-131",
+      "TW-126",
+      "TW-111"
+    ],
+    "final": [
+      "TW-131",
+      "TW-126",
+      "TW-111"
+    ],
+    "reason": null
+  },
+  {
+    "person": "arjun",
+    "action": "edit",
+    "proposed": [
+      "TW-129",
+      "TW-115",
+      "TW-127"
+    ],
+    "final": [
+      "TW-129",
+      "TW-104",
+      "TW-115"
+    ],
+    "reason": "Nina is blocked until I review her PR, and on this team unblocking a teammate always comes first. Then the retry queue, since Harbor's renewal still beats Smart Slots, then the scoring API."
+  },
+  {
+    "person": "nina",
+    "action": "edit",
+    "proposed": [
+      "TW-116",
+      "TW-103",
+      "TW-130"
+    ],
+    "final": [
+      "TW-130",
+      "TW-105",
+      "TW-116"
+    ],
+    "reason": "Harbor's renewal still comes first: the time zone bug is theirs, and the error-rate alert is an action item from their outage postmortem. Then any review comments on ranking."
+  },
+  {
+    "person": "leila",
+    "action": "edit",
+    "proposed": [
+      "TW-117",
+      "TW-123",
+      "TW-132"
+    ],
+    "final": [
+      "TW-132",
+      "TW-117",
+      "TW-123"
+    ],
+    "reason": "This is the screen side of Harbor's time zone bug, and Harbor's renewal still comes before Smart Slots. Then the slot picker."
+  },
+  {
+    "person": "sam",
+    "action": "edit",
+    "proposed": [
+      "TW-119",
+      "TW-125",
+      "TW-106"
+    ],
+    "final": [
+      "TW-106",
+      "TW-119",
+      "TW-125"
+    ],
+    "reason": "Harbor's usage report first, because Harbor's renewal still comes before Expo work. Then the demo flow."
+  },
+  {
+    "person": "jordan",
+    "action": "accept",
+    "proposed": [
+      "TW-112",
+      "TW-121",
+      "TW-122"
+    ],
+    "final": [
+      "TW-112",
+      "TW-121",
+      "TW-122"
+    ],
+    "reason": null
+  }
+]

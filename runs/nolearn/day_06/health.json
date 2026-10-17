@@ -1,0 +1,29 @@
+{
+  "day": 6,
+  "alerts": [
+    {
+      "kind": "repaired",
+      "person": null,
+      "lesson": null,
+      "detail": "interpret: Unterminated string starting at: line 93 column 19 (char 3887)"
+    },
+    {
+      "kind": "rejected_plan",
+      "person": "maya",
+      "lesson": null,
+      "detail": "maya scored 25.0"
+    },
+    {
+      "kind": "rejected_plan",
+      "person": "arjun",
+      "lesson": null,
+      "detail": "arjun scored 25.0"
+    },
+    {
+      "kind": "rejected_plan",
+      "person": "jordan",
+      "lesson": null,
+      "detail": "jordan scored 41.7"
+    }
+  ]
+}

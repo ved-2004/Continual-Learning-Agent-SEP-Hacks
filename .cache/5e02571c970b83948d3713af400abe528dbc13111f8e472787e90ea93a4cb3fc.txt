@@ -1,0 +1,93 @@
+{
+  "summary": "Nine days to Expo (Nov 4). Coastal, a design partner, has had no logins since this morning, and its CEO is questioning readiness. The slot picker is merged, pricing is final, and the scoring API passed a 5x load test. Pinecrest demo is at 3pm. Harbor renews Oct 30.",
+  "items": [
+    {
+      "type": "blocker",
+      "text": "Coastal users cannot log in since this morning: redirect loop after SSO, Coastal accounts only. Dispatchers are back on spreadsheets. TW-144 is owned by Leila, due today.",
+      "person": "leila",
+      "ticket": "TW-144",
+      "sources": ["D6-S2", "D6-S3", "D6-J16"]
+    },
+    {
+      "type": "request",
+      "text": "Grace says Coastal's CEO is asking whether Smart Slots is ready for real use. Jordan created TW-145, a call with Grace, owned by him, due today.",
+      "person": "jordan",
+      "ticket": "TW-145",
+      "sources": ["D6-S4", "D6-J17"]
+    },
+    {
+      "type": "risk",
+      "text": "Coastal is a Smart Slots design partner, live in staging with twelve users. TW-121 needs Coastal and Valley live before Expo, due Oct 30. The login outage affects this.",
+      "person": "jordan",
+      "ticket": "TW-121",
+      "sources": ["D6-M1", "D6-S2", "D5-S5"]
+    },
+    {
+      "type": "status",
+      "text": "Valley's Smart Slots setup starts today, and its first week of bookings is imported.",
+      "person": "jordan",
+      "ticket": "TW-121",
+      "sources": ["D6-M1", "D6-S7"]
+    },
+    {
+      "type": "status",
+      "text": "Pinecrest live demo is today at 3pm. It would be the third design partner, since only two are signed. TW-126 is due Oct 30.",
+      "person": "maya",
+      "ticket": "TW-126",
+      "sources": ["D6-J15", "D6-S1", "D4-J9"]
+    },
+    {
+      "type": "status",
+      "text": "Scoring API passed a 5x load test. TW-115 is still in progress, due Oct 28. Partner API docs (TW-127) are published.",
+      "person": "arjun",
+      "ticket": "TW-115",
+      "sources": ["D6-J13", "D6-M1", "D6-J7"]
+    },
+    {
+      "type": "commitment",
+      "text": "Nina's 10x load test of the scoring API (TW-143, due Oct 30) is scheduled for Wednesday. The script is ready.",
+      "person": "nina",
+      "ticket": "TW-143",
+      "sources": ["D6-S6", "D6-M1", "D6-J12"]
+    },
+    {
+      "type": "status",
+      "text": "Ranking for Coastal's early-morning docks looks better. TW-138 is still in progress, due Oct 28.",
+      "person": "nina",
+      "ticket": "TW-138",
+      "sources": ["D6-J14", "D6-M1"]
+    },
+    {
+      "type": "request",
+      "text": "Arjun created two Expo backend tickets for himself: TW-146 rate limits for booth traffic (due Oct 30) and TW-147 demo environment with Coastal's anonymized data (due Oct 29).",
+      "person": "arjun",
+      "ticket": "TW-147",
+      "sources": ["D6-J18", "D6-J19"]
+    },
+    {
+      "type": "request",
+      "text": "TW-148, caching slot scores to keep the booth demo fast on booth Wi-Fi, is owned by Nina, due Oct 30, 3h.",
+      "person": "nina",
+      "ticket": "TW-148",
+      "sources": ["D6-J20"]
+    },
+    {
+      "type": "status",
+      "text": "Slot picker PR #241 merged after Sam's review (TW-117 and TW-141 done). Leila still has TW-135 (empty/error states) and new TW-149 (booth tablet mode), both due Oct 29.",
+      "person": "leila",
+      "ticket": "TW-149",
+      "sources": ["D6-J1", "D6-J2", "D6-J21"]
+    },
+    {
+      "type": "status",
+      "text": "Demo run is down to 2:10, against Sam's under-2-minute target. Screen 3 of TW-119 is no longer waiting on the slot picker. TW-119 is due Oct 30.",
+      "person": "sam",
+      "ticket": "TW-119",
+      "sources": ["D6-M1", "D6-J2"]
+    },
+    {
+      "type": "status",
+      "text": "Final pricing numbers are in and the pricing page is final (TW-125 done). The booth one-pager is final in Figma.",
+      "person": "sam",
+      "ticket": "TW-125",
+      "sources": ["D

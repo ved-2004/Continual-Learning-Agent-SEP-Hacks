@@ -1,0 +1,59 @@
+{
+  "day": 3,
+  "alerts": [
+    {
+      "kind": "rejected_plan",
+      "person": "arjun",
+      "lesson": null,
+      "detail": "arjun scored 33.3"
+    },
+    {
+      "kind": "rejected_plan",
+      "person": "nina",
+      "lesson": null,
+      "detail": "nina scored 25.0"
+    },
+    {
+      "kind": "rejected_plan",
+      "person": "jordan",
+      "lesson": null,
+      "detail": "jordan scored 41.7"
+    },
+    {
+      "kind": "regression",
+      "person": null,
+      "lesson": null,
+      "detail": "mean 58.3, down 30.6 from day 2"
+    },
+    {
+      "kind": "lesson_overridden",
+      "person": "maya",
+      "lesson": "L5",
+      "detail": "maya edited despite using L5"
+    },
+    {
+      "kind": "lesson_overridden",
+      "person": "arjun",
+      "lesson": "L5",
+      "detail": "arjun edited despite using L5"
+    },
+    {
+      "kind": "lesson_overridden",
+      "person": "arjun",
+      "lesson": "L1",
+      "detail": "arjun edited despite using L1"
+    },
+    {
+      "kind": "lesson_overridden",
+      "person": "nina",
+      "lesson": "L1",
+      "detail": "nina edited despite using L1"
+    },
+    {
+      "kind": "lesson_overridden",
+      "person": "jordan",
+      "lesson": "L1",
+      "detail": "jordan edited despite using L1"
+    }
+  ]
+}

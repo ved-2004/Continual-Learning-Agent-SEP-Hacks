@@ -1,0 +1,41 @@
+{
+  "day": 3,
+  "alerts": [
+    {
+      "kind": "rejected_plan",
+      "person": "maya",
+      "lesson": null,
+      "detail": "maya scored 25.0"
+    },
+    {
+      "kind": "regression",
+      "person": null,
+      "lesson": null,
+      "detail": "mean 70.8, down 15.3 from day 2"
+    },
+    {
+      "kind": "lesson_overridden",
+      "person": "arjun",
+      "lesson": "L2",
+      "detail": "arjun edited despite using L2"
+    },
+    {
+      "kind": "lesson_overridden",
+      "person": "nina",
+      "lesson": "L2",
+      "detail": "nina edited despite using L2"
+    },
+    {
+      "kind": "lesson_overridden",
+      "person": "jordan",
+      "lesson": "L1",
+      "detail": "jordan edited despite using L1"
+    },
+    {
+      "kind": "lesson_overridden",
+      "person": "jordan",
+      "lesson": "L3",
+      "detail": "jordan edited despite using L3"
+    }
+  ]
+}

@@ -1,0 +1,208 @@
+{
+  "summary": "Twelve days to Expo on Nov 4. Retry queue and duplicates fix are live, and the sync alert is done. Slot picker PR #241 awaits Sam's design review, which also blocks demo screen 3. Sam still needs Maya's pricing numbers, promised today. Harbor QBR went well.",
+  "items": [
+    {
+      "type": "status",
+      "text": "Retry queue (TW-104) is live in production. The duplicates root-cause fix (TW-103) shipped, and PR #238 was approved.",
+      "person": "arjun",
+      "ticket": "TW-104",
+      "sources": [
+        "D5-S1",
+        "D5-J1",
+        "D5-J3"
+      ]
+    },
+    {
+      "type": "blocker",
+      "text": "Slot picker build is up as PR #241 and cannot merge until Sam completes the design review (TW-141, no due date).",
+      "person": "sam",
+      "ticket": "TW-141",
+      "sources": [
+        "D5-S2",
+        "D5-J12",
+        "D5-J9"
+      ]
+    },
+    {
+      "type": "blocker",
+      "text": "Demo screen 3 waited on the slot picker build, which is now PR #241 in review. Screens 1 and 2 are done. TW-119 is due Oct 30.",
+      "person": "sam",
+      "ticket": "TW-119",
+      "sources": [
+        "D5-M1",
+        "D4-J12"
+      ]
+    },
+    {
+      "type": "status",
+      "text": "Dry run put the full booth demo at 2:40. Sam wants it under two minutes.",
+      "person": "sam",
+      "ticket": "TW-119",
+      "sources": [
+        "D5-M1"
+      ]
+    },
+    {
+      "type": "commitment",
+      "text": "Leila says the slot picker must be stable by Oct 28 for the booth tablet. TW-117 is due Oct 29. Error states (TW-135) are in progress.",
+      "person": "leila",
+      "ticket": "TW-117",
+      "sources": [
+        "D3-M1",
+        "D5-J9"
+      ]
+    },
+    {
+      "type": "blocker",
+      "text": "Sam still needs Maya's final pricing numbers, promised for today. Maya said the one-pager and pricing page (TW-125) must use the same numbers.",
+      "person": "sam",
+      "ticket": "TW-125",
+      "sources": [
+        "D5-M1",
+        "D4-S5"
+      ]
+    },
+    {
+      "type": "status",
+      "text": "Harbor QBR is done and Dana's team was positive. Maya shared the renewal terms there (TW-136 done). Harbor renews Oct 30 (38% of revenue).",
+      "person": "jordan",
+      "ticket": "TW-112",
+      "sources": [
+        "D5-J5",
+        "D5-J6",
+        "D5-S3"
+      ]
+    },
+    {
+      "type": "commitment",
+      "text": "Dana wants written notes from the QBR. TW-139 is due today.",
+      "person": "jordan",
+      "ticket": "TW-139",
+      "sources": [
+        "D5-J10",
+        "D5-S3"
+      ]
+    },
+    {
+      "type": "request",
+      "text": "Dana asked at the QBR for a 4-week dock trend in Harbor's weekly report. TW-140 is owned by Sam, with no due date.",
+      "person": "sam",
+      "ticket": "TW-140",
+      "sources": [
+        "D5-J11"
+      ]
+    },
+    {
+      "type": "request",
+      "text": "Harbor's ops lead wants the same sync alerts we get, sent to their ops channel. The error-rate alert (TW-105) is live. TW-142 has no due date.",
+      "person": "nina",
+      "ticket": "TW-142",
+      "sources": [
+        "D5-J13",
+        "D5-S6",
+        "D5-J4"
+      ]
+    },
+    {
+      "type": "risk",
+      "text": "Ridgeline is yellow health and renews Nov 20 (22% of revenue) after a third double-booking incident this quarter. The duplicates fix shipped today. Renewal prep TW-113 is due Nov 13.",
+      "person": "jordan",
+      "ticket": "TW-113",
+      "sources": [
+        "D3-S1",
+        "D5-S1",
+        "D4-S3"
+      ]
+    },
+    {
+      "type": "status",
+      "text": "Valley's data is flowing and its Smart Slots setup starts Monday. Coastal is live in staging. TW-121 is due Oct 30.",
+      "person": "jordan",
+      "ticket": "TW-121",
+      "sources": [
+        "D5-S5",
+        "D4-J11"
+      ]
+    },
+    {
+      "type": "request",
+      "text": "Coastal and Valley need endpoint docs before going live. TW-127 is in progress, due Oct 26.",
+      "person": "arjun",
+      "ticket": "TW-127",
+      "sources": [
+        "D4-J6",
+        "D1-J1"
+      ]
+    },
+    {
+      "type": "status",
+      "text": "Pinecrest live demo is Monday. A third signed design partner is still needed by launch. TW-126 is due Oct 30.",
+      "person": "maya",
+      "ticket": "TW-126",
+      "sources": [
+        "D4-J9",
+        "D2-M1"
+      ]
+    },
+    {
+      "type": "request",
+      "text": "Arjun created TW-143: load test the scoring API at 10x booth traffic, owned by Nina, due Oct 30. Scoring API TW-115 is due Oct 28, with load testing next.",
+      "person": "nina",
+      "ticket": "TW-143",
+      "sources": [
+        "D5-J14",
+        "D4-J5"
+      ]
+    },
+    {
+      "type": "request",
+      "text": "Smart Slots suggestions look off for Coastal's early-morning docks. Nina's TW-138 is now in progress, due Oct 28.",
+      "person": "nina",
+      "ticket": "TW-138",
+      "sources": [
+        "D5-J7",
+        "D4-J15"
+      ]
+    },
+    {
+      "type": "commitment",
+      "text": "Maya says the October investor update (TW-111) is being sent today. It was due today.",
+      "person": "maya",
+      "ticket": "TW-111",
+      "sources": [
+        "D5-J8",
+        "D4-J10"
+      ]
+    },
+    {
+      "type": "status",
+      "text": "Expo invites go out today. The 40-account lead list (TW-122) is in progress, due Oct 28.",
+      "person": "jordan",
+      "ticket": "TW-122",
+      "sources": [
+        "D5-S4",
+        "D3-J11"
+      ]
+    },
+    {
+      "type": "status",
+      "text": "Arjun's second backend candidate interview is at 3pm today (TW-110). He reviews all backend PRs.",
+      "person": "arjun",
+      "ticket": "TW-110",
+      "sources": [
+        "D5-S7",
+        "D4-S6"
+      ]
+    },
+    {
+      "type": "decision",
+      "text": "Smart Slots remains the company focus until Expo on Nov 4. Sync work was deferred unless sync worsened.",
+      "person": "maya",
+      "ticket": null,
+      "sources": [
+        "D1-M1",
+        "D1-S1"
+      ]
+    }
+  ]
+}

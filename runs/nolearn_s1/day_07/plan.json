@@ -1,0 +1,199 @@
+{
+  "plans": [
+    {
+      "person": "maya",
+      "top3": [
+        {
+          "ticket": "TW-120",
+          "hours": 3.0,
+          "why": "Demo runs 2:10 and Sam wants it under two minutes. The script is due Oct 30 and has to match the final screens.",
+          "sources": [
+            "D6-M1",
+            "TW-120"
+          ]
+        },
+        {
+          "ticket": "TW-152",
+          "hours": 2.0,
+          "why": "Four investor meetings need booking before the Oct 30 due date, and booth shifts get locked Thursday.",
+          "sources": [
+            "D7-M1",
+            "D7-J12"
+          ]
+        },
+        {
+          "ticket": "TW-153",
+          "hours": 1.5,
+          "why": "Launch post for Nov 4 is due Nov 3. Draft it now so it doesn't collide with Expo crunch.",
+          "sources": [
+            "D7-J13"
+          ]
+        }
+      ],
+      "lessons_used": [],
+      "note": "Pinecrest is signed and Coastal's logins are fixed, so those tickets are off your list. Today: tighten the script, book investors, draft the launch post. Harbor renews Oct 30 and has no open ticket, so consider creating one. Also confirm whether Coastal's CEO question was settled."
+    },
+    {
+      "person": "arjun",
+      "top3": [
+        {
+          "ticket": "TW-115",
+          "hours": 2.0,
+          "why": "Scoring API is due Oct 28 and passed 5x. Close it out so Nina's 10x load test tomorrow runs on a final build.",
+          "sources": [
+            "D6-S6",
+            "TW-115"
+          ]
+        },
+        {
+          "ticket": "TW-147",
+          "hours": 3.0,
+          "why": "Demo environment with Coastal's anonymized data is due Oct 29 and the booth demo depends on it.",
+          "sources": [
+            "D7-J6"
+          ]
+        },
+        {
+          "ticket": "TW-146",
+          "hours": 2.0,
+          "why": "Rate limits are due Oct 30 and should be in before the 10x load test confirms burst behavior.",
+          "sources": [
+            "D6-J19"
+          ]
+        }
+      ],
+      "lessons_used": [],
+      "note": "TW-144 is done, so the Coastal outage no longer needs you. Finish the scoring API, then the demo environment and rate limits. You're on call this week, so the time boxes leave a little slack."
+    },
+    {
+      "person": "nina",
+      "top3": [
+        {
+          "ticket": "TW-138",
+          "hours": 2.5,
+          "why": "Coastal ranking changes are in staging and the ticket is due Oct 28. Finish verifying early-morning dock suggestions.",
+          "sources": [
+            "D7-S5"
+          ]
+        },
+        {
+          "ticket": "TW-148",
+          "hours": 3.0,
+          "why": "Score caching keeps the booth demo fast on Wi-Fi. It is due Oct 30 and in progress.",
+          "sources": [
+            "D7-J7"
+          ]
+        },
+        {
+          "ticket": "TW-143",
+          "hours": 1.5,
+          "why": "The 10x load test is scheduled for Wednesday. Prepare the test setup today so it can run tomorrow.",
+          "sources": [
+            "D6-J13",
+            "TW-143"
+          ]
+        }
+      ],
+      "lessons_used": [],
+      "note": "Finish the Coastal ranking tuning first since it's due tomorrow, then caching. Use the remaining time to get the 10x load test ready for Wednesday."
+    },
+    {
+      "person": "leila",
+      "top3": [
+        {
+          "ticket": "TW-149",
+          "hours": 4.0,
+          "why": "The booth tablet must be stable by Oct 28, so full-screen mode needs to be finished today.",
+          "sources": [
+            "D7-J4",
+            "D7-J5"
+          ]
+        },
+        {
+          "ticket": "TW-123",
+          "hours": 3.0,
+          "why": "Onboarding tooltips in the slot picker are due Nov 2 and matter for launch day and design partners.",
+          "sources": [
+            "TW-123"
+          ]
+        },
+        {
+          "ticket": "TW-108",
+          "hours": 0.5,
+          "why": "Dark mode is low priority. A short slot keeps it moving without taking time from Expo work.",
+          "sources": [
+            "TW-108"
+          ]
+        }
+      ],
+      "lessons_used": [],
+      "note": "TW-135 and TW-144 are done. Tablet full-screen mode is your first priority because the booth tablet must be stable by Oct 28. Tooltips follow. Dark mode only gets a brief slot."
+    },
+    {
+      "person": "sam",
+      "top3": [
+        {
+          "ticket": "TW-150",
+          "hours": 2.0,
+          "why": "Print files are due tomorrow and the booth ships Thursday, so printed items must be final by Wednesday.",
+          "sources": [
+            "D7-S4",
+            "D7-M1"
+          ]
+        },
+        {
+          "ticket": "TW-119",
+          "hours": 5.0,
+          "why": "The slot picker is merged, so demo screen 3 is unblocked. Build it and cut the demo below two minutes.",
+          "sources": [
+            "D6-J1",
+            "D6-J11"
+          ]
+        },
+        {
+          "ticket": "TW-109",
+          "hours": 1.0,
+          "why": "Settings redesign is low priority and has no deadline. Keep a small slot so it doesn't stall.",
+          "sources": [
+            "TW-109"
+          ]
+        }
+      ],
+      "lessons_used": [],
+      "note": "Screen 3 is unblocked now that the slot picker is merged. Finish the print files first because of Thursday's shipment, then build screen 3 and trim the demo with Maya's script."
+    },
+    {
+      "person": "jordan",
+      "top3": [
+        {
+          "ticket": "TW-151",
+          "hours": 3.0,
+          "why": "Pinecrest kickoff is Thursday and the ticket is due Oct 29. Prepare data access so they can go live before Expo.",
+          "sources": [
+            "D7-M1",
+            "D7-J11"
+          ]
+        },
+        {
+          "ticket": "TW-121",
+          "hours": 3.0,
+          "why": "Coastal and Valley must be live by Oct 30. Valley booked 140 slots and Coastal has 12 staging users.",
+          "sources": [
+            "D7-S6",
+            "D6-S7"
+          ]
+        },
+        {
+          "ticket": "TW-124",
+          "hours": 1.5,
+          "why": "Three help articles are due Nov 3 for launch day. Keep them moving alongside onboarding work.",
+          "sources": [
+            "D7-J9"
+          ]
+        }
+      ],
+      "lessons_used": [],
+      "note": "Pinecrest is signed and TW-145 is done, so Pinecrest kickoff now leads. Then push Coastal and Valley live. Harbor's renewal on Oct 30 has no open ticket, so consider creating a final check-in ticket."
+    }
+  ]
+}
