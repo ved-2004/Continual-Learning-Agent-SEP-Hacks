@@ -121,7 +121,7 @@ def report(args):
     print("Saved runs/compare.png")
 
 def main():
-    parser = argparse.ArgumentParser(description="Tidewell daily priority agent")
+    parser = argparse.ArgumentParser(description="WorkflowGPS daily priority agent")
     parser.add_argument("--data", type=Path, default=Path("data"))
     sub = parser.add_subparsers(dest="command", required=True)
     sub.add_parser("validate")
