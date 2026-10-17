@@ -50,3 +50,32 @@ def load_evals(root, history, states, errors):
         if any(len(f) >= 20 and f in r.reason for f in facts for r in day.records):
             errors.setdefault(str(root / "eval" / f"day_{day.day:02}.json"), []).append("hidden_fact appears in reason")
     return evals, facts
+
+
+WEIGHTS = (3, 2, 1)
+
+
+def score_person(proposed, final):
+    earned = sum(WEIGHTS[i] if proposed[i] == ticket else WEIGHTS[i] / 2 if ticket in proposed else 0
+                 for i, ticket in enumerate(final))
+    return round(100 * earned / 6, 1)
+
+
+def simulate_feedback(plan, eval_day):
+    from agent.schemas import Feedback
+    records = {r.person: r for r in eval_day.records}
+    feedback = []
+    for person in plan.plans:
+        proposed, record = [item.ticket for item in person.top3], records[person.person]
+        edited = proposed != record.final
+        feedback.append(Feedback(person=person.person, action="edit" if edited else "accept",
+                                 proposed=proposed, final=record.final, reason=record.reason if edited else None))
+    return feedback
+
+
+def score_day(plan, eval_day, date):
+    from agent.schemas import DayScore
+    feedback = simulate_feedback(plan, eval_day)
+    people = {f.person: score_person(f.proposed, f.final) for f in feedback}
+    return DayScore(day=eval_day.day, date=date, mean=round(sum(people.values()) / len(people), 1),
+                    accepts=sum(f.action == "accept" for f in feedback), people=people)
