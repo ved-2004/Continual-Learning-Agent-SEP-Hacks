@@ -72,3 +72,17 @@ def test_sdk_request(monkeypatch):
         assert llm.request("anthropic", "test", "system", "user") == "{}"
         assert post.call_args.kwargs["body"]["max_tokens"] == 4096
         assert post.call_args.kwargs["options"]["extra_json"] == {"temperature": 0}
+
+
+def test_output_checks():
+    from agent import steps
+    _, history, days, states, _ = store.validate_inputs(DATA)
+    people, tickets = {p.id for p in history.people}, states[1]
+    plan = stub_plan(history, tickets)
+    assert steps.check_plan(plan, people, tickets, set(), []) == []
+    plan.plans[0].top3[0].hours = 8
+    plan.plans[0].lessons_used = ["L99"]
+    plan.plans[0].top3[1].sources = ["D99-S1"]
+    assert len(steps.check_plan(plan, people, tickets, set(), [])) == 3
+    brain = Brain(summary="ok", items=[dict(type="status", text="Work", person="ghost", ticket=None, sources=["D99-S1"])])
+    assert len(steps.check_brain(brain, people, tickets, set())) == 2

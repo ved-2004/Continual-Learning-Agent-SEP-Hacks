@@ -39,14 +39,14 @@ def test_all_errors(tmp_path, capsys, extra_file):
     path = root / "history.json"
     raw = read_json(path)
     raw["tickets"][0]["owner"] = "ghost"
+    if extra_file == "history.json":
+        raw["typo"] = True
     write_json(path, raw)
     path = root / "eval/day_02.json"
-    raw = read_json(path)
+    raw = validate(DATA)[4][2].model_dump(mode="json")
     raw["records"][0]["final"][0] = "TW-101"
-    write_json(path, raw)
-    path = root / extra_file
-    raw = read_json(path)
-    raw["typo"] = True
+    if extra_file == "eval/day_02.json":
+        raw["typo"] = True
     write_json(path, raw)
     with pytest.raises(SystemExit):
         validate(root)
