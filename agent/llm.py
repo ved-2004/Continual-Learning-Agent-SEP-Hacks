@@ -61,23 +61,26 @@ def call(step: str, day: int, system: str, user: str, out: type[M], check: Calla
             raise RuntimeError("Set LLM_PROVIDER (anthropic/openai) and LLM_MODEL in .env")
         key = hashlib.sha256(json.dumps([provider, model, system, user]).encode()).hexdigest()
         cache = Path(os.environ.get("CACHE_DIR", ".cache")) / f"{key}.txt"
-        started, hit = time.perf_counter(), cache.exists()
+        started, hit, errors = time.perf_counter(), cache.exists(), []
         try:
             raw = cache.read_text() if hit else request(provider, model, system, user)
             if not hit:
                 cache.parent.mkdir(parents=True, exist_ok=True)
                 cache.write_text(raw)
+            try:
+                clean = re.sub(r"\A```(?:json)?\s*\n?(.*?)\n?```\Z", r"\1", raw.strip(), flags=re.S)
+                result = out.model_validate(json.loads(clean))
+                errors = check(result)
+            except ValidationError as exc:
+                errors = [f"{'.'.join(map(str, e['loc']))}: {e['msg']}" for e in exc.errors()]
+            except (ValueError, TypeError) as exc:
+                errors = [str(exc)]
+        except Exception as exc:
+            errors = [str(exc)]
+            raise
         finally:
             with (_run_dir / "llm_calls.jsonl").open("a") as log:
-                log.write(json.dumps(dict(step=step, day=day, attempt=attempt, cache_hit=hit, seconds=round(time.perf_counter() - started, 4))) + "\n")
-        try:
-            clean = re.sub(r"\A```(?:json)?\s*\n?(.*?)\n?```\Z", r"\1", raw.strip(), flags=re.S)
-            result = out.model_validate(json.loads(clean))
-            errors = check(result)
-        except ValidationError as exc:
-            errors = [f"{'.'.join(map(str, e['loc']))}: {e['msg']}" for e in exc.errors()]
-        except (ValueError, TypeError) as exc:
-            errors = [str(exc)]
+                log.write(json.dumps(dict(step=step, day=day, attempt=attempt, cache_hit=hit, seconds=round(time.perf_counter() - started, 4), errors=[e[:200] for e in errors])) + "\n")
         if not errors:
             return result
         user = original + "\n\nYour previous reply failed these checks:\n- " + "\n- ".join(errors) + "\n\nReply again with corrected JSON only."

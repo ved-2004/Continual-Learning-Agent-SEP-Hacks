@@ -85,8 +85,10 @@ def server(args):
                     raise ValueError("Expected a JSON request of at most 1 MB")
                 data = json.loads(handler.rfile.read(size))
                 values = validate_request(data)
-            except (ValueError, TypeError, KeyError) as exc:
+            except (ValueError, TypeError, KeyError, RecursionError) as exc:
                 return respond(handler, 400, dict(error=str(exc)))
+            except Exception as exc:
+                return respond(handler, 500, dict(error=str(exc)))
             try:
                 result = teach(data, *values)
             except Exception as exc:

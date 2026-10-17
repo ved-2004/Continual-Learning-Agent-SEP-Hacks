@@ -1,13 +1,11 @@
 import json, threading
-from pathlib import Path
 from types import SimpleNamespace
 from urllib.error import HTTPError
 from urllib.request import Request, urlopen
-from agent import evaluate, llm, render, steps, store
+from agent import evaluate, llm, render, store
 from agent.schemas import Brain, LearnOutput
 from agent.serve import server
 from test_leakage import DATA, stub_plan
-
 
 def test_teach(tmp_path, monkeypatch):
     _, history, days, states, errors = store.validate_inputs(DATA)

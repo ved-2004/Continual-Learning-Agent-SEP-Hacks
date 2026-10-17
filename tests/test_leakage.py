@@ -34,6 +34,7 @@ def test_guard_cache_retry(tmp_path, monkeypatch):
     monkeypatch.chdir(tmp_path)
     monkeypatch.setenv("LLM_PROVIDER", "anthropic")
     monkeypatch.setenv("LLM_MODEL", "test")
+    monkeypatch.setenv("CACHE_DIR", "custom/cache")
     llm.start_run(tmp_path / "run")
     replies, calls = iter(['{"summary":"missing items"}', '```json\n{"summary":"ok","items":[]}\n```']), []
     def request(*args):
@@ -44,6 +45,7 @@ def test_guard_cache_retry(tmp_path, monkeypatch):
     for _ in range(2):
         assert llm.call("interpret", 1, "system", "a hidden fact that is twenty characters long", Brain, lambda b: []).summary == "ok"
     assert len(calls) == 2 and "failed these checks" in calls[1][-1]
+    assert len(list(Path("custom/cache").glob("*.txt"))) == 2
     logs = [json.loads(line) for line in (tmp_path / "run/llm_calls.jsonl").read_text().splitlines()]
     assert [line["cache_hit"] for line in logs] == [False, False, True, True]
     llm.set_forbidden(["system", "user", "a hidden fact that is twenty characters long"])
@@ -53,8 +55,9 @@ def test_guard_cache_retry(tmp_path, monkeypatch):
     llm.set_forbidden([])
     monkeypatch.setattr(llm, "request", lambda *args: '{"summary":"ok","items":[]}')
     with pytest.raises(RuntimeError, match="decide day 2"):
-        llm.call("decide", 2, "system", "bad", Brain, lambda b: ["failed check"])
+        llm.call("decide", 2, "system", "bad", Brain, lambda b: ["failed check" + "x" * 300])
     assert (tmp_path / "run/failed_decide_day02.txt").exists()
+    assert len(json.loads((tmp_path / "run/llm_calls.jsonl").read_text().splitlines()[-1])["errors"][0]) == 200
 
 @pytest.mark.parametrize("provider,stop", [("anthropic", "end_turn"), ("anthropic", "max_tokens"), ("openai", "stop"), ("openai", "length")])
 def test_sdk_request(tmp_path, monkeypatch, provider, stop):

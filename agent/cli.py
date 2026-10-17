@@ -5,8 +5,7 @@ import re
 import shutil
 import sys
 from pathlib import Path
-from agent import evaluate, store, llm, steps
-
+from agent import evaluate, store, llm, steps, monitor
 
 def validate(root):
     purpose, history, days, states, errors = store.validate_inputs(root)
@@ -20,7 +19,6 @@ def validate(root):
     print(f"OK: {len(days)} days, {len(states[max(states)])} tickets, {len(history.people)} people")
     return purpose, history, days, states, evals, facts
 
-
 def run_path(name):
     if not re.fullmatch(r"[A-Za-z0-9_-]+", name):
         raise ValueError("Run name must contain only letters, digits, underscores or hyphens")
@@ -28,7 +26,6 @@ def run_path(name):
     if path.is_symlink():
         raise ValueError("Run directory must not be a symlink")
     return path
-
 
 def run(args):
     purpose, history, days, states, evals, facts = validate(args.data)
@@ -55,11 +52,11 @@ def run(args):
                 lessons = steps.apply_ops(lessons, steps.learn(history, day, lessons, edits, tickets), day.day)
             for name, value in (("brain", brain), ("plan", plan), ("feedback", feedback), ("score", score), ("lessons", lessons)):
                 store.write_json(path / f"day_{day.day:02}" / f"{name}.json", value)
+            monitor.health(path, day.day)
             writer.writerow([score.day, score.date, score.mean, score.accepts] + [score.people[p.id] for p in history.people])
             file.flush()
             print(f"day {day.day}  {day.date}  mean {score.mean:.1f}  accepts {score.accepts}/6  lessons {len(lessons)}", flush=True)
             previous = plan
-
 
 def show(args):
     path = run_path(args.run)
@@ -83,34 +80,45 @@ def show(args):
         print(f"  Feedback: {f['action']}" + (f" → {', '.join(f['final'])}\n  Reason: {f['reason']}" if f["action"] == "edit" else ""))
         print(f"  Score: {score['people'][p['person']]:.1f}/100")
 
-
 def report(args):
-    paths = [run_path(name) for name in (args.run_a, args.run_b)]
-    rows = [list(csv.DictReader((path / "scores.csv").read_text().splitlines())) for path in paths]
-    if not rows[0] or [(r["day"], r["date"]) for r in rows[0]] != [(r["day"], r["date"]) for r in rows[1]]:
+    groups = [[run_path(name) for name in side.split(",")] for side in (args.run_a, args.run_b)]
+    rows = [[list(csv.DictReader((p / "scores.csv").read_text().splitlines())) for p in group] for group in groups]
+    dates = [(r["day"], r["date"]) for r in rows[0][0]]
+    if not dates or any([(r["day"], r["date"]) for r in run] != dates for group in rows for run in group):
         raise ValueError("Reports require nonempty runs covering the same days and dates")
-    print(f"day  date        {args.run_a:>8}  {args.run_b:>8}     gap  accepts A/B")
-    for a, b in zip(*rows):
-        print(f"{int(a['day']):3}  {a['date']}  {float(a['mean']):8.1f}  {float(b['mean']):8.1f}  {float(b['mean']) - float(a['mean']):+6.1f}  {a['accepts']}/6 {b['accepts']}/6")
-    if store.read_json(paths[0] / "day_01/plan.json") != store.read_json(paths[1] / "day_01/plan.json"):
-        print("Warning: day 1 plans differ; something other than lessons changed between these runs.")
+    stats = [[(sum(v) / len(v), min(v), max(v)) for v in zip(*[[float(r["mean"]) for r in run] for run in group])] for group in rows]
+    single = all(len(group) == 1 for group in groups)
+    print(f"day  date        {args.run_a:>8}  {args.run_b:>8}     gap  accepts A/B" if single else f"day  date        A mean [min, max]       B mean [min, max]       gap\nA: {args.run_a}\nB: {args.run_b}")
+    for i, ((day, date), a, b) in enumerate(zip(dates, *stats)):
+        if single:
+            print(f"{int(day):3}  {date}  {a[0]:8.1f}  {b[0]:8.1f}  {b[0] - a[0]:+6.1f}  {rows[0][0][i]['accepts']}/6 {rows[1][0][i]['accepts']}/6")
+        else:
+            print(f"{int(day):3}  {date}  {a[0]:5.1f} [{a[1]:5.1f}, {a[2]:5.1f}]  {b[0]:5.1f} [{b[1]:5.1f}, {b[2]:5.1f}]  {b[0] - a[0]:+6.1f}")
+    for a, b in zip(*groups):
+        if store.read_json(a / "day_01/plan.json") != store.read_json(b / "day_01/plan.json"):
+            print("Warning: day 1 plans differ; something other than lessons changed between these runs.")
+    monitor.report(list(dict.fromkeys(p for group in groups for p in group)))
     os.environ.setdefault("MPLCONFIGDIR", str(Path(".cache/matplotlib").resolve()))
     os.environ.setdefault("XDG_CACHE_HOME", str(Path(".cache").resolve()))
     import matplotlib
     matplotlib.use("Agg")
     from matplotlib import pyplot as plt
     fig, ax = plt.subplots(figsize=(8, 4.5))
-    for name, data in zip((args.run_a, args.run_b), rows):
-        ax.plot([int(r["day"]) for r in data], [float(r["mean"]) for r in data], marker="o", label=name)
+    x = [int(day) for day, _ in dates]
+    for name, group, data in zip((args.run_a, args.run_b), groups, stats):
+        mean, low, high = zip(*data)
+        label = name if len(group) == 1 else f"{name.split(',')[0]} ({len(group)} runs)"
+        line, = ax.plot(x, mean, marker="o", label=label)
+        if not single:
+            ax.fill_between(x, low, high, color=line.get_color(), alpha=0.15)
     ax.set(xlabel="Day", ylabel="Mean score", ylim=(0, 100), title="Agreement with the team, by day")
-    ax.set_xticks([int(r["day"]) for r in rows[0]])
+    ax.set_xticks(x)
     ax.grid(alpha=0.2)
     ax.legend()
     fig.tight_layout()
     fig.savefig("runs/compare.png", dpi=160)
     plt.close(fig)
     print("Saved runs/compare.png")
-
 
 def main():
     parser = argparse.ArgumentParser(description="Tidewell daily priority agent")
