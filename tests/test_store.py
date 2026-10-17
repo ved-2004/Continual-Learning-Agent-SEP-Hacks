@@ -29,7 +29,11 @@ def test_changes():
 
 def test_real_data_and_sources(capsys):
     _, _, days, _, _, _ = validate(DATA)
-    assert "OK: 2 days, 32 tickets, 6 people" in capsys.readouterr().out
+    history = read_json(DATA / "history.json")
+    files = list((DATA / "days").glob("day_*.json"))
+    tickets = {t["id"] for t in history["tickets"]}
+    tickets.update(c["ticket"] for file in files for c in read_json(file)["jira"] if c["action"] == "create")
+    assert capsys.readouterr().out.strip() == f"OK: {len(files)} days, {len(tickets)} tickets, {len(history['people'])} people"
     ids = [key for key, _ in source_items(days[0])]
     assert ids == ["D1-M1"] + [f"D1-S{i}" for i in range(1, 10)] + [f"D1-J{i}" for i in range(1, 7)]
 
