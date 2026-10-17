@@ -60,12 +60,12 @@ def call(step: str, day: int, system: str, user: str, out: type[M], check: Calla
         if provider not in ("anthropic", "openai") or not model:
             raise RuntimeError("Set LLM_PROVIDER (anthropic/openai) and LLM_MODEL in .env")
         key = hashlib.sha256(json.dumps([provider, model, system, user]).encode()).hexdigest()
-        cache = Path(".cache") / f"{key}.txt"
+        cache = Path(os.environ.get("CACHE_DIR", ".cache")) / f"{key}.txt"
         started, hit = time.perf_counter(), cache.exists()
         try:
             raw = cache.read_text() if hit else request(provider, model, system, user)
             if not hit:
-                cache.parent.mkdir(exist_ok=True)
+                cache.parent.mkdir(parents=True, exist_ok=True)
                 cache.write_text(raw)
         finally:
             with (_run_dir / "llm_calls.jsonl").open("a") as log:

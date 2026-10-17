@@ -128,6 +128,9 @@ def main():
     reporter = sub.add_parser("report")
     reporter.add_argument("run_a")
     reporter.add_argument("run_b")
+    live = sub.add_parser("serve")
+    live.add_argument("--run", default="learn")
+    live.add_argument("--port", type=int, default=8000)
     args = parser.parse_args()
     try:
         if args.command == "validate":
@@ -136,6 +139,11 @@ def main():
             run(args)
         elif args.command == "report":
             report(args)
+        elif args.command == "serve":
+            from agent.serve import server
+            with server(args) as httpd:
+                print(f"Serving {args.run} at http://localhost:{httpd.server_port}", flush=True)
+                httpd.serve_forever()
         else:
             show(args)
     except (OSError, ValueError, RuntimeError, llm.anthropic.APIError, llm.openai.APIError) as exc:
