@@ -1,0 +1,28 @@
+{
+  "company": "Tidewell",
+  "what_we_do": "Dock-scheduling software for regional food distributors. Carriers book dock appointments; warehouses see their load for the day.",
+  "mission": "Make every truck's time at the dock predictable.",
+  "goals": [
+    {
+      "id": "G1",
+      "rank": 1,
+      "goal": "Launch Smart Slots at FreightWorks Expo",
+      "metric": "3 design partners live on Smart Slots by launch",
+      "due": "2026-11-04"
+    },
+    {
+      "id": "G2",
+      "rank": 2,
+      "goal": "Keep every customer we have",
+      "metric": "Renew Harbor Foods by Oct 30 and Ridgeline Supply by Nov 20",
+      "due": "2026-11-20"
+    },
+    {
+      "id": "G3",
+      "rank": 3,
+      "goal": "Make schedule sync reliable",
+      "metric": "Sync errors under 1% of appointments",
+      "due": "2026-12-15"
+    }
+  ]
+}

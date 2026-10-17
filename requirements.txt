@@ -1,0 +1,6 @@
+pydantic>=2.6
+anthropic
+openai
+python-dotenv
+matplotlib
+pytest

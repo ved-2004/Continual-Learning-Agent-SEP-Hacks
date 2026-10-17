@@ -1,0 +1,65 @@
+{
+  "day": 1,
+  "records": [
+    {
+      "person": "maya",
+      "final": [
+        "TW-114",
+        "TW-126",
+        "TW-111"
+      ],
+      "reason": "Dana told me today that Harbor is looking at a competitor before they sign. Harbor is 38% of our revenue, so until Harbor renews on Oct 30, anything that helps that renewal comes before Smart Slots.",
+      "hidden_fact": "H1: Harbor's renewal is at risk because Dana is weighing a competitor, and Maya keeps it off Slack. Until Harbor renews on Oct 30, work for Harbor outranks Smart Slots launch work."
+    },
+    {
+      "person": "arjun",
+      "final": [
+        "TW-101",
+        "TW-104",
+        "TW-115"
+      ],
+      "reason": "Harbor's renewal hinges on their two complaints: the Sep 28 sync outage and the export cutoff. Until Harbor renews, fixing those comes before Smart Slots, and the postmortem goes first because Dana wants it in writing.",
+      "hidden_fact": "H1: Harbor's renewal is at risk because Dana is weighing a competitor, and Maya keeps it off Slack. Until Harbor renews on Oct 30, work for Harbor outranks Smart Slots launch work."
+    },
+    {
+      "person": "nina",
+      "final": [
+        "TW-102",
+        "TW-128",
+        "TW-116"
+      ],
+      "reason": "Harbor's renewal comes before Smart Slots right now, and the export cutoff is one of their two complaints. Jordan needs the Q3 numbers for Thursday's QBR. Ranking comes after.",
+      "hidden_fact": "H1: Harbor's renewal is at risk because Dana is weighing a competitor, and Maya keeps it off Slack. Until Harbor renews on Oct 30, work for Harbor outranks Smart Slots launch work."
+    },
+    {
+      "person": "leila",
+      "final": [
+        "TW-107",
+        "TW-117",
+        "TW-123"
+      ],
+      "reason": "Harbor's renewal comes before Smart Slots right now, and large exports are one of Harbor's complaints, so the export page goes first.",
+      "hidden_fact": "H1: Harbor's renewal is at risk because Dana is weighing a competitor, and Maya keeps it off Slack. Until Harbor renews on Oct 30, work for Harbor outranks Smart Slots launch work."
+    },
+    {
+      "person": "sam",
+      "final": [
+        "TW-118",
+        "TW-106",
+        "TW-119"
+      ],
+      "reason": "The final screens are due tomorrow, so they come first. Then Harbor's usage report, because Harbor's renewal comes before Expo work right now.",
+      "hidden_fact": "H1, but Sam's final screens stay first because they are due tomorrow and Leila is waiting on them."
+    },
+    {
+      "person": "jordan",
+      "final": [
+        "TW-112",
+        "TW-121",
+        "TW-122"
+      ],
+      "reason": "Harbor's renewal is at risk, so Thursday's QBR is the most important thing I do this week. Design partners come next.",
+      "hidden_fact": "H1: Harbor's renewal is at risk because Dana is weighing a competitor, and Maya keeps it off Slack. Until Harbor renews on Oct 30, work for Harbor outranks Smart Slots launch work."
+    }
+  ]
+}

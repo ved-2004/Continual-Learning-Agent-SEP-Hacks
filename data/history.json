@@ -1,0 +1,439 @@
+{
+  "as_of": "2026-10-16",
+  "people": [
+    {
+      "id": "maya",
+      "name": "Maya Chen",
+      "role": "CEO",
+      "owns": "Sales, fundraising, executive relationships with key customers",
+      "notes": "Runs the Monday standup."
+    },
+    {
+      "id": "arjun",
+      "name": "Arjun Mehta",
+      "role": "Engineering lead",
+      "owns": "Backend architecture and the sync engine",
+      "notes": "Reviews all backend pull requests."
+    },
+    {
+      "id": "nina",
+      "name": "Nina Kowalski",
+      "role": "Backend engineer",
+      "owns": "Smart Slots ranking, data exports, alerting",
+      "notes": ""
+    },
+    {
+      "id": "leila",
+      "name": "Leila Haddad",
+      "role": "Frontend engineer",
+      "owns": "Web app UI, including the slot picker and the export page",
+      "notes": ""
+    },
+    {
+      "id": "sam",
+      "name": "Sam Okafor",
+      "role": "Product designer",
+      "owns": "Product design and the Expo demo",
+      "notes": ""
+    },
+    {
+      "id": "jordan",
+      "name": "Jordan Reyes",
+      "role": "Customer success manager",
+      "owns": "Renewals, onboarding and quarterly business reviews",
+      "notes": "Account manager for Harbor Foods and Ridgeline Supply."
+    }
+  ],
+  "customers": [
+    {
+      "id": "harbor",
+      "name": "Harbor Foods",
+      "arr_share_pct": 38,
+      "renewal_date": "2026-10-30",
+      "health": "green",
+      "contact": "Dana Whitfield, VP Operations",
+      "notes": "Largest customer. Renewal order form sent Oct 16. Quarterly business review on Oct 22."
+    },
+    {
+      "id": "ridgeline",
+      "name": "Ridgeline Supply",
+      "arr_share_pct": 22,
+      "renewal_date": "2026-11-20",
+      "health": "yellow",
+      "contact": "Omar Nasser, Director of Logistics",
+      "notes": "Reported duplicate appointments after sync on Oct 9."
+    },
+    {
+      "id": "coastal",
+      "name": "Coastal Freight Co.",
+      "arr_share_pct": 15,
+      "renewal_date": "2027-02-15",
+      "health": "green",
+      "contact": "Grace Liu, Operations Manager",
+      "notes": "Smart Slots design partner."
+    },
+    {
+      "id": "valley",
+      "name": "Valley Produce Co-op",
+      "arr_share_pct": 9,
+      "renewal_date": "2027-04-01",
+      "health": "green",
+      "contact": "Luis Ortega, General Manager",
+      "notes": "Smart Slots design partner. Still setting up data access."
+    }
+  ],
+  "oncall": [
+    {
+      "week_of": "2026-10-19",
+      "person": "nina"
+    },
+    {
+      "week_of": "2026-10-26",
+      "person": "arjun"
+    },
+    {
+      "week_of": "2026-11-02",
+      "person": "leila"
+    }
+  ],
+  "tickets": [
+    {
+      "id": "TW-101",
+      "title": "Write postmortem for Harbor's Sep 28 sync outage",
+      "description": "Harbor lost 41 appointments when syncs failed for 3 hours on Sep 28. The root cause is not written up yet.",
+      "owner": "arjun",
+      "status": "todo",
+      "priority": "low",
+      "goal": "G2",
+      "customer": "harbor",
+      "due": null,
+      "estimate_hours": 3
+    },
+    {
+      "id": "TW-102",
+      "title": "CSV export stops at 5,000 rows",
+      "description": "Exports over 5,000 rows are silently cut off. Harbor's weekly export is about 7,000 rows.",
+      "owner": "nina",
+      "status": "todo",
+      "priority": "low",
+      "goal": "G2",
+      "customer": "harbor",
+      "due": null,
+      "estimate_hours": 4
+    },
+    {
+      "id": "TW-103",
+      "title": "Duplicate appointments after sync",
+      "description": "Ridgeline sees duplicates when a carrier edits a booking during a sync.",
+      "owner": "nina",
+      "status": "todo",
+      "priority": "medium",
+      "goal": "G3",
+      "customer": "ridgeline",
+      "due": null,
+      "estimate_hours": 5
+    },
+    {
+      "id": "TW-104",
+      "title": "Retry queue for failed syncs",
+      "description": "Failed syncs are dropped today. Retry them with backoff so an outage like Sep 28 does not lose appointments.",
+      "owner": "arjun",
+      "status": "todo",
+      "priority": "medium",
+      "goal": "G3",
+      "customer": null,
+      "due": null,
+      "estimate_hours": 10
+    },
+    {
+      "id": "TW-105",
+      "title": "Alert when sync errors pass 1%",
+      "description": "Page the on-call engineer when sync errors stay above 1% for 10 minutes.",
+      "owner": "nina",
+      "status": "todo",
+      "priority": "medium",
+      "goal": "G3",
+      "customer": null,
+      "due": null,
+      "estimate_hours": 3
+    },
+    {
+      "id": "TW-106",
+      "title": "Weekly usage report for Harbor ops",
+      "description": "Dana asked in August for a weekly summary of dock use per distribution center. Design the report.",
+      "owner": "sam",
+      "status": "todo",
+      "priority": "low",
+      "goal": "G2",
+      "customer": "harbor",
+      "due": null,
+      "estimate_hours": 5
+    },
+    {
+      "id": "TW-107",
+      "title": "Export page: progress bar and retry",
+      "description": "Large exports look frozen. Show progress and let users retry a failed export.",
+      "owner": "leila",
+      "status": "todo",
+      "priority": "low",
+      "goal": "G2",
+      "customer": "harbor",
+      "due": null,
+      "estimate_hours": 6
+    },
+    {
+      "id": "TW-108",
+      "title": "Dark mode",
+      "description": "Requested by several dispatchers.",
+      "owner": "leila",
+      "status": "todo",
+      "priority": "low",
+      "goal": null,
+      "customer": null,
+      "due": null,
+      "estimate_hours": 8
+    },
+    {
+      "id": "TW-109",
+      "title": "Settings page redesign",
+      "description": "The current settings page is hard to navigate.",
+      "owner": "sam",
+      "status": "todo",
+      "priority": "low",
+      "goal": null,
+      "customer": null,
+      "due": null,
+      "estimate_hours": 6
+    },
+    {
+      "id": "TW-110",
+      "title": "Backend hiring: first-round interviews",
+      "description": "Two candidates for the backend role.",
+      "owner": "arjun",
+      "status": "todo",
+      "priority": "low",
+      "goal": null,
+      "customer": null,
+      "due": null,
+      "estimate_hours": 3
+    },
+    {
+      "id": "TW-111",
+      "title": "October investor update",
+      "description": "Monthly update to investors.",
+      "owner": "maya",
+      "status": "todo",
+      "priority": "medium",
+      "goal": null,
+      "customer": null,
+      "due": "2026-10-23",
+      "estimate_hours": 3
+    },
+    {
+      "id": "TW-112",
+      "title": "Harbor QBR deck",
+      "description": "Quarterly business review with Dana's team on Oct 22.",
+      "owner": "jordan",
+      "status": "todo",
+      "priority": "medium",
+      "goal": "G2",
+      "customer": "harbor",
+      "due": "2026-10-22",
+      "estimate_hours": 4
+    },
+    {
+      "id": "TW-113",
+      "title": "Ridgeline renewal prep",
+      "description": "Renewal is Nov 20. Prepare a usage summary and pricing options.",
+      "owner": "jordan",
+      "status": "todo",
+      "priority": "low",
+      "goal": "G2",
+      "customer": "ridgeline",
+      "due": "2026-11-13",
+      "estimate_hours": 4
+    },
+    {
+      "id": "TW-114",
+      "title": "Executive check-in with Harbor",
+      "description": "Quarterly call between Maya and Dana Whitfield. Not scheduled yet.",
+      "owner": "maya",
+      "status": "todo",
+      "priority": "low",
+      "goal": "G2",
+      "customer": "harbor",
+      "due": null,
+      "estimate_hours": 1
+    },
+    {
+      "id": "TW-115",
+      "title": "Smart Slots: slot-scoring API",
+      "description": "Score open dock slots by carrier history and dock load. Backend for the slot picker.",
+      "owner": "arjun",
+      "status": "in_progress",
+      "priority": "high",
+      "goal": "G1",
+      "customer": null,
+      "due": "2026-10-28",
+      "estimate_hours": 12
+    },
+    {
+      "id": "TW-116",
+      "title": "Smart Slots: recommendation ranking",
+      "description": "Rank suggested slots for each booking. Feeds the scoring API.",
+      "owner": "nina",
+      "status": "in_progress",
+      "priority": "high",
+      "goal": "G1",
+      "customer": null,
+      "due": "2026-10-27",
+      "estimate_hours": 10
+    },
+    {
+      "id": "TW-117",
+      "title": "Smart Slots: slot picker UI",
+      "description": "Booking screen that shows the suggested slots.",
+      "owner": "leila",
+      "status": "in_progress",
+      "priority": "high",
+      "goal": "G1",
+      "customer": null,
+      "due": "2026-10-29",
+      "estimate_hours": 14
+    },
+    {
+      "id": "TW-118",
+      "title": "Smart Slots: final screens",
+      "description": "Final designs for the slot picker. Leila needs them for TW-117.",
+      "owner": "sam",
+      "status": "in_progress",
+      "priority": "high",
+      "goal": "G1",
+      "customer": null,
+      "due": "2026-10-20",
+      "estimate_hours": 6
+    },
+    {
+      "id": "TW-119",
+      "title": "Expo demo flow and sample data",
+      "description": "Three-screen live demo for the booth.",
+      "owner": "sam",
+      "status": "todo",
+      "priority": "high",
+      "goal": "G1",
+      "customer": null,
+      "due": "2026-10-30",
+      "estimate_hours": 8
+    },
+    {
+      "id": "TW-120",
+      "title": "Expo booth demo script",
+      "description": "What Maya says at the booth, in 3 minutes.",
+      "owner": "maya",
+      "status": "todo",
+      "priority": "medium",
+      "goal": "G1",
+      "customer": null,
+      "due": "2026-10-30",
+      "estimate_hours": 4
+    },
+    {
+      "id": "TW-121",
+      "title": "Get design partners live on Smart Slots",
+      "description": "Coastal Freight and Valley Produce live before Expo.",
+      "owner": "jordan",
+      "status": "todo",
+      "priority": "high",
+      "goal": "G1",
+      "customer": null,
+      "due": "2026-10-30",
+      "estimate_hours": 6
+    },
+    {
+      "id": "TW-122",
+      "title": "Expo lead list and meeting invites",
+      "description": "Book booth meetings with 40 target accounts.",
+      "owner": "jordan",
+      "status": "todo",
+      "priority": "medium",
+      "goal": "G1",
+      "customer": null,
+      "due": "2026-10-28",
+      "estimate_hours": 5
+    },
+    {
+      "id": "TW-123",
+      "title": "Smart Slots: onboarding tooltips",
+      "description": "First-run hints in the slot picker.",
+      "owner": "leila",
+      "status": "todo",
+      "priority": "medium",
+      "goal": "G1",
+      "customer": null,
+      "due": "2026-11-02",
+      "estimate_hours": 4
+    },
+    {
+      "id": "TW-124",
+      "title": "Smart Slots help center articles",
+      "description": "Three articles for launch day.",
+      "owner": "jordan",
+      "status": "todo",
+      "priority": "low",
+      "goal": "G1",
+      "customer": null,
+      "due": "2026-11-03",
+      "estimate_hours": 4
+    },
+    {
+      "id": "TW-125",
+      "title": "Smart Slots pricing page",
+      "description": "Pricing page for the launch.",
+      "owner": "sam",
+      "status": "todo",
+      "priority": "medium",
+      "goal": "G1",
+      "customer": null,
+      "due": "2026-10-30",
+      "estimate_hours": 4
+    },
+    {
+      "id": "TW-126",
+      "title": "Sign Pinecrest Grocers as third design partner",
+      "description": "A third design partner is needed to hit the launch goal.",
+      "owner": "maya",
+      "status": "todo",
+      "priority": "high",
+      "goal": "G1",
+      "customer": null,
+      "due": "2026-10-30",
+      "estimate_hours": 4
+    }
+  ],
+  "events": [
+    {
+      "date": "2026-09-28",
+      "text": "Syncs failed for 3 hours and Harbor Foods lost 41 dock appointments. Fixed the same day. No postmortem written yet."
+    },
+    {
+      "date": "2026-10-05",
+      "text": "Smart Slots plan approved: launch at FreightWorks Expo in Long Beach on Nov 4 with 3 design partners live."
+    },
+    {
+      "date": "2026-10-09",
+      "text": "Ridgeline Supply reported duplicate appointments after syncs."
+    },
+    {
+      "date": "2026-10-12",
+      "text": "Coastal Freight and Valley Produce signed on as Smart Slots design partners. Maya is talking to Pinecrest Grocers about being the third."
+    },
+    {
+      "date": "2026-10-14",
+      "text": "Harbor asked again why CSV exports stop at 5,000 rows. Logged as TW-102, low priority."
+    },
+    {
+      "date": "2026-10-16",
+      "text": "Jordan sent Harbor's renewal order form. Dana said the renewal should be routine."
+    }
+  ]
+}

@@ -1,0 +1,156 @@
+{
+  "day": 1,
+  "date": "2026-10-19",
+  "meetings": [
+    {
+      "title": "Monday standup",
+      "time": "09:30",
+      "attendees": [
+        "maya",
+        "arjun",
+        "nina",
+        "leila",
+        "sam",
+        "jordan"
+      ],
+      "transcript": [
+        "Maya: Morning. Sixteen days to FreightWorks, so let's go around fast. Arjun?",
+        "Arjun: The slot-scoring endpoint works on test data. I can't wire in real recommendations until Nina's ranking lands.",
+        "Nina: Ranking is about two days out. TW-116 will be up by Wednesday.",
+        "Maya: Good. Leila?",
+        "Leila: The slot picker is built on placeholder screens. I need Sam's final designs to finish it.",
+        "Sam: Final screens today, by three. Then I start the Expo demo flow.",
+        "Maya: Jordan, design partners?",
+        "Jordan: Coastal can go live once the API is stable. Valley is still sorting out data access on their side. I'm also building the Harbor QBR deck for Thursday.",
+        "Maya: How is the Harbor renewal looking?",
+        "Jordan: The order form went out Friday. Dana said it should be routine.",
+        "Maya: Great. Then for the next two weeks Smart Slots is the priority for everyone. Expo is our shot at the next twenty customers.",
+        "Arjun: One flag. Sync errors were at 1.6 percent yesterday, mostly Ridgeline's duplicates.",
+        "Maya: Let's look at that after Expo unless it gets worse. Anything else?",
+        "Nina: Harbor asked about the 5,000-row export limit again.",
+        "Jordan: I told them it's on the list. That can wait until after Expo, right?",
+        "Maya: Yes. No side quests until Expo."
+      ]
+    }
+  ],
+  "slack": [
+    {
+      "channel": "#general",
+      "author": "maya",
+      "time": "08:41",
+      "text": "Sixteen days to FreightWorks Expo. Smart Slots is the whole company until Nov 4."
+    },
+    {
+      "channel": "#eng",
+      "author": "arjun",
+      "time": "09:05",
+      "text": "Scoring endpoint passes on test data (TW-115). @nina I need the ranking (TW-116) by Wednesday to wire it in."
+    },
+    {
+      "channel": "#eng",
+      "author": "nina",
+      "time": "09:08",
+      "text": "On it. Wednesday."
+    },
+    {
+      "channel": "#design",
+      "author": "leila",
+      "time": "09:12",
+      "text": "@sam any ETA on the final slot picker screens? I'm building on placeholders."
+    },
+    {
+      "channel": "#design",
+      "author": "sam",
+      "time": "09:14",
+      "text": "Today by 3pm."
+    },
+    {
+      "channel": "#customers",
+      "author": "jordan",
+      "time": "10:05",
+      "text": "@nina can you pull Q3 usage numbers for Harbor's QBR deck? Made TW-128. The QBR is Thursday."
+    },
+    {
+      "channel": "#customers",
+      "author": "nina",
+      "time": "10:07",
+      "text": "Sure, by tomorrow."
+    },
+    {
+      "channel": "#eng",
+      "author": "nina",
+      "time": "10:20",
+      "text": "Sync error rate was 1.6% yesterday, mostly Ridgeline duplicates. Details on TW-103."
+    },
+    {
+      "channel": "#general",
+      "author": "maya",
+      "time": "10:45",
+      "text": "Booth design review with Sam on Wednesday. Expo invites go out Friday."
+    }
+  ],
+  "jira": [
+    {
+      "ticket": "TW-127",
+      "action": "create",
+      "by": "arjun",
+      "set": {
+        "title": "Smart Slots: API docs for design partners",
+        "description": "Coastal and Valley need endpoint docs before they go live.",
+        "owner": "arjun",
+        "status": "todo",
+        "priority": "medium",
+        "goal": "G1",
+        "customer": null,
+        "due": "2026-10-26",
+        "estimate_hours": 3
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-128",
+      "action": "create",
+      "by": "jordan",
+      "set": {
+        "title": "Pull Q3 usage numbers for Harbor's QBR",
+        "description": "Numbers for the QBR deck (TW-112).",
+        "owner": "nina",
+        "status": "todo",
+        "priority": "low",
+        "goal": "G2",
+        "customer": "harbor",
+        "due": "2026-10-21",
+        "estimate_hours": 1
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-115",
+      "action": "update",
+      "by": "arjun",
+      "set": {},
+      "comment": "Scoring endpoint passes on test data. Needs the ranking from TW-116."
+    },
+    {
+      "ticket": "TW-117",
+      "action": "update",
+      "by": "leila",
+      "set": {},
+      "comment": "Built on placeholder screens until TW-118 lands."
+    },
+    {
+      "ticket": "TW-103",
+      "action": "update",
+      "by": "nina",
+      "set": {},
+      "comment": "Sync error rate 1.6% on Oct 18, mostly Ridgeline duplicates."
+    },
+    {
+      "ticket": "TW-102",
+      "action": "update",
+      "by": "jordan",
+      "set": {},
+      "comment": "Harbor asked again on Friday. Told them it is on the list."
+    }
+  ]
+}

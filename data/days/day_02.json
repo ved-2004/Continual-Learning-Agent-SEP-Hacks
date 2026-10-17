@@ -1,0 +1,251 @@
+{
+  "day": 2,
+  "date": "2026-10-20",
+  "meetings": [
+    {
+      "title": "Expo planning sync",
+      "time": "10:00",
+      "attendees": [
+        "maya",
+        "sam",
+        "jordan"
+      ],
+      "transcript": [
+        "Maya: Booth 412 is confirmed. Fifteen days. Sam, what does the demo look like?",
+        "Sam: Three screens. A carrier books a slot, Smart Slots suggests a better one, and the dock manager watches the load even out. I need realistic sample data.",
+        "Jordan: Coastal said we can use an anonymized week of their bookings. I'll get it from Grace today.",
+        "Maya: Perfect. How many booth meetings can we book?",
+        "Jordan: Forty leads on the list. Invites go out Friday like we planned.",
+        "Maya: I'm still pushing Pinecrest to be the third design partner. If they sign this week, we hit the launch goal.",
+        "Sam: Printed screens at the booth, or just the live demo?",
+        "Maya: Live demo, with a printed one-pager as backup."
+      ]
+    }
+  ],
+  "slack": [
+    {
+      "channel": "#eng",
+      "author": "arjun",
+      "time": "09:02",
+      "text": "Sep 28 postmortem is up in TW-101. Action items: retry queue (TW-104) and an error-rate alert (TW-105)."
+    },
+    {
+      "channel": "#eng",
+      "author": "nina",
+      "time": "09:10",
+      "text": "Ranking PR #232 is up. @arjun I need your review before I can wire it into the scoring API (TW-129)."
+    },
+    {
+      "channel": "#design",
+      "author": "sam",
+      "time": "09:14",
+      "text": "Final slot picker screens are in Figma. @leila all yours."
+    },
+    {
+      "channel": "#design",
+      "author": "leila",
+      "time": "09:16",
+      "text": "Thanks, they look great."
+    },
+    {
+      "channel": "#customers",
+      "author": "jordan",
+      "time": "09:31",
+      "text": "Harbor ops says Fresno DC appointments show UTC times. Logged TW-130 (API) and TW-132 (schedule view)."
+    },
+    {
+      "channel": "#general",
+      "author": "maya",
+      "time": "09:50",
+      "text": "Booth 412 at FreightWorks is confirmed. Fifteen days."
+    },
+    {
+      "channel": "#customers",
+      "author": "jordan",
+      "time": "10:20",
+      "text": "Coastal is fine with us using an anonymized week of their bookings for the Expo demo. Kickoff call booked for Thursday. Valley is still waiting on data access."
+    },
+    {
+      "channel": "#eng",
+      "author": "arjun",
+      "time": "11:05",
+      "text": "Backend interviews: two candidates, Thursday and Friday (TW-110)."
+    }
+  ],
+  "jira": [
+    {
+      "ticket": "TW-101",
+      "action": "update",
+      "by": "arjun",
+      "set": {
+        "status": "done"
+      },
+      "comment": "Postmortem written. Root cause: the sync worker crashed and nothing retried. Action items: TW-104 and TW-105."
+    },
+    {
+      "ticket": "TW-102",
+      "action": "update",
+      "by": "nina",
+      "set": {
+        "status": "done"
+      },
+      "comment": "Fixed. Exports over 5,000 rows now complete."
+    },
+    {
+      "ticket": "TW-107",
+      "action": "update",
+      "by": "leila",
+      "set": {
+        "status": "done"
+      },
+      "comment": "Progress bar and retry are live."
+    },
+    {
+      "ticket": "TW-114",
+      "action": "update",
+      "by": "maya",
+      "set": {
+        "status": "done"
+      },
+      "comment": "Spoke with Dana."
+    },
+    {
+      "ticket": "TW-118",
+      "action": "update",
+      "by": "sam",
+      "set": {
+        "status": "done"
+      },
+      "comment": "Final screens are in Figma."
+    },
+    {
+      "ticket": "TW-128",
+      "action": "update",
+      "by": "nina",
+      "set": {
+        "status": "done"
+      },
+      "comment": "Sent the Q3 numbers to Jordan."
+    },
+    {
+      "ticket": "TW-104",
+      "action": "update",
+      "by": "arjun",
+      "set": {
+        "status": "in_progress"
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-106",
+      "action": "update",
+      "by": "sam",
+      "set": {
+        "status": "in_progress"
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-112",
+      "action": "update",
+      "by": "jordan",
+      "set": {
+        "status": "in_progress"
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-121",
+      "action": "update",
+      "by": "jordan",
+      "set": {
+        "status": "in_progress"
+      },
+      "comment": "Coastal kickoff call booked for Thursday."
+    },
+    {
+      "ticket": "TW-126",
+      "action": "update",
+      "by": "maya",
+      "set": {
+        "status": "in_progress"
+      },
+      "comment": "Pinecrest wants to see a live demo first."
+    },
+    {
+      "ticket": "TW-116",
+      "action": "update",
+      "by": "nina",
+      "set": {},
+      "comment": "PR #232 is ready for review."
+    },
+    {
+      "ticket": "TW-129",
+      "action": "create",
+      "by": "nina",
+      "set": {
+        "title": "Review PR #232: Smart Slots ranking",
+        "description": "TW-116 cannot merge until this is reviewed.",
+        "owner": "arjun",
+        "status": "todo",
+        "priority": "medium",
+        "goal": "G1",
+        "customer": null,
+        "due": null,
+        "estimate_hours": 1
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-130",
+      "action": "create",
+      "by": "jordan",
+      "set": {
+        "title": "Harbor: Fresno DC appointments show UTC times",
+        "description": "Reported by Harbor ops this morning. The API returns UTC without the DC's time zone.",
+        "owner": "nina",
+        "status": "todo",
+        "priority": "low",
+        "goal": "G2",
+        "customer": "harbor",
+        "due": null,
+        "estimate_hours": 3
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-131",
+      "action": "create",
+      "by": "maya",
+      "set": {
+        "title": "Send Harbor a written reliability plan",
+        "description": "Dana asked for it before Thursday's QBR.",
+        "owner": "maya",
+        "status": "todo",
+        "priority": "medium",
+        "goal": "G2",
+        "customer": "harbor",
+        "due": "2026-10-22",
+        "estimate_hours": 2
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-132",
+      "action": "create",
+      "by": "jordan",
+      "set": {
+        "title": "Harbor: show each DC's local time in the schedule view",
+        "description": "Front-end half of TW-130.",
+        "owner": "leila",
+        "status": "todo",
+        "priority": "low",
+        "goal": "G2",
+        "customer": "harbor",
+        "due": null,
+        "estimate_hours": 4
+      },
+      "comment": null
+    }
+  ]
+}
