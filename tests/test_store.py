@@ -32,17 +32,21 @@ def test_real_data_and_sources(capsys):
     assert ids == ["D1-M1"] + [f"D1-S{i}" for i in range(1, 10)] + [f"D1-J{i}" for i in range(1, 7)]
 
 
-def test_all_errors(tmp_path, capsys):
+@pytest.mark.parametrize("extra_file", ["history.json", "eval/day_02.json"])
+def test_all_errors(tmp_path, capsys, extra_file):
     root = tmp_path / "data"
     shutil.copytree(DATA, root)
     path = root / "history.json"
     raw = read_json(path)
-    raw["typo"] = True
     raw["tickets"][0]["owner"] = "ghost"
     write_json(path, raw)
     path = root / "eval/day_02.json"
     raw = read_json(path)
     raw["records"][0]["final"][0] = "TW-101"
+    write_json(path, raw)
+    path = root / extra_file
+    raw = read_json(path)
+    raw["typo"] = True
     write_json(path, raw)
     with pytest.raises(SystemExit):
         validate(root)

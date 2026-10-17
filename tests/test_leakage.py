@@ -29,3 +29,46 @@ def test_messages():
         if day.day == 2:
             print(messages[1])
         previous = plan
+
+
+def test_guard_cache_retry(tmp_path, monkeypatch):
+    import json
+    import pytest
+    from agent import llm
+    monkeypatch.chdir(tmp_path)
+    monkeypatch.setenv("LLM_PROVIDER", "anthropic")
+    monkeypatch.setenv("LLM_MODEL", "test")
+    llm.start_run(tmp_path / "run")
+    replies, calls = iter(['{"summary":"missing items"}', '```json\n{"summary":"ok","items":[]}\n```']), []
+    def request(*args):
+        calls.append(args)
+        return next(replies)
+    monkeypatch.setattr(llm, "request", request)
+    llm.set_forbidden([])
+    for _ in range(2):
+        assert llm.call("interpret", 1, "system", "a hidden fact that is twenty characters long", Brain, lambda b: []).summary == "ok"
+    assert len(calls) == 2 and "failed these checks" in calls[1][-1]
+    logs = [json.loads(line) for line in (tmp_path / "run/llm_calls.jsonl").read_text().splitlines()]
+    assert [line["cache_hit"] for line in logs] == [False, False, True, True]
+    llm.set_forbidden(["system", "user", "a hidden fact that is twenty characters long"])
+    with pytest.raises(RuntimeError, match="interpret day 1: forbidden"):
+        llm.call("interpret", 1, "system", "a hidden fact that is twenty characters long", Brain, lambda b: [])
+    assert len(calls) == 2
+    llm.set_forbidden([])
+    monkeypatch.setattr(llm, "request", lambda *args: '{"summary":"ok","items":[]}')
+    with pytest.raises(RuntimeError, match="decide day 2"):
+        llm.call("decide", 2, "system", "bad", Brain, lambda b: ["failed check"])
+    assert (tmp_path / "run/failed_decide_day02.txt").exists()
+
+
+def test_sdk_request(monkeypatch):
+    from types import SimpleNamespace
+    from unittest.mock import patch
+    from agent import llm
+    monkeypatch.setenv("ANTHROPIC_API_KEY", "offline-test")
+    client = llm.anthropic.Anthropic(api_key="offline-test")
+    response = SimpleNamespace(content=[SimpleNamespace(type="text", text="{}")])
+    with patch.object(llm.anthropic, "Anthropic", return_value=client), patch.object(client.messages, "_post", return_value=response) as post:
+        assert llm.request("anthropic", "test", "system", "user") == "{}"
+        assert post.call_args.kwargs["body"]["max_tokens"] == 4096
+        assert post.call_args.kwargs["options"]["extra_json"] == {"temperature": 0}

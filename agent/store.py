@@ -1,4 +1,5 @@
 import json
+from copy import deepcopy
 import re
 from pathlib import Path
 from pydantic import BaseModel, ValidationError
@@ -24,6 +25,15 @@ def parse(model, raw, path, errors):
         return model.model_validate(raw, context={"input": True})
     except ValidationError as exc:
         errors.setdefault(str(path), []).extend(f"{'.'.join(map(str, e['loc']))}: {e['msg']}" for e in exc.errors())
+        # Keep diagnostics, but remove rejected extras to check the remaining references too.
+        if all(e["type"] == "extra_forbidden" for e in exc.errors()):
+            cleaned = deepcopy(raw)
+            for error in exc.errors():
+                parent = cleaned
+                for key in error["loc"][:-1]:
+                    parent = parent[key]
+                del parent[error["loc"][-1]]
+            return model.model_validate(cleaned, context={"input": True})
 
 
 def load_raw(path, errors):
