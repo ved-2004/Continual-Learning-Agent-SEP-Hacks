@@ -1,0 +1,65 @@
+{
+  "day": 4,
+  "records": [
+    {
+      "person": "maya",
+      "final": [
+        "TW-136",
+        "TW-111",
+        "TW-126"
+      ],
+      "reason": "It's QBR day and Harbor's renewal still comes before Smart Slots, so the renewal terms come first. The investor update is due tomorrow, then Pinecrest.",
+      "hidden_fact": "H1 still applies: Harbor's renewal is at risk until they sign on Oct 30, so Harbor work outranks Smart Slots launch work."
+    },
+    {
+      "person": "arjun",
+      "final": [
+        "TW-137",
+        "TW-104",
+        "TW-115"
+      ],
+      "reason": "Nina is waiting on my review of the duplicates fix, and unblocking a teammate always comes first. Then the retry queue for Harbor, then the scoring API.",
+      "hidden_fact": "H2: unblocking a teammate (a review, an answer, a handoff) comes before your own work. H1 also still applies."
+    },
+    {
+      "person": "nina",
+      "final": [
+        "TW-105",
+        "TW-103",
+        "TW-138"
+      ],
+      "reason": "Harbor's renewal still comes first, and their team will ask about the error-rate alert at the QBR. Then any review comments on the duplicates fix, then ranking for Coastal.",
+      "hidden_fact": "H1 still applies: Harbor's renewal is at risk until they sign on Oct 30, so Harbor work outranks Smart Slots launch work."
+    },
+    {
+      "person": "leila",
+      "final": [
+        "TW-117",
+        "TW-135",
+        "TW-123"
+      ],
+      "reason": "Nothing changed for me: the slot picker, then its empty and error states, then tooltips.",
+      "hidden_fact": "No hidden fact today: the visible priorities are right."
+    },
+    {
+      "person": "sam",
+      "final": [
+        "TW-119",
+        "TW-125",
+        "TW-109"
+      ],
+      "reason": "Expo work as planned: the demo flow, then the pricing page.",
+      "hidden_fact": "No hidden fact today: the visible priorities are right."
+    },
+    {
+      "person": "jordan",
+      "final": [
+        "TW-112",
+        "TW-121",
+        "TW-122"
+      ],
+      "reason": "The Harbor QBR is at two and Harbor's renewal still comes first. Then design partners and Expo invites.",
+      "hidden_fact": "H1 still applies: Harbor's renewal is at risk until they sign on Oct 30, so Harbor work outranks Smart Slots launch work."
+    }
+  ]
+}

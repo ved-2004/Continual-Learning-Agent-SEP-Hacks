@@ -1,0 +1,234 @@
+{
+  "day": 5,
+  "date": "2026-10-23",
+  "meetings": [
+    {
+      "title": "Booth demo dry run",
+      "time": "10:30",
+      "attendees": [
+        "maya",
+        "sam",
+        "leila",
+        "jordan"
+      ],
+      "transcript": [
+        "Maya: Dry run of the booth demo. Sam, go.",
+        "Sam: Screen one, a carrier books a 7am slot. Screen two, Smart Slots suggests 9:30 because the dock is overloaded. Screen three waits for the slot picker build.",
+        "Leila: The build is up as PR #241.",
+        "Maya: How long is the full demo?",
+        "Sam: Two minutes forty. We should get it under two.",
+        "Jordan: Booth visitors will ask about pricing first.",
+        "Maya: Then pricing goes on the one-pager, with the same numbers as the pricing page.",
+        "Sam: Got it."
+      ]
+    }
+  ],
+  "slack": [
+    {
+      "channel": "#eng",
+      "author": "arjun",
+      "time": "08:15",
+      "text": "Retry queue is live in production (TW-104). The duplicates fix shipped too (TW-103)."
+    },
+    {
+      "channel": "#eng",
+      "author": "leila",
+      "time": "08:40",
+      "text": "Slot picker build is up as PR #241. @sam it needs your design review before it merges (TW-141)."
+    },
+    {
+      "channel": "#customers",
+      "author": "jordan",
+      "time": "09:10",
+      "text": "QBR recap: Dana's team liked the export fix and the time zone display. Follow-ups logged as TW-139, TW-140 and TW-142."
+    },
+    {
+      "channel": "#general",
+      "author": "maya",
+      "time": "09:30",
+      "text": "Twelve days to FreightWorks. Expo invites go out today."
+    },
+    {
+      "channel": "#customers",
+      "author": "jordan",
+      "time": "10:00",
+      "text": "Valley's data is flowing. Their Smart Slots setup starts Monday."
+    },
+    {
+      "channel": "#eng",
+      "author": "nina",
+      "time": "10:45",
+      "text": "Error-rate alert is live (TW-105)."
+    },
+    {
+      "channel": "#eng",
+      "author": "arjun",
+      "time": "11:20",
+      "text": "Second backend interview at 3pm (TW-110)."
+    }
+  ],
+  "jira": [
+    {
+      "ticket": "TW-104",
+      "action": "update",
+      "by": "arjun",
+      "set": {
+        "status": "done"
+      },
+      "comment": "Retry queue is live in production."
+    },
+    {
+      "ticket": "TW-137",
+      "action": "update",
+      "by": "arjun",
+      "set": {
+        "status": "done"
+      },
+      "comment": "Approved PR #238."
+    },
+    {
+      "ticket": "TW-103",
+      "action": "update",
+      "by": "nina",
+      "set": {
+        "status": "done"
+      },
+      "comment": "Duplicates fix shipped."
+    },
+    {
+      "ticket": "TW-105",
+      "action": "update",
+      "by": "nina",
+      "set": {
+        "status": "done"
+      },
+      "comment": "Error-rate alert is live."
+    },
+    {
+      "ticket": "TW-112",
+      "action": "update",
+      "by": "jordan",
+      "set": {
+        "status": "done"
+      },
+      "comment": "QBR done. Dana's team was positive about the fixes."
+    },
+    {
+      "ticket": "TW-136",
+      "action": "update",
+      "by": "maya",
+      "set": {
+        "status": "done"
+      },
+      "comment": "Shared the renewal terms at the QBR."
+    },
+    {
+      "ticket": "TW-138",
+      "action": "update",
+      "by": "nina",
+      "set": {
+        "status": "in_progress"
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-111",
+      "action": "update",
+      "by": "maya",
+      "set": {},
+      "comment": "Sending today."
+    },
+    {
+      "ticket": "TW-117",
+      "action": "update",
+      "by": "leila",
+      "set": {},
+      "comment": "Build is up as PR #241, waiting on design review."
+    },
+    {
+      "ticket": "TW-139",
+      "action": "create",
+      "by": "jordan",
+      "set": {
+        "title": "Send Harbor the QBR follow-up notes",
+        "description": "Dana wants written notes from Thursday's QBR.",
+        "owner": "jordan",
+        "status": "todo",
+        "priority": "low",
+        "goal": "G2",
+        "customer": "harbor",
+        "due": "2026-10-23",
+        "estimate_hours": 1
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-140",
+      "action": "create",
+      "by": "jordan",
+      "set": {
+        "title": "Harbor: add a 4-week dock trend to the weekly report",
+        "description": "Dana asked for it at the QBR.",
+        "owner": "sam",
+        "status": "todo",
+        "priority": "low",
+        "goal": "G2",
+        "customer": "harbor",
+        "due": null,
+        "estimate_hours": 3
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-141",
+      "action": "create",
+      "by": "leila",
+      "set": {
+        "title": "Design review: slot picker build (PR #241)",
+        "description": "TW-117 cannot merge until design signs off.",
+        "owner": "sam",
+        "status": "todo",
+        "priority": "medium",
+        "goal": "G1",
+        "customer": null,
+        "due": null,
+        "estimate_hours": 1
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-142",
+      "action": "create",
+      "by": "jordan",
+      "set": {
+        "title": "Harbor: send sync alerts to Harbor's ops channel",
+        "description": "Harbor's ops lead asked to get the same alerts we do.",
+        "owner": "nina",
+        "status": "todo",
+        "priority": "low",
+        "goal": "G2",
+        "customer": "harbor",
+        "due": null,
+        "estimate_hours": 2
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-143",
+      "action": "create",
+      "by": "arjun",
+      "set": {
+        "title": "Smart Slots: load test before Expo",
+        "description": "Run the scoring API at 10x expected booth traffic.",
+        "owner": "nina",
+        "status": "todo",
+        "priority": "medium",
+        "goal": "G1",
+        "customer": null,
+        "due": "2026-10-30",
+        "estimate_hours": 4
+      },
+      "comment": null
+    }
+  ]
+}

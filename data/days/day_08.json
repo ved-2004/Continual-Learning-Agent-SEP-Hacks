@@ -1,0 +1,240 @@
+{
+  "day": 8,
+  "date": "2026-10-28",
+  "meetings": [
+    {
+      "title": "Wednesday standup",
+      "time": "09:30",
+      "attendees": [
+        "maya",
+        "arjun",
+        "nina",
+        "leila",
+        "sam",
+        "jordan"
+      ],
+      "transcript": [
+        "Maya: One week to FreightWorks, and the booth ships tomorrow. Quick round.",
+        "Arjun: The scoring API is done and load tested.",
+        "Nina: Coastal ranking shipped. The 10x load test runs today.",
+        "Leila: Tablet mode for the booth works on the iPad.",
+        "Sam: Print files went out. The demo is at one minute fifty.",
+        "Jordan: The Pinecrest kickoff is Thursday. Harbor's legal sent redlines last night.",
+        "Arjun: Nothing blocking on my side.",
+        "Maya: Then let's make this week count."
+      ]
+    }
+  ],
+  "slack": [
+    {
+      "channel": "#general",
+      "author": "maya",
+      "time": "08:10",
+      "text": "One week to FreightWorks. The booth ships tomorrow."
+    },
+    {
+      "channel": "#customers",
+      "author": "jordan",
+      "time": "08:35",
+      "text": "Harbor's legal sent contract redlines overnight. They want an uptime clause before signing. Logged TW-154 for Maya and TW-158 for the paperwork."
+    },
+    {
+      "channel": "#customers",
+      "author": "jordan",
+      "time": "08:50",
+      "text": "Dana also asked for two things: a monthly sync uptime report (TW-155) and a weekly auto-export (TW-156). No date given."
+    },
+    {
+      "channel": "#design",
+      "author": "sam",
+      "time": "09:20",
+      "text": "Print files went to the printer (TW-150)."
+    },
+    {
+      "channel": "#eng",
+      "author": "nina",
+      "time": "10:05",
+      "text": "The 10x load test starts at 2pm (TW-143)."
+    },
+    {
+      "channel": "#customers",
+      "author": "jordan",
+      "time": "10:40",
+      "text": "Pinecrest kickoff confirmed for Thursday (TW-151)."
+    },
+    {
+      "channel": "#eng",
+      "author": "arjun",
+      "time": "11:10",
+      "text": "The demo environment needs Coastal's anonymized week loaded (TW-147)."
+    }
+  ],
+  "jira": [
+    {
+      "ticket": "TW-120",
+      "action": "update",
+      "by": "maya",
+      "set": {
+        "status": "done"
+      },
+      "comment": "Booth script final."
+    },
+    {
+      "ticket": "TW-115",
+      "action": "update",
+      "by": "arjun",
+      "set": {
+        "status": "done"
+      },
+      "comment": "Scoring API done."
+    },
+    {
+      "ticket": "TW-138",
+      "action": "update",
+      "by": "nina",
+      "set": {
+        "status": "done"
+      },
+      "comment": "Coastal ranking shipped."
+    },
+    {
+      "ticket": "TW-150",
+      "action": "update",
+      "by": "sam",
+      "set": {
+        "status": "done"
+      },
+      "comment": "Sent to the printer."
+    },
+    {
+      "ticket": "TW-152",
+      "action": "update",
+      "by": "maya",
+      "set": {
+        "status": "in_progress"
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-153",
+      "action": "update",
+      "by": "maya",
+      "set": {
+        "status": "in_progress"
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-146",
+      "action": "update",
+      "by": "arjun",
+      "set": {
+        "status": "in_progress"
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-108",
+      "action": "update",
+      "by": "leila",
+      "set": {
+        "status": "in_progress"
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-151",
+      "action": "update",
+      "by": "jordan",
+      "set": {
+        "status": "in_progress"
+      },
+      "comment": "Kickoff Thursday."
+    },
+    {
+      "ticket": "TW-154",
+      "action": "create",
+      "by": "jordan",
+      "set": {
+        "title": "Review Harbor's contract redlines",
+        "description": "Harbor's legal team wants an uptime clause before signing.",
+        "owner": "maya",
+        "status": "todo",
+        "priority": "medium",
+        "goal": "G2",
+        "customer": "harbor",
+        "due": "2026-10-29",
+        "estimate_hours": 2
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-155",
+      "action": "create",
+      "by": "jordan",
+      "set": {
+        "title": "Harbor: monthly sync uptime report",
+        "description": "Dana wants a monthly uptime number to back the SLA.",
+        "owner": "arjun",
+        "status": "todo",
+        "priority": "low",
+        "goal": "G2",
+        "customer": "harbor",
+        "due": null,
+        "estimate_hours": 3
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-156",
+      "action": "create",
+      "by": "jordan",
+      "set": {
+        "title": "Harbor: auto-export the weekly report every Monday",
+        "description": "Dana asked for it. No date given.",
+        "owner": "nina",
+        "status": "todo",
+        "priority": "low",
+        "goal": "G2",
+        "customer": "harbor",
+        "due": null,
+        "estimate_hours": 2
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-157",
+      "action": "create",
+      "by": "sam",
+      "set": {
+        "title": "Expo: booth slide loop",
+        "description": "Looping slides for the booth screen between demos.",
+        "owner": "sam",
+        "status": "todo",
+        "priority": "medium",
+        "goal": "G1",
+        "customer": null,
+        "due": "2026-10-31",
+        "estimate_hours": 3
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-158",
+      "action": "create",
+      "by": "jordan",
+      "set": {
+        "title": "Harbor: renewal paperwork with legal's changes",
+        "description": "New order form once the uptime clause is agreed.",
+        "owner": "jordan",
+        "status": "todo",
+        "priority": "medium",
+        "goal": "G2",
+        "customer": "harbor",
+        "due": "2026-10-30",
+        "estimate_hours": 2
+      },
+      "comment": null
+    }
+  ]
+}

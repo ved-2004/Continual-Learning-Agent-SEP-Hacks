@@ -1,0 +1,65 @@
+{
+  "day": 7,
+  "records": [
+    {
+      "person": "maya",
+      "final": [
+        "TW-120",
+        "TW-152",
+        "TW-153"
+      ],
+      "reason": "The booth script first, it is due Friday, then investor meetings, then the launch post.",
+      "hidden_fact": "No hidden fact today: the visible priorities are right."
+    },
+    {
+      "person": "arjun",
+      "final": [
+        "TW-115",
+        "TW-147",
+        "TW-146"
+      ],
+      "reason": "A normal day: the scoring API is due tomorrow, then the demo environment, then rate limits.",
+      "hidden_fact": "No hidden fact today: the visible priorities are right."
+    },
+    {
+      "person": "nina",
+      "final": [
+        "TW-138",
+        "TW-143",
+        "TW-148"
+      ],
+      "reason": "Coastal ranking is due tomorrow, then tomorrow's load test, then caching.",
+      "hidden_fact": "No hidden fact today: the visible priorities are right."
+    },
+    {
+      "person": "leila",
+      "final": [
+        "TW-149",
+        "TW-123",
+        "TW-108"
+      ],
+      "reason": "The booth tablet mode first, it is due Thursday, then tooltips.",
+      "hidden_fact": "No hidden fact today: the visible priorities are right."
+    },
+    {
+      "person": "sam",
+      "final": [
+        "TW-150",
+        "TW-119",
+        "TW-109"
+      ],
+      "reason": "The print files are due tomorrow, then the demo.",
+      "hidden_fact": "No hidden fact today: the visible priorities are right."
+    },
+    {
+      "person": "jordan",
+      "final": [
+        "TW-151",
+        "TW-121",
+        "TW-124"
+      ],
+      "reason": "Pinecrest has to be live before Expo, so their kickoff is first. Then Valley and Coastal, then the help articles.",
+      "hidden_fact": "No hidden fact today: the visible priorities are right."
+    }
+  ]
+}

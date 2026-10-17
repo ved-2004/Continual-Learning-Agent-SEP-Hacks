@@ -1,0 +1,321 @@
+{
+  "day": 6,
+  "date": "2026-10-26",
+  "meetings": [
+    {
+      "title": "Monday standup",
+      "time": "09:30",
+      "attendees": [
+        "maya",
+        "arjun",
+        "nina",
+        "leila",
+        "sam",
+        "jordan"
+      ],
+      "transcript": [
+        "Maya: Nine days to FreightWorks. Pinecrest sees the live demo today at three. Quick round.",
+        "Arjun: The scoring API passed a load test at 5x. Nina takes it to 10x this week.",
+        "Nina: Ranking for Coastal's early docks looks better. The load test script is ready.",
+        "Leila: The slot picker merged Friday after Sam's review.",
+        "Sam: The demo is down to two minutes ten. The pricing page has final numbers.",
+        "Jordan: Valley's setup starts today. Coastal has twelve users on Smart Slots in staging.",
+        "Maya: Great. The booth ships Thursday, so anything printed has to be final by Wednesday."
+      ]
+    }
+  ],
+  "slack": [
+    {
+      "channel": "#general",
+      "author": "maya",
+      "time": "08:30",
+      "text": "Nine days to FreightWorks. Pinecrest live demo at 3pm."
+    },
+    {
+      "channel": "#customers",
+      "author": "jordan",
+      "time": "10:42",
+      "text": "Escalation: Grace says no one at Coastal can log in since this morning. They are back on spreadsheets. Made TW-144 (assigned to Leila, it's the login page) and TW-145 for a call with Grace."
+    },
+    {
+      "channel": "#eng",
+      "author": "leila",
+      "time": "10:50",
+      "text": "Seeing a redirect loop after the SSO step, for Coastal accounts only."
+    },
+    {
+      "channel": "#customers",
+      "author": "jordan",
+      "time": "11:05",
+      "text": "Grace says their CEO is asking whether Smart Slots is ready for real use."
+    },
+    {
+      "channel": "#design",
+      "author": "sam",
+      "time": "11:30",
+      "text": "Booth one-pager is final in Figma. Printing Wednesday."
+    },
+    {
+      "channel": "#eng",
+      "author": "nina",
+      "time": "12:10",
+      "text": "The 10x load test is scheduled for Wednesday (TW-143)."
+    },
+    {
+      "channel": "#customers",
+      "author": "jordan",
+      "time": "12:30",
+      "text": "Valley's first week of bookings is imported."
+    }
+  ],
+  "jira": [
+    {
+      "ticket": "TW-141",
+      "action": "update",
+      "by": "sam",
+      "set": {
+        "status": "done"
+      },
+      "comment": "Approved the slot picker build."
+    },
+    {
+      "ticket": "TW-117",
+      "action": "update",
+      "by": "leila",
+      "set": {
+        "status": "done"
+      },
+      "comment": "PR #241 merged."
+    },
+    {
+      "ticket": "TW-140",
+      "action": "update",
+      "by": "sam",
+      "set": {
+        "status": "done"
+      },
+      "comment": "Trend chart added to Harbor's weekly report."
+    },
+    {
+      "ticket": "TW-139",
+      "action": "update",
+      "by": "jordan",
+      "set": {
+        "status": "done"
+      },
+      "comment": "Sent the QBR notes to Dana."
+    },
+    {
+      "ticket": "TW-142",
+      "action": "update",
+      "by": "nina",
+      "set": {
+        "status": "done"
+      },
+      "comment": "Harbor's ops channel now gets sync alerts."
+    },
+    {
+      "ticket": "TW-111",
+      "action": "update",
+      "by": "maya",
+      "set": {
+        "status": "done"
+      },
+      "comment": "Investor update sent."
+    },
+    {
+      "ticket": "TW-127",
+      "action": "update",
+      "by": "arjun",
+      "set": {
+        "status": "done"
+      },
+      "comment": "Partner API docs published."
+    },
+    {
+      "ticket": "TW-110",
+      "action": "update",
+      "by": "arjun",
+      "set": {
+        "status": "done"
+      },
+      "comment": "Both interviews done. Feedback is in the hiring doc."
+    },
+    {
+      "ticket": "TW-122",
+      "action": "update",
+      "by": "jordan",
+      "set": {
+        "status": "done"
+      },
+      "comment": "Invites sent to 40 accounts."
+    },
+    {
+      "ticket": "TW-125",
+      "action": "update",
+      "by": "sam",
+      "set": {
+        "status": "done"
+      },
+      "comment": "Pricing page final."
+    },
+    {
+      "ticket": "TW-120",
+      "action": "update",
+      "by": "maya",
+      "set": {
+        "status": "in_progress"
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-143",
+      "action": "update",
+      "by": "nina",
+      "set": {
+        "status": "in_progress"
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-115",
+      "action": "update",
+      "by": "arjun",
+      "set": {},
+      "comment": "Passed a load test at 5x."
+    },
+    {
+      "ticket": "TW-138",
+      "action": "update",
+      "by": "nina",
+      "set": {},
+      "comment": "Better suggestions for early docks."
+    },
+    {
+      "ticket": "TW-126",
+      "action": "update",
+      "by": "maya",
+      "set": {},
+      "comment": "Live demo with Pinecrest today at 3pm."
+    },
+    {
+      "ticket": "TW-144",
+      "action": "create",
+      "by": "jordan",
+      "set": {
+        "title": "Coastal: users can't log in after the SSO step",
+        "description": "Redirect loop after SSO for Coastal accounts. Their dispatchers are back on spreadsheets.",
+        "owner": "leila",
+        "status": "todo",
+        "priority": "high",
+        "goal": "G2",
+        "customer": "coastal",
+        "due": "2026-10-26",
+        "estimate_hours": 3
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-145",
+      "action": "create",
+      "by": "jordan",
+      "set": {
+        "title": "Call Grace at Coastal about the login outage",
+        "description": "Grace's CEO is asking whether Smart Slots is ready for real use.",
+        "owner": "jordan",
+        "status": "todo",
+        "priority": "high",
+        "goal": "G2",
+        "customer": "coastal",
+        "due": "2026-10-26",
+        "estimate_hours": 1
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-146",
+      "action": "create",
+      "by": "arjun",
+      "set": {
+        "title": "Smart Slots: rate limits for booth traffic",
+        "description": "Protect the scoring API from bursts during Expo.",
+        "owner": "arjun",
+        "status": "todo",
+        "priority": "medium",
+        "goal": "G1",
+        "customer": null,
+        "due": "2026-10-30",
+        "estimate_hours": 3
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-147",
+      "action": "create",
+      "by": "arjun",
+      "set": {
+        "title": "Expo: demo environment with Coastal's anonymized data",
+        "description": "Separate environment for the booth demo.",
+        "owner": "arjun",
+        "status": "todo",
+        "priority": "medium",
+        "goal": "G1",
+        "customer": null,
+        "due": "2026-10-29",
+        "estimate_hours": 3
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-148",
+      "action": "create",
+      "by": "arjun",
+      "set": {
+        "title": "Smart Slots: cache slot scores for the booth demo",
+        "description": "Keep the demo fast on booth Wi-Fi.",
+        "owner": "nina",
+        "status": "todo",
+        "priority": "medium",
+        "goal": "G1",
+        "customer": null,
+        "due": "2026-10-30",
+        "estimate_hours": 3
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-149",
+      "action": "create",
+      "by": "leila",
+      "set": {
+        "title": "Booth tablet mode for the slot picker",
+        "description": "Full-screen picker for the booth tablet station.",
+        "owner": "leila",
+        "status": "todo",
+        "priority": "medium",
+        "goal": "G1",
+        "customer": null,
+        "due": "2026-10-29",
+        "estimate_hours": 3
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-150",
+      "action": "create",
+      "by": "sam",
+      "set": {
+        "title": "Booth one-pager: final print files",
+        "description": "Print files due Wednesday for Thursday's shipment.",
+        "owner": "sam",
+        "status": "todo",
+        "priority": "high",
+        "goal": "G1",
+        "customer": null,
+        "due": "2026-10-28",
+        "estimate_hours": 2
+      },
+      "comment": null
+    }
+  ]
+}

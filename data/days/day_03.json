@@ -1,0 +1,253 @@
+{
+  "day": 3,
+  "date": "2026-10-21",
+  "meetings": [
+    {
+      "title": "Booth design review",
+      "time": "11:00",
+      "attendees": [
+        "maya",
+        "sam",
+        "leila"
+      ],
+      "transcript": [
+        "Maya: Let's look at the booth. Sam, walk us through it.",
+        "Sam: The back wall has one line: every truck on time. The live demo runs on the big screen, and a tablet station lets people book a slot themselves.",
+        "Leila: The tablet flow uses the real slot picker, so it has to be stable by next Wednesday.",
+        "Maya: Can we show Coastal's real numbers on the screen?",
+        "Sam: Anonymized, yes. Jordan got the data from Grace.",
+        "Maya: Good. What's left for the printed one-pager?",
+        "Sam: Pricing. I'm waiting on final numbers.",
+        "Maya: You'll have them by Friday.",
+        "Leila: One ask: freeze the slot picker design now. Changes after Monday won't make it.",
+        "Sam: Agreed. No more design changes after today."
+      ]
+    }
+  ],
+  "slack": [
+    {
+      "channel": "#customers",
+      "author": "jordan",
+      "time": "07:58",
+      "text": "Escalation: Omar from Ridgeline says 9 trucks were double-booked at their Reno DC this morning and drivers are waiting at the gate. Third time this quarter."
+    },
+    {
+      "channel": "#customers",
+      "author": "jordan",
+      "time": "08:06",
+      "text": "Made TW-133 for the fix and TW-134 for a call with Omar today."
+    },
+    {
+      "channel": "#eng",
+      "author": "nina",
+      "time": "08:20",
+      "text": "Sync errors at Reno were 4.2% overnight, all duplicates. Same pattern as TW-103."
+    },
+    {
+      "channel": "#customers",
+      "author": "jordan",
+      "time": "08:41",
+      "text": "Omar just copied Ridgeline's CFO. He wants a call before noon."
+    },
+    {
+      "channel": "#eng",
+      "author": "arjun",
+      "time": "09:05",
+      "text": "Retry queue is running in staging (TW-104). The merged ranking from TW-116 is going into the scoring API."
+    },
+    {
+      "channel": "#general",
+      "author": "maya",
+      "time": "09:30",
+      "text": "Fourteen days to FreightWorks. Booth review at 11."
+    },
+    {
+      "channel": "#design",
+      "author": "sam",
+      "time": "10:10",
+      "text": "Demo screens 1 and 2 are done (TW-119). Screen 3 needs the slot picker build."
+    }
+  ],
+  "jira": [
+    {
+      "ticket": "TW-131",
+      "action": "update",
+      "by": "maya",
+      "set": {
+        "status": "done"
+      },
+      "comment": "Sent Dana the reliability plan."
+    },
+    {
+      "ticket": "TW-129",
+      "action": "update",
+      "by": "arjun",
+      "set": {
+        "status": "done"
+      },
+      "comment": "Approved PR #232."
+    },
+    {
+      "ticket": "TW-116",
+      "action": "update",
+      "by": "nina",
+      "set": {
+        "status": "done"
+      },
+      "comment": "PR #232 merged."
+    },
+    {
+      "ticket": "TW-130",
+      "action": "update",
+      "by": "nina",
+      "set": {
+        "status": "done"
+      },
+      "comment": "Fresno appointments now show local time."
+    },
+    {
+      "ticket": "TW-132",
+      "action": "update",
+      "by": "leila",
+      "set": {
+        "status": "done"
+      },
+      "comment": "Schedule view shows each DC's local time."
+    },
+    {
+      "ticket": "TW-106",
+      "action": "update",
+      "by": "sam",
+      "set": {
+        "status": "done"
+      },
+      "comment": "First weekly usage report sent to Dana."
+    },
+    {
+      "ticket": "TW-105",
+      "action": "update",
+      "by": "nina",
+      "set": {
+        "status": "in_progress"
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-111",
+      "action": "update",
+      "by": "maya",
+      "set": {
+        "status": "in_progress"
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-119",
+      "action": "update",
+      "by": "sam",
+      "set": {
+        "status": "in_progress"
+      },
+      "comment": "Screens 1 and 2 done."
+    },
+    {
+      "ticket": "TW-123",
+      "action": "update",
+      "by": "leila",
+      "set": {
+        "status": "in_progress"
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-122",
+      "action": "update",
+      "by": "jordan",
+      "set": {
+        "status": "in_progress"
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-125",
+      "action": "update",
+      "by": "sam",
+      "set": {
+        "status": "in_progress"
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-112",
+      "action": "update",
+      "by": "jordan",
+      "set": {},
+      "comment": "Deck drafted. Final numbers tomorrow morning."
+    },
+    {
+      "ticket": "TW-104",
+      "action": "update",
+      "by": "arjun",
+      "set": {},
+      "comment": "Running in staging."
+    },
+    {
+      "ticket": "TW-103",
+      "action": "update",
+      "by": "nina",
+      "set": {},
+      "comment": "Duplicates spiked overnight at Reno."
+    },
+    {
+      "ticket": "TW-133",
+      "action": "create",
+      "by": "jordan",
+      "set": {
+        "title": "Ridgeline: trucks double-booked at Reno DC",
+        "description": "Omar reports 9 trucks double-booked at Reno this morning. Drivers are waiting at the gate.",
+        "owner": "arjun",
+        "status": "todo",
+        "priority": "high",
+        "goal": "G2",
+        "customer": "ridgeline",
+        "due": "2026-10-21",
+        "estimate_hours": 4
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-134",
+      "action": "create",
+      "by": "jordan",
+      "set": {
+        "title": "Call Omar at Ridgeline about the Reno double-bookings",
+        "description": "Omar wants a call before noon. He copied Ridgeline's CFO.",
+        "owner": "jordan",
+        "status": "todo",
+        "priority": "high",
+        "goal": "G2",
+        "customer": "ridgeline",
+        "due": "2026-10-21",
+        "estimate_hours": 1
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-135",
+      "action": "create",
+      "by": "leila",
+      "set": {
+        "title": "Slot picker: empty and error states",
+        "description": "What the picker shows when there are no good slots or the API fails.",
+        "owner": "leila",
+        "status": "todo",
+        "priority": "medium",
+        "goal": "G1",
+        "customer": null,
+        "due": "2026-10-29",
+        "estimate_hours": 3
+      },
+      "comment": null
+    }
+  ]
+}

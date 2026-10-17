@@ -1,0 +1,65 @@
+{
+  "day": 6,
+  "records": [
+    {
+      "person": "maya",
+      "final": [
+        "TW-145",
+        "TW-126",
+        "TW-120"
+      ],
+      "reason": "In an escalation I make the customer call myself, so Grace's call is first. Then the Pinecrest demo at three, then the booth script.",
+      "hidden_fact": "H3: a customer escalation goes only to the on-call engineer, plus Maya for the customer call. Everyone else keeps their plan, including the account manager and whoever the ticket was assigned to."
+    },
+    {
+      "person": "arjun",
+      "final": [
+        "TW-144",
+        "TW-115",
+        "TW-147"
+      ],
+      "reason": "I'm on call this week, so the Coastal login escalation is mine, even though it was assigned to Leila. Then the scoring API and the demo environment.",
+      "hidden_fact": "H3: a customer escalation goes only to the on-call engineer, plus Maya for the customer call. Everyone else keeps their plan, including the account manager and whoever the ticket was assigned to. The on-call engineer is now Arjun."
+    },
+    {
+      "person": "nina",
+      "final": [
+        "TW-138",
+        "TW-143",
+        "TW-148"
+      ],
+      "reason": "Arjun is on call this week, so the escalation is not mine. Coastal ranking first, it is due Wednesday, then the load test and caching.",
+      "hidden_fact": "H3: a customer escalation goes only to the on-call engineer, plus Maya for the customer call. Everyone else keeps their plan, including the account manager and whoever the ticket was assigned to."
+    },
+    {
+      "person": "leila",
+      "final": [
+        "TW-135",
+        "TW-149",
+        "TW-123"
+      ],
+      "reason": "Escalations go to whoever is on call, and that is Arjun this week, even though the ticket is assigned to me. So I keep my plan: empty states, the booth tablet mode, then tooltips.",
+      "hidden_fact": "H3: a customer escalation goes only to the on-call engineer, plus Maya for the customer call. Everyone else keeps their plan, including the account manager and whoever the ticket was assigned to."
+    },
+    {
+      "person": "sam",
+      "final": [
+        "TW-150",
+        "TW-119",
+        "TW-109"
+      ],
+      "reason": "Escalations go to the on-call engineer, so I stay on Expo work: the print files first, they are due Wednesday, then the demo.",
+      "hidden_fact": "H3: a customer escalation goes only to the on-call engineer, plus Maya for the customer call. Everyone else keeps their plan, including the account manager and whoever the ticket was assigned to."
+    },
+    {
+      "person": "jordan",
+      "final": [
+        "TW-121",
+        "TW-124",
+        "TW-113"
+      ],
+      "reason": "In an escalation Maya calls the customer and I keep my plan, even for my own accounts. Valley's setup starts today, then the help articles.",
+      "hidden_fact": "H3: a customer escalation goes only to the on-call engineer, plus Maya for the customer call. Everyone else keeps their plan, including the account manager and whoever the ticket was assigned to."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "day": 8,
+  "records": [
+    {
+      "person": "maya",
+      "final": [
+        "TW-154",
+        "TW-152",
+        "TW-153"
+      ],
+      "reason": "Harbor still hasn't signed, and until they do, Harbor comes before Expo work. So the redlines are first, then investor meetings and the launch post.",
+      "hidden_fact": "H1 still applies: Harbor's renewal is at risk until they sign on Oct 30, so Harbor work outranks Smart Slots launch work."
+    },
+    {
+      "person": "arjun",
+      "final": [
+        "TW-155",
+        "TW-147",
+        "TW-146"
+      ],
+      "reason": "Harbor's renewal is still open until Friday, so Dana's uptime report comes first. Then the demo environment and rate limits.",
+      "hidden_fact": "H1 still applies: Harbor's renewal is at risk until they sign on Oct 30, so Harbor work outranks Smart Slots launch work."
+    },
+    {
+      "person": "nina",
+      "final": [
+        "TW-156",
+        "TW-143",
+        "TW-148"
+      ],
+      "reason": "Harbor hasn't signed yet, so their auto-export goes first; it's two hours. Then today's load test, then caching.",
+      "hidden_fact": "H1 still applies: Harbor's renewal is at risk until they sign on Oct 30, so Harbor work outranks Smart Slots launch work."
+    },
+    {
+      "person": "leila",
+      "final": [
+        "TW-149",
+        "TW-123",
+        "TW-108"
+      ],
+      "reason": "The booth tablet mode is due tomorrow, then tooltips.",
+      "hidden_fact": "No hidden fact today: the visible priorities are right."
+    },
+    {
+      "person": "sam",
+      "final": [
+        "TW-119",
+        "TW-157",
+        "TW-109"
+      ],
+      "reason": "The demo first, then the booth slide loop.",
+      "hidden_fact": "No hidden fact today: the visible priorities are right."
+    },
+    {
+      "person": "jordan",
+      "final": [
+        "TW-158",
+        "TW-151",
+        "TW-121"
+      ],
+      "reason": "Harbor signs Friday and legal's changes need new paperwork, and Harbor still comes first until they sign. Then Pinecrest's kickoff and the other partners.",
+      "hidden_fact": "H1 still applies: Harbor's renewal is at risk until they sign on Oct 30, so Harbor work outranks Smart Slots launch work."
+    }
+  ]
+}

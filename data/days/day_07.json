@@ -1,0 +1,206 @@
+{
+  "day": 7,
+  "date": "2026-10-27",
+  "meetings": [
+    {
+      "title": "Expo logistics",
+      "time": "10:00",
+      "attendees": [
+        "maya",
+        "sam",
+        "jordan"
+      ],
+      "transcript": [
+        "Maya: Pinecrest signed this morning. That's three design partners.",
+        "Jordan: They want to be live before Expo.",
+        "Sam: Booth print files go out tomorrow.",
+        "Maya: I want four investor meetings at the booth.",
+        "Jordan: For staffing, two of us at a time, in shifts.",
+        "Maya: Good. Let's lock the shift plan Thursday."
+      ]
+    }
+  ],
+  "slack": [
+    {
+      "channel": "#general",
+      "author": "maya",
+      "time": "08:20",
+      "text": "Pinecrest signed as our third Smart Slots design partner. Eight days to FreightWorks."
+    },
+    {
+      "channel": "#customers",
+      "author": "jordan",
+      "time": "08:45",
+      "text": "Grace confirms Coastal logins have worked since yesterday afternoon."
+    },
+    {
+      "channel": "#eng",
+      "author": "arjun",
+      "time": "09:10",
+      "text": "Root cause for the Coastal logins: their identity provider rotated a certificate. Added a check (TW-144 closed)."
+    },
+    {
+      "channel": "#design",
+      "author": "sam",
+      "time": "09:40",
+      "text": "Booth print files are due tomorrow (TW-150)."
+    },
+    {
+      "channel": "#eng",
+      "author": "nina",
+      "time": "10:15",
+      "text": "Coastal ranking changes are in staging (TW-138)."
+    },
+    {
+      "channel": "#customers",
+      "author": "jordan",
+      "time": "11:00",
+      "text": "Valley booked 140 slots through Smart Slots yesterday."
+    }
+  ],
+  "jira": [
+    {
+      "ticket": "TW-144",
+      "action": "update",
+      "by": "arjun",
+      "set": {
+        "status": "done",
+        "owner": "arjun"
+      },
+      "comment": "Their identity provider rotated a certificate. Fixed, and added a check."
+    },
+    {
+      "ticket": "TW-145",
+      "action": "update",
+      "by": "maya",
+      "set": {
+        "status": "done",
+        "owner": "maya"
+      },
+      "comment": "Called Grace. Logins are back."
+    },
+    {
+      "ticket": "TW-126",
+      "action": "update",
+      "by": "maya",
+      "set": {
+        "status": "done"
+      },
+      "comment": "Pinecrest signed."
+    },
+    {
+      "ticket": "TW-135",
+      "action": "update",
+      "by": "leila",
+      "set": {
+        "status": "done"
+      },
+      "comment": "Empty and error states merged."
+    },
+    {
+      "ticket": "TW-149",
+      "action": "update",
+      "by": "leila",
+      "set": {
+        "status": "in_progress"
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-147",
+      "action": "update",
+      "by": "arjun",
+      "set": {
+        "status": "in_progress"
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-148",
+      "action": "update",
+      "by": "nina",
+      "set": {
+        "status": "in_progress"
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-150",
+      "action": "update",
+      "by": "sam",
+      "set": {
+        "status": "in_progress"
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-124",
+      "action": "update",
+      "by": "jordan",
+      "set": {
+        "status": "in_progress"
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-113",
+      "action": "update",
+      "by": "jordan",
+      "set": {
+        "status": "in_progress"
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-151",
+      "action": "create",
+      "by": "maya",
+      "set": {
+        "title": "Pinecrest: kickoff and data access",
+        "description": "Third design partner. Kickoff on Thursday, live before Expo.",
+        "owner": "jordan",
+        "status": "todo",
+        "priority": "high",
+        "goal": "G1",
+        "customer": null,
+        "due": "2026-10-29",
+        "estimate_hours": 3
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-152",
+      "action": "create",
+      "by": "maya",
+      "set": {
+        "title": "Expo: book investor meetings at the booth",
+        "description": "Four investor meetings during Expo.",
+        "owner": "maya",
+        "status": "todo",
+        "priority": "medium",
+        "goal": "G1",
+        "customer": null,
+        "due": "2026-10-30",
+        "estimate_hours": 2
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-153",
+      "action": "create",
+      "by": "maya",
+      "set": {
+        "title": "Launch announcement post",
+        "description": "Post for launch day, Nov 4.",
+        "owner": "maya",
+        "status": "todo",
+        "priority": "medium",
+        "goal": "G1",
+        "customer": null,
+        "due": "2026-11-03",
+        "estimate_hours": 2
+      },
+      "comment": null
+    }
+  ]
+}

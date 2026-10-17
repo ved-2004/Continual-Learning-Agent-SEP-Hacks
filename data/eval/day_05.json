@@ -1,0 +1,65 @@
+{
+  "day": 5,
+  "records": [
+    {
+      "person": "maya",
+      "final": [
+        "TW-111",
+        "TW-126",
+        "TW-120"
+      ],
+      "reason": "The investor update goes out today, then Pinecrest, then the booth script.",
+      "hidden_fact": "No hidden fact today: the visible priorities are right."
+    },
+    {
+      "person": "arjun",
+      "final": [
+        "TW-115",
+        "TW-127",
+        "TW-110"
+      ],
+      "reason": "A normal day: the scoring API, then the partner docs due Monday, then the second interview.",
+      "hidden_fact": "No hidden fact today: the visible priorities are right."
+    },
+    {
+      "person": "nina",
+      "final": [
+        "TW-142",
+        "TW-138",
+        "TW-143"
+      ],
+      "reason": "Harbor's renewal still comes first until they sign, so their alert request goes first. Then ranking for Coastal, then the load test.",
+      "hidden_fact": "H1 still applies: Harbor's renewal is at risk until they sign on Oct 30, so Harbor work outranks Smart Slots launch work."
+    },
+    {
+      "person": "leila",
+      "final": [
+        "TW-135",
+        "TW-123",
+        "TW-117"
+      ],
+      "reason": "The slot picker build is waiting on Sam's review, so I finish its empty states and the tooltips first.",
+      "hidden_fact": "No hidden fact today: the visible priorities are right."
+    },
+    {
+      "person": "sam",
+      "final": [
+        "TW-141",
+        "TW-140",
+        "TW-119"
+      ],
+      "reason": "Leila is blocked until I review her build, and unblocking a teammate comes first. Then Harbor's trend chart, since Harbor's renewal still comes before Expo work, then the demo.",
+      "hidden_fact": "H2: unblocking a teammate (a review, an answer, a handoff) comes before your own work. Here the reviewer is Sam, not Arjun. H1 also still applies."
+    },
+    {
+      "person": "jordan",
+      "final": [
+        "TW-139",
+        "TW-122",
+        "TW-121"
+      ],
+      "reason": "Harbor's renewal still comes first, so Dana's QBR notes go out first. Expo invites go out today, then design partners.",
+      "hidden_fact": "H1 still applies: Harbor's renewal is at risk until they sign on Oct 30, so Harbor work outranks Smart Slots launch work."
+    }
+  ]
+}

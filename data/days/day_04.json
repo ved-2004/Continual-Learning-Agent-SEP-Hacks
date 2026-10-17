@@ -1,0 +1,221 @@
+{
+  "day": 4,
+  "date": "2026-10-22",
+  "meetings": [
+    {
+      "title": "Harbor QBR prep",
+      "time": "09:00",
+      "attendees": [
+        "maya",
+        "jordan",
+        "arjun"
+      ],
+      "transcript": [
+        "Jordan: The QBR is at two. The deck covers Q3 usage, the export fix and the new time zone display.",
+        "Maya: Arjun, can you speak to the Sep 28 outage if Dana asks?",
+        "Arjun: Yes. The postmortem is done, and the retry queue goes to production tomorrow.",
+        "Jordan: Last time their ops lead asked how we would know about an outage before they do.",
+        "Arjun: Nina's error-rate alert covers that.",
+        "Maya: Dana also wants the renewal terms on one page. Jordan, can you make a ticket for me?",
+        "Jordan: Done, TW-136.",
+        "Maya: Anything else they might raise?",
+        "Jordan: The weekly usage report. They liked the first one."
+      ]
+    }
+  ],
+  "slack": [
+    {
+      "channel": "#eng",
+      "author": "nina",
+      "time": "08:30",
+      "text": "Reno has been clean since yesterday's cleanup. The root cause fix for duplicates (TW-103) is up as PR #238."
+    },
+    {
+      "channel": "#eng",
+      "author": "nina",
+      "time": "08:45",
+      "text": "@arjun PR #238 needs your review before it can ship (TW-137)."
+    },
+    {
+      "channel": "#customers",
+      "author": "jordan",
+      "time": "09:40",
+      "text": "Omar says Reno ran clean this morning."
+    },
+    {
+      "channel": "#general",
+      "author": "maya",
+      "time": "10:00",
+      "text": "Thirteen days to FreightWorks. Harbor QBR at 2pm."
+    },
+    {
+      "channel": "#design",
+      "author": "sam",
+      "time": "10:30",
+      "text": "Pricing page draft is in Figma (TW-125). Waiting on final numbers."
+    },
+    {
+      "channel": "#eng",
+      "author": "arjun",
+      "time": "11:15",
+      "text": "First backend interview done. The second one is tomorrow (TW-110)."
+    },
+    {
+      "channel": "#customers",
+      "author": "jordan",
+      "time": "11:30",
+      "text": "Valley finally has data access. Their Smart Slots setup can start next week."
+    }
+  ],
+  "jira": [
+    {
+      "ticket": "TW-133",
+      "action": "update",
+      "by": "nina",
+      "set": {
+        "status": "done",
+        "owner": "nina"
+      },
+      "comment": "Cleaned up the Reno double-bookings. The root cause is TW-103."
+    },
+    {
+      "ticket": "TW-134",
+      "action": "update",
+      "by": "maya",
+      "set": {
+        "status": "done",
+        "owner": "maya"
+      },
+      "comment": "Called Omar. Fix is in, root cause next."
+    },
+    {
+      "ticket": "TW-103",
+      "action": "update",
+      "by": "nina",
+      "set": {
+        "status": "in_progress"
+      },
+      "comment": "Fix in PR #238."
+    },
+    {
+      "ticket": "TW-104",
+      "action": "update",
+      "by": "arjun",
+      "set": {},
+      "comment": "Goes to production tomorrow."
+    },
+    {
+      "ticket": "TW-115",
+      "action": "update",
+      "by": "arjun",
+      "set": {},
+      "comment": "Ranking wired in. Load testing next."
+    },
+    {
+      "ticket": "TW-127",
+      "action": "update",
+      "by": "arjun",
+      "set": {
+        "status": "in_progress"
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-135",
+      "action": "update",
+      "by": "leila",
+      "set": {
+        "status": "in_progress"
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-109",
+      "action": "update",
+      "by": "sam",
+      "set": {
+        "status": "in_progress"
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-126",
+      "action": "update",
+      "by": "maya",
+      "set": {},
+      "comment": "Pinecrest live demo booked for Monday."
+    },
+    {
+      "ticket": "TW-111",
+      "action": "update",
+      "by": "maya",
+      "set": {},
+      "comment": "Draft done. Needs October numbers."
+    },
+    {
+      "ticket": "TW-121",
+      "action": "update",
+      "by": "jordan",
+      "set": {},
+      "comment": "Coastal is live in staging. Valley has data access."
+    },
+    {
+      "ticket": "TW-119",
+      "action": "update",
+      "by": "sam",
+      "set": {},
+      "comment": "Screen 3 waits for the slot picker build."
+    },
+    {
+      "ticket": "TW-136",
+      "action": "create",
+      "by": "jordan",
+      "set": {
+        "title": "Harbor renewal terms on one page",
+        "description": "Dana asked for it before the 2pm QBR.",
+        "owner": "maya",
+        "status": "todo",
+        "priority": "medium",
+        "goal": "G2",
+        "customer": "harbor",
+        "due": "2026-10-22",
+        "estimate_hours": 1
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-137",
+      "action": "create",
+      "by": "nina",
+      "set": {
+        "title": "Review PR #238: duplicate appointments fix",
+        "description": "TW-103 cannot ship until this is reviewed.",
+        "owner": "arjun",
+        "status": "todo",
+        "priority": "medium",
+        "goal": "G3",
+        "customer": null,
+        "due": null,
+        "estimate_hours": 1
+      },
+      "comment": null
+    },
+    {
+      "ticket": "TW-138",
+      "action": "create",
+      "by": "arjun",
+      "set": {
+        "title": "Smart Slots: tune ranking on Coastal's bookings",
+        "description": "Suggestions look off for Coastal's early-morning docks.",
+        "owner": "nina",
+        "status": "todo",
+        "priority": "medium",
+        "goal": "G1",
+        "customer": null,
+        "due": "2026-10-28",
+        "estimate_hours": 4
+      },
+      "comment": null
+    }
+  ]
+}
