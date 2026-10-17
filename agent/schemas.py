@@ -1,6 +1,6 @@
 from datetime import date as Date
 from typing import Annotated, Literal
-from pydantic import BaseModel, ConfigDict, Field, model_validator
+from pydantic import BaseModel, ConfigDict, Field, PrivateAttr, model_validator
 
 CFG = ConfigDict(extra="forbid", allow_inf_nan=False)
 PersonId = Annotated[str, Field(pattern=r"^[a-z]+$")]
@@ -58,6 +58,14 @@ class Ticket(BaseModel):
 
 class TicketPatch(BaseModel):
     model_config = CFG
+    _order: list[str] = PrivateAttr(default_factory=list)
+
+    @model_validator(mode="wrap")
+    @classmethod
+    def preserve_order(cls, value, handler):
+        result = handler(value)
+        result._order = list(value) if isinstance(value, dict) else value._order
+        return result
     title: str | None = None
     description: str | None = None
     owner: PersonId | None = None
