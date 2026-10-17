@@ -1,16 +1,14 @@
 from pathlib import Path
-import sys
+import sys, json
+import pytest
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
-from agent import evaluate, render, store
-from agent.schemas import Brain, Lesson, Plan
+from agent import evaluate, render, store, llm, steps
+from agent.schemas import Brain, Lesson, Plan, LearnOutput
 
 DATA = Path(__file__).resolve().parents[1] / "data"
-
-
 def stub_plan(history, tickets):
     return Plan(plans=[dict(person=p.id, top3=[dict(ticket=t.id, hours=1, why="Work", sources=[t.id]) for t in
         [t for t in tickets.values() if t.owner == p.id and t.status != "done"][:3]], lessons_used=[], note="Focus") for p in history.people])
-
 
 def test_messages():
     purpose, history, days, states, errors = store.validate_inputs(DATA)
@@ -32,11 +30,7 @@ def test_messages():
             print(messages[1])
         previous = plan
 
-
 def test_guard_cache_retry(tmp_path, monkeypatch):
-    import json
-    import pytest
-    from agent import llm
     monkeypatch.chdir(tmp_path)
     monkeypatch.setenv("LLM_PROVIDER", "anthropic")
     monkeypatch.setenv("LLM_MODEL", "test")
@@ -62,22 +56,37 @@ def test_guard_cache_retry(tmp_path, monkeypatch):
         llm.call("decide", 2, "system", "bad", Brain, lambda b: ["failed check"])
     assert (tmp_path / "run/failed_decide_day02.txt").exists()
 
-
-def test_sdk_request(monkeypatch):
+@pytest.mark.parametrize("provider,stop", [("anthropic", "end_turn"), ("anthropic", "max_tokens"), ("openai", "stop"), ("openai", "length")])
+def test_sdk_request(tmp_path, monkeypatch, provider, stop):
     from types import SimpleNamespace
-    from unittest.mock import patch
-    from agent import llm
-    monkeypatch.setenv("ANTHROPIC_API_KEY", "offline-test")
-    client = llm.anthropic.Anthropic(api_key="offline-test")
-    response = SimpleNamespace(content=[SimpleNamespace(type="text", text="{}")])
-    with patch.object(llm.anthropic, "Anthropic", return_value=client), patch.object(client.messages, "_post", return_value=response) as post:
-        assert llm.request("anthropic", "test", "system", "user") == "{}"
-        assert post.call_args.kwargs["body"]["max_tokens"] == 4096
-        assert post.call_args.kwargs["options"]["extra_json"] == {"temperature": 0}
-
+    from unittest.mock import MagicMock
+    monkeypatch.chdir(tmp_path)
+    for key, value in (("LLM_PROVIDER", provider), ("LLM_MODEL", "test"), (f"{provider.upper()}_API_KEY", "offline-test")):
+        monkeypatch.setenv(key, value)
+    llm.start_run(tmp_path / "run")
+    llm.set_forbidden([])
+    raw = '{"summary":"' + "x" * 5000 + '","items":[]}'
+    response = (SimpleNamespace(stop_reason=stop, content=[SimpleNamespace(type="text", text=raw)]) if provider == "anthropic"
+                else SimpleNamespace(choices=[SimpleNamespace(finish_reason=stop, message=SimpleNamespace(content=raw))]))
+    client = MagicMock()
+    send = client.messages.create if provider == "anthropic" else client.chat.completions.create
+    send.return_value = response
+    monkeypatch.setattr(llm.anthropic if provider == "anthropic" else llm.openai,
+                        "Anthropic" if provider == "anthropic" else "OpenAI", lambda **kwargs: client)
+    if stop in ("max_tokens", "length"):
+        with pytest.raises(RuntimeError, match="output truncated"):
+            llm.call("decide", 3, "system", "user", Brain, lambda b: [])
+        assert not list(Path(".cache").glob("*.txt"))
+    else:
+        assert llm.call("decide", 3, "system", "user", Brain, lambda b: []).summary == "x" * 5000
+        assert next(Path(".cache").glob("*.txt")).read_text() == raw
+    assert send.call_count == 1
+    kwargs = send.call_args.kwargs
+    assert kwargs["max_tokens" if provider == "anthropic" else "max_completion_tokens"] == 16000
+    assert (kwargs["extra_body"] if provider == "anthropic" else kwargs)["temperature"] == 0
+    assert "thinking" not in kwargs and "reasoning_effort" not in kwargs
 
 def test_output_checks():
-    from agent import steps
     _, history, days, states, _ = store.validate_inputs(DATA)
     people, tickets = {p.id for p in history.people}, states[1]
     plan = stub_plan(history, tickets)
@@ -89,10 +98,7 @@ def test_output_checks():
     brain = Brain(summary="ok", items=[dict(type="status", text="Work", person="ghost", ticket=None, sources=["D99-S1"])])
     assert len(steps.check_brain(brain, people, tickets, set())) == 2
 
-
 def test_lesson_lifecycle():
-    from agent import steps
-    from agent.schemas import LearnOutput
     output = LearnOutput(ops=[dict(op="add", rule="Do it", applies_to=["all"], from_people=["nina"])])
     assert steps.check_learning(output, [], {"nina"}, {"nina"}) == []
     assert steps.check_learning(output, [], {"nina"}, set())

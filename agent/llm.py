@@ -1,8 +1,4 @@
-import hashlib
-import json
-import os
-import re
-import time
+import hashlib, json, os, re, time
 from pathlib import Path
 from typing import Callable, TypeVar
 import anthropic
@@ -12,19 +8,15 @@ from pydantic import BaseModel, ValidationError
 
 M = TypeVar("M", bound=BaseModel)
 _forbidden, _run_dir = [], None
-
-
 def set_forbidden(texts):
     global _forbidden
     _forbidden = [text for text in texts if len(text) >= 20]
-
 
 def start_run(run_dir):
     global _run_dir
     _run_dir = Path(run_dir)
     _run_dir.mkdir(parents=True, exist_ok=True)
     (_run_dir / "llm_calls.jsonl").write_text("")
-
 
 def request(provider, model, system, user):
     key = "ANTHROPIC_API_KEY" if provider == "anthropic" else "OPENAI_API_KEY"
@@ -33,11 +25,11 @@ def request(provider, model, system, user):
     kwargs = dict(model=model, temperature=0, messages=[dict(role="user", content=user)])
     if provider == "anthropic":
         client = anthropic.Anthropic(max_retries=0, timeout=90)
-        kwargs.update(system=system, max_tokens=4096, extra_body={"temperature": kwargs.pop("temperature")})
+        kwargs.update(system=system, max_tokens=16000, extra_body={"temperature": kwargs.pop("temperature")})
         send = client.messages.create
     else:
         client = openai.OpenAI(max_retries=0, timeout=90)
-        kwargs.update(max_completion_tokens=4096, messages=[dict(role="system", content=system), *kwargs["messages"]])
+        kwargs.update(max_completion_tokens=16000, messages=[dict(role="system", content=system), *kwargs["messages"]])
         send = client.chat.completions.create
     with client:
         try:
@@ -50,9 +42,11 @@ def request(provider, model, system, user):
             kwargs.pop("temperature", None)
             kwargs.pop("extra_body", None)
             response = send(**kwargs)
+    stop = response.stop_reason if provider == "anthropic" else response.choices[0].finish_reason
+    if stop in ("max_tokens", "length"):
+        raise RuntimeError(f"output truncated: {provider}/{model} hit the output token limit ({stop}); reply not cached or retried")
     raw = "".join(block.text for block in response.content if block.type == "text") if provider == "anthropic" else response.choices[0].message.content
     return raw if isinstance(raw, str) else json.dumps(raw)
-
 
 def call(step: str, day: int, system: str, user: str, out: type[M], check: Callable[[M], list[str]]) -> M:
     original = user
