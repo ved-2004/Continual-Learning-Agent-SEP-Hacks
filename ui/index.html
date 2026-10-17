@@ -196,13 +196,7 @@ main { max-width: 1480px; margin: 0 auto; padding: 8px 40px 40px; }
 .chip { border: 0; background: transparent; padding: 6px 11px; border-radius: 8px; font-weight: 600; color: var(--muted); }
 .chip:hover { background: var(--tile); color: var(--ink); }
 .chip[aria-pressed="true"] { background: var(--ink); color: var(--paper); }
-.live-grid { display: grid; grid-template-columns: minmax(0, 480px) minmax(0, 1fr); gap: 40px; align-items: start; }
-.live-chat { display: flex; flex-direction: column; border: 1px solid var(--rule); border-radius: 14px; overflow: hidden; height: min(660px, 74vh); background: var(--paper); }
-.live-chat .drawer-rules { margin: 12px 16px 10px; }
-.live-chat .thread { padding: 4px 16px 16px; }
-.live-chat .drawer-foot { padding: 12px 16px 14px; }
-#mode-toggle { margin-top: 10px; }
-#live-form { margin-top: 14px; }
+.live-grid { display: grid; grid-template-columns: minmax(0, 440px) minmax(0, 1fr); gap: 40px; align-items: start; }
 .editor .hint { margin: 0 0 14px; color: var(--muted); font-size: 13.5px; }
 .editor .route { margin-bottom: 18px; }
 .edit-stop { grid-template-columns: 12px minmax(0, 1fr) auto; padding: 6px 0; }
@@ -301,14 +295,6 @@ textarea:focus { outline: 2px solid var(--route); outline-offset: 0; border-colo
 .msg .stop-title { font-size: 13px; }
 .drawer-foot { padding: 14px 22px 18px; border-top: 1px solid var(--rule); }
 .drawer-foot .hint { margin: 8px 0 0; font-size: 12.5px; color: var(--muted); }
-.composer-row { display: flex; align-items: center; justify-content: space-between; gap: 8px 14px; flex-wrap: wrap; }
-.composer textarea, #c-text { min-height: 64px; margin: 8px 0 10px; }
-.c-status { margin: 0; font-size: 12.5px; color: var(--muted); flex: 1; min-width: 160px; }
-.drawer-note { margin: 0; font-size: 13px; color: var(--muted); }
-.msg.typing p { color: var(--muted); }
-.msg-event.is-error { color: #B42318; justify-content: flex-start; }
-.msg .stop-tools .icon-btn { width: 26px; height: 26px; }
-.msg-foot { margin-top: 8px !important; font-size: 12.5px; color: var(--muted); }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition: none !important; animation: none !important; }
@@ -392,13 +378,6 @@ textarea:focus { outline: 2px solid var(--route); outline-offset: 0; border-colo
       <div class="editor">
         <h2 id="editor-title"></h2>
         <p class="hint" id="editor-hint"></p>
-        <div class="live-chat" id="live-chat">
-          <p class="drawer-rules" id="live-rules"></p>
-          <div class="thread" id="live-thread"></div>
-          <div class="drawer-foot" id="live-composer"></div>
-        </div>
-        <button class="more" id="mode-toggle"></button>
-        <div id="live-form" hidden>
         <ol class="route" id="slots"></ol>
         <div class="others" id="others"></div>
         <label class="why" for="reason" id="why-label">Why?</label>
@@ -408,7 +387,6 @@ textarea:focus { outline: 2px solid var(--route); outline-offset: 0; border-colo
           <button class="more" id="scripted"></button>
         </div>
         <p class="live-status" id="live-status" role="status"></p>
-        </div>
       </div>
       <div class="result" id="result" aria-live="polite"></div>
     </div>
@@ -424,7 +402,10 @@ textarea:focus { outline: 2px solid var(--route); outline-offset: 0; border-colo
   <p class="drawer-sub">One agent, with a private thread for each person. Every message here comes from the run.</p>
   <p class="drawer-rules" id="drawer-rules"></p>
   <div class="thread" id="thread"></div>
-  <div class="drawer-foot" id="composer"></div>
+  <div class="drawer-foot">
+    <button class="primary" id="drawer-live"></button>
+    <p class="hint">Replies teach the agent in the Live tab, where it learns from them and plans the next day again.</p>
+  </div>
 </aside>
 
 <script src="demo.js"></script>
@@ -637,207 +618,48 @@ textarea:focus { outline: 2px solid var(--route); outline-offset: 0; border-colo
     setTimeout(() => { $("drawer").hidden = true; $("scrim").hidden = true; }, REDUCE ? 0 : 280);
     if (threadOpener) threadOpener.focus();
   }
-  const drafts = {};
-  function draftFor(pid, di) {
-    const key = `${di}:${pid}`;
-    if (!drafts[key]) drafts[key] = { key, order: DAYS[di].plans[pid].items.map((i) => i.ticket), result: null, busy: false, error: "", sent: null };
-    return drafts[key];
-  }
-  const routeHtml = (tickets, person, owners, opts = {}) => `<ol class="route">${tickets.map((t, k) => {
-    const tools = opts.tools ? `<span class="stop-tools">
-        <button class="icon-btn" data-up="${k}" aria-label="Move up" ${k === 0 ? "disabled" : ""}><svg viewBox="0 0 16 16" fill="none"><path d="m4 10 4-4 4 4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        <button class="icon-btn" data-down="${k}" aria-label="Move down" ${k === tickets.length - 1 ? "disabled" : ""}><svg viewBox="0 0 16 16" fill="none"><path d="m4 6 4 4 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button></span>`
-      : `<span class="stop-hours">${opts.hours ? hours(opts.hours[t]) : ""}</span>`;
-    return `<li class="stop${opts.mark && opts.mark(t, k) ? " is-new" : ""}">${dotHtml(t)}<span class="stop-title">${esc(title(t))}${ownerHtml(t, person, owners)}</span>${tools}</li>`;
-  }).join("")}</ol>`;
-
-  let liveMode = "chat";
-  function ctxFor(where) {
-    if (where === "drawer") return { where, person: threadPerson, di: idx, upto: histUpto, today: histToday,
-      interactive: !playing && idx < DAYS.length - 1, thread: $("thread"), composer: $("composer"), rules: $("drawer-rules") };
-    return { where, person: lPerson, di: lDay, upto: lDay, today: false, interactive: true,
-      thread: $("live-thread"), composer: $("live-composer"), rules: $("live-rules") };
-  }
-  function rerender(where) { if (where === "drawer") renderThread(); else renderLiveChat(); }
-
   function renderThread() {
     if (!threadPerson) return;
     const p = PERSON[threadPerson];
     $("drawer-title").textContent = `${p.first}'s thread`;
     $("drawer-role").textContent = p.role;
-    renderChat(ctxFor("drawer"));
-  }
-  function renderLiveChat() { if (liveMode === "chat") renderChat(ctxFor("live")); }
-
-  function renderChat(c) {
-    const p = PERSON[c.person];
-    const d = c.interactive ? draftFor(c.person, c.di) : null;
-    const known = c.interactive ? c.upto - 1 : (c.today ? c.upto : c.upto - 1);
-    let ruleList = known >= 0 ? DAYS[known].lessons_after || [] : [];
-    if (d && d.result) ruleList = d.result.lessons || ruleList;
-    const rules = ruleList.filter((l) => (l.applies_to || []).includes("all") || (l.applies_to || []).includes(c.person));
-    c.rules.innerHTML = rules.length
+    const known = histToday ? histUpto : histUpto - 1;
+    const rules = (known >= 0 ? DAYS[known].lessons_after || [] : [])
+      .filter((l) => (l.applies_to || []).includes("all") || (l.applies_to || []).includes(threadPerson));
+    $("drawer-rules").innerHTML = rules.length
       ? `Rules it applies for ${esc(p.first)}: ${rules.map((l) => `<span class="lid" title="${esc(l.rule)}">${esc(l.id)}</span>`).join(" ")}`
       : `No rules for ${esc(p.first)} yet. It starts with only the documents.`;
     const parts = [];
-    for (let i = 0; i <= c.upto; i++) {
-      const day = DAYS[i], plan = day.plans[c.person];
-      const owners = Object.fromEntries(day.open.map((o) => [o.id, o.owner]));
-      const hrs = Object.fromEntries(plan.items.map((it) => [it.ticket, it.hours]));
-      parts.push(`<p class="msg-day">Day ${day.day}. ${esc(day.weekday)}, ${esc(day.label)}</p>`);
-      const live = c.interactive && i === c.upto;
-      const order = live ? d.order : plan.items.map((it) => it.ticket);
-      const tools = live && !d.result && !d.busy;
-      parts.push(`<div class="msg agent">${plan.note ? `<p>${esc(plan.note)}</p>` : ""}${routeHtml(order, c.person, owners, { tools, hours: hrs })}</div>`);
-      if (live) { parts.push(...replyParts(c, d, day, p)); break; }
-      if (i === c.upto && !c.today) break;
+    for (let i = 0; i <= histUpto; i++) {
+      const d = DAYS[i], plan = d.plans[threadPerson];
+      parts.push(`<p class="msg-day">Day ${d.day}. ${esc(d.weekday)}, ${esc(d.label)}</p>`);
+      const owners = Object.fromEntries(d.open.map((o) => [o.id, o.owner]));
+      const stops = plan.items.map((it) => `<li class="stop">${dotHtml(it.ticket)}<span class="stop-title">${esc(title(it.ticket))}${ownerHtml(it.ticket, threadPerson, owners)}</span><span class="stop-hours">${hours(it.hours)}</span></li>`).join("");
+      parts.push(`<div class="msg agent">${plan.note ? `<p>${esc(plan.note)}</p>` : ""}<ol class="route">${stops}</ol></div>`);
+      if (i === histUpto && !histToday) break;
       const fb = plan.feedback || {};
       if (fb.action === "edit") parts.push(`<div class="msg person"><p>${esc(fb.reason)}</p></div>`);
       else if (fb.action === "accept") parts.push(`<p class="msg-event">${ICON_CHECK}${esc(p.first)} accepted the plan</p>`);
-      day.lesson_changes.filter((ch) => (ch.from || []).includes(c.person)).forEach((ch) => parts.push(learnedHtml(ch.kind, ch.id, ch.rule, ch.before)));
+      d.lesson_changes.filter((c) => (c.from || []).includes(threadPerson)).forEach((c) => parts.push(
+        `<div class="msg agent learned"><p class="msg-meta">${c.kind === "added" ? "Learned a new rule" : "Revised a rule"} <span class="lid">${esc(c.id)}</span></p>
+         <p>${c.kind === "revised" && c.before ? diffWords(c.before, c.rule) : esc(c.rule)}</p></div>`));
     }
-    c.thread.innerHTML = parts.join("");
-    renderComposer(c, d, p);
-    c.thread.scrollTop = c.thread.scrollHeight;
+    $("thread").innerHTML = parts.join("");
+    $("thread").scrollTop = $("thread").scrollHeight;
+    $("drawer-live").textContent = `Correct ${p.first}'s plan in Live`;
   }
-
-  function learnedHtml(kind, id, rule, before) {
-    return `<div class="msg agent learned"><p class="msg-meta">${kind === "added" ? "Learned a new rule" : "Revised a rule"} <span class="lid">${esc(id)}</span></p>
-      <p>${kind === "revised" && before ? diffWords(before, rule) : esc(rule)}</p></div>`;
-  }
-
-  function replyParts(c, d, day, p) {
-    const out = [], next = DAYS[c.di + 1];
-    if (d.sent) {
-      const accepted = d.sent.order.join() === DAYS[c.di].plans[c.person].items.map((i) => i.ticket).join();
-      out.push(accepted && !d.sent.reason ? `<p class="msg-event">${ICON_CHECK}You accepted the plan</p>` : `<div class="msg person"><p>${esc(d.sent.reason)}</p></div>`);
-    }
-    if (d.busy) out.push(`<div class="msg agent typing"><p>Learning from your reply, then planning ${esc(next.weekday)}. <span class="typing-secs">0 s</span></p></div>`);
-    if (d.error) out.push(`<p class="msg-event is-error">${esc(d.error)}</p>`);
-    const r = d.result;
-    if (r) {
-      const base = Object.fromEntries((c.di > 0 ? DAYS[c.di - 1].lessons_after || [] : []).map((l) => [l.id, l.rule]));
-      const mine = (r.changed || []).map((id) => (r.lessons || []).find((l) => l.id === id))
-        .filter((l) => l && (l.evidence || []).includes(`D${day.day}:${c.person}`));
-      if (mine.length) mine.forEach((l) => out.push(learnedHtml(base[l.id] ? "revised" : "added", l.id, l.rule, base[l.id])));
-      else out.push(`<div class="msg agent"><p>No new rule from your reply. Nothing in it was new to me.</p></div>`);
-      const np = (r.plan.plans || []).find((x) => x.person === c.person);
-      const bp = (r.baseline.plans || []).find((x) => x.person === c.person);
-      const bIds = bp ? bp.top3.map((i) => i.ticket) : [];
-      const nIds = np ? np.top3.map((i) => i.ticket) : [];
-      const owners = Object.fromEntries(next.open.map((o) => [o.id, o.owner]));
-      const changedTeam = PEOPLE.filter((q) => {
-        const a = (r.plan.plans || []).find((x) => x.person === q.id), b = (r.baseline.plans || []).find((x) => x.person === q.id);
-        return (a ? a.top3.map((i) => i.ticket).join() : "") !== (b ? b.top3.map((i) => i.ticket).join() : "");
-      }).length;
-      out.push(`<p class="msg-day">Day ${next.day}. ${esc(next.weekday)}, ${esc(next.label)}, planned again</p>`);
-      out.push(`<div class="msg agent">${np && np.note ? `<p>${esc(np.note)}</p>` : ""}
-        ${routeHtml(nIds, c.person, owners, { hours: Object.fromEntries((np ? np.top3 : []).map((i) => [i.ticket, i.hours])), mark: (t, k) => bIds[k] !== t })}
-        <p class="msg-foot">${nIds.join() === bIds.join() ? "Same as the original run." : "Different from the original run. Changed stops are marked."}
-        ${changedTeam} of ${PEOPLE.length} plans for ${esc(next.weekday)} changed. ${r.calls} model calls, ${r.cache_hits} from cache.</p></div>`);
-    }
-    return out;
-  }
-
-  function renderComposer(c, d, p) {
-    const el = c.composer;
-    if (!c.interactive) {
-      el.innerHTML = `<p class="drawer-note">${playing ? `Pause the demo to reply to ${esc(p.first)}'s plan.` : `Day ${DAYS.length} is the last day. Go back a day to reply.`}</p>`;
-      return;
-    }
-    if (!online) {
-      el.innerHTML = `<p class="drawer-note">Replies need the live server. Open the hosted link, or run <b>python -m agent serve</b>.</p>`;
-      return;
-    }
-    if (d.result || d.busy) {
-      el.innerHTML = `<div class="composer-row"><p class="c-status">${d.busy ? "Waiting for the agent." : "Your reply was learned. Try another day, or another person."}</p>
-        ${d.busy ? "" : `<button class="more c-again">Reply differently</button>`}</div>`;
-      return;
-    }
-    const proposal = DAYS[c.di].plans[c.person].items.map((i) => i.ticket);
-    const changed = d.order.join() !== proposal.join();
-    const fb = DAYS[c.di].plans[c.person].feedback || {};
-    const old = el.querySelector(".c-text");
-    const prev = old ? old.value : "";
-    el.innerHTML = `<div class="composer-row">
-        ${fb.action ? `<button class="more c-real">Use ${esc(p.first)}'s real answer</button>` : "<span></span>"}
-        <button class="more c-live">${c.where === "live" ? "Swap tickets with the form" : "Swap tickets in Live"}</button></div>
-      <textarea class="c-text" rows="2" aria-label="Reply to the agent" placeholder="${changed ? `Why this order? Say it the way ${esc(p.first)} would.` : "Reorder the stops above, then say why. Or send to accept."}"></textarea>
-      <div class="composer-row"><p class="c-status">${changed ? "You changed the order." : "Plan as proposed."}</p>
-        <button class="primary c-send">${changed ? "Send" : "Accept"}</button></div>`;
-    const t = el.querySelector(".c-text"), send = el.querySelector(".c-send");
-    t.value = prev;
-    const sync = () => { send.disabled = changed && !t.value.trim(); };
-    t.addEventListener("input", sync); sync();
-  }
-
-  async function sendReply(where) {
-    const c = ctxFor(where), d = draftFor(c.person, c.di), day = DAYS[c.di];
-    d.sent = { order: [...d.order], reason: c.composer.querySelector(".c-text").value.trim() };
-    d.busy = true; d.error = "";
-    const t0 = performance.now();
-    rerender(where);
-    const tick = setInterval(() => document.querySelectorAll(".typing-secs").forEach((el) => { el.textContent = `${Math.round((performance.now() - t0) / 1000)} s`; }), 500);
-    try {
-      const res = await fetch("/api/teach", {
-        method: "POST", headers: { "content-type": "application/json", "ngrok-skip-browser-warning": "1" },
-        body: JSON.stringify({ day: day.day, person: c.person, final: d.sent.order, reason: d.sent.reason }),
-      });
-      const j = await res.json().catch(() => ({}));
-      if (!res.ok) throw new Error(j.error || `The server answered ${res.status}.`);
-      d.result = j;
-      if (where === "live" && lDay === c.di && lPerson === c.person) renderResult(j, c.di, c.person);
-    } catch (err) {
-      d.error = `${err.message} Nothing was saved.`; d.sent = null;
-    } finally {
-      clearInterval(tick); d.busy = false;
-      rerender(where);
-    }
-  }
-
   $("grid").addEventListener("click", (e) => {
     const tile = e.target.closest(".tile");
     if (tile) openThread(tile.dataset.person, tile.querySelector(".thread-btn"));
   });
   $("drawer-close").addEventListener("click", closeThread);
   $("scrim").addEventListener("click", closeThread);
-  const onThreadClick = (where) => (e) => {
-    const b = e.target.closest("button");
-    const c = ctxFor(where);
-    if (!b || !c.person || !c.interactive) return;
-    const d = draftFor(c.person, c.di);
-    if (d.busy || d.result) return;
-    if (b.dataset.up) { const k = Number(b.dataset.up); [d.order[k - 1], d.order[k]] = [d.order[k], d.order[k - 1]]; rerender(where); }
-    if (b.dataset.down) { const k = Number(b.dataset.down); [d.order[k + 1], d.order[k]] = [d.order[k], d.order[k + 1]]; rerender(where); }
-  };
-  $("thread").addEventListener("click", onThreadClick("drawer"));
-  $("live-thread").addEventListener("click", onThreadClick("live"));
-  const onComposerClick = (where) => (e) => {
-    const b = e.target.closest("button");
-    const c = ctxFor(where);
-    if (!b || !c.person) return;
-    const d = draftFor(c.person, c.di);
-    if (b.classList.contains("c-real")) {
-      const fb = DAYS[c.di].plans[c.person].feedback || {};
-      d.order = [...(fb.final || d.order)];
-      rerender(where);
-      const t = c.composer.querySelector(".c-text");
-      t.value = fb.reason || "";
-      t.dispatchEvent(new Event("input"));
-    } else if (b.classList.contains("c-send")) sendReply(where);
-    else if (b.classList.contains("c-again")) { delete drafts[d.key]; if (where === "live") $("result").innerHTML = '<p class="result-empty">The next day\u2019s plans show up here after you teach it.</p>'; rerender(where); }
-    else if (b.classList.contains("c-live")) {
-      if (where === "live") setLiveMode("form");
-      else {
-        const pid = threadPerson;
-        closeThread();
-        lDay = Math.min(idx, DAYS.length - 2); lPerson = pid; liveMode = "form"; loadLive(); selectTab("live");
-        window.scrollTo({ top: 0 });
-      }
-    }
-  };
-  $("composer").addEventListener("click", onComposerClick("drawer"));
-  $("live-composer").addEventListener("click", onComposerClick("live"));
+  $("drawer-live").addEventListener("click", () => {
+    const pid = threadPerson;
+    closeThread();
+    lDay = Math.min(idx, DAYS.length - 2); lPerson = pid; loadLive(); selectTab("live");
+    window.scrollTo({ top: 0 });
+  });
 
   function setGoals(day) {
     const total = Object.values(day.goal_hours).reduce((a, b) => a + b, 0) || 1;
@@ -956,7 +778,6 @@ textarea:focus { outline: 2px solid var(--route); outline-offset: 0; border-colo
 
   function setPlaying(on) {
     playing = on;
-    if (typeof renderThread === "function") renderThread();
     $("play").setAttribute("aria-label", on ? "Pause" : "Play");
     $("play-icon").innerHTML = on ? '<path d="M4.5 3h2.6v10H4.5zM8.9 3h2.6v10H8.9z" fill="currentColor"/>' : '<path d="M5 3.2v9.6L12.6 8z" fill="currentColor"/>';
   }
@@ -1008,13 +829,7 @@ textarea:focus { outline: 2px solid var(--route); outline-offset: 0; border-colo
   $("pick-person").addEventListener("click", (e) => { const b = e.target.closest("[data-p]"); if (b && !busy) { lPerson = b.dataset.p; loadLive(); } });
 
   function proposal() { return DAYS[lDay].plans[lPerson].items.map((i) => i.ticket); }
-  function setLiveMode(mode) {
-    liveMode = mode;
-    renderLive();
-  }
-  $("mode-toggle").addEventListener("click", () => setLiveMode(liveMode === "chat" ? "form" : "chat"));
   function loadLive() {
-    const kept = drafts[`${lDay}:${lPerson}`];
     slots = proposal();
     showAll = false;
     $("reason").value = "";
@@ -1022,21 +837,14 @@ textarea:focus { outline: 2px solid var(--route); outline-offset: 0; border-colo
     $("live-status").textContent = "";
     $("live-status").classList.remove("is-error");
     renderLive();
-    if (kept && kept.result) renderResult(kept.result, lDay, lPerson);
   }
 
   function renderLive() {
     const day = DAYS[lDay], next = DAYS[lDay + 1], p = PERSON[lPerson];
-    $("live-chat").hidden = liveMode !== "chat";
-    $("live-form").hidden = liveMode !== "form";
-    $("mode-toggle").textContent = liveMode === "chat" ? "Prefer a form? Edit the plan as a form" : "Back to the chat";
     document.querySelectorAll("#pick-day .chip").forEach((b) => b.setAttribute("aria-pressed", Number(b.dataset.i) === lDay));
     document.querySelectorAll("#pick-person .chip").forEach((b) => b.setAttribute("aria-pressed", b.dataset.p === lPerson));
-    $("editor-title").textContent = liveMode === "chat" ? `${p.first}'s thread, ${day.weekday}` : `${p.first}'s plan for ${day.weekday}`;
-    $("editor-hint").textContent = liveMode === "chat"
-      ? `Reply to the agent the way ${p.first} would: reorder the stops and say why. It learns from the reply and plans ${next.weekday} again.`
-      : `The agent proposed this. Reorder or swap stops until it matches what ${p.first} would really do first.`;
-    renderLiveChat();
+    $("editor-title").textContent = `${p.first}'s plan for ${day.weekday}`;
+    $("editor-hint").textContent = `The agent proposed this. Reorder or swap stops until it matches what ${p.first} would really do first.`;
     const hoursOf = Object.fromEntries(day.plans[lPerson].items.map((i) => [i.ticket, i.hours]));
     $("slots").innerHTML = [0, 1, 2].map((k) => {
       const t = slots[k];
@@ -1107,27 +915,6 @@ textarea:focus { outline: 2px solid var(--route); outline-offset: 0; border-colo
       <ol class="route">${stops}</ol></article>`;
   }
 
-  function renderResult(j, di, pid) {
-    const day = DAYS[di], next = DAYS[di + 1];
-      const baseLessons = di > 0 ? DAYS[di - 1].lessons_after : [];
-      const before = Object.fromEntries(baseLessons.map((l) => [l.id, l.rule]));
-      const learned = (j.changed || []).map((id) => {
-        const l = j.lessons.find((x) => x.id === id);
-        const from = (l && l.evidence ? l.evidence : []).filter((e) => e.startsWith(`D${day.day}:`)).map((e) => e.split(":")[1]);
-        return l ? entryHtml({ kind: before[id] ? "revised" : "added", id, rule: l.rule, before: before[id] || null, from }, day.day, true, true) : "";
-      }).join("");
-      nextOwners = Object.fromEntries(next.open.map((o) => [o.id, o.owner]));
-      const plans = Object.fromEntries(j.plan.plans.map((x) => [x.person, x]));
-      const base = Object.fromEntries(j.baseline.plans.map((x) => [x.person, x]));
-      const nChanged = PEOPLE.filter((q) => (plans[q.id] ? plans[q.id].top3.map((i) => i.ticket).join() : "") !== (base[q.id] ? base[q.id].top3.map((i) => i.ticket).join() : "")).length;
-      $("result").innerHTML = `
-        <div class="learned"><h2>What it learned</h2>
-          <ol class="entries" style="max-height:none">${learned || '<li class="empty">No new rule. The answer matched what it already knew.</li>'}</ol></div>
-        <h2>${esc(next.weekday)}, planned again</h2>
-        <p class="result-sum">${nChanged ? `${nChanged} of ${PEOPLE.length} plans changed compared with the demo run.` : "No plan changed compared with the demo run."}</p>
-        <p class="result-meta">${j.calls} model calls, ${j.cache_hits} from cache, ${Math.round(j.seconds)} s.</p>
-        <div class="mini-grid">${PEOPLE.map((q) => miniTile(q.id, plans[q.id], base[q.id])).join("")}</div>`;
-  }
   async function teach() {
     if (busy) return;
     busy = true;
@@ -1147,7 +934,24 @@ textarea:focus { outline: 2px solid var(--route); outline-offset: 0; border-colo
       });
       const j = await res.json().catch(() => ({}));
       if (!res.ok) throw new Error(j.error || `The server answered ${res.status}.`);
-      renderResult(j, lDay, lPerson);
+      const baseLessons = lDay > 0 ? DAYS[lDay - 1].lessons_after : [];
+      const before = Object.fromEntries(baseLessons.map((l) => [l.id, l.rule]));
+      const learned = (j.changed || []).map((id) => {
+        const l = j.lessons.find((x) => x.id === id);
+        const from = (l && l.evidence ? l.evidence : []).filter((e) => e.startsWith(`D${day.day}:`)).map((e) => e.split(":")[1]);
+        return l ? entryHtml({ kind: before[id] ? "revised" : "added", id, rule: l.rule, before: before[id] || null, from }, day.day, true, true) : "";
+      }).join("");
+      nextOwners = Object.fromEntries(next.open.map((o) => [o.id, o.owner]));
+      const plans = Object.fromEntries(j.plan.plans.map((x) => [x.person, x]));
+      const base = Object.fromEntries(j.baseline.plans.map((x) => [x.person, x]));
+      const nChanged = PEOPLE.filter((q) => (plans[q.id] ? plans[q.id].top3.map((i) => i.ticket).join() : "") !== (base[q.id] ? base[q.id].top3.map((i) => i.ticket).join() : "")).length;
+      $("result").innerHTML = `
+        <div class="learned"><h2>What it learned</h2>
+          <ol class="entries" style="max-height:none">${learned || '<li class="empty">No new rule. The answer matched what it already knew.</li>'}</ol></div>
+        <h2>${esc(next.weekday)}, planned again</h2>
+        <p class="result-sum">${nChanged ? `${nChanged} of ${PEOPLE.length} plans changed compared with the demo run.` : "No plan changed compared with the demo run."}</p>
+        <p class="result-meta">${j.calls} model calls, ${j.cache_hits} from cache, ${Math.round(j.seconds)} s.</p>
+        <div class="mini-grid">${PEOPLE.map((q) => miniTile(q.id, plans[q.id], base[q.id])).join("")}</div>`;
       status.textContent = `Done. ${p.first}'s answer was learned and ${next.weekday} was planned again.`;
     } catch (err) {
       status.classList.add("is-error");
@@ -1160,7 +964,7 @@ textarea:focus { outline: 2px solid var(--route); outline-offset: 0; border-colo
   }
   $("teach").addEventListener("click", teach);
 
-  fetch("/api/health", { headers: { "ngrok-skip-browser-warning": "1" } }).then((r) => (r.ok ? r.json() : Promise.reject())).then((h) => { online = !!h.ok; renderLive(); renderThread(); })
+  fetch("/api/health", { headers: { "ngrok-skip-browser-warning": "1" } }).then((r) => (r.ok ? r.json() : Promise.reject())).then((h) => { online = !!h.ok; renderLive(); })
     .catch(() => { online = false; $("offline").hidden = false; renderLive(); });
 
   /* ---------------- Start ---------------- */
