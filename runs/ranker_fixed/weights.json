@@ -1,0 +1,13 @@
+{
+  "due_soon": 0.3,
+  "due_today": 1.0,
+  "due_tomorrow": 0.7,
+  "goal_G1": 0.6,
+  "goal_G2": 0.4,
+  "goal_G3": 0.2,
+  "in_progress": 0.3,
+  "mine": 6.0,
+  "prio_high": 3.0,
+  "prio_low": 1.0,
+  "prio_medium": 2.0
+}
