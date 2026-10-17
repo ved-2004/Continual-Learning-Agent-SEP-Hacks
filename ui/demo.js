@@ -2,18 +2,28 @@ window.DEMO_DATA = {
  "company": {
   "name": "Tidewell",
   "mission": "Make every truck's time at the dock predictable.",
+  "what_we_do": "Dock-scheduling software for regional food distributors. Carriers book dock appointments; warehouses see their load for the day.",
   "goals": [
    {
     "id": "G1",
-    "goal": "Launch Smart Slots at FreightWorks Expo"
+    "rank": 1,
+    "goal": "Launch Smart Slots at FreightWorks Expo",
+    "metric": "3 design partners live on Smart Slots by launch",
+    "due": "2026-11-04"
    },
    {
     "id": "G2",
-    "goal": "Keep every customer we have"
+    "rank": 2,
+    "goal": "Keep every customer we have",
+    "metric": "Renew Harbor Foods by Oct 30 and Ridgeline Supply by Nov 20",
+    "due": "2026-11-20"
    },
    {
     "id": "G3",
-    "goal": "Make schedule sync reliable"
+    "rank": 3,
+    "goal": "Make schedule sync reliable",
+    "metric": "Sync errors under 1% of appointments",
+    "due": "2026-12-15"
    }
   ]
  },
@@ -792,6 +802,167 @@ window.DEMO_DATA = {
      "owner": "nina"
     }
    ],
+   "brain": {
+    "summary": "Sixteen days to FreightWorks Expo (Nov 4). Maya declared Smart Slots the whole company's focus. Arjun's scoring API waits on Nina's ranking (due Wednesday), and Leila waits on Sam's screens (due 3pm today). Sync errors are at 1.6%, and the Harbor QBR is Thursday.",
+    "items": [
+     {
+      "type": "decision",
+      "text": "Maya decided Smart Slots is the priority for everyone until Expo on Nov 4. Harbor's CSV export limit and the sync error work are deferred until after Expo unless sync worsens.",
+      "person": "maya",
+      "ticket": null,
+      "sources": [
+       "D1-M1",
+       "D1-S1"
+      ]
+     },
+     {
+      "type": "blocker",
+      "text": "Arjun cannot wire real recommendations into the scoring endpoint (passing on test data) until Nina's ranking TW-116 lands.",
+      "person": "arjun",
+      "ticket": "TW-115",
+      "sources": [
+       "D1-M1",
+       "D1-S2",
+       "D1-J3"
+      ]
+     },
+     {
+      "type": "commitment",
+      "text": "Nina committed to having ranking TW-116 up by Wednesday (Oct 21); the ticket is due Oct 27.",
+      "person": "nina",
+      "ticket": "TW-116",
+      "sources": [
+       "D1-M1",
+       "D1-S3"
+      ]
+     },
+     {
+      "type": "blocker",
+      "text": "Leila is building the slot picker on placeholder screens and needs Sam's final designs (TW-118) to finish.",
+      "person": "leila",
+      "ticket": "TW-117",
+      "sources": [
+       "D1-M1",
+       "D1-S4",
+       "D1-J4"
+      ]
+     },
+     {
+      "type": "commitment",
+      "text": "Sam will deliver final slot picker screens today by 3pm, then start the Expo demo flow.",
+      "person": "sam",
+      "ticket": "TW-118",
+      "sources": [
+       "D1-M1",
+       "D1-S5"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Coastal can go live once the API is stable. Valley is still sorting out data access on its side. Design partner ticket TW-121 is due Oct 30.",
+      "person": "jordan",
+      "ticket": "TW-121",
+      "sources": [
+       "D1-M1"
+      ]
+     },
+     {
+      "type": "risk",
+      "text": "Only two design partners are signed (Coastal, Valley). The goal needs three, and Pinecrest Grocers is still unsigned (TW-126, due Oct 30).",
+      "person": "maya",
+      "ticket": "TW-126",
+      "sources": [
+       "D1-M1"
+      ]
+     },
+     {
+      "type": "request",
+      "text": "Arjun needs ranking TW-116 from Nina by Wednesday to wire it into the scoring API.",
+      "person": "nina",
+      "ticket": "TW-116",
+      "sources": [
+       "D1-S2"
+      ]
+     },
+     {
+      "type": "commitment",
+      "text": "Arjun created TW-127, API docs for Coastal and Valley, due Oct 26, which they need before going live.",
+      "person": "arjun",
+      "ticket": "TW-127",
+      "sources": [
+       "D1-J1"
+      ]
+     },
+     {
+      "type": "risk",
+      "text": "Sync error rate was 1.6% on Oct 18, above the 1% target, mostly Ridgeline duplicates (TW-103). Maya will revisit after Expo unless it worsens. Ridgeline renews Nov 20, health yellow.",
+      "person": "arjun",
+      "ticket": "TW-103",
+      "sources": [
+       "D1-M1",
+       "D1-S8",
+       "D1-J5"
+      ]
+     },
+     {
+      "type": "request",
+      "text": "Jordan asked Nina for Q3 usage numbers for Harbor's QBR (TW-128, due Oct 21).",
+      "person": "nina",
+      "ticket": "TW-128",
+      "sources": [
+       "D1-S6",
+       "D1-J2"
+      ]
+     },
+     {
+      "type": "commitment",
+      "text": "Nina will deliver Harbor's Q3 usage numbers by tomorrow (Oct 20).",
+      "person": "nina",
+      "ticket": "TW-128",
+      "sources": [
+       "D1-S7"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Jordan is building the Harbor QBR deck for Thursday Oct 22 (TW-112). Harbor's order form went out Friday and Dana said the renewal should be routine.",
+      "person": "jordan",
+      "ticket": "TW-112",
+      "sources": [
+       "D1-M1",
+       "D1-J2"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Harbor asked again about the 5,000-row CSV export limit (TW-102). Jordan told them it is on the list. Deferred until after Expo.",
+      "person": "jordan",
+      "ticket": "TW-102",
+      "sources": [
+       "D1-M1",
+       "D1-J6"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Maya has a booth design review with Sam on Wednesday. Expo invites go out Friday.",
+      "person": "maya",
+      "ticket": null,
+      "sources": [
+       "D1-S9"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Nina is on call this week (Oct 19).",
+      "person": "nina",
+      "ticket": null,
+      "sources": [
+       "D1-M1"
+      ]
+     }
+    ]
+   },
    "lessons_after": [
     {
      "id": "L1",
@@ -1213,6 +1384,197 @@ window.DEMO_DATA = {
      "owner": "leila"
     }
    ],
+   "brain": {
+    "summary": "Fifteen days to the Expo (Nov 4), with Smart Slots the company priority. Sam's final screens are delivered. Nina's ranking PR #232 awaits Arjun's review. Pinecrest wants a demo before signing. Harbor's CSV limit is fixed. The Harbor QBR is Thursday and Dana wants a written reliability plan.",
+    "items": [
+     {
+      "type": "decision",
+      "text": "Maya decided Smart Slots is the priority for everyone until Expo on Nov 4. Sync error work is deferred until after Expo unless sync worsens.",
+      "person": "maya",
+      "ticket": null,
+      "sources": [
+       "D1-M1",
+       "D1-S1"
+      ]
+     },
+     {
+      "type": "decision",
+      "text": "Maya decided the Expo booth gets a live demo, with a printed one-pager as backup.",
+      "person": "maya",
+      "ticket": "TW-120",
+      "sources": [
+       "D2-M1"
+      ]
+     },
+     {
+      "type": "blocker",
+      "text": "Nina's ranking PR #232 (TW-116, due Oct 27) is ready but cannot merge until Arjun reviews it. Arjun's scoring API TW-115 (due Oct 28) needs that ranking.",
+      "person": "arjun",
+      "ticket": "TW-129",
+      "sources": [
+       "D2-S2",
+       "D2-J12",
+       "D2-J13"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Sam delivered the final slot picker screens in Figma, so Leila is no longer blocked. TW-117 is in progress and due Oct 29.",
+      "person": "leila",
+      "ticket": "TW-117",
+      "sources": [
+       "D2-S3",
+       "D2-J5"
+      ]
+     },
+     {
+      "type": "commitment",
+      "text": "Sam is building the three-screen Expo demo (TW-119, due Oct 30). He needs realistic sample data for it.",
+      "person": "sam",
+      "ticket": "TW-119",
+      "sources": [
+       "D2-M1"
+      ]
+     },
+     {
+      "type": "commitment",
+      "text": "Jordan will get an anonymized week of Coastal bookings from Grace today for the Expo demo. Coastal has agreed.",
+      "person": "jordan",
+      "ticket": "TW-119",
+      "sources": [
+       "D2-M1",
+       "D2-S7"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Coastal kickoff call is booked for Thursday. Valley is still waiting on data access. Design partner ticket TW-121 is due Oct 30.",
+      "person": "jordan",
+      "ticket": "TW-121",
+      "sources": [
+       "D2-S7",
+       "D2-J10"
+      ]
+     },
+     {
+      "type": "risk",
+      "text": "Only two design partners are signed. Pinecrest, the needed third (TW-126, due Oct 30), wants to see a live demo before signing.",
+      "person": "maya",
+      "ticket": "TW-126",
+      "sources": [
+       "D2-J11",
+       "D2-M1"
+      ]
+     },
+     {
+      "type": "commitment",
+      "text": "Arjun owns TW-127, API docs for Coastal and Valley, due Oct 26. They need the docs before going live.",
+      "person": "arjun",
+      "ticket": "TW-127",
+      "sources": [
+       "D1-J1"
+      ]
+     },
+     {
+      "type": "risk",
+      "text": "Sync error rate was 1.6% on Oct 18, above the 1% target, mostly Ridgeline duplicates (TW-103, todo). Ridgeline renews Nov 20 and is health yellow.",
+      "person": "nina",
+      "ticket": "TW-103",
+      "sources": [
+       "D1-M1",
+       "D1-J5"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "The Sep 28 postmortem (TW-101) is done. The cause was a sync worker crash with no retry. Arjun started retry queue TW-104. Alert TW-105 is still todo.",
+      "person": "arjun",
+      "ticket": "TW-104",
+      "sources": [
+       "D2-S1",
+       "D2-J1",
+       "D2-J7"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Harbor QBR is Thursday Oct 22. Jordan's deck (TW-112) is in progress. Maya has spoken with Dana, and Dana called the renewal routine.",
+      "person": "jordan",
+      "ticket": "TW-112",
+      "sources": [
+       "D2-J9",
+       "D2-J4",
+       "D1-M1"
+      ]
+     },
+     {
+      "type": "request",
+      "text": "Dana asked for a written reliability plan before Thursday's QBR. Maya owns TW-131, due Oct 22.",
+      "person": "maya",
+      "ticket": "TW-131",
+      "sources": [
+       "D2-J15"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Nina fixed Harbor's CSV export limit: exports over 5,000 rows now complete (TW-102 done).",
+      "person": "nina",
+      "ticket": "TW-102",
+      "sources": [
+       "D2-J2"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Harbor ops reports Fresno DC appointments showing UTC times. Jordan logged TW-130 (API, Nina) and TW-132 (schedule view, Leila), both low priority with no due date.",
+      "person": "jordan",
+      "ticket": "TW-130",
+      "sources": [
+       "D2-S5",
+       "D2-J14",
+       "D2-J16"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Booth 412 is confirmed. Jordan has 40 leads, and invites go out Friday. TW-122 is due Oct 28.",
+      "person": "jordan",
+      "ticket": "TW-122",
+      "sources": [
+       "D2-M1",
+       "D2-S6"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Maya has a booth design review with Sam on Wednesday.",
+      "person": "maya",
+      "ticket": null,
+      "sources": [
+       "D1-S9"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Nina is on call this week (Oct 19).",
+      "person": "nina",
+      "ticket": null,
+      "sources": [
+       "D1-M1"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Arjun has two backend candidate interviews, Thursday and Friday (TW-110).",
+      "person": "arjun",
+      "ticket": "TW-110",
+      "sources": [
+       "D2-S8"
+      ]
+     }
+    ]
+   },
    "lessons_after": [
     {
      "id": "L1",
@@ -1612,6 +1974,195 @@ window.DEMO_DATA = {
      "owner": "leila"
     }
    ],
+   "brain": {
+    "summary": "Thirteen days to Expo (Nov 4) with Smart Slots the stated priority. Ranking PR #232 is merged, unblocking the scoring API. A Ridgeline escalation arrived: 9 trucks double-booked at Reno, the CFO was copied, and sync errors hit 4.2%. Harbor QBR is Thursday. Slot picker design is frozen.",
+    "items": [
+     {
+      "type": "risk",
+      "text": "Ridgeline (22% of revenue, health yellow, renews Nov 20) escalated: 9 trucks double-booked at Reno DC, drivers waiting at the gate. Third incident this quarter. Omar copied Ridgeline's CFO.",
+      "person": "jordan",
+      "ticket": "TW-133",
+      "sources": [
+       "D3-S1",
+       "D3-S4",
+       "D3-J16"
+      ]
+     },
+     {
+      "type": "request",
+      "text": "Omar wants a call before noon today. Jordan created TW-134 for it, due Oct 21.",
+      "person": "jordan",
+      "ticket": "TW-134",
+      "sources": [
+       "D3-S4",
+       "D3-J17"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "TW-133 (fix for Reno double-bookings) is owned by Arjun, high priority, due today, estimated 4h, still todo.",
+      "person": "arjun",
+      "ticket": "TW-133",
+      "sources": [
+       "D3-S2",
+       "D3-J16"
+      ]
+     },
+     {
+      "type": "risk",
+      "text": "Reno sync errors were 4.2% overnight, all duplicates, same pattern as TW-103 (carrier edits during sync). Company target is under 1%. TW-103 is still todo.",
+      "person": "nina",
+      "ticket": "TW-103",
+      "sources": [
+       "D3-S3",
+       "D3-J15"
+      ]
+     },
+     {
+      "type": "decision",
+      "text": "Maya's earlier decision deferred sync error work until after Expo unless sync worsens. Sync has now worsened, with the Ridgeline spike and escalation.",
+      "person": "maya",
+      "ticket": null,
+      "sources": [
+       "D1-M1",
+       "D3-S3",
+       "D3-S1"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "PR #232 (ranking, TW-116) is approved and merged, so the earlier review blocker is cleared. Arjun is putting the merged ranking into the scoring API TW-115, due Oct 28.",
+      "person": "arjun",
+      "ticket": "TW-115",
+      "sources": [
+       "D3-J2",
+       "D3-J3",
+       "D3-S5"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Retry queue TW-104 is running in staging. Alert TW-105 moved to in progress with Nina.",
+      "person": "arjun",
+      "ticket": "TW-104",
+      "sources": [
+       "D3-S5",
+       "D3-J14",
+       "D3-J7"
+      ]
+     },
+     {
+      "type": "decision",
+      "text": "Sam and Leila agreed the slot picker design is frozen as of today; Leila says changes after Monday would not make it into the build.",
+      "person": "sam",
+      "ticket": "TW-117",
+      "sources": [
+       "D3-M1"
+      ]
+     },
+     {
+      "type": "risk",
+      "text": "The booth tablet flow uses the real slot picker, which Leila says must be stable by next Wednesday. TW-117 is due Oct 29, and TW-135 (empty/error states) was added, due Oct 29.",
+      "person": "leila",
+      "ticket": "TW-117",
+      "sources": [
+       "D3-M1",
+       "D3-J18"
+      ]
+     },
+     {
+      "type": "blocker",
+      "text": "Demo screens 1 and 2 are done. Screen 3 of the Expo demo (TW-119, due Oct 30) needs the slot picker build.",
+      "person": "sam",
+      "ticket": "TW-119",
+      "sources": [
+       "D3-S7",
+       "D3-J9"
+      ]
+     },
+     {
+      "type": "blocker",
+      "text": "Sam is waiting on final pricing numbers for the printed one-pager. Maya promised them by Friday.",
+      "person": "maya",
+      "ticket": "TW-125",
+      "sources": [
+       "D3-M1"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Coastal's anonymized bookings, obtained by Jordan from Grace, are available for the booth screen demo.",
+      "person": "jordan",
+      "ticket": "TW-119",
+      "sources": [
+       "D3-M1"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Coastal kickoff is Thursday. Valley is still setting up data access. TW-121 (both partners live) is due Oct 30. TW-127 API docs, owned by Arjun, are due Oct 26 and still todo.",
+      "person": "jordan",
+      "ticket": "TW-121",
+      "sources": [
+       "D2-S7",
+       "D2-J10",
+       "D1-J1"
+      ]
+     },
+     {
+      "type": "risk",
+      "text": "Only two design partners are signed. Pinecrest, needed as the third (TW-126, due Oct 30), wants to see a live demo before signing.",
+      "person": "maya",
+      "ticket": "TW-126",
+      "sources": [
+       "D2-J11",
+       "D2-M1"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Maya sent Dana the written reliability plan (TW-131 done). Jordan's QBR deck is drafted, with final numbers due tomorrow morning. QBR is Thursday Oct 22.",
+      "person": "jordan",
+      "ticket": "TW-112",
+      "sources": [
+       "D3-J1",
+       "D3-J13"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Sam sent Dana the first weekly usage report (TW-106 done). Fresno local-time bugs are fixed: TW-130 by Nina and TW-132 by Leila.",
+      "person": "sam",
+      "ticket": "TW-106",
+      "sources": [
+       "D3-J6",
+       "D3-J4",
+       "D3-J5"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Booth 412 is confirmed. Jordan has 40 leads, and invites go out Friday. TW-122 is in progress, due Oct 28.",
+      "person": "jordan",
+      "ticket": "TW-122",
+      "sources": [
+       "D2-M1",
+       "D2-S6",
+       "D3-J11"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Nina is on call this week (Oct 19). Arjun has backend candidate interviews Thursday and Friday (TW-110).",
+      "person": "nina",
+      "ticket": "TW-110",
+      "sources": [
+       "D1-M1",
+       "D2-S8"
+      ]
+     }
+    ]
+   },
    "lessons_after": [
     {
      "id": "L1",
@@ -2049,6 +2600,180 @@ window.DEMO_DATA = {
      "owner": "nina"
     }
    ],
+   "brain": {
+    "summary": "Twelve days to Expo (Nov 4). Reno duplicates are cleaned up and clean since; the root-cause fix PR #238 awaits Arjun's review. Harbor QBR is at 2pm today, with renewal terms still owed. Coastal is live in staging, Valley has data access, and the Pinecrest demo is Monday.",
+    "items": [
+     {
+      "type": "status",
+      "text": "Reno double-bookings cleaned up (TW-133 done by Nina) and Reno has been clean since; Omar confirmed a clean run this morning. Maya called Omar (TW-134 done), telling him the fix is in and root cause is next.",
+      "person": "nina",
+      "ticket": "TW-133",
+      "sources": [
+       "D4-J1",
+       "D4-J2",
+       "D4-S3"
+      ]
+     },
+     {
+      "type": "blocker",
+      "text": "Root-cause fix for duplicates (TW-103) is in PR #238 and cannot ship until Arjun reviews it (TW-137, 1h, no due date).",
+      "person": "arjun",
+      "ticket": "TW-137",
+      "sources": [
+       "D4-S1",
+       "D4-S2",
+       "D4-J14"
+      ]
+     },
+     {
+      "type": "risk",
+      "text": "Ridgeline (22% of revenue, health yellow, renews Nov 20) had a third incident this quarter and the CFO was copied. Root cause TW-103 is not yet shipped. Company decision had deferred sync work until after Expo.",
+      "person": "jordan",
+      "ticket": "TW-103",
+      "sources": [
+       "D4-J2",
+       "D4-J3",
+       "D3-S1"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Retry queue TW-104 is in staging and Arjun says it goes to production tomorrow (Friday). Nina's alert TW-105 (page on-call when errors exceed 1%) is still in progress.",
+      "person": "arjun",
+      "ticket": "TW-104",
+      "sources": [
+       "D4-M1",
+       "D4-J4"
+      ]
+     },
+     {
+      "type": "commitment",
+      "text": "Harbor QBR is at 2pm today. Arjun will speak to the Sep 28 outage if Dana asks; Jordan may also cover the usage report, export fix and time zone display.",
+      "person": "jordan",
+      "ticket": "TW-112",
+      "sources": [
+       "D4-M1",
+       "D4-S4"
+      ]
+     },
+     {
+      "type": "request",
+      "text": "Dana wants the Harbor renewal terms on one page before the 2pm QBR. TW-136 is owned by Maya, due today, still todo.",
+      "person": "maya",
+      "ticket": "TW-136",
+      "sources": [
+       "D4-M1",
+       "D4-J13"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Harbor QBR deck TW-112 is still in progress; final numbers were due this morning. Harbor renews Oct 30.",
+      "person": "jordan",
+      "ticket": "TW-112",
+      "sources": [
+       "D3-J13",
+       "D4-M1"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Ranking is wired into the scoring API TW-115 (due Oct 28); load testing is next. TW-127 partner API docs (due Oct 26) are now in progress.",
+      "person": "arjun",
+      "ticket": "TW-115",
+      "sources": [
+       "D4-J5",
+       "D4-J6"
+      ]
+     },
+     {
+      "type": "request",
+      "text": "Arjun created TW-138 for Nina: Smart Slots suggestions look off for Coastal's early-morning docks. Due Oct 28, 4h estimate, todo.",
+      "person": "nina",
+      "ticket": "TW-138",
+      "sources": [
+       "D4-J15"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Coastal is live in staging and Valley now has data access; Valley's Smart Slots setup can start next week. TW-121 is due Oct 30.",
+      "person": "jordan",
+      "ticket": "TW-121",
+      "sources": [
+       "D4-J11",
+       "D4-S7"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Pinecrest live demo is booked for Monday. Only two design partners are signed; Pinecrest is the third needed (TW-126, due Oct 30).",
+      "person": "maya",
+      "ticket": "TW-126",
+      "sources": [
+       "D4-J9"
+      ]
+     },
+     {
+      "type": "risk",
+      "text": "Booth tablet flow uses the real slot picker, which Leila said must be stable by next Wednesday. TW-117 and TW-135 (empty/error states, now in progress) are both due Oct 29.",
+      "person": "leila",
+      "ticket": "TW-117",
+      "sources": [
+       "D3-M1",
+       "D4-J7"
+      ]
+     },
+     {
+      "type": "blocker",
+      "text": "Expo demo screen 3 (TW-119, due Oct 30) waits for the slot picker build. Slot picker design is frozen.",
+      "person": "sam",
+      "ticket": "TW-119",
+      "sources": [
+       "D4-J12",
+       "D3-M1"
+      ]
+     },
+     {
+      "type": "blocker",
+      "text": "Sam's pricing page draft is in Figma (TW-125) but waits on final pricing numbers, which Maya promised by Friday.",
+      "person": "sam",
+      "ticket": "TW-125",
+      "sources": [
+       "D4-S5",
+       "D3-M1"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Maya's October investor update (TW-111, due Oct 23) is drafted but needs October numbers.",
+      "person": "maya",
+      "ticket": "TW-111",
+      "sources": [
+       "D4-J10"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Booth 412 confirmed; Jordan has 40 leads and invites go out Friday. TW-122 is in progress, due Oct 28.",
+      "person": "jordan",
+      "ticket": "TW-122",
+      "sources": [
+       "D3-J11",
+       "D2-M1"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Nina is on call this week; Arjun takes over the week of Oct 26. Arjun's first backend interview is done and the second is tomorrow (TW-110).",
+      "person": "arjun",
+      "ticket": "TW-110",
+      "sources": [
+       "D4-S6"
+      ]
+     }
+    ]
+   },
    "lessons_after": [
     {
      "id": "L1",
@@ -2451,6 +3176,198 @@ window.DEMO_DATA = {
      "owner": "nina"
     }
    ],
+   "brain": {
+    "summary": "Twelve days to Expo (Nov 4). The duplicates fix (TW-103) and retry queue (TW-104) are live, and the error alert is on. The Harbor QBR went well, with follow-ups logged. The slot picker build (PR #241) waits on design review. Pricing numbers and the Pinecrest demo (Monday) remain open.",
+    "items": [
+     {
+      "type": "status",
+      "text": "Retry queue TW-104 is live in production and the duplicates root-cause fix TW-103 has shipped. Arjun approved PR #238 (TW-137 done).",
+      "person": "arjun",
+      "ticket": "TW-103",
+      "sources": [
+       "D5-S1",
+       "D5-J2",
+       "D5-J3"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Error-rate alert TW-105, which pages on-call when sync errors exceed 1%, is live.",
+      "person": "nina",
+      "ticket": "TW-105",
+      "sources": [
+       "D5-S6",
+       "D5-J4"
+      ]
+     },
+     {
+      "type": "risk",
+      "text": "Ridgeline (22% of revenue, health yellow, renews Nov 20) had a third incident this quarter, with its CFO copied. The root-cause fix has now shipped. Renewal prep TW-113 is due Nov 13.",
+      "person": "jordan",
+      "ticket": "TW-113",
+      "sources": [
+       "D5-J3",
+       "D4-J3"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Harbor QBR is done and Dana's team liked the export fix and time zone display. Maya shared the renewal terms at the QBR (TW-136 done). Harbor renews Oct 30.",
+      "person": "jordan",
+      "ticket": "TW-112",
+      "sources": [
+       "D5-S3",
+       "D5-J5",
+       "D5-J6"
+      ]
+     },
+     {
+      "type": "request",
+      "text": "Dana wants written notes from the QBR. TW-139 is owned by Jordan, due today, todo.",
+      "person": "jordan",
+      "ticket": "TW-139",
+      "sources": [
+       "D5-J10",
+       "D5-S3"
+      ]
+     },
+     {
+      "type": "request",
+      "text": "Dana asked for a 4-week dock trend in Harbor's weekly report. TW-140 is owned by Sam, 3h, no due date.",
+      "person": "sam",
+      "ticket": "TW-140",
+      "sources": [
+       "D5-J11"
+      ]
+     },
+     {
+      "type": "request",
+      "text": "Harbor's ops lead wants the same sync alerts Tidewell gets, sent to their ops channel. TW-142 is owned by Nina, 2h, no due date.",
+      "person": "nina",
+      "ticket": "TW-142",
+      "sources": [
+       "D5-J13"
+      ]
+     },
+     {
+      "type": "blocker",
+      "text": "Slot picker build PR #241 is up but cannot merge until Sam completes the design review (TW-141, 1h). TW-117 is due Oct 29.",
+      "person": "sam",
+      "ticket": "TW-141",
+      "sources": [
+       "D5-S2",
+       "D5-J12",
+       "D5-J9"
+      ]
+     },
+     {
+      "type": "blocker",
+      "text": "Expo demo screen 3 (TW-119, due Oct 30) still waits for the slot picker build, now available as PR #241 pending review.",
+      "person": "sam",
+      "ticket": "TW-119",
+      "sources": [
+       "D5-M1",
+       "D5-S2"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Booth demo dry run took 2:40. Sam said it should be under 2 minutes. Jordan expects visitors to ask about pricing first.",
+      "person": "sam",
+      "ticket": "TW-119",
+      "sources": [
+       "D5-M1"
+      ]
+     },
+     {
+      "type": "blocker",
+      "text": "Pricing page TW-125 waits on final pricing numbers, which Maya promised by Friday (today). The booth one-pager must show the same numbers as the pricing page.",
+      "person": "maya",
+      "ticket": "TW-125",
+      "sources": [
+       "D5-M1",
+       "D4-S5"
+      ]
+     },
+     {
+      "type": "risk",
+      "text": "The booth tablet flow uses the real slot picker, which Leila said must be stable by next Wednesday. TW-117 and TW-135 (empty/error states) are both due Oct 29.",
+      "person": "leila",
+      "ticket": "TW-135",
+      "sources": [
+       "D3-M1",
+       "D5-J9"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Maya's October investor update TW-111 was due today and is still in progress. She says she is sending it today.",
+      "person": "maya",
+      "ticket": "TW-111",
+      "sources": [
+       "D5-J8"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Expo invites go out today. Jordan has 40 leads at booth 412. TW-122 is in progress, due Oct 28.",
+      "person": "jordan",
+      "ticket": "TW-122",
+      "sources": [
+       "D5-S4",
+       "D4-J9"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Valley's data is flowing and its Smart Slots setup starts Monday. Coastal is live in staging. TW-121 is due Oct 30.",
+      "person": "jordan",
+      "ticket": "TW-121",
+      "sources": [
+       "D5-S5",
+       "D4-J11"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Pinecrest live demo is Monday. It is the third design partner needed, since only two are signed. TW-126 is due Oct 30.",
+      "person": "maya",
+      "ticket": "TW-126",
+      "sources": [
+       "D4-J9"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Scoring API TW-115 (due Oct 28) has ranking wired in and load testing is next. Partner API docs TW-127 (due Oct 26) are in progress.",
+      "person": "arjun",
+      "ticket": "TW-115",
+      "sources": [
+       "D4-J5",
+       "D4-J6"
+      ]
+     },
+     {
+      "type": "request",
+      "text": "Nina has two Smart Slots tasks: TW-138, tuning ranking for Coastal's early-morning docks (in progress, due Oct 28), and new TW-143, a 10x-traffic load test (4h, due Oct 30).",
+      "person": "nina",
+      "ticket": "TW-143",
+      "sources": [
+       "D5-J7",
+       "D5-J14"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Nina is on call this week and Arjun takes over the week of Oct 26. Arjun's second backend interview is at 3pm today (TW-110).",
+      "person": "arjun",
+      "ticket": "TW-110",
+      "sources": [
+       "D5-S7"
+      ]
+     }
+    ]
+   },
    "lessons_after": [
     {
      "id": "L1",
@@ -2877,6 +3794,184 @@ window.DEMO_DATA = {
      "owner": "sam"
     }
    ],
+   "brain": {
+    "summary": "Nine days to Expo (Nov 4). Coastal, a design partner, cannot log in (TW-144) and its CEO is questioning Smart Slots readiness. The slot picker merged, the pricing page is final, and the demo is at 2:10. Pinecrest demo is at 3pm today. Harbor renews Oct 30.",
+    "items": [
+     {
+      "type": "blocker",
+      "text": "Coastal users cannot log in since this morning because of a redirect loop after SSO, for Coastal accounts only. Dispatchers are back on spreadsheets. TW-144 is owned by Leila, due today, todo.",
+      "person": "leila",
+      "ticket": "TW-144",
+      "sources": [
+       "D6-S2",
+       "D6-S3",
+       "D6-J16"
+      ]
+     },
+     {
+      "type": "risk",
+      "text": "Coastal's CEO is asking via Grace whether Smart Slots is ready for real use. Coastal is a design partner and 15% of revenue. TW-145 is a call with Grace, owned by Jordan, due today.",
+      "person": "jordan",
+      "ticket": "TW-145",
+      "sources": [
+       "D6-S4",
+       "D6-J17"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Slot picker PR #241 merged after Sam's design review (TW-117 and TW-141 done). Demo screen 3 (TW-119, due Oct 30) is no longer waiting on the build.",
+      "person": "sam",
+      "ticket": "TW-119",
+      "sources": [
+       "D6-J1",
+       "D6-J2",
+       "D6-M1"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Demo run time is down to 2:10, from 2:40. Sam had said it should be under 2 minutes. TW-119 is in progress, due Oct 30.",
+      "person": "sam",
+      "ticket": "TW-119",
+      "sources": [
+       "D6-M1"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Final pricing numbers are in and the pricing page is done (TW-125 done). Sam says the booth one-pager is final in Figma.",
+      "person": "sam",
+      "ticket": "TW-125",
+      "sources": [
+       "D6-J10",
+       "D6-M1",
+       "D6-S5"
+      ]
+     },
+     {
+      "type": "commitment",
+      "text": "Booth ships Thursday, so anything printed must be final by Wednesday. Sam's TW-150 (final one-pager print files, 2h) is due Oct 28, todo.",
+      "person": "sam",
+      "ticket": "TW-150",
+      "sources": [
+       "D6-M1",
+       "D6-S5",
+       "D6-J22"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Pinecrest live demo is today at 3pm. Pinecrest is the third design partner needed, as only two are signed. TW-126 is due Oct 30.",
+      "person": "maya",
+      "ticket": "TW-126",
+      "sources": [
+       "D6-M1",
+       "D6-J15"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Valley's setup starts today and its first week of bookings is imported. Coastal has twelve users on Smart Slots in staging. TW-121 (due Oct 30) is in progress.",
+      "person": "jordan",
+      "ticket": "TW-121",
+      "sources": [
+       "D6-M1",
+       "D6-S7"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Scoring API TW-115 (due Oct 28) passed a 5x load test. Partner API docs TW-127 are published and done.",
+      "person": "arjun",
+      "ticket": "TW-115",
+      "sources": [
+       "D6-M1",
+       "D6-J13",
+       "D6-J7"
+      ]
+     },
+     {
+      "type": "commitment",
+      "text": "Nina's 10x load test (TW-143, due Oct 30) is scheduled for Wednesday and the script is ready. Ranking tuning for Coastal's early docks (TW-138, due Oct 28) shows better suggestions.",
+      "person": "nina",
+      "ticket": "TW-143",
+      "sources": [
+       "D6-S6",
+       "D6-M1",
+       "D6-J14"
+      ]
+     },
+     {
+      "type": "request",
+      "text": "Arjun created TW-146 (rate limits for booth traffic, due Oct 30) and TW-147 (demo environment with Coastal anonymized data, due Oct 29). Both are 3h and todo, owned by Arjun.",
+      "person": "arjun",
+      "ticket": "TW-147",
+      "sources": [
+       "D6-J18",
+       "D6-J19"
+      ]
+     },
+     {
+      "type": "request",
+      "text": "TW-148, caching slot scores to keep the booth demo fast on Wi-Fi, is owned by Nina, 3h, due Oct 30, todo.",
+      "person": "nina",
+      "ticket": "TW-148",
+      "sources": [
+       "D6-J20"
+      ]
+     },
+     {
+      "type": "request",
+      "text": "TW-149, booth tablet full-screen mode for the slot picker, is owned by Leila, 3h, due Oct 29, todo. TW-135 (empty and error states) is also due Oct 29.",
+      "person": "leila",
+      "ticket": "TW-149",
+      "sources": [
+       "D6-J21"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Harbor follow-ups are done: QBR notes sent to Dana (TW-139), 4-week trend added to the weekly report (TW-140), and sync alerts go to Harbor's ops channel (TW-142). Harbor renews Oct 30.",
+      "person": "jordan",
+      "ticket": "TW-139",
+      "sources": [
+       "D6-J4",
+       "D6-J3",
+       "D6-J5"
+      ]
+     },
+     {
+      "type": "risk",
+      "text": "Ridgeline (22% of revenue, health yellow) renews Nov 20. Renewal prep TW-113 is due Nov 13, todo.",
+      "person": "jordan",
+      "ticket": "TW-113",
+      "sources": [
+       "D5-J3"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Expo invites went out to 40 accounts (TW-122 done). Maya sent the investor update (TW-111 done). Maya's booth demo script TW-120 is in progress, due Oct 30.",
+      "person": "maya",
+      "ticket": "TW-120",
+      "sources": [
+       "D6-J9",
+       "D6-J6",
+       "D6-J11"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Arjun is on call this week. Both backend interviews are done and feedback is in the hiring doc (TW-110 done).",
+      "person": "arjun",
+      "ticket": "TW-110",
+      "sources": [
+       "D6-J8"
+      ]
+     }
+    ]
+   },
    "lessons_after": [
     {
      "id": "L1",
@@ -3287,6 +4382,180 @@ window.DEMO_DATA = {
      "owner": "maya"
     }
    ],
+   "brain": {
+    "summary": "Eight days to Expo (Nov 4). Pinecrest signed, so three design partners are signed. Coastal logins are fixed. Valley is booking through Smart Slots. Booth print files are due Wednesday and the booth ships Thursday. Harbor renews Oct 30. Several demo and backend tasks are due Oct 28-30.",
+    "items": [
+     {
+      "type": "status",
+      "text": "Coastal logins fixed: the identity provider rotated a certificate, Arjun added a check, and Grace confirms logins work. TW-144 and TW-145 are done.",
+      "person": "arjun",
+      "ticket": "TW-144",
+      "sources": [
+       "D7-S3",
+       "D7-S2",
+       "D7-J2"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Pinecrest signed this morning as the third Smart Slots design partner. TW-126 is done.",
+      "person": "maya",
+      "ticket": "TW-126",
+      "sources": [
+       "D7-M1",
+       "D7-S1",
+       "D7-J3"
+      ]
+     },
+     {
+      "type": "commitment",
+      "text": "Pinecrest wants to be live before Expo. Kickoff is Thursday. TW-151 (kickoff and data access, 3h) is owned by Jordan, due Oct 29, todo.",
+      "person": "jordan",
+      "ticket": "TW-151",
+      "sources": [
+       "D7-J11",
+       "D7-M1"
+      ]
+     },
+     {
+      "type": "commitment",
+      "text": "Booth print files go out Wednesday for Thursday's shipment. Sam's TW-150 (final one-pager print files) is in progress, due Oct 28.",
+      "person": "sam",
+      "ticket": "TW-150",
+      "sources": [
+       "D7-M1",
+       "D7-S4",
+       "D7-J8"
+      ]
+     },
+     {
+      "type": "request",
+      "text": "Maya wants four investor meetings booked at the booth. TW-152 is owned by Maya, due Oct 30, todo.",
+      "person": "maya",
+      "ticket": "TW-152",
+      "sources": [
+       "D7-M1",
+       "D7-J12"
+      ]
+     },
+     {
+      "type": "decision",
+      "text": "Booth staffing will be two people at a time, in shifts. The shift plan is to be locked on Thursday.",
+      "person": "maya",
+      "ticket": null,
+      "sources": [
+       "D7-M1"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Launch announcement post for Nov 4 is TW-153, owned by Maya, due Nov 3, todo.",
+      "person": "maya",
+      "ticket": "TW-153",
+      "sources": [
+       "D7-J13"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Valley booked 140 slots through Smart Slots yesterday. Coastal had twelve users on Smart Slots in staging. TW-121 (design partners live, due Oct 30) is in progress.",
+      "person": "jordan",
+      "ticket": "TW-121",
+      "sources": [
+       "D7-S6",
+       "D6-S7"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Nina's ranking changes for Coastal's early docks are in staging. TW-138 is in progress, due Oct 28.",
+      "person": "nina",
+      "ticket": "TW-138",
+      "sources": [
+       "D7-S5"
+      ]
+     },
+     {
+      "type": "commitment",
+      "text": "Nina's 10x load test (TW-143, due Oct 30) is scheduled for Wednesday. Scoring API TW-115 (due Oct 28) passed the 5x test.",
+      "person": "nina",
+      "ticket": "TW-143",
+      "sources": [
+       "D6-S6",
+       "D6-J13"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Arjun's TW-147 (demo environment with Coastal anonymized data) is in progress, due Oct 29. TW-146 (rate limits for booth traffic) is todo, due Oct 30.",
+      "person": "arjun",
+      "ticket": "TW-147",
+      "sources": [
+       "D7-J6",
+       "D6-J18"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Nina's TW-148 (caching slot scores for the booth demo) is in progress, due Oct 30.",
+      "person": "nina",
+      "ticket": "TW-148",
+      "sources": [
+       "D7-J7"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Leila merged empty and error states (TW-135 done). Booth tablet mode TW-149 is in progress, due Oct 29.",
+      "person": "leila",
+      "ticket": "TW-149",
+      "sources": [
+       "D7-J4",
+       "D7-J5"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Demo run time is 2:10, and Sam had said it should be under 2 minutes. TW-119 (due Oct 30) and Maya's booth script TW-120 (due Oct 30) are in progress.",
+      "person": "sam",
+      "ticket": "TW-119",
+      "sources": [
+       "D6-M1",
+       "D6-J11"
+      ]
+     },
+     {
+      "type": "risk",
+      "text": "Harbor Foods (38% of revenue) renews Oct 30. QBR notes, the 4-week trend and sync alerts to its ops channel are all done.",
+      "person": "jordan",
+      "ticket": "TW-139",
+      "sources": [
+       "D6-J4",
+       "D6-J3",
+       "D6-J5"
+      ]
+     },
+     {
+      "type": "risk",
+      "text": "Ridgeline (22% of revenue, health yellow) renews Nov 20. Renewal prep TW-113 is now in progress, due Nov 13.",
+      "person": "jordan",
+      "ticket": "TW-113",
+      "sources": [
+       "D5-J3",
+       "D7-J10"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Jordan started on the Smart Slots help center articles (TW-124, three articles for launch day), due Nov 3.",
+      "person": "jordan",
+      "ticket": "TW-124",
+      "sources": [
+       "D7-J9"
+      ]
+     }
+    ]
+   },
    "lessons_after": [
     {
      "id": "L1",
@@ -3711,6 +4980,177 @@ window.DEMO_DATA = {
      "owner": "jordan"
     }
    ],
+   "brain": {
+    "summary": "One week to Expo (Nov 4). Booth ships Thursday; print files sent, booth script final, Coastal ranking and scoring API done. Harbor (38% of revenue) renews Oct 30, but legal sent redlines wanting an uptime clause. Pinecrest kickoff is Thursday; 10x load test at 2pm.",
+    "items": [
+     {
+      "type": "blocker",
+      "text": "Harbor's legal sent redlines overnight and wants an uptime clause before signing. Renewal is Oct 30. TW-154 (Maya, review redlines, due Oct 29) is todo; TW-158 paperwork waits on the clause being agreed.",
+      "person": "maya",
+      "ticket": "TW-154",
+      "sources": [
+       "D8-S2",
+       "D8-J10",
+       "D8-M1"
+      ]
+     },
+     {
+      "type": "commitment",
+      "text": "Jordan owns TW-158, new Harbor renewal order form with legal's changes, due Oct 30, todo. It follows agreement on the uptime clause.",
+      "person": "jordan",
+      "ticket": "TW-158",
+      "sources": [
+       "D8-J14",
+       "D8-S2"
+      ]
+     },
+     {
+      "type": "request",
+      "text": "Dana (Harbor) asked for a monthly sync uptime report (TW-155, Arjun, 3h) and a weekly Monday auto-export (TW-156, Nina, 2h). No dates given; both todo, low priority.",
+      "person": "jordan",
+      "ticket": "TW-155",
+      "sources": [
+       "D8-S3",
+       "D8-J11",
+       "D8-J12"
+      ]
+     },
+     {
+      "type": "risk",
+      "text": "Harbor (38% of revenue) renews Oct 30 with uptime-clause redlines open. QBR notes, 4-week trend and sync alerts to its ops channel were already done.",
+      "person": "jordan",
+      "ticket": "TW-139",
+      "sources": [
+       "D8-S2",
+       "D6-J4",
+       "D6-J5"
+      ]
+     },
+     {
+      "type": "risk",
+      "text": "Ridgeline (22% of revenue, health yellow) renews Nov 20. Renewal prep TW-113 is in progress, due Nov 13.",
+      "person": "jordan",
+      "ticket": "TW-113",
+      "sources": [
+       "D5-J3",
+       "D7-J10"
+      ]
+     },
+     {
+      "type": "commitment",
+      "text": "Pinecrest kickoff confirmed for Thursday. TW-151 (kickoff and data access) is in progress, owned by Jordan, due Oct 29. Pinecrest wants to be live before Expo.",
+      "person": "jordan",
+      "ticket": "TW-151",
+      "sources": [
+       "D8-S6",
+       "D8-J9",
+       "D7-M1"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Booth print files went to the printer (TW-150 done). Booth ships Thursday. Sam created TW-157 (booth slide loop), due Oct 31, todo.",
+      "person": "sam",
+      "ticket": "TW-157",
+      "sources": [
+       "D8-S4",
+       "D8-J4",
+       "D8-J13"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Demo run time is now 1:50, under the 2-minute target. Maya's booth script TW-120 is done. TW-119 (demo flow and sample data, due Oct 30) remains in progress; screen 3 was waiting on slot picker build.",
+      "person": "sam",
+      "ticket": "TW-119",
+      "sources": [
+       "D8-M1",
+       "D8-J1"
+      ]
+     },
+     {
+      "type": "commitment",
+      "text": "Nina's 10x load test (TW-143, due Oct 30) starts at 2pm today. Arjun reports the scoring API (TW-115) is done and load tested.",
+      "person": "nina",
+      "ticket": "TW-143",
+      "sources": [
+       "D8-S5",
+       "D8-J2",
+       "D8-M1"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Nina shipped the Coastal ranking changes (TW-138 done). TW-148 (caching slot scores for booth demo) is in progress, due Oct 30.",
+      "person": "nina",
+      "ticket": "TW-148",
+      "sources": [
+       "D8-J3",
+       "D7-J7"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "TW-147 (demo environment) is in progress, due Oct 29. It still needs Coastal's anonymized week loaded. TW-146 (rate limits for booth traffic) moved to in progress, due Oct 30. Arjun says nothing is blocking him.",
+      "person": "arjun",
+      "ticket": "TW-147",
+      "sources": [
+       "D8-S7",
+       "D8-J7",
+       "D8-M1"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Leila says booth tablet mode works on the iPad. TW-149 is still in progress, due Oct 29. She also moved dark mode TW-108 to in progress.",
+      "person": "leila",
+      "ticket": "TW-149",
+      "sources": [
+       "D8-M1",
+       "D8-J8"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "TW-121 (Coastal and Valley live on Smart Slots, due Oct 30) is in progress. Valley booked 140 slots earlier; Pinecrest is the third design partner, signed with TW-126 done.",
+      "person": "jordan",
+      "ticket": "TW-121",
+      "sources": [
+       "D7-S6",
+       "D7-S1",
+       "D7-J3"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Maya moved the investor-meetings ticket TW-152 (four meetings at the booth, due Oct 30) and the launch post TW-153 (due Nov 3) to in progress.",
+      "person": "maya",
+      "ticket": "TW-152",
+      "sources": [
+       "D8-J5",
+       "D8-J6"
+      ]
+     },
+     {
+      "type": "decision",
+      "text": "Booth staffing is two people at a time, in shifts. The shift plan is to be locked Thursday.",
+      "person": "maya",
+      "ticket": null,
+      "sources": [
+       "D7-M1"
+      ]
+     },
+     {
+      "type": "status",
+      "text": "Jordan's Smart Slots help center articles (TW-124, three articles for launch) are in progress, due Nov 3.",
+      "person": "jordan",
+      "ticket": "TW-124",
+      "sources": [
+       "D7-J9"
+      ]
+     }
+    ]
+   },
    "lessons_after": [
     {
      "id": "L1",

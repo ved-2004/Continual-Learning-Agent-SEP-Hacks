@@ -159,6 +159,19 @@ main { max-width: 1480px; margin: 0 auto; padding: 8px 40px 40px; }
 
 /* History */
 .history h2, .live h2 { font-size: 15px; font-weight: 700; margin: 0 0 4px; }
+.seg { display: flex; gap: 18px; border-bottom: 1px solid var(--rule); margin-bottom: 10px; }
+.seg button { background: none; border: 0; padding: 0 0 7px; margin-bottom: -1px; font-weight: 600; font-size: 14px; color: var(--muted); border-bottom: 2px solid transparent; }
+.seg button[aria-selected="true"] { color: var(--ink); border-bottom-color: var(--ink); }
+.brain-summary { margin: 0 0 4px; font-size: 14px; line-height: 1.5; padding-bottom: 12px; }
+.goal-list { list-style: none; margin: 0; padding: 0; }
+.goal-item { display: grid; grid-template-columns: 22px minmax(0, 1fr); gap: 4px 8px; padding: 12px 0 13px; border-top: 1px solid var(--rule); }
+.goal-rank { font-weight: 800; font-size: 15px; }
+.goal-item p { margin: 0; grid-column: 2; }
+.goal-name { font-weight: 600; font-size: 14px; }
+.goal-meta { font-size: 13px; color: var(--muted); }
+.mission-big { margin: 0 0 6px; font-size: 19px; font-weight: 700; line-height: 1.3; letter-spacing: -0.01em; }
+.mission-btn { background: none; border: 0; padding: 0; text-align: left; color: inherit; font-size: inherit; text-decoration: underline; text-decoration-color: var(--rule); text-underline-offset: 3px; }
+.mission-btn:hover { text-decoration-color: var(--ink); }
 .history-sub { margin: 0 0 14px; color: var(--muted); font-size: 13px; }
 .entries { list-style: none; margin: 0; padding: 0; max-height: 470px; overflow: auto; }
 .entry { padding: 12px 0 13px; border-top: 1px solid var(--rule); }
@@ -300,9 +313,14 @@ textarea:focus { outline: 2px solid var(--route); outline-offset: 0; border-colo
 
     <div class="board" id="board">
       <div class="grid" id="grid"></div>
-      <aside class="history" aria-labelledby="history-title">
-        <h2 id="history-title">What the team taught it</h2>
-        <p class="history-sub">Each correction becomes a rule. Only changes are shown.</p>
+      <aside class="history" aria-label="What the agent knows">
+        <div class="seg" role="tablist" aria-label="View">
+          <button role="tab" data-view="changes" aria-selected="true">Changes</button>
+          <button role="tab" data-view="rules" aria-selected="false">Rules</button>
+          <button role="tab" data-view="brain" aria-selected="false">Brain</button>
+          <button role="tab" data-view="purpose" aria-selected="false">Purpose</button>
+        </div>
+        <p class="history-sub" id="aside-sub"></p>
         <ol class="entries" id="entries"></ol>
       </aside>
     </div>
@@ -399,7 +417,8 @@ textarea:focus { outline: 2px solid var(--route); outline-offset: 0; border-colo
 
   /* ---------------- Demo ---------------- */
   $("company").textContent = `${D.company.name}, a fictional team of six`;
-  $("mission").innerHTML = `${esc(D.company.name)}'s mission: <strong>${esc(D.company.mission)}</strong> Where today's planned hours go:`;
+  $("mission").innerHTML = `${esc(D.company.name)}'s mission: <button class="mission-btn" id="mission-btn"><strong>${esc(D.company.mission)}</strong></button> Where today's planned hours go:`;
+  $("mission-btn").addEventListener("click", () => { setView("purpose"); document.querySelector(".history").scrollIntoView({ behavior: REDUCE ? "auto" : "smooth", block: "nearest" }); });
   $("foot").textContent = "Agreement compares the agent's top three with the order each person chose: full credit for the same place, half for a different place. "
     + "Without is the same agent with learning turned off. All people and companies are fictional.";
   $("roller").innerHTML = DAYS.map((d) => `<span>${d.day}</span>`).join("");
@@ -470,14 +489,63 @@ textarea:focus { outline: 2px solid var(--route); outline-offset: 0; border-colo
   const later = (fn, ms) => timers.push(setTimeout(fn, wait(ms)));
   const clearTimers = () => { timers.forEach(clearTimeout); timers = []; };
 
-  function renderHistory(upto, todayNew) {
-    const items = [];
-    for (let i = upto; i >= 0; i--) {
-      const isToday = i === upto;
-      if (isToday && !todayNew) continue;
-      DAYS[i].lesson_changes.forEach((c) => items.push(entryHtml(c, DAYS[i].day, isToday, isToday && todayNew === "animate")));
+  let view = "changes", histUpto = 0, histToday = false;
+  const SUBS = {
+    changes: "Each correction becomes a rule. Only changes are shown.",
+    rules: "Every rule it plans with now, and who taught it.",
+    brain: "What it knows about the company today, rewritten each morning from meetings, Slack and Jira.",
+    purpose: "Set by the team. The agent plans toward it and never edits it.",
+  };
+  const TYPE_NAME = { decision: "Decision", commitment: "Commitment", blocker: "Blocker", request: "Request", risk: "Risk", status: "Status" };
+  function setView(v) { view = v; renderAside(false); }
+  document.querySelectorAll(".seg button").forEach((b) => b.addEventListener("click", () => setView(b.dataset.view)));
+
+  function renderHistory(upto, todayNew) { histUpto = upto; histToday = todayNew; renderAside(todayNew === "animate"); }
+
+  function renderAside(animate) {
+    document.querySelectorAll(".seg button").forEach((b) => b.setAttribute("aria-selected", b.dataset.view === view));
+    $("aside-sub").textContent = SUBS[view];
+    const day = DAYS[histUpto];
+    let html = "";
+    if (view === "changes") {
+      const items = [];
+      for (let i = histUpto; i >= 0; i--) {
+        const isToday = i === histUpto;
+        if (isToday && !histToday) continue;
+        DAYS[i].lesson_changes.forEach((c) => items.push(entryHtml(c, DAYS[i].day, isToday, isToday && animate)));
+      }
+      html = items.length ? items.join("") : '<li class="empty">Nothing yet. Corrections become rules here.</li>';
+    } else if (view === "rules") {
+      const di = histToday ? histUpto : histUpto - 1;
+      const lessons = di >= 0 ? DAYS[di].lessons_after || [] : [];
+      html = lessons.length ? lessons.map((l) => {
+        const who = [...new Set((l.evidence || []).map((e) => e.split(":")[1]).filter(Boolean))];
+        const when = l.updated_day && l.updated_day !== l.created_day ? `Learned day ${l.created_day}, revised day ${l.updated_day}` : `Learned day ${l.created_day}`;
+        return `<li class="entry"><p class="entry-meta">${esc(when)}. Taught by ${esc(names(who) || "the team")}</p>
+          <p class="entry-rule"><span class="lid">${esc(l.id)}</span> ${esc(l.rule)}</p></li>`;
+      }).join("") : '<li class="empty">No rules yet. It starts with only the documents.</li>';
+    } else if (view === "brain") {
+      const b = day.brain;
+      if (!b) html = '<li class="empty">No brain file for this day.</li>';
+      else {
+        const order = Object.keys(TYPE_NAME);
+        const items = [...(b.items || [])].sort((x, y) => order.indexOf(x.type) - order.indexOf(y.type));
+        html = `<li class="brain-summary">${esc(b.summary)}</li>` + items.map((it) => {
+          const meta = [TYPE_NAME[it.type] || it.type, it.person && PERSON[it.person] ? PERSON[it.person].first : null,
+            it.ticket ? title(it.ticket) : null].filter(Boolean).join(". ");
+          return `<li class="entry"><p class="entry-meta">${esc(meta)}</p><p class="entry-rule">${esc(it.text)}</p></li>`;
+        }).join("");
+      }
+    } else {
+      const total = Object.values(day.goal_hours).reduce((a, b) => a + b, 0) || 1;
+      const due = (d) => (d ? new Date(d + "T12:00:00").toLocaleDateString("en-US", { month: "short", day: "numeric" }) : "");
+      html = `<li class="brain-summary"><p class="mission-big">${esc(D.company.mission)}</p>${esc(D.company.what_we_do || "")}</li>`
+        + D.company.goals.map((g) => `<li class="goal-item"><span class="goal-rank">${g.rank}</span>
+            <p class="goal-name">${esc(g.goal)}</p>
+            <p class="goal-meta">${esc(g.metric)}${g.due && !/\b(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\b/.test(g.metric) ? `. By ${esc(due(g.due))}` : ""}.</p>
+            <p class="goal-meta">Day ${day.day}: ${Math.round((100 * (day.goal_hours[g.id] || 0)) / total)}% of the team's planned hours.</p></li>`).join("");
     }
-    $("entries").innerHTML = items.length ? items.join("") : '<li class="empty">Nothing yet. Corrections become rules here.</li>';
+    $("entries").innerHTML = html;
   }
 
   function setGoals(day) {

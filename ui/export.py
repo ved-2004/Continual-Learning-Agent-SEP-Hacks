@@ -124,14 +124,16 @@ def main():
             "plans": people,
             "open": [{"id": i, "owner": t["owner"]} for i, t in sorted(state.items(), key=lambda kv: int(kv[0].split("-")[1]))
                      if t["status"] != "done"],
+            "brain": load(d / "brain.json") if (d / "brain.json").exists() else None,
             "lessons_after": lessons,
             "lesson_changes": lesson_changes(prev_lessons, lessons, n),
         })
         prev_lessons = lessons
 
     demo = {
-        "company": {"name": purpose["company"], "mission": purpose["mission"],
-                    "goals": [{"id": g["id"], "goal": g["goal"]} for g in sorted(purpose["goals"], key=lambda g: g["rank"])]},
+        "company": {"name": purpose["company"], "mission": purpose["mission"], "what_we_do": purpose.get("what_we_do", ""),
+                    "goals": [{"id": g["id"], "rank": g["rank"], "goal": g["goal"], "metric": g.get("metric", ""), "due": g.get("due")}
+                              for g in sorted(purpose["goals"], key=lambda g: g["rank"])]},
         "people": [{"id": p["id"], "name": p["name"], "first": p["name"].split()[0], "role": p["role"]} for p in history["people"]],
         "tickets": {i: {"title": t["title"], "goal": t.get("goal"), "customer": t.get("customer"), "owner": t["owner"],
                         "kind": "decision" if DECISION.match(t["title"]) else "action"}
