@@ -1,5 +1,6 @@
 import argparse
 import csv
+import os
 import re
 import shutil
 import sys
@@ -83,6 +84,34 @@ def show(args):
         print(f"  Score: {score['people'][p['person']]:.1f}/100")
 
 
+def report(args):
+    paths = [run_path(name) for name in (args.run_a, args.run_b)]
+    rows = [list(csv.DictReader((path / "scores.csv").read_text().splitlines())) for path in paths]
+    if not rows[0] or [(r["day"], r["date"]) for r in rows[0]] != [(r["day"], r["date"]) for r in rows[1]]:
+        raise ValueError("Reports require nonempty runs covering the same days and dates")
+    print(f"day  date        {args.run_a:>8}  {args.run_b:>8}     gap  accepts A/B")
+    for a, b in zip(*rows):
+        print(f"{int(a['day']):3}  {a['date']}  {float(a['mean']):8.1f}  {float(b['mean']):8.1f}  {float(b['mean']) - float(a['mean']):+6.1f}  {a['accepts']}/6 {b['accepts']}/6")
+    if store.read_json(paths[0] / "day_01/plan.json") != store.read_json(paths[1] / "day_01/plan.json"):
+        print("Warning: day 1 plans differ; something other than lessons changed between these runs.")
+    os.environ.setdefault("MPLCONFIGDIR", str(Path(".cache/matplotlib").resolve()))
+    os.environ.setdefault("XDG_CACHE_HOME", str(Path(".cache").resolve()))
+    import matplotlib
+    matplotlib.use("Agg")
+    from matplotlib import pyplot as plt
+    fig, ax = plt.subplots(figsize=(8, 4.5))
+    for name, data in zip((args.run_a, args.run_b), rows):
+        ax.plot([int(r["day"]) for r in data], [float(r["mean"]) for r in data], marker="o", label=name)
+    ax.set(xlabel="Day", ylabel="Mean score", ylim=(0, 100), title="Agreement with the team, by day")
+    ax.set_xticks([int(r["day"]) for r in rows[0]])
+    ax.grid(alpha=0.2)
+    ax.legend()
+    fig.tight_layout()
+    fig.savefig("runs/compare.png", dpi=160)
+    plt.close(fig)
+    print("Saved runs/compare.png")
+
+
 def main():
     parser = argparse.ArgumentParser(description="Tidewell daily priority agent")
     parser.add_argument("--data", type=Path, default=Path("data"))
@@ -96,12 +125,17 @@ def main():
     viewer.add_argument("run")
     viewer.add_argument("--day", type=int, required=True)
     viewer.add_argument("--person")
+    reporter = sub.add_parser("report")
+    reporter.add_argument("run_a")
+    reporter.add_argument("run_b")
     args = parser.parse_args()
     try:
         if args.command == "validate":
             validate(args.data)
         elif args.command == "run":
             run(args)
+        elif args.command == "report":
+            report(args)
         else:
             show(args)
     except (OSError, ValueError, RuntimeError, llm.anthropic.APIError, llm.openai.APIError) as exc:
