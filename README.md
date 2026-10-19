@@ -125,6 +125,8 @@ pytest
 
 With the committed cache, the two runs replay without new API calls.
 
+In Live, demo-answer replays need no API key. To teach a new correction, enter your own Anthropic API key in the password field. The browser keeps it only in memory until reload and sends it only with teach requests; the server never falls back to its own key. New uncached teach requests are limited to 10 per IP per rolling hour and the server's daily `TEACH_LIMIT` (40 by default). CLI runs continue to use `.env`.
+
 ## Limitations, honestly
 
 - The company and its data are synthetic. The test days and the ranker's features were written with AI assistance by the same person who built the agent, so this is a proof of the mechanism, not a field result.

@@ -74,8 +74,11 @@ def test_sdk_request(tmp_path, monkeypatch, provider, stop):
     client = MagicMock()
     send = client.messages.create if provider == "anthropic" else client.chat.completions.create
     send.return_value = response
+    def make_client(**kwargs):
+        assert kwargs["api_key"] == "offline-test"
+        return client
     monkeypatch.setattr(llm.anthropic if provider == "anthropic" else llm.openai,
-                        "Anthropic" if provider == "anthropic" else "OpenAI", lambda **kwargs: client)
+                        "Anthropic" if provider == "anthropic" else "OpenAI", make_client)
     if stop in ("max_tokens", "length"):
         with pytest.raises(RuntimeError, match="output truncated"):
             llm.call("decide", 3, "system", "user", Brain, lambda b: [])

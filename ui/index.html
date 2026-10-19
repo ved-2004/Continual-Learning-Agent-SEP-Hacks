@@ -217,6 +217,11 @@ main { max-width: 1480px; margin: 0 auto; padding: 8px 40px 40px; }
 .option .plus { color: var(--route); font-weight: 700; }
 .more { background: none; border: 0; padding: 4px 0; color: var(--muted); font-size: 13.5px; text-decoration: underline; text-underline-offset: 3px; }
 label.why { display: block; font-weight: 600; margin-bottom: 6px; }
+.key-field { margin: 0 0 16px; }
+.key-field label { display: block; font-weight: 600; margin-bottom: 6px; }
+.key-field input { width: 100%; padding: 11px 12px; border: 1px solid var(--rule); border-radius: 10px; background: var(--paper); color: var(--ink); }
+.key-field input:focus { outline: 2px solid var(--route); outline-offset: 0; border-color: transparent; }
+.key-field p { margin: 6px 0 0; color: var(--muted); font-size: 12.5px; }
 textarea {
   width: 100%; min-height: 96px; resize: vertical; padding: 11px 12px; border: 1px solid var(--rule); border-radius: 10px;
   background: var(--paper); line-height: 1.45;
@@ -380,6 +385,11 @@ textarea:focus { outline: 2px solid var(--route); outline-offset: 0; border-colo
         <p class="hint" id="editor-hint"></p>
         <ol class="route" id="slots"></ol>
         <div class="others" id="others"></div>
+        <div class="key-field">
+          <label for="live-key">Your Anthropic API key</label>
+          <input id="live-key" type="password" autocomplete="off" spellcheck="false" aria-describedby="live-key-note">
+          <p id="live-key-note">Used only for this request, never stored. Replays of the demo answers don't need it.</p>
+        </div>
         <label class="why" for="reason" id="why-label">Why?</label>
         <textarea id="reason"></textarea>
         <div class="actions">
@@ -403,6 +413,11 @@ textarea:focus { outline: 2px solid var(--route); outline-offset: 0; border-colo
   <p class="drawer-rules" id="drawer-rules"></p>
   <div class="thread" id="thread"></div>
   <div class="drawer-foot">
+    <div class="key-field">
+      <label for="drawer-key">Your Anthropic API key</label>
+      <input id="drawer-key" type="password" autocomplete="off" spellcheck="false" aria-describedby="drawer-key-note">
+      <p id="drawer-key-note">Used only for this request, never stored. Replays of the demo answers don't need it.</p>
+    </div>
     <button class="primary" id="drawer-live"></button>
     <p class="hint">Replies teach the agent in the Live tab, where it learns from them and plans the next day again.</p>
   </div>
@@ -417,6 +432,18 @@ textarea:focus { outline: 2px solid var(--route); outline-offset: 0; border-colo
     return;
   }
   const $ = (id) => document.getElementById(id);
+  let apiKey = "";
+  const keyFields = [$("live-key"), $("drawer-key")];
+  keyFields.forEach((field) => {
+    field.value = "";
+    field.addEventListener("input", () => {
+      apiKey = field.value.trim();
+      keyFields.forEach((other) => { if (other !== field) other.value = apiKey; });
+    });
+  });
+  window.addEventListener("pageshow", (event) => {
+    if (event.persisted) { apiKey = ""; keyFields.forEach((field) => { field.value = ""; }); }
+  });
   const DAYS = D.days, PEOPLE = D.people, T = D.tickets;
   const PERSON = Object.fromEntries(PEOPLE.map((p) => [p.id, p]));
   const GOALS = ["G1", "G2", "G3", "none"];
@@ -929,11 +956,14 @@ textarea:focus { outline: 2px solid var(--route); outline-offset: 0; border-colo
     renderLive();
     try {
       const res = await fetch("/api/teach", {
-        method: "POST", headers: { "content-type": "application/json", "ngrok-skip-browser-warning": "1" },
+        method: "POST", headers: { "content-type": "application/json", "ngrok-skip-browser-warning": "1", ...(apiKey ? { "X-LLM-Key": apiKey } : {}) },
         body: JSON.stringify({ day: day.day, person: lPerson, final: slots, reason: $("reason").value.trim() }),
       });
       const j = await res.json().catch(() => ({}));
-      if (!res.ok) throw new Error(j.error || `The server answered ${res.status}.`);
+      if (!res.ok) {
+        if (res.status === 401) $("live-key").focus();
+        throw new Error(j.error || `The server answered ${res.status}.`);
+      }
       const baseLessons = lDay > 0 ? DAYS[lDay - 1].lessons_after : [];
       const before = Object.fromEntries(baseLessons.map((l) => [l.id, l.rule]));
       const learned = (j.changed || []).map((id) => {
@@ -955,7 +985,7 @@ textarea:focus { outline: 2px solid var(--route); outline-offset: 0; border-colo
       status.textContent = `Done. ${p.first}'s answer was learned and ${next.weekday} was planned again.`;
     } catch (err) {
       status.classList.add("is-error");
-      status.textContent = `${err.message} Nothing was saved. Check the server window, then try again.`;
+      status.textContent = err.message;
     } finally {
       clearInterval(tick);
       busy = false;

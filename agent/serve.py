@@ -1,6 +1,5 @@
 """Serve the supplied UI and replay one correction through Learn and Decide."""
-import io, json, os, threading, time
-from contextlib import redirect_stdout, redirect_stderr
+import json, os, threading, time
 from datetime import datetime
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
@@ -8,6 +7,9 @@ from urllib.parse import unquote, urlsplit
 from agent import llm, steps, store
 from agent.schemas import Brain, Feedback, LearnOutput, Lesson, Plan
 LIMIT_ERROR = "The live demo has reached today's limit. The Demo tab still works, or run it locally from GitHub."
+KEY_ERROR = "Add your Anthropic API key to teach it something new. Replays of the demo answers work without one."
+AUTH_ERROR = "That API key was rejected by the provider. Check it and try again."
+IP_ERROR = "You have reached 10 new teach requests in the last hour. Try again later; demo replays still work."
 def server(args):
     from agent.cli import run_path, validate
     purpose, history, days, states, _, facts = validate(args.data)
@@ -20,21 +22,22 @@ def server(args):
             raise ValueError
     except ValueError:
         raise ValueError("Invalid server port or daily limit") from None
-    usage = [int(time.time() // 86400), 0, False]
-    # Count each teach once at its first cache miss; cache hits bypass this wrapper.
-    def limited(provider, *args):
+    usage, ips = [int(time.time() // 86400), 0, False], {}
+    # Charge once at the first authenticated cache miss, never for replays.
+    def limited(ip):
+        now = time.time()
         if usage[0] != int(time.time() // 86400):
             usage[:2] = [int(time.time() // 86400), 0]
         if not usage[2]:
+            for address in list(ips):
+                ips[address] = [t for t in ips[address] if t > now - 3600]
+                if not ips[address]: del ips[address]
+            if len(ips.get(ip, [])) >= 10: raise BlockingIOError(IP_ERROR)
             if usage[1] >= limit:
                 raise BlockingIOError(LIMIT_ERROR)
+            ips.setdefault(ip, []).append(now)
             usage[1] += 1
             usage[2] = True
-        try:
-            with redirect_stdout(io.StringIO()), redirect_stderr(io.StringIO()):
-                return provider(*args)
-        except Exception:
-            raise RuntimeError("Model request failed") from None
     def saved(day, name): return store.read_json(root / f"day_{day:02}" / f"{name}.json")
     def validate_request(data):
         if not isinstance(data, dict): raise ValueError("Expected a JSON object")
@@ -93,8 +96,9 @@ def server(args):
         if handler.path != "/api/teach":
             return respond(handler, 404, dict(error="Unknown endpoint"))
         with lock:
-            original, usage[2] = llm.request, False
-            llm.request = lambda *args: limited(original, *args)
+            ip = handler.headers.get("X-Forwarded-For", "").split(",")[0].strip() or handler.client_address[0]
+            key_token = llm.visitor_key.set(handler.headers.get("X-LLM-Key", "").strip())
+            limit_token, usage[2] = llm.before_request.set(lambda: limited(ip)), False
             status = 400
             try:
                 size = int(handler.headers.get("Content-Length", "0"))
@@ -103,12 +107,17 @@ def server(args):
                 values = validate_request(data)
                 status = 500
                 result = teach(data, *values)
-            except BlockingIOError:
-                return respond(handler, 429, dict(error=LIMIT_ERROR))
+            except llm.MissingAPIKey:
+                return respond(handler, 401, dict(error=KEY_ERROR))
+            except llm.RejectedAPIKey:
+                return respond(handler, 401, dict(error=AUTH_ERROR))
+            except BlockingIOError as exc:
+                return respond(handler, 429, dict(error=str(exc)))
             except Exception:
                 return respond(handler, status, dict(error="Invalid teach request" if status == 400 else "Teach failed; check the saved run for details."))
             finally:
-                llm.request = original
+                llm.before_request.reset(limit_token)
+                llm.visitor_key.reset(key_token)
             respond(handler, 200, result)
     def handle(request, address, httpd):
         handler = SimpleHTTPRequestHandler.__new__(SimpleHTTPRequestHandler)

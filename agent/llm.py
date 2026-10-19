@@ -1,4 +1,6 @@
-import hashlib, json, os, re, time
+import hashlib, io, json, os, re, time
+from contextlib import redirect_stdout, redirect_stderr
+from contextvars import ContextVar
 from pathlib import Path
 from typing import Callable, TypeVar
 import anthropic
@@ -8,6 +10,11 @@ from pydantic import BaseModel, ValidationError
 
 M = TypeVar("M", bound=BaseModel)
 _forbidden, _run_dir = [], None
+# None is the CLI; an empty string is a visitor who supplied no key.
+visitor_key = ContextVar("visitor_key", default=None)
+before_request = ContextVar("before_request", default=lambda: None)
+class MissingAPIKey(RuntimeError): pass
+class RejectedAPIKey(RuntimeError): pass
 def set_forbidden(texts):
     global _forbidden
     _forbidden = [text for text in texts if len(text) >= 20]
@@ -20,15 +27,16 @@ def start_run(run_dir):
 
 def request(provider, model, system, user):
     key = "ANTHROPIC_API_KEY" if provider == "anthropic" else "OPENAI_API_KEY"
-    if not os.environ.get(key):
+    api_key = visitor_key.get() if visitor_key.get() is not None else os.environ.get(key)
+    if not api_key:
         raise RuntimeError(f"Set {key} in .env before making live calls")
     kwargs = dict(model=model, temperature=0, messages=[dict(role="user", content=user)])
     if provider == "anthropic":
-        client = anthropic.Anthropic(max_retries=0, timeout=90)
+        client = anthropic.Anthropic(api_key=api_key, max_retries=0, timeout=90)
         kwargs.update(system=system, max_tokens=16000, extra_body={"temperature": kwargs.pop("temperature")})
         send = client.messages.create
     else:
-        client = openai.OpenAI(max_retries=0, timeout=90)
+        client = openai.OpenAI(api_key=api_key, max_retries=0, timeout=90)
         kwargs.update(max_completion_tokens=16000, messages=[dict(role="system", content=system), *kwargs["messages"]])
         send = client.chat.completions.create
     with client:
@@ -63,7 +71,21 @@ def call(step: str, day: int, system: str, user: str, out: type[M], check: Calla
         cache = Path(os.environ.get("CACHE_DIR", ".cache")) / f"{key}.txt"
         started, hit, errors = time.perf_counter(), cache.exists(), []
         try:
-            raw = cache.read_text() if hit else request(provider, model, system, user)
+            if hit:
+                raw = cache.read_text()
+            elif visitor_key.get() is None:
+                raw = request(provider, model, system, user)
+            else:
+                if not visitor_key.get(): raise MissingAPIKey("Visitor API key required")
+                before_request.get()()
+                try:
+                    with redirect_stdout(io.StringIO()), redirect_stderr(io.StringIO()):
+                        raw = request(provider, model, system, user)
+                except (anthropic.AuthenticationError, openai.AuthenticationError):
+                    raise RejectedAPIKey("Provider rejected visitor API key") from None
+                except Exception:
+                    raise RuntimeError("Model request failed") from None
+                raw = raw.replace(visitor_key.get(), "[redacted]")
             if not hit:
                 cache.parent.mkdir(parents=True, exist_ok=True)
                 cache.write_text(raw)
